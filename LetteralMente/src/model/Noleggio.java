@@ -17,7 +17,7 @@ public class Noleggio implements Serializable {
 	@Id
 	@Column(name="id_noleggio")
 	private int idNoleggio;
-	/*prova*/
+	/*prova chcjdihdh*/
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="data_fine")
