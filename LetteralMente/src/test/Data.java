@@ -17,6 +17,7 @@ import org.eclipse.persistence.jpa.config.Property;
 
 import model.Libro;
 import model.Noleggio;
+import model.Prenotazione;
 import model.Utente;
 
 /**
@@ -69,7 +70,11 @@ public class Data extends HttpServlet {
 		n.setDataFine(Date.valueOf("2015-10-21"));
 		//n.setInCorso((byte)0);
 		
-		aggiungi(n);
+		Prenotazione p = new Prenotazione();
+		p.setData(Date.valueOf("2015-10-20"));
+		p.setInCorso(false);
+		
+		aggiungi(p);
 	}
 
 
@@ -78,7 +83,7 @@ public class Data extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	public void aggiungi(Noleggio l) {
+	public void aggiungi(Prenotazione l) {
 		em.getTransaction().begin();
 		l.setLib(em.find(Libro.class, "123-456"));
 		l.setU(em.find(Utente.class, 1));

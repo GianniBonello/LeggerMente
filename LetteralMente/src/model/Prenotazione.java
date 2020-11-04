@@ -57,4 +57,22 @@ public class Prenotazione implements Serializable {
 		this.inCorso = inCorso;
 	}
 
+	public Utente getU() {
+		return u;
+	}
+
+	public void setU(Utente u) {
+		this.u = u;
+	}
+
+	public Libro getLib() {
+		return lib;
+	}
+
+	public void setLib(Libro lib) {
+		this.lib = lib;
+	}
+	
+	
+
 }
