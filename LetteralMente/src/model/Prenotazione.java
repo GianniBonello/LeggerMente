@@ -24,7 +24,7 @@ public class Prenotazione implements Serializable {
 	@JoinColumn(name="id_utente")
 	private Utente u;
 
-	private byte inCorso;
+	private boolean inCorso;
 
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="isbn_libro")
@@ -49,11 +49,11 @@ public class Prenotazione implements Serializable {
 		this.data = data;
 	}
 
-	public byte getInCorso() {
+	public boolean getInCorso() {
 		return this.inCorso;
 	}
 
-	public void setInCorso(byte inCorso) {
+	public void setInCorso(boolean inCorso) {
 		this.inCorso = inCorso;
 	}
 

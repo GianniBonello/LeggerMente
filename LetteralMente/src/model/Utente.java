@@ -16,9 +16,10 @@ public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name = "id_utente")
 	private int idUtente;
 
-	private int cap;
+	private String cap;
 
 	private String cf;
 
@@ -34,7 +35,7 @@ public class Utente implements Serializable {
 	private String indirizzo;
 
 	@Column(name="is_staff")
-	private byte isStaff;
+	private boolean isStaff;
 
 	private String nome;
 
@@ -42,7 +43,7 @@ public class Utente implements Serializable {
 
 	private String username;
 	
-	@OneToMany(mappedBy="u")
+	@OneToMany(mappedBy ="u")
 	public List<Noleggio> listaNoleggi;
 	
 	@OneToMany(mappedBy="u")
@@ -59,11 +60,11 @@ public class Utente implements Serializable {
 		this.idUtente = idUtente;
 	}
 
-	public int getCap() {
+	public String getCap() {
 		return this.cap;
 	}
 
-	public void setCap(int cap) {
+	public void setCap(String cap) {
 		this.cap = cap;
 	}
 
@@ -115,11 +116,11 @@ public class Utente implements Serializable {
 		this.indirizzo = indirizzo;
 	}
 
-	public byte getIsStaff() {
+	public boolean getIsStaff() {
 		return this.isStaff;
 	}
 
-	public void setIsStaff(byte isStaff) {
+	public void setIsStaff(boolean isStaff) {
 		this.isStaff = isStaff;
 	}
 

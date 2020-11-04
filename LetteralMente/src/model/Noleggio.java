@@ -26,14 +26,14 @@ public class Noleggio implements Serializable {
 	@Column(name="data_inizio")
 	private Date dataInizio;
 	
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_utente")
 	private Utente u;
 
 	@Column(name="in_corso")
-	private byte inCorso;
+	private boolean inCorso;
 
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="isbn_libro")
 	private Libro lib;
 
@@ -65,12 +65,28 @@ public class Noleggio implements Serializable {
 		this.dataInizio = dataInizio;
 	}
 
-	public byte getInCorso() {
+	public boolean getInCorso() {
 		return this.inCorso;
 	}
 
-	public void setInCorso(byte inCorso) {
+	public void setInCorso(boolean inCorso) {
 		this.inCorso = inCorso;
+	}
+
+	public Utente getU() {
+		return u;
+	}
+
+	public void setU(Utente u) {
+		this.u = u;
+	}
+
+	public Libro getLib() {
+		return lib;
+	}
+
+	public void setLib(Libro lib) {
+		this.lib = lib;
 	}
 
 }
