@@ -148,4 +148,14 @@ public class Utente implements Serializable {
 		this.username = username;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if(o!=null && o instanceof Utente) {
+			Utente u = (Utente)o;
+			if (u.getUsername().equals(this.username) && u.getPassword().equals(this.password)) {
+				return true;
+			}else return false;
+		}else return false;
+	}
+
 }

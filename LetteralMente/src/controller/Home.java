@@ -19,7 +19,12 @@ public class Home extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getServletContext().getNamedDispatcher("controllologinsessione").include(request, response);
 		request.getServletContext().getRequestDispatcher("/header.jsp").include(request, response);
+		request.getServletContext().getNamedDispatcher("view").include(request, response);
+		request.getServletContext().getNamedDispatcher("controllologin").include(request, response);
+		request.getServletContext().getNamedDispatcher("controlloregistrazione").include(request, response);
+		request.getServletContext().getNamedDispatcher("controllolistalibri").include(request, response);
 		request.getServletContext().getRequestDispatcher("/footer.jsp").include(request, response);
 		
 		

@@ -136,6 +136,15 @@ public class Utility {
     	et.commit();
     	return u;
 	}
+	
+	public static Utente trovaUtentePerUser(int id) {
+    	EntityTransaction et = getManager().getTransaction();
+    	et.begin();
+    	Utente u = getManager().find(Utente.class, id);
+    	et.commit();
+    	return u;
+	}
+	
 	public static Prenotazione trovaPrenotazione(int id) {
     	EntityTransaction et = getManager().getTransaction();
     	et.begin();
