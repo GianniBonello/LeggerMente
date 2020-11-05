@@ -38,7 +38,7 @@ public class Registrazione extends HttpServlet {
 				(request.getParameter("comune")!=null||request.getParameter("comune")!="")&&
 				(request.getParameter("indirizzo")!=null||request.getParameter("indirizzo")!="")&&
 				(request.getParameter("cap")!=null||request.getParameter("cap")!="")) {
-			//Ora creo l'utente da inserire
+			//Ora creo l'utente da inserire 
 			Utente u=new Utente();
 			u.setNome(request.getParameter("nome"));
 			u.setCognome(request.getParameter("cognome"));
