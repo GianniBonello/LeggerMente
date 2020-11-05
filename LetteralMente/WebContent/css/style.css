@@ -1,0 +1,97 @@
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+
+header{
+    background: linear-gradient(45deg, rgba(190, 56, 123, 0.6),rgba(21, 169, 189, 0.6)) , url(../res/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:100vh;
+}
+
+.testohome{
+	color:#ffffff;
+}
+
+.testohome h4{
+	font-weight:100;
+}
+
+button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    color: black;
+    font-weight:600;
+    font-size: 12pt;
+    border-radius: 50px;
+}
+
+#login{
+	padding-left: 47px;
+    padding-right: 47px;
+}
+
+#loginform{
+	width:350px;
+	height:500px;
+	border-radius:35px;
+}
+
+#loginform button{
+	background-color: #C80258;
+	color: white;
+}
+
+.mente{
+	font-size:42pt;
+	font-weight:800;
+}
+
+.intro h2{
+	font-size:42pt;
+}
+
+.intro h4{
+	font-size:26pt;
+	font-weight:200;
+	padding-left:60px;
+	line-height:0.5;
+}
+
+.intro p {
+	line-height: 1.6;
+	padding-top: 20px;
+	font-style:italic;
+}
+
+.cercahome{
+	color:#ffffff;
+	font-size:12pt;
+	font-style:italic;
+}
+
+.form-control{
+	border-radius:50px;
+	border:none;
+}
+
+.input-group-text{
+	border-radius:50px 0px 0px 50px !important;
+	border:none!important;
+}
+
+/*
+
+.bgindex{
+    width:100%;
+    height:150px;
+    border-radius:50px 50px 0px 0px;
+}
+
+*/
