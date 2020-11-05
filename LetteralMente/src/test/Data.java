@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,7 @@ public class Data extends HttpServlet {
     public Data() {
         super();
         // TODO Auto-generated constructor stub
-        emf = Persistence.createEntityManagerFactory("LetteralMente");
+        emf = Persistence.createEntityManagerFactory("LeggerMente");
         em = emf.createEntityManager();
     }
 
@@ -51,19 +52,25 @@ public class Data extends HttpServlet {
 		
 		//aggiungi(l);
 		Utente u = new Utente();
-		u.setNome("cidao");
-		u.setCognome("ooddod");
-		u.setCf("fgssjkds");
-		u.setCap("vfbrddn");
+		u.setNome("Mario");
+		u.setCognome("Rossi");
+		u.setCf("chedevoscrive");  							//univoco
+		u.setCap("00146");
 		u.setDataDiNascita(Date.valueOf("2015-10-20"));
-		u.setComune("cados");
-		u.setEmail("gfsssjdka");
-		u.setIndirizzo("bcrnexdjm");
-		u.setIsStaff(false);
-		u.setPassword("vgrbdhde");
-		u.setUsername("vssdcd");
+		u.setComune("Roma");
+		u.setEmail("linomusso@hotmail.it");					//univoco
+		u.setIndirizzo("via crucis");
+		//u.setIsStaff(false); Questo non ce serve oooh!!!
+		u.setPassword("root");
+		u.setUsername("MarioLini");							//univoco
 		
-		//aggiungi(u);
+		
+		try {
+			aggiungi(u);
+		} catch (RollbackException e) {
+			System.out.println("vedemo se entra qua va");
+		}
+		
 		
 		Noleggio n = new Noleggio();
 		n.setDataInizio(Date.valueOf("2015-10-20"));
@@ -74,7 +81,7 @@ public class Data extends HttpServlet {
 		p.setData(Date.valueOf("2015-10-20"));
 		p.setInCorso(false);
 		
-		aggiungi(p);
+		//aggiungi(p);
 	}
 
 
@@ -83,10 +90,10 @@ public class Data extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	public void aggiungi(Prenotazione l) {
+	public void aggiungi(Utente l) {
 		em.getTransaction().begin();
-		l.setLib(em.find(Libro.class, "123-456"));
-		l.setU(em.find(Utente.class, 1));
+		//l.setLib(em.find(Libro.class, "123-456"));
+		//l.setU(em.find(Utente.class, 1));
 		em.persist(l);
 		em.getTransaction().commit();
 	}
