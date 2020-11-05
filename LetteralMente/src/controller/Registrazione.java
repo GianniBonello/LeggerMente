@@ -50,7 +50,7 @@ public class Registrazione extends HttpServlet {
 			u.setComune(request.getParameter("comune"));
 			u.setIndirizzo(request.getParameter("indirizzo"));
 			u.setCap(request.getParameter("cap"));
-			//con l'eccezione riesco a controllare se l'utente è già presente
+			//con l'eccezione riesco a controllare se l'utente è già presente 
 			try {
 				Utility.inserisciUtente(u);
 				//TODO Far Comparire qualcosa per L'AVVENUTA REGISTRAZIONE
