@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.persistence.annotations.Properties;
 import org.eclipse.persistence.jpa.config.Property;
 
+import Util.Utility;
 import model.Libro;
 import model.Noleggio;
 import model.Prenotazione;
@@ -54,19 +55,19 @@ public class Data extends HttpServlet {
 		Utente u = new Utente();
 		u.setNome("Mario");
 		u.setCognome("Rossi");
-		u.setCf("chedevoscrive");  							//univoco
+		u.setCf("chedscrive");  							//univoco
 		u.setCap("00146");
 		u.setDataDiNascita(Date.valueOf("2015-10-20"));
 		u.setComune("Roma");
-		u.setEmail("linomusso@hotmail.it");					//univoco
+		u.setEmail("linosso@hotmail.it");					//univoco
 		u.setIndirizzo("via crucis");
 		//u.setIsStaff(false); Questo non ce serve oooh!!!
 		u.setPassword("root");
-		u.setUsername("MarioLini");							//univoco
+		u.setUsername("MarioLlllini");							//univoco
 		
 		
 		try {
-			aggiungi(u);
+			Utility.inserisciUtente(u);
 		} catch (RollbackException e) {
 			System.out.println("vedemo se entra qua va");
 		}

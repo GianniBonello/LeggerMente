@@ -29,16 +29,20 @@ public class Utility {
 	
 	/*-----------------------------------------------------------------------------LEGGI LISTE------------------------------*/
 	public  static List<Libro> leggiLibro() {
-    	return getManager().createNamedQuery("Libro.findAll").getResultList();
+		EntityManager em = getManager();
+    	return em.createNamedQuery("Libro.findAll").getResultList();
 	}
 	public static List<Prenotazione> leggiPrenotazione() {
-    	return getManager().createNamedQuery("Prenotazione.findAll").getResultList();
+		EntityManager em = getManager();
+    	return em.createNamedQuery("Prenotazione.findAll").getResultList();
 	}
 	public static List<Noleggio> leggiNoleggio() {
-    	return getManager().createNamedQuery("Noleggio.findAll").getResultList();
+		EntityManager em = getManager();
+    	return em.createNamedQuery("Noleggio.findAll").getResultList();
 	}
 	public static List<Utente> leggiUtente() {
-    	return getManager().createNamedQuery("Utente.findAll").getResultList();
+		EntityManager em = getManager();
+    	return em.createNamedQuery("Utente.findAll").getResultList();
 	}
 	
 	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
@@ -50,119 +54,136 @@ public class Utility {
 	
 	/*--------------------------------------------------------------------------------INSERISCI---------------------------*/
 	public static void inserisciLibro(Libro l) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().persist(l);
+    	em.persist(l);
     	et.commit();
 	}
 	public static void inserisciUtente(Utente u) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().persist(u);
+    	em.persist(u);
     	et.commit();
 	}
 	public static void inserisciNoleggio(Noleggio n, int idLibro, int idUtente) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	n.setLib(getManager().find(Libro.class, idLibro));
-    	n.setU(getManager().find(Utente.class, idUtente));
-    	getManager().persist(n);
+    	n.setLib(em.find(Libro.class, idLibro));
+    	n.setU(em.find(Utente.class, idUtente));
+    	em.persist(n);
     	et.commit();
 	}
 	public static void inserisciPrenotazione(Prenotazione p, int idLibro, int idUtente) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	p.setLib(getManager().find(Libro.class, idLibro));
-    	p.setU(getManager().find(Utente.class, idUtente));
-    	getManager().persist(p);
+    	p.setLib(em.find(Libro.class, idLibro));
+    	p.setU(em.find(Utente.class, idUtente));
+    	em.persist(p);
     	et.commit();
 	}
 	
 	/*---------------------------------------------------------------------------------ELIMINA-------------------------------*/
 	public static void eliminaLibro(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().remove(getManager().find(Libro.class, id));
+    	em.remove(em.find(Libro.class, id));
     	et.commit();
 	}
 	public static void eliminaUtente(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().remove(getManager().find(Utente.class, id));
+    	em.remove(em.find(Utente.class, id));
     	et.commit();
 	}
 	public static void eliminaPrenotazione(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().remove(getManager().find(Prenotazione.class, id));
+    	em.remove(em.find(Prenotazione.class, id));
     	et.commit();
 	}
 	public static void eliminaNoleggio(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().remove(getManager().find(Noleggio.class, id));
+    	em.remove(em.find(Noleggio.class, id));
     	et.commit();
 	}
 	/*-----------------------------------------------------------------------------MODIFICA-----------------------------------*/
 	public static void modificaLibro(Libro l) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().merge(l);
+    	em.merge(l);
     	et.commit();
 	}
 	public static void modificaUtente(Utente u) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().merge(u);
+    	em.merge(u);
     	et.commit();
 	}
 	public static void modificaPrenotazione(Prenotazione p) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().merge(p);
+    	em.merge(p);
     	et.commit();
 	}
 	public static void modificaNoleggio(Noleggio n) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	getManager().merge(n);
+    	em.merge(n);
     	et.commit();
 	}
 	/*-----------------------------------------------------------------------------TROVA-----------------------------*/
 	public static Libro trovaLibro(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	Libro l = getManager().find(Libro.class, id);
+    	Libro l = em.find(Libro.class, id);
     	et.commit();
     	return l;
 	}
 	public static Utente trovaUtente(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	Utente u = getManager().find(Utente.class, id);
+    	Utente u = em.find(Utente.class, id);
     	et.commit();
     	return u;
 	}
 	
 	public static Utente trovaUtentePerUser(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	Utente u = getManager().find(Utente.class, id);
+    	Utente u = em.find(Utente.class, id);
     	et.commit();
     	return u;
 	}
 	
 	public static Prenotazione trovaPrenotazione(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	Prenotazione p = getManager().find(Prenotazione.class, id);
+    	Prenotazione p = em.find(Prenotazione.class, id);
     	et.commit();
     	return p;
 	}
 	public static Noleggio trovaNoleggio(int id) {
-    	EntityTransaction et = getManager().getTransaction();
+		EntityManager em = getManager();
+    	EntityTransaction et = em.getTransaction();
     	et.begin();
-    	Noleggio n = getManager().find(Noleggio.class, id);
+    	Noleggio n = em.find(Noleggio.class, id);
     	et.commit();
     	return n;
 	}
