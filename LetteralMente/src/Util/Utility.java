@@ -22,24 +22,31 @@ public class Utility {
 		}catch(ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("ProgettoFinaleJRM18");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("LeggerMente");
         EntityManager em = emf.createEntityManager();
         return em;
 	}
 	
 	/*-----------------------------------------------------------------------------LEGGI LISTE------------------------------*/
 	public  static List<Libro> leggiLibro() {
-    	return (List<Libro>)getManager().createNamedQuery("Libro.findAll");
+    	return getManager().createNamedQuery("Libro.findAll").getResultList();
 	}
 	public static List<Prenotazione> leggiPrenotazione() {
-    	return (List<Prenotazione>)getManager().createNamedQuery("Prenotazione.findAll");
+    	return getManager().createNamedQuery("Prenotazione.findAll").getResultList();
 	}
 	public static List<Noleggio> leggiNoleggio() {
-    	return (List<Noleggio>)getManager().createNamedQuery("Noleggio.findAll");
+    	return getManager().createNamedQuery("Noleggio.findAll").getResultList();
 	}
 	public static List<Utente> leggiUtente() {
-    	return (List<Utente>)getManager().createNamedQuery("Utente.findAll");
+    	return getManager().createNamedQuery("Utente.findAll").getResultList();
 	}
+	
+	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
+	@SuppressWarnings("unchecked")
+	public static List<Libro> filtraLibri(String filtro){
+		return (List<Libro>)getManager().createQuery("SELECT * FROM libro ORDER BY " + filtro + ";");
+	}
+	*/
 	
 	/*--------------------------------------------------------------------------------INSERISCI---------------------------*/
 	public static void inserisciLibro(Libro l) {
@@ -159,4 +166,5 @@ public class Utility {
     	et.commit();
     	return n;
 	}
+	
 }

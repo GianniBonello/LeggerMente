@@ -30,12 +30,21 @@ public class Login extends HttpServlet {
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
 		if(Utility.leggiUtente().contains(u)) {
+			System.out.println("ciao giulia");
 			u=Utility.leggiUtente().get(Utility.leggiUtente().indexOf(u));
 			request.getSession().setAttribute("UtenteLoggato", u);
-			if(u.getIsStaff()) 
-				response.sendRedirect("/homeGestionale.jsp");		
-		}else
+			if(u.getIsStaff()) {
+				System.out.println("è un utente staff");
+				response.sendRedirect("/homeGestionale.jsp");	
+			}
+			else {
+				System.out.println("è uno stronzo qualunque");
+				request.getRequestDispatcher("/header.jsp").forward(request, response);
+			}
+			}else {
 		 	request.setAttribute("loginFallito", "errorLogin");
+		 	System.out.println("Scrivi bene sta password");
+		}
 	}
 
 }

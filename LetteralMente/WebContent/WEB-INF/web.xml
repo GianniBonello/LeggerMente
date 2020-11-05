@@ -7,7 +7,7 @@ id="WebApp_ID" version="3.1">
   
   <!-- welcomeFileList sta per le pagine che deve avviare a path vuoto -->
    <welcome-file-list>
-    <welcome-file>Home.jsp</welcome-file>
+    <welcome-file>/header.jsp</welcome-file>
   </welcome-file-list>
   
   <!-- diamo un nome per questo file alle servlet -->

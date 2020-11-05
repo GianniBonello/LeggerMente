@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ public class Home extends HttpServlet {
        
 
     public Home() {
-        super();
+        super();					INUTILE AL CAZZO
 
     }
 
@@ -35,4 +35,4 @@ public class Home extends HttpServlet {
 		doGet(request,response);
 	}
 
-}
+}*/
