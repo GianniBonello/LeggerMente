@@ -27,18 +27,20 @@ public class Registrazione extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("bella mattè");
 		//Controllo che l'utente abbia inserito testo in tutti i campi
-		if((request.getParameter("nome")!=null||request.getParameter("nome")!="")&&
-				(request.getParameter("cognome")!=null||request.getParameter("cognome")!="")&&
-				(request.getParameter("dataDiNascita")!=null||request.getParameter("dataDiNascita")!="")&&
-				(request.getParameter("cf")!=null||request.getParameter("cf")!="")&&
-				(request.getParameter("email")!=null||request.getParameter("email")!="")&&
-				(request.getParameter("username")!=null||request.getParameter("username")!="")&&
-				(request.getParameter("password")!=null||request.getParameter("password")!="")&&
-				(request.getParameter("comune")!=null||request.getParameter("comune")!="")&&
-				(request.getParameter("indirizzo")!=null||request.getParameter("indirizzo")!="")&&
-				(request.getParameter("cap")!=null||request.getParameter("cap")!="")) {
+		if(request.getParameter("nome")!=null && !request.getParameter("nome").equals("")&&
+				request.getParameter("cognome")!=null && !request.getParameter("cognome").equals("")&&
+				request.getParameter("dataDiNascita")!=null && !request.getParameter("dataDiNascita").equals("")&&
+				request.getParameter("cf")!=null && !request.getParameter("cf").equals("")&&
+				request.getParameter("email")!=null && !request.getParameter("email").equals("")&&
+				request.getParameter("username")!=null && !request.getParameter("username").equals("")&&
+				request.getParameter("password")!=null && !request.getParameter("password").equals("")&&
+				request.getParameter("comune")!=null && !request.getParameter("comune").equals("")&&
+				request.getParameter("indirizzo")!=null && !request.getParameter("indirizzo").equals("")&&
+				request.getParameter("cap")!=null && !request.getParameter("cap").equals("")) {
 			//Ora creo l'utente da inserire 
+			System.out.println("a bello so entrato nell'if");
 			Utente u=new Utente();
 			u.setNome(request.getParameter("nome"));
 			u.setCognome(request.getParameter("cognome"));
@@ -52,10 +54,12 @@ public class Registrazione extends HttpServlet {
 			u.setCap(request.getParameter("cap"));
 			//con l'eccezione riesco a controllare se l'utente è già presente 
 			try {
+				System.out.println("so entrato nerl tri");
 				Utility.inserisciUtente(u);
 				//TODO Far Comparire qualcosa per L'AVVENUTA REGISTRAZIONE
-				request.getRequestDispatcher("/home.jsp").forward(request, response);
+				//request.getRequestDispatcher("/home.jsp").forward(request, response);
 			} catch (RollbackException e) {
+				System.out.println("bella catch");
 				request.setAttribute("RegistrazioneFallita", "errorReg");
 				request.getRequestDispatcher("/registrazione.jsp").forward(request, response);
 			}

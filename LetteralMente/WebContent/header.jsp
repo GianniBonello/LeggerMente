@@ -39,9 +39,9 @@
                     <li class="nav-item"><a class="nav-link" href="#">LISTA LIBRI</a></li> <!-- #ID sezione -->
                 </ul>
                 <button class="login mr-3" id="login" onclick="login()">LOGIN</button>
-                <form class="form-inline my-2 my-lg-0">
-                    <a href="Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
-                </form>
+              
+                    <a href="registrazione.jsp"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+               
             </div>
         </nav>
 

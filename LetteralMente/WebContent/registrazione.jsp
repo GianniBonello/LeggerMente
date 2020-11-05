@@ -1,14 +1,36 @@
-<form action="" method="post">
+<form action="Registrazione" method="post">
 
   <div class="row">
     <div class="col">
-      <input type="text" class="form-control" placeholder="nome">
+      <input type="text" class="form-control" placeholder="nome" name="nome">
     </div>
     <div class="col">
-      <input type="text" class="form-control" placeholder="cognome">
+      <input type="text" class="form-control" placeholder="cognome" name="cognome">
     </div>
   </div>
   
+   <div class="col">
+      <input type="date" class="form-control" placeholder="data di nascita" name="dataDiNascita">
+    </div>
+
+   <div class="col">
+      <input type="text" class="form-control" placeholder="codice fiscale" name="cf">
+    </div>
+  
+  
+   <div class="row">
+    <div class="col">
+      <input type="text" class="form-control" placeholder="cap" name="cap">
+    </div>
+    <div class="col">
+      <input type="text" class="form-control" placeholder="comune" name="comune" >
+    </div>
+  </div>
+  
+   <div class="col">
+      <input type="text" class="form-control" placeholder="username" name="username" >
+    </div>
+  </div>
   
   <div class="form-row">
     <div class="form-group col-md-6">
