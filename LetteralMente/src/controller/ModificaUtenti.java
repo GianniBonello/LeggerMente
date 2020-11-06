@@ -28,7 +28,7 @@ public class ModificaUtenti extends HttpServlet {
 
 	}
 
-
+//////////////////////////////////
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*se è admin
 		 * sia eliminare tutti che modificare tutti
