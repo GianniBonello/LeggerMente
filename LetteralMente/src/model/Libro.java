@@ -36,7 +36,6 @@ public class Libro implements Serializable {
 
 	private String trama;
 
-	private boolean vm18;
 	
 	@OneToOne(mappedBy="lib")
 	public Noleggio nol;
@@ -117,14 +116,6 @@ public class Libro implements Serializable {
 
 	public void setTrama(String trama) {
 		this.trama = trama;
-	}
-
-	public boolean getVm18() {
-		return this.vm18;
-	}
-
-	public void setVm18(boolean vm18) {
-		this.vm18 = vm18;
 	}
 
 }

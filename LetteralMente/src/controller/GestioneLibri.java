@@ -35,7 +35,7 @@ public class GestioneLibri extends HttpServlet {
 			lib.setTitolo(request.getParameter("titolo"));
 			lib.setTrama(request.getParameter("trama"));
 			lib.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-			lib.setVm18(Boolean.parseBoolean(request.getParameter("vm18")));
+			//lib.setVm18(Boolean.parseBoolean(request.getParameter("vm18")));
 			lib.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
 			
 			try {
