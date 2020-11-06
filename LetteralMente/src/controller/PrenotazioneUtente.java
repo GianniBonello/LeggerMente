@@ -22,16 +22,21 @@ public class PrenotazioneUtente extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("idLibro") != null) {
 			
-			Prenotazione p = new Prenotazione();
-			p.setData(new Date());
-			Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
-			/*passaggio del parametro per stampare la conferma*/
-		}
+			if(request.getParameter("idLibro")!= null && Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()>0) {
+					Prenotazione p = new Prenotazione();
+					p.setData(new Date());
+					Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
+					/*passaggio del parametro per stampare la conferma*/
+					request.setAttribute("prenotazione", "effettuata");
+				}else {
+					request.setAttribute("prenotazione", "libriFiniti");
+			}
+			request.getRequestDispatcher("listaLibri.jsp").forward(request, response);
 	}
 
 }

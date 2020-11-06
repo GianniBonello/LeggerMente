@@ -1,4 +1,5 @@
 <!doctype html>
+<%@page import="model.Utente"%>
 <html lang="en">
 <head>
 <!-- Required meta tags -->
@@ -34,15 +35,34 @@
                     <li class="nav-item active"><a class="nav-link" href="#">HOME
                             <span class="sr-only">(current)</span>
                     </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">I NOSTRI SERVIZI</a></li> <!-- #ID sezione -->
-                    <li class="nav-item"><a class="nav-link" href="#">CHI SIAMO</a></li> <!-- #ID sezione -->
+                    <li class="nav-item"><a class="nav-link" href="#inostriservizi">I NOSTRI SERVIZI</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="#chisiamo">CHI SIAMO</a></li> 
                     <li class="nav-item"><a class="nav-link" href="#">LISTA LIBRI</a></li> <!-- #ID sezione -->
                 </ul>
-                <button class="login mr-3" id="login" onclick="login()">LOGIN</button>
-              
-                    <a href="registrazione.jsp"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
-               
-            </div>
+                  <% 
+                        if(request.getSession().getAttribute("utenteLoggato")==null) { 
+                     %>
+                     
+                    <button class="login mr-3" id="login" onclick="login()">LOGIN</button>
+                    <a href="Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+                    
+                    <% }else{
+                        Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %>
+                        
+                    <div class="dropdown">
+                        <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> <!-- #ID sezione -->
+                                <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> <!-- #ID sezione -->
+                                <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a> <!-- #ID sezione -->
+                             </div>
+                    </div>
+                    
+                    
+                    <a href="Logout"><button type="submit">LOGOUT</button></a>
+                    
+                    <% } %>
+                </div>
         </nav>
 
             <div class="row pt-5">
@@ -85,6 +105,8 @@
             </div>      
     </header>
     
+    <jsp:include page="/body.jsp"></jsp:include>
+    <jsp:include page="/registrazione.jsp"></jsp:include>
     <jsp:include page="/footer.jsp"></jsp:include>
 
     

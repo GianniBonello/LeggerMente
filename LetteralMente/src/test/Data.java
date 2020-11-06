@@ -1,7 +1,8 @@
 package test;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
+import java.sql.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,35 +52,43 @@ public class Data extends HttpServlet {
 		l.setPrezzo(10);
 		l.setTrama("coso");
 		
+		
 		//aggiungi(l);
 		Utente u = new Utente();
 		u.setNome("Mario");
 		u.setCognome("Rossi");
-		u.setCf("chedscrive");  							//univoco
+		u.setCf("cdddhedscrive");  							//univoco
 		u.setCap("00146");
-		u.setDataDiNascita(Date.valueOf("2015-10-20"));
+		u.setDataDiNascita(new Date());
 		u.setComune("Roma");
-		u.setEmail("linosso@hotmail.it");					//univoco
+		u.setEmail("linossddo@hotmail.it");					//univoco
 		u.setIndirizzo("via crucis");
 		//u.setIsStaff(false); Questo non ce serve oooh!!!
 		u.setPassword("root");
-		u.setUsername("MarioLlllini");							//univoco
+		u.setUsername("Malini");
+		u.setIdUtente(20);//univoco
 		
 		
+//		try {
+//			Utility.inserisciUtente(u);
+//		} catch (RollbackException e) {
+//			System.out.println("vedemo se entra qua va");
+//		}
 		try {
-			Utility.inserisciUtente(u);
-		} catch (RollbackException e) {
-			System.out.println("vedemo se entra qua va");
+			elimina(9);
+		}catch(IllegalArgumentException e) {
+			System.out.println("l'utente non esiste");
 		}
 		
 		
+		
 		Noleggio n = new Noleggio();
-		n.setDataInizio(Date.valueOf("2015-10-20"));
-		n.setDataFine(Date.valueOf("2015-10-21"));
+		//n.setDataInizio(Date.valueOf("2015-10-20"));
+		//n.setDataFine(Date.valueOf("2015-10-21"));
 		//n.setInCorso((byte)0);
 		
 		Prenotazione p = new Prenotazione();
-		p.setData(Date.valueOf("2015-10-20"));
+		//p.setData(Date.valueOf("2015-10-20"));
 		p.setInCorso(false);
 		
 		//aggiungi(p);
@@ -99,9 +108,9 @@ public class Data extends HttpServlet {
 		em.getTransaction().commit();
 	}
 	
-	public void elimina(Libro l) {
+	public void elimina(int id) {
 		em.getTransaction().begin();
-		em.remove(l);
+		em.remove(em.find(Utente.class, id));
 		em.getTransaction().commit();
 	}
 	
