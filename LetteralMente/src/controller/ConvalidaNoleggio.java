@@ -24,7 +24,6 @@ public class ConvalidaNoleggio extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//if inCorso = true
 		Noleggio n = Utility.trovaNoleggio(Integer.parseInt(request.getParameter("idNoleggio")));
 		
 		if(request.getSession().getAttribute("utenteLoggato") != null &&
