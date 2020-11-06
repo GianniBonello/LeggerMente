@@ -1,3 +1,4 @@
+
 * {
 	font-family: 'Poppins', sans-serif;
 }
@@ -76,7 +77,12 @@ button {
 	font-style:italic;
 }
 
-.form-control{
+#loginform .form-control{
+	border-radius:50px;
+	border:none;
+}
+
+.intro .form-control{
 	border-radius:50px;
 	border:none;
 }
@@ -95,3 +101,119 @@ button {
 }
 
 */
+
+/* ---------------------- BODY,FOOTER E REGISTRAZIONE ------------------------- */
+
+
+*{
+	font-family: 'Poppins', sans-serif;
+	}
+
+#icfb{
+	color: #818181
+}
+#icfb:hover{
+	color: #C80258;
+}
+
+#icig{
+	color: #818181
+}
+#icig:hover{
+	color: #C80258;
+}
+
+#icemail{
+	color: #818181
+}
+#icemail:hover{
+	color: #C80258;
+}
+
+.foot{
+	background-color: #1C1C1C; 
+	font-size: 12pt; 
+	color: #818181;
+}
+
+#bottone{
+	 padding-top: 10px;
+     padding-bottom: 10px;
+     padding-left: 20px;
+     padding-right: 20px;
+	 background-color: #C80258;
+	 color: white;
+	 border-radius: 50px;
+}
+
+#nomeid{
+
+	 border-radius: 50px;
+	 border: none;
+	 
+}
+
+.registrazione .form-control{
+	background-color: #F5F5F5 !important; 
+	border-radius: 50px !important;
+	border: none !important;
+}
+
+#serv{
+	line-height: 1.2;
+}
+
+#fun{
+	line-height: 1.2;
+}
+
+#tratt{
+	font-size: 22pt;
+	font-weight: 300;
+	padding-left:170px;
+	line-height:0.5;
+}
+
+#trattdue{
+	font-size: 22pt;
+	font-weight: 300;
+	padding-left:60px;
+	line-height:1;
+}
+
+#spostaASinistra{
+	 position: relative;
+	 left: -150px;
+	 margin-bottom: 100px;
+	 z-index: -1;
+ }
+ 
+ .apici{
+	 font-size: 50pt;
+	 color: #C80258;
+	 line-height:0;
+	 padding-top:45px;
+ }
+
+ .apicidue{
+	 font-size: 50pt;
+	 color: #C80258;
+	 padding-right:60px;
+ }
+ 
+ #staff{
+     padding-right:60px;
+ }
+ 
+ #boxbianco{
+	border-radius: 15px;
+	border: none;
+ }
+ 
+ .spazio{
+ margin-top:150px;
+ }
+
+
+
+
