@@ -16,17 +16,14 @@ import Util.Utility;
 public class ListaPrenotazioniStaff extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public ListaPrenotazioniStaff() {
 		super();
 
 	}
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("listaPreonotazioni", Utility.leggiPrenotazione()); 
@@ -35,7 +32,5 @@ public class ListaPrenotazioniStaff extends HttpServlet {
 		/*Collection<String> filtered = Collection.filter(Utility.leggiPrenotazione(),
 			       Predicates.containsPattern("How"));
 			System.out.println(filtered);*/
-			
 	}
-
 }

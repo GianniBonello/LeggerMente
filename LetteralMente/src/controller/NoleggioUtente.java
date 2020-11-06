@@ -42,7 +42,7 @@ public class NoleggioUtente extends HttpServlet {
 
 			n.setDataInizio(Date.valueOf(request.getParameter("dataInizio")));
 			n.setDataFine(Date.valueOf(request.getParameter("dataFine")));
-			n.setInCorso(true);		
+			//n.setInCorso(true);		
 			Utility.inserisciNoleggio(n, Integer.parseInt(request.getParameter("idLibro")), Integer.parseInt(request.getParameter("idUtente")));
 			//diminuisco di 1 la quantità
 			Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);

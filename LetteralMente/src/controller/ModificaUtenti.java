@@ -17,18 +17,15 @@ import model.Utente;
 public class ModificaUtenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public ModificaUtenti() {
 		super();
 
 	}
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}
 
-//////////////////////////////////
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*se è admin
 		 * sia eliminare tutti che modificare tutti
@@ -61,12 +58,15 @@ public class ModificaUtenti extends HttpServlet {
 				gener.setIndirizzo(request.getParameter("indirizzo"));			
 				Utility.modificaUtente(gener);
 				request.setAttribute("utenteModificato", "utente modificato con successo");
-
-				
+			
 			}else if(request.getParameter("idUtente")!=null){
 				//elimina
-				Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
+				try {
+					Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
 				request.setAttribute("utenteEliminato", "utente eliminato con successo");
+				} catch (IllegalArgumentException e) {
+					// TODO: handle exception
+				}				
 			}
 		}else if(utenteLog.getIsStaff()  && !gener.getIsStaff()) {//se non è admin
 			if(request.getParameter("nome")!=null && !request.getParameter("nome").equals("")&&//se hai tutti i paramentri
@@ -79,8 +79,6 @@ public class ModificaUtenti extends HttpServlet {
 					request.getParameter("comune")!=null && !request.getParameter("comune").equals("")&&
 					request.getParameter("indirizzo")!=null && !request.getParameter("indirizzo").equals("")&&
 					request.getParameter("cap")!=null && !request.getParameter("cap").equals("")) {
-
-
 
 				gener.setNome(request.getParameter("nome"));
 				gener.setCognome(request.getParameter("cognome"));
@@ -97,16 +95,14 @@ public class ModificaUtenti extends HttpServlet {
 
 			}else if(request.getParameter("idUtente")!=null){
 				//elimina
-				Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
+				try {
+					Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
 				request.setAttribute("utenteEliminato", "utente eliminato con successo");
-
+				} catch (IllegalArgumentException e) {
+					// TODO: handle exception
+				}
 			}
-
 			request.setAttribute("operazioneNonRiuscita", "operazione non riuscita");
 		}
-
-
-
 	}
-
 }
