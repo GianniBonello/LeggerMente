@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 				response.sendRedirect("/homeGestionale.jsp");	
 			}
 			else {
-				System.out.println("è uno stronzo qualunque");
+				System.out.println("è un utente qualunque");
 				request.getRequestDispatcher("/header.jsp").forward(request, response);
 			}
 			}else {

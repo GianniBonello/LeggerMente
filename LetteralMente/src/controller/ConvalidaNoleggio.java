@@ -31,12 +31,25 @@ public class ConvalidaNoleggio extends HttpServlet {
 				request.getParameter("idNoleggio") != null && 
 				n != null) {
 			
-			if(n.getInCorso()) n.setInCorso(false);
-			else n.setInCorso(true);
+			if(n.getInCorso()) {
+				n.setInCorso(false);
+				Utility.modificaNoleggio(n);
+				n.getLib().setQuantita(n.getLib().getQuantita()+1);
+				Utility.modificaLibro(n.getLib());
+			}
+			else {
+				n.setInCorso(true);
+				Utility.modificaNoleggio(n);
+				n.getLib().setQuantita(n.getLib().getQuantita()-1);
+				Utility.modificaLibro(n.getLib());
+			}
 			
 			request.setAttribute("convalidaNoleggio", "effettuata");
-			request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
+			//request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
 		}else request.setAttribute("convalidaNoleggio", "nonRiuscita");
+		
+		request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
+		
 	}//TODO nell'else ci entra sia se non è loggato, sia se non è staff, sia se non esiste un noleggio
 
 }
