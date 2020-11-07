@@ -58,12 +58,12 @@ public class ModificaUtenti extends HttpServlet {
 				gener.setIndirizzo(request.getParameter("indirizzo"));			
 				Utility.modificaUtente(gener);
 				request.setAttribute("utenteModificato", "utente modificato con successo");
-			
+
 			}else if(request.getParameter("idUtente")!=null){
 				//elimina
 				try {
 					Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
-				request.setAttribute("utenteEliminato", "utente eliminato con successo");
+					request.setAttribute("utenteEliminato", "utente eliminato con successo");
 				} catch (IllegalArgumentException e) {
 					// TODO: handle exception
 					request.setAttribute("utenteEliminato", "operazione non riuscita");
@@ -98,13 +98,14 @@ public class ModificaUtenti extends HttpServlet {
 				//elimina
 				try {
 					Utility.eliminaUtente(Integer.parseInt(request.getParameter("idUtente")));
-				request.setAttribute("utenteEliminato", "utente eliminato con successo");
+					request.setAttribute("utenteEliminato", "utente eliminato con successo");
 				} catch (IllegalArgumentException e) {
 					// TODO: handle exception
 					request.setAttribute("utenteEliminato", "operazione non riuscita");
 				}
-			}
-			request.setAttribute("operazioneNonRiuscita", "operazione non riuscita");
+			}else request.setAttribute("operazioneNonRiuscita", "operazione non riuscita");
+
 		}
+		request.getRequestDispatcher("ListaUtenti").forward(request, response);
 	}
 }

@@ -57,6 +57,7 @@ public class GestioneLibri extends HttpServlet {
 			l.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
 			
 			Utility.modificaLibro(l);
+		request.setAttribute("modifica", "successo");
 		}
 	}
 }
