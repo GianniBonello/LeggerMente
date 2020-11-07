@@ -35,39 +35,16 @@ public class ConvalidaPrenotazione extends HttpServlet {
 		if(request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()
 				&& request.getParameter("idPrenotazione")!=null && p!=null) {
 
-		
-				p.setInCorso(false);
-				//diminuiamo di 1 la quantità del libro
-				Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);
-				request.setAttribute("convalidaPrenotazione", "effettuata");
-				request.getRequestDispatcher("/listaPrenotazioni.jsp");
-				
-		}else request.setAttribute("convalidaPrenotazione", "nonRiuscita");
 
-
-
-
-
-
-	}
-
-
-
-
-	/*Noleggio n = Utility.trovaNoleggio(Integer.parseInt(request.getParameter("idNoleggio")));
-
-		if(request.getSession().getAttribute("utenteLoggato") != null &&
-				((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() &&
-				request.getParameter("idNoleggio") != null && 
-				n != null) {
-
-			if(n.getInCorso()) n.setInCorso(false);
-			else n.setInCorso(true);
-
+			p.setInCorso(false);
+			//diminuiamo di 1 la quantità del libro
+			Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);
 			request.setAttribute("convalidaPrenotazione", "effettuata");
-			request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
+
+
 		}else request.setAttribute("convalidaPrenotazione", "nonRiuscita");
+
+		request.getRequestDispatcher("listaPrenotazioni").forward(request, response);
 	}
-	 */
 
 }

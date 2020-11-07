@@ -59,5 +59,7 @@ public class GestioneLibri extends HttpServlet {
 			Utility.modificaLibro(l);
 		request.setAttribute("modifica", "successo");
 		}
+		
+		request.getRequestDispatcher("ListaLibriStaff").forward(request, response);
 	}
 }

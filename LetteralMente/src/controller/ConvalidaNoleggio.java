@@ -46,7 +46,7 @@ public class ConvalidaNoleggio extends HttpServlet {
 			//request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
 		}else request.setAttribute("convalidaNoleggio", "nonRiuscita");
 		
-		request.getRequestDispatcher("/listaNoleggiLavoratori.jsp");
+		request.getRequestDispatcher("ListaNoleggiStaff").forward(request, response);
 		
 	}//TODO nell'else ci entra sia se non è loggato, sia se non è staff, sia se non esiste un noleggio
 

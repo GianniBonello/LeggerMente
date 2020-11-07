@@ -28,7 +28,7 @@ public class ListaPrenotazioniStaff extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("listaPreonotazioni", Utility.leggiPrenotazione()); 
 		request.getRequestDispatcher("/listaPrenotazioni.jsp").forward(request, response);
-		
+		//TODO FILTRI
 		/*Collection<String> filtered = Collection.filter(Utility.leggiPrenotazione(),
 			       Predicates.containsPattern("How"));
 			System.out.println(filtered);*/

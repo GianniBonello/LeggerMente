@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
+import model.Utente;
 
 @WebServlet("/ListaLibri")
 public class ListaLibri extends HttpServlet {
@@ -19,7 +20,9 @@ public class ListaLibri extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("listaLibri", Utility.leggiLibro());
-		request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
+		if (((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
+			request.getRequestDispatcher("/ListaLibriStaff.jsp").forward(request, response);
+		}else request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

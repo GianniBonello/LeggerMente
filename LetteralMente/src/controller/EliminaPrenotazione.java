@@ -29,11 +29,13 @@ public class EliminaPrenotazione extends HttpServlet {
 			try {
 				Utility.eliminaPrenotazione(Integer.parseInt(request.getParameter("idPrenotazione")));
 				request.setAttribute("prenotazioneEliminata", "eliminata");
-				request.getRequestDispatcher("/listaPrenotazioni.jsp");
+			
 			} catch (IllegalArgumentException e) {
 				request.setAttribute("prenotazioneEliminata", "errore");
 			}
 		}
+		
+		request.getRequestDispatcher("ListaPrenotazioni").forward(request, response);;
 	}
 
 }
