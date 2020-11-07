@@ -66,6 +66,7 @@ public class ModificaUtenti extends HttpServlet {
 				request.setAttribute("utenteEliminato", "utente eliminato con successo");
 				} catch (IllegalArgumentException e) {
 					// TODO: handle exception
+					request.setAttribute("utenteEliminato", "operazione non riuscita");
 				}				
 			}
 		}else if(utenteLog.getIsStaff()  && !gener.getIsStaff()) {//se non è admin
@@ -100,6 +101,7 @@ public class ModificaUtenti extends HttpServlet {
 				request.setAttribute("utenteEliminato", "utente eliminato con successo");
 				} catch (IllegalArgumentException e) {
 					// TODO: handle exception
+					request.setAttribute("utenteEliminato", "operazione non riuscita");
 				}
 			}
 			request.setAttribute("operazioneNonRiuscita", "operazione non riuscita");

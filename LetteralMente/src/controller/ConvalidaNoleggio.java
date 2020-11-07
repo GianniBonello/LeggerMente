@@ -40,8 +40,6 @@ public class ConvalidaNoleggio extends HttpServlet {
 			else {
 				n.setInCorso(true);
 				Utility.modificaNoleggio(n);
-				n.getLib().setQuantita(n.getLib().getQuantita()-1);
-				Utility.modificaLibro(n.getLib());
 			}
 			
 			request.setAttribute("convalidaNoleggio", "effettuata");

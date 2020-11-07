@@ -52,7 +52,6 @@ public class Data extends HttpServlet {
 		l.setGenere("coso");
 		l.setIsbn("123-657");
 		l.setQuantita(10);
-		l.setVm18(false);
 		l.setPrezzo(10);
 		l.setTrama("coso");
 		

@@ -25,7 +25,8 @@ public class GestioneLibri extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") != null){
+		
+		if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") == null){
 			Libro lib = new Libro();
 			lib.setIsbn(request.getParameter("isbn"));
 			lib.setAutore(request.getParameter("autore"));
@@ -35,9 +36,7 @@ public class GestioneLibri extends HttpServlet {
 			lib.setTitolo(request.getParameter("titolo"));
 			lib.setTrama(request.getParameter("trama"));
 			lib.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-			//lib.setVm18(Boolean.parseBoolean(request.getParameter("vm18")));
 			lib.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
-			
 			try {
 				Utility.inserisciLibro(lib);
 				request.setAttribute("libroInserito", "successo");
@@ -45,6 +44,19 @@ public class GestioneLibri extends HttpServlet {
 				request.setAttribute("libroInserito", "errore");
 			}
 			request.getRequestDispatcher("/listaLibri.jsp");
+		}else if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") != null) {
+			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
+			l.setIsbn(request.getParameter("isbn"));
+			l.setAutore(request.getParameter("autore"));
+			l.setCasaEditrice(request.getParameter("casaEditrice"));
+			l.setGenere(request.getParameter("genere"));
+			l.setQuantita(Integer.parseInt(request.getParameter("quantita")));
+			l.setTitolo(request.getParameter("titolo"));
+			l.setTrama(request.getParameter("trama"));
+			l.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
+			l.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
+			
+			Utility.modificaLibro(l);
 		}
 	}
 }
