@@ -108,6 +108,7 @@
             </div>      
     </header>
     
+    <jsp:include page="/body.jsp"></jsp:include>
     <jsp:include page="/footer.jsp"></jsp:include>
-
+	
     

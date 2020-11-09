@@ -1,8 +1,12 @@
 package test;
 
 import java.io.IOException;
-import java.util.Date;
+import java.util.Calendar;
+//import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.sql.*;
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -48,39 +52,37 @@ public class Data extends HttpServlet {
 		l.setGenere("coso");
 		l.setIsbn("123-657");
 		l.setQuantita(10);
-		l.setVm18((byte)0);
 		l.setPrezzo(10);
 		l.setTrama("coso");
 		
-		
+		LocalDate data = LocalDate.parse("2020/11/12");
 		//aggiungi(l);
 		Utente u = new Utente();
 		u.setNome("Mario");
 		u.setCognome("Rossi");
-		u.setCf("cdddhedscrive");  							//univoco
+		u.setCf("cppdhedscrive");  							//univoco
 		u.setCap("00146");
-		u.setDataDiNascita(new Date());
+		u.setDataDiNascita(Date.valueOf(LocalDate.parse("2020-11-23")));
 		u.setComune("Roma");
-		u.setEmail("linossddo@hotmail.it");					//univoco
+		u.setEmail("linlllsasa@hotmail.it");					//univoco
 		u.setIndirizzo("via crucis");
 		//u.setIsStaff(false); Questo non ce serve oooh!!!
 		u.setPassword("root");
 		u.setUsername("Malini");
-		u.setIdUtente(20);//univoco
+		//u.setIdUtente(20);//univoco
 		
 		
-//		try {
-//			Utility.inserisciUtente(u);
-//		} catch (RollbackException e) {
-//			System.out.println("vedemo se entra qua va");
-//		}
 		try {
+			Utility.inserisciUtente(u);
+		} catch (RollbackException e) {
+			System.out.println("vedemo se entra qua va");
+		}
+		/*try {
 			elimina(9);
 		}catch(IllegalArgumentException e) {
 			System.out.println("l'utente non esiste");
-		}
-		
-		
+		}*/
+    	
 		
 		Noleggio n = new Noleggio();
 		//n.setDataInizio(Date.valueOf("2015-10-20"));

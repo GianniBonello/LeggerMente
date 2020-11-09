@@ -10,23 +10,30 @@ import javax.servlet.http.HttpServletResponse;
 import Util.Utility;
 import model.Utente;
 
-@WebServlet("/ListaLibri")
-public class ListaLibri extends HttpServlet {
+@WebServlet("/EliminaLibri")
+public class EliminaLibri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    public ListaLibri() {
+ 
+    public EliminaLibri() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("listaLibri", Utility.leggiLibro());
-		if (((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
-			request.getRequestDispatcher("/ListaLibriStaff.jsp").forward(request, response);
-		}else request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		Utente utenteLog = (Utente)request.getSession().getAttribute("utenteLoggato");
+
+		if(request.getParameter("idLibro") != null && utenteLog.getUsername().equals("Admin")) {
+			try {
+				Utility.eliminaLibro(Integer.parseInt(request.getParameter("idLibro")));
+				request.setAttribute("libroEliminato", "eliminato");
+				request.getRequestDispatcher("/listaLibriLavoratori.jsp");
+			} catch (IllegalArgumentException e) {
+				request.setAttribute("libroEliminato", "errore");
+			}
+		}
 	}
 
 }

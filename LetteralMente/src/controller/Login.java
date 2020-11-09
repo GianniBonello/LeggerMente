@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,36 +16,38 @@ import model.Utente;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-    public Login() {
-        super();
-       
-    }
-//non si bestemmia
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+
+	public Login() {
+		super();
+
 	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Utente>listaUtenti=Utility.leggiUtente();
 		Utente u=new Utente();
 		u.setUsername(request.getParameter("username"));
 		u.setPassword(request.getParameter("password"));
-		if(Utility.leggiUtente().contains(u)) {
+		if(listaUtenti.contains(u)) {
 			System.out.println("ciao giulia");
-			u=Utility.leggiUtente().get(Utility.leggiUtente().indexOf(u));
+			u=listaUtenti.get(listaUtenti.indexOf(u));
 			request.getSession().setAttribute("UtenteLoggato", u);
 			if(u.getIsStaff()) {
 				System.out.println("è un utente staff");
 				response.sendRedirect("/homeGestionale.jsp");	
 			}
 			else {
-				System.out.println("è uno stronzo qualunque");
+				System.out.println("è un utente qualunque");
 				request.getRequestDispatcher("/header.jsp").forward(request, response);
 			}
-			}else {
-		 	request.setAttribute("loginFallito", "errorLogin");
-		 	System.out.println("Scrivi bene sta password");
+		}else {
+			request.setAttribute("loginFallito", "errorLogin");
+			System.out.println("Scrivi bene sta password");
 		}
 	}
 

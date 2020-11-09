@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
+import model.Libro;
 import model.Utente;
 
 /**
@@ -33,13 +34,20 @@ public class CancellareNoleggio extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		if(request.getSession().getAttribute("utenteLoggato") != null &&
-			request.getParameter("idLibro")!= null  && 
+			request.getParameter("idNoleggio")!= null  && 
 			((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && 
 			((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")){
 			try {
-				Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("idLibro")));
+				
+				Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("idNoleggio")));
 				request.setAttribute("eliminaNoleggio", "effettuato");
+				
+				//Libro l = Utility.trovaNoleggio(Integer.parseInt(request.getParameter("idNoleggio"))).getLib();
+				//l.setQuantita(l.getQuantita()+1);
+				//Utility.modificaLibro();
+				
 			}catch(IllegalArgumentException e) {
 				request.setAttribute("eliminaNoleggio", "nonEsiste");
 			}

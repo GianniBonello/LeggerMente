@@ -10,23 +10,31 @@ import javax.servlet.http.HttpServletResponse;
 import Util.Utility;
 import model.Utente;
 
-@WebServlet("/ListaLibri")
-public class ListaLibri extends HttpServlet {
+@WebServlet("/GestioneStaff")
+public class GestioneStaff extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public ListaLibri() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("listaLibri", Utility.leggiLibro());
-		if (((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
-			request.getRequestDispatcher("/ListaLibriStaff.jsp").forward(request, response);
-		}else request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
+	public GestioneStaff() {
+		super();
 	}
 
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		if (request.getParameter("isStaff")!=null && request.getParameter("idUtente")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {
+			Utente u = Utility.trovaUtente(Integer.parseInt(request.getParameter("idUtente")));
+			if(u.getIsStaff()) {
+				u.setIsStaff(false);
+			}else u.setIsStaff(true);
+			
+			Utility.modificaUtente(u);
+		}
+		request.getRequestDispatcher("ListaUtenti").forward(request, response);
 	}
 
 }

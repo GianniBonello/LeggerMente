@@ -36,7 +36,8 @@ public class PrenotazioneUtente extends HttpServlet {
 				}else {
 					request.setAttribute("prenotazione", "libriFiniti");
 			}
-			request.getRequestDispatcher("listaLibri.jsp").forward(request, response);
+			//torna alla servlet che setta i libri
+			request.getRequestDispatcher("ListaLibri").forward(request, response);
 	}
 
 }

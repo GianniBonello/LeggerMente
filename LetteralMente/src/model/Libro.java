@@ -26,7 +26,7 @@ public class Libro implements Serializable {
 	private String genere;
 
 	@Column(name="is_usato")
-	private byte isUsato;
+	private boolean isUsato;
 
 	private double prezzo;
 
@@ -36,7 +36,6 @@ public class Libro implements Serializable {
 
 	private String trama;
 
-	private byte vm18;
 	
 	@OneToOne(mappedBy="lib")
 	public Noleggio nol;
@@ -79,11 +78,11 @@ public class Libro implements Serializable {
 		this.genere = genere;
 	}
 
-	public byte getIsUsato() {
+	public boolean getIsUsato() {
 		return this.isUsato;
 	}
 
-	public void setIsUsato(byte isUsato) {
+	public void setIsUsato(boolean isUsato) {
 		this.isUsato = isUsato;
 	}
 
@@ -117,14 +116,6 @@ public class Libro implements Serializable {
 
 	public void setTrama(String trama) {
 		this.trama = trama;
-	}
-
-	public byte getVm18() {
-		return this.vm18;
-	}
-
-	public void setVm18(byte vm18) {
-		this.vm18 = vm18;
 	}
 
 }
