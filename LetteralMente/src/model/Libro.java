@@ -35,8 +35,18 @@ public class Libro implements Serializable {
 	private String titolo;
 
 	private String trama;
+	
+	private String immagine_path;
 
 	
+	public String getImmagine_path() {
+		return immagine_path;
+	}
+
+	public void setImmagine_path(String immagine_path) {
+		this.immagine_path = immagine_path;
+	}
+
 	@OneToOne(mappedBy="lib")
 	public Noleggio nol;
 	
@@ -118,4 +128,24 @@ public class Libro implements Serializable {
 		this.trama = trama;
 	}
 
+	public Noleggio getNol() {
+		return nol;
+	}
+
+	public void setNol(Noleggio nol) {
+		this.nol = nol;
+	}
+
+	public Prenotazione getPren() {
+		return pren;
+	}
+
+	public void setPren(Prenotazione pren) {
+		this.pren = pren;
+	}
+
+	public void setUsato(boolean isUsato) {
+		this.isUsato = isUsato;
+	}
+	
 }

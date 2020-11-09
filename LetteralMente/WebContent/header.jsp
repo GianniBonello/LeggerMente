@@ -39,7 +39,7 @@
                     </a></li>
                     <li class="nav-item"><a class="nav-link" href="#inostriservizi">I NOSTRI SERVIZI</a></li> 
                     <li class="nav-item"><a class="nav-link" href="#chisiamo">CHI SIAMO</a></li> 
-                    <li class="nav-item"><a class="nav-link" href="#">LISTA LIBRI</a></li> <!-- #ID sezione -->
+                    <li class="nav-item"><a class="nav-link" href="#listalibri">LISTA LIBRI</a></li> <!-- #ID sezione -->
                 </ul>
                  <!-- <% 
                         if(request.getSession().getAttribute("utenteLoggato")==null) { 
@@ -108,7 +108,6 @@
             </div>      
     </header>
     
-    <jsp:include page="/body.jsp"></jsp:include>
-    <jsp:include page="/footer.jsp"></jsp:include>
+    
 	
     

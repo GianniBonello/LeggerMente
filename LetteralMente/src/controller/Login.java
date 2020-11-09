@@ -43,7 +43,7 @@ public class Login extends HttpServlet {
 			}
 			else {
 				System.out.println("è un utente qualunque");
-				request.getRequestDispatcher("/header.jsp").forward(request, response);
+				request.getRequestDispatcher("/body.jsp").forward(request, response);
 			}
 		}else {
 			request.setAttribute("loginFallito", "errorLogin");
