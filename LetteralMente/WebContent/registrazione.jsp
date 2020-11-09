@@ -18,8 +18,8 @@
       
       <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
-        <label for="cfid">Codice fiscale </label>
-        <input type="text" name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" placeholder="">
+        	 <label for="cfid">Codice fiscale </label>
+        	 <input type="text" name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" placeholder="">
           </div>
     
       <div class="form-group col-xl-6 pt-1">
