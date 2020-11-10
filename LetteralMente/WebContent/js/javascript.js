@@ -8,7 +8,7 @@ function login(){
 
     function info(autore,casaEditrice,genere,isbn,isUsato,prezzo,quantita,titolo,trama,immagine_path){		
 		if(isUsato&&quantita>0){
-			$("#descr").innerHTML=`<div class="row ">
+			$(".descrcollapse").innerHTML=`<div class="row ">
 		                                  <div class="copertina col-xl-4 pt-3 text-center">
 		                                    <img src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
 		                                    <p class="text-left inter"><b>AUTORE:</b></p>
@@ -33,7 +33,7 @@ function login(){
 									<button type="submit" class="float-left text-white shadow mb-2 ml-5 ">NOLEGGIA</button>									
                                 </div>	`;			
 		}else if(!isUsato&&quantita>0){
-			$("#descr").innerHTML=`<div class="row ">
+			$(".descrcollapse").innerHTML=`<div class="row ">
 		                                  <div class="copertina col-xl-4 pt-3 text-center">
 		                                    <img src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
 		                                    <p class="text-left inter"><b>AUTORE:</b></p>
@@ -59,7 +59,7 @@ function login(){
 										<button type="submit" class="float-left text-white shadow mb-2 ">PRENOTA</button>																			
                                 </div>
 		`;}else if(!isUsato&&quantita<=0){
-			$("#descr").innerHTML=`<div class="row ">
+			$(".descrcollapse").innerHTML=`<div class="row ">
 		                                  <div class="copertina col-xl-4 pt-3 text-center">
 		                                    <img src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
 		                                    <p class="text-left inter"><b>AUTORE:</b></p>
@@ -86,7 +86,7 @@ function login(){
                                 </div>
 			
 		`;}else{
-			$("#descr").innerHTML=`<div class="row ">
+			$(".descrcollapse").innerHTML=`<div class="row ">
 		                                  <div class="copertina col-xl-4 pt-3 text-center">
 		                                    <img src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
 		                                    <p class="text-left inter"><b>AUTORE:</b></p>
@@ -109,7 +109,9 @@ function login(){
 										 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
 									</div>								
                                 </div>	`;}			
-		$("#descr").parent().fadeToggle(1000).removeClass("d-none");
+		//$("#descr").fadeToggle(1000).removeClass("d-none");
+		$(".botcollapse").parent().parent().hasClass("descrcollapse").fadeToggle(1000).removeClass("d-none");
+
 		
 		}   
 

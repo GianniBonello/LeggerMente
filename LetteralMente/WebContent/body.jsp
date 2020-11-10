@@ -63,32 +63,32 @@
                         <h1 class=" pt-5 pl-4" id="serv"><b>Lista Libri</b></h1>
                         <h6 id="trattdue"><img class="pr-3" src="res/trattino.png" alt="trattino">Il nostro catalogo</h6>
                             
-                        <div class="row text-center pt-5 pb-5">              
+                                      
 <%                                               
 Libro[][]fedetrice= (Libro[][])request.getAttribute("matriceLibri");                         
 Libro libroCollapse=new Libro();
 if(fedetrice!=null){
 	for(Libro[]a : fedetrice) {
 %>		
-						
+						<div class="row text-center pt-5 pb-5">
 <%		
 		for(Libro l : a){
 			if(l!=null){
 %>
                             <div class="libro col-xl-4 pt-5">
                                     <img src="<%=l.getImmagine_path() %>"  class="w-75" style=" height:375px;">
-                                    <button class="btn btn-dark w-75 text-center" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>')"><b style="font-size:14pt;">INFO</b></button>                        
+                                    <button class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>')"><b style="font-size:14pt;">INFO</b></button>                        
                             </div>
   
 <%          }                     %>
 <%       }                        %>
                         
-                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5" id="descr">                                    
+                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5 descrcollapse" id="descr">                                    
                             </div>
-                         
+            <p>riga</p> </div>
 <%    }                     %>
 <%}                        %>
-                    </div>
+                    
             </div>
         </div>
             
