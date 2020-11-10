@@ -77,7 +77,7 @@ if(fedetrice!=null){
 %>
                             <div class="libro col-xl-4 pt-5">
                                     <img src="<%=l.getImmagine_path() %>"  class="w-75" style=" height:375px;">
-                                    <button class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>')"><b style="font-size:14pt;">INFO</b></button>                        
+                                    <button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>')"><b style="font-size:14pt;">INFO</b></button>                        
                             </div>
   
 <%          }                     %>

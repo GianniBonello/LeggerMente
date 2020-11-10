@@ -110,10 +110,15 @@ function login(){
 									</div>								
                                 </div>	`;}			
 		//$("#descr").fadeToggle(1000).removeClass("d-none");
-		$(".botcollapse").parent().parent().hasClass("descrcollapse").fadeToggle(1000).removeClass("d-none");
-
+		$(".botcollapse").parent().parent().find(".descrcollapse").fadeToggle(1000).removeClass("d-none");
+		/*-------------prova*/ 
 		
-		}   
+		}  
+		 
+	/*	$(".botcollapse").click(function(){
+			$(this).parent().parent().find(".descrcollapse").fadeToggle(1000).removeClass("d-none");
+			
+		})*/
 
     $(function scrollTop() {
 
