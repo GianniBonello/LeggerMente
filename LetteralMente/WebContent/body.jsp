@@ -68,24 +68,70 @@
 Libro[][]fedetrice= (Libro[][])request.getAttribute("matriceLibri");                         
 Libro libroCollapse=new Libro();
 if(fedetrice!=null){
-	for(Libro[]a : fedetrice) {
+	for(int i = 0; i < fedetrice.length ; i++) {
 %>		
 						<div class="row text-center pt-5 pb-5">
 <%		
-		for(Libro l : a){
+		for(int k = 0; k < fedetrice[i].length ; k++){
+			Libro l = fedetrice[i][k];
 			if(l!=null){
 %>
                             <div class="libro col-xl-4 pt-5">
                                     <img src="<%=l.getImmagine_path() %>"  class="w-75" style=" height:375px;">
-                                    <button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>')"><b style="font-size:14pt;">INFO</b></button>                        
+                                    <button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>','<%=i%>')"><b style="font-size:14pt;">INFO</b></button>                        
                             </div>
   
 <%          }                     %>
 <%       }                        %>
                         
-                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5 descrcollapse" id="descr">                                    
+                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5 descrcollapse<%=i %>" id="descr"> 
+                            
+                            <!-- ------------------------------------------ -->    
+                            
+                             `<div class="row ">
+		                                  <div class="copertina col-xl-4 pt-3 text-center">
+		                                    <img id="immagine" src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
+		                                    <p class="text-left inter"><b>AUTORE:</b></p>
+		                                    <hr class="w-75">
+		                                    <p id ="autore" class="text-left interdue">`+autore+`</p>
+		                                    <br>
+		                                    <p class="text-left inter"><b>CASA EDITRICE:</b></p>
+		                                    <hr class="w-75">
+		                                    <p id ="casaEditrice" class="text-left interdue">`+casaEditrice+`</p>
+		                            
+		                                  </div>
+		                                  <div class="col-xl-7 offset-1 pt-3">
+		                                    <h2 id ="titolo" class="mb-5 text-left ">`+titolo+`</h2>
+		                                      <div class="descrizioneinfo">
+		                                        <p class="text-left  pt-3" style="font-size: 16pt;"><b>DESCRIZIONE</b></p>
+		                                        <p id ="trama" class="text-left justify-content pt-3">`+trama+`</p>
+											</div>
+										  </div>
+										  <!-- disponibile acquisto --> 
+											<div id="divDisponibileAcquisto" class="row pt-5 pb-5">
+												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
+												<p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoDisponibile">PREZZO : 0.0 &euro;</b></p>
+											</div>
+											 <!-- esaurito acquisto --> 
+											<div id="divEsauritoAcquisto" class="row pt-5 pb-5">
+												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
+												 <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoEsaurito">PREZZO : 0.0 &euro;</b></p>
+											</div>
+											 <!-- disponibile noleggio --> 
+											 <div id="divDisponibileNoleggio" class="row pt-5 pb-5">
+												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
+											</div>
+											  <!-- esaurito noleggio --> 
+											  <div id="divEsauritoNoleggio" class="row pt-5 pb-5">
+												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
+											</div>
+										
+											<button id="bottvar" type="submit" class="float-left text-white shadow mb-2 ">PRENOTA</button>
+																		
+                                </div>
+                              <!-- -------------------------------------------------- -->                                   
                             </div>
-            <p>riga</p> </div>
+           			</div>
 <%    }                     %>
 <%}                        %>
                     
