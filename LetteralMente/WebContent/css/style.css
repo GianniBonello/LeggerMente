@@ -337,3 +337,238 @@ margin-left: 100px;
 	background: #F5F5F5;
 }
 
+
+/* GESTIONE PRENOTAZIONI */
+
+.prenotazioni .chiaro{
+	border: none;
+	background:white;
+	color:black; 
+	opacity: 0.3
+}
+
+.stonda{
+	border-top-left-radius: 25px;
+}
+.stondadue{
+	border-top-right-radius: 25px;
+}
+
+th{
+	border: none !important;
+
+}
+
+.prenotazioni td{
+	border-top: solid 1px #1C1C1C !important;
+}
+
+/* GESTIONE UTENTI */
+
+.hiddenRow {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+
+}
+
+.utenti .bgcoll{
+	border: none;
+	background-color: rgba(255,255,255,0.5);
+	color:black; 
+	border: none !important;
+}
+
+.utenti td{
+	border-top: solid 1px #1C1C1C !important;
+}
+
+.utenti .chiaro{
+	border: none;
+	background-color: rgba(255,255,255,0.3);
+	color:black; 
+}
+
+.fa-check-circle{
+	font-size: 30px;
+}
+
+.fa-pencil-alt{
+	font-size: 30px;
+}
+
+.fa-times-circle{
+	font-size: 30px;
+}
+
+
+/* GESTIONE LIBRI */
+
+	.verde{
+		color: green
+	}
+
+.libri .bgcoll{
+	border: none;
+	background-color: rgba(255,255,255,0.5);
+	color:black; 
+	border: none !important;
+}
+	
+.libri td{
+	border-top: solid 1px #1C1C1C !important;
+}
+	
+.libri .chiaro{
+	border: none;
+	background-color: rgba(255,255,255,0.3);
+	color:black; 
+}
+
+.libri .text{
+	width: 700px;
+	height: 100px;
+	border-radius: 50px;
+	border: none !important;
+	padding-left: 43px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	
+}
+textarea:focus, input:focus{
+	outline: 0;
+}
+
+.imm{
+	padding-left: 40px !important;
+}
+
+.spy{
+	padding-top: 8px;
+}
+
+/* TABELLE STORICI */
+.chi{
+ background-color: #f6f2f1;
+}
+
+.scu{
+	background-color: #c7c7c7;
+
+}
+
+/* POPUP RECUPERO PASSWORD */
+
+.recupero .inter{
+	line-height:0.2;
+	font-size: 16pt;
+	padding-left: 43px;
+
+}
+
+.recupero .interdue{
+	line-height:0.2;
+	font-size: 12pt;
+	padding-left: 43px;
+
+}
+
+.recupero input{
+
+border-radius: 50px;
+border: none;
+background-color: #eaeaea;
+}
+
+.recupero{
+	margin-bottom: 100px !important;
+	margin-top: 100px;
+}
+
+/* POPUP NOLEGGIO EFFETTUATO */
+
+.effettuato .inter{
+	line-height:0.2;
+	font-size: 16pt;
+	padding-left: 43px;
+
+}
+
+.effettuato .interdue{
+	line-height:0.2;
+	font-size: 12pt;
+	padding-left: 43px;
+
+}
+
+.noleggio{
+	margin-top: 150px;
+	margin-bottom: 150px;
+	font-size: 40pt;
+}
+
+
+/* PULSANTE SWITCH */
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+  }
+  
+  .switch input { 
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #03AF1A;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  .slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+
+  
+  input:checked + .slider {
+	background-color: #C80258;
+	
+  }
+  
+  input:focus + .slider {
+	box-shadow: 0 0 1px #C80258;
+
+  }
+  
+  input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+	border-radius: 34px;
+  }
+  
+  .slider.round:before {
+	border-radius: 50%;
+  }
