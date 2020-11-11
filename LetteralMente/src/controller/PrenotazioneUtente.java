@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -25,8 +26,9 @@ public class PrenotazioneUtente extends HttpServlet {
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		//ArrayList<Prenotazione>prenotazioniInCoda = new ArrayList<>();
+		
 			if(request.getParameter("idLibro")!= null && Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()>0) {
 					Prenotazione p = new Prenotazione();
 					p.setData(new Date());
@@ -34,7 +36,10 @@ public class PrenotazioneUtente extends HttpServlet {
 					/*passaggio del parametro per stampare la conferma*/
 					request.setAttribute("prenotazione", "effettuata");
 				}else {
-					request.setAttribute("prenotazione", "libriFiniti");
+					//request.setAttribute("prenotazione", "libriFiniti");
+					Prenotazione p = new Prenotazione();
+					//prenotazioniInCoda.add(p);
+					Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
 			}
 			//torna alla servlet che setta i libri
 			request.getRequestDispatcher("ListaLibri").forward(request, response);

@@ -73,6 +73,14 @@ public class Prenotazione implements Serializable {
 		this.lib = lib;
 	}
 	
-	
+	@Override
+	public boolean equals(Object o) {
+		if(o!=null && o instanceof Prenotazione) {
+			Prenotazione p = (Prenotazione)o;
+			if(p.getIdprenotazione()== this.idprenotazione) {
+				return true;
+			}else return false;
+		}else return false;
+	}
 
 }
