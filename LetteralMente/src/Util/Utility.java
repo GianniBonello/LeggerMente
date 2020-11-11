@@ -1,5 +1,6 @@
 package Util;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -43,6 +44,13 @@ public class Utility {
 	public static List<Utente> leggiUtente() {
 		EntityManager em = getManager();
     	return em.createNamedQuery("Utente.findAll").getResultList();
+	}
+	
+	//torna lista di prenotazioni in coda
+	public static List<Prenotazione> arrayInCoda(Libro l){
+		EntityManager em = getManager();
+		return em.createQuery("SELECT * FROM prenotazione WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
+		
 	}
 	
 	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
@@ -153,6 +161,7 @@ public class Utility {
     	et.commit();
     	return l;
 	}
+	
 	public static Utente trovaUtente(int id) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();

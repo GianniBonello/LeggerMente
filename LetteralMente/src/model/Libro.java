@@ -148,4 +148,13 @@ public class Libro implements Serializable {
 		this.isUsato = isUsato;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o != null && o instanceof Libro) {
+			Libro l = (Libro) o;
+			if(l.getAutore().toLowerCase().equals(this.autore.toLowerCase()) || l.getTitolo().toLowerCase().equals(this.titolo.toLowerCase()) || l.getIsbn().equals(this.isbn)) {
+				return true;
+			}else return false;
+		}else return false;
+	}
 }
