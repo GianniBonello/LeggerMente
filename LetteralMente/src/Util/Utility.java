@@ -188,4 +188,11 @@ public class Utility {
     	return n;
 	}
 	
+	public static Prenotazione trovaPrenotazione(int u, String l) {
+		EntityManager em = getManager();
+		List<Prenotazione> lista = (List<Prenotazione>)em.createQuery("SELECT p FROM Prenotazione WHERE id_utente = "+u+" AND isbn_libro = "+l+";");
+		
+		return lista.get(lista.size()-1);
+	}
+	
 }

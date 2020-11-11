@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
+import model.Libro;
 import model.Prenotazione;
 import model.Utente;
 
@@ -29,22 +30,28 @@ public class PrenotazioneUtente extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Libro l = Utility.trovaLibro(request.getParameter("isbn"));
+		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
 			//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
-			if(request.getParameter("isbn")!= null && Utility.trovaLibro(request.getParameter("isbn")).getQuantita()>0) {
-
+			if(request.getParameter("isbn")!= null && l.getQuantita()>0) {
 					Prenotazione p = new Prenotazione();
 					p.setData(new Date());
 					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
 					/*passaggio del parametro per stampare la conferma*/
-					request.setAttribute("prenotazione", "effettuata");
-				}else {
+					request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+					request.getRequestDispatcher("dettagliPenotazione.jsp").forward(request, response);
+			}else if(request.getParameter("isbn")!= null && l.getQuantita() <= 0){
 					//request.setAttribute("prenotazione", "libriFiniti");
 					Prenotazione p = new Prenotazione();
 					//prenotazioniInCoda.add(p);
-					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
+					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
+					request.setAttribute("dettagliPrenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+			}else {
+				request.setAttribute("libro", l);
+				request.getRequestDispatcher("dettaglioLibro.jsp").forward(request, response);
 			}
-			//torna alla servlet che setta i libri
-			request.getRequestDispatcher("ListaLibri").forward(request, response);
+			
+			
 	}
 
 }

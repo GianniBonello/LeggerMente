@@ -79,9 +79,7 @@
 	      	  <button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" type="submit">REGISTRATI</button>
 	         <!--   <button type="submit" class="btn col-2 offset-5 py-2 pl-5 pr-5 text-white shadow p-1 mb-1 text-center" id="bottone"><b>REGISTRATI</b></button>-->
 	      </div>
-    </form>
-    
-       
+    </form>    
     
     </div>
     

@@ -25,8 +25,10 @@ public class GestioneLibri extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") == null){
+		//devo controllare se la quantita di prima è cambiata rispetto ad ora
+
+		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
+		if(u.getIsStaff() && request.getParameter("idLibro") == null){
 			Libro lib = new Libro();
 			lib.setIsbn(request.getParameter("isbn"));
 			lib.setAutore(request.getParameter("autore"));
@@ -44,8 +46,10 @@ public class GestioneLibri extends HttpServlet {
 				request.setAttribute("libroInserito", "errore");
 			}
 			request.getRequestDispatcher("/listaLibri.jsp");
-		}else if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") != null) {
+		}else if(u.getIsStaff() && request.getParameter("idLibro") != null) {
 			Libro l = Utility.trovaLibro(request.getParameter("isbn"));
+			//mi salvo la quantità che aveva prima il libro
+			int quantita = l.getQuantita();
 			l.setIsbn(request.getParameter("isbn"));
 			l.setAutore(request.getParameter("autore"));
 			l.setCasaEditrice(request.getParameter("casaEditrice"));
@@ -57,7 +61,12 @@ public class GestioneLibri extends HttpServlet {
 			l.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
 			
 			Utility.modificaLibro(l);
-		request.setAttribute("modifica", "successo");
+			request.setAttribute("modifica", "successo");
+			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è diversa da 0
+			if(quantita == 0 && Integer.parseInt(request.getParameter("quantita")) > 0) {
+				request.setAttribute("libro", l);
+			}
+			
 		}
 		
 		request.getRequestDispatcher("ListaLibriStaff").forward(request, response);
