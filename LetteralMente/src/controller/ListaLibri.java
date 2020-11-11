@@ -26,15 +26,44 @@ public class ListaLibri extends HttpServlet {
 		List<Libro> listaLibri = Utility.leggiLibro();
 		//FILTRO PER TITOLO AUTORE ISBN
 
-		if(request.getParameter("ricerca")!=null && !request.getParameter("ricerca").equals("")) {
+		if(request.getParameter("ricerca") != null && !request.getParameter("ricerca").equals("")) {
+			/*Libro l = new Libro();
+			l.setAutore(request.getParameter("ricerca"));
+			l.setTitolo(request.getParameter("ricerca"));
+			l.setIsbn(request.getParameter("ricerca"));
+
+			if(request.getParameter("autore") != null && listaLibri.contains(l)) {
+				listaLibri.clear();
+				listaLibri.add(l);
+			}else if(request.getParameter("titolo")!=null && listaLibri.contains(l)) {
+				listaLibri.clear();
+				listaLibri.add(l);
+			}else if(request.getParameter("isbn")!=null && listaLibri.contains(l)) {
+				listaLibri.clear();
+				listaLibri.add(l);
+			}*/
+			/*----------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 			for (Libro l : listaLibri) {
 				int cont=0;
 				if(request.getParameter("titolo")!=null) { //se filtra=titolo
+					//if(request.getParameter("ricerca").contains(l){
+					//	request.setAttribute("libroTrobato", listaLibri.get(listaLibri.insexOf(l)));
+					//	request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
+					//}
 					for(String s : UtilityRicerca.spezzaStringhe(l.getTitolo())) {
-						if(!s.equals(request.getParameter("ricerca").toLowerCase())) {	/*se */
-							cont++;
+						for(String v : UtilityRicerca.spezzaStringhe(request.getParameter("ricerca"))) {
+							if(!s.equals(v)) {
+								cont++; 		//incremento numero parole non corrispondenti
+							} 
 						}
 					}
+					if (cont == UtilityRicerca.spezzaStringhe(l.getTitolo()).length * UtilityRicerca.spezzaStringhe(request.getParameter("ricerca")).length) {
+						listaLibri.remove(l);
+					}else if(cont == (UtilityRicerca.spezzaStringhe(l.getTitolo()).length-1)*(UtilityRicerca.spezzaStringhe(request.getParameter("ricerca")).length)) {  // se cont == 0
+						listaLibri.clear();
+						listaLibri.add(l);
+					}
+
 					//se ho trovato tutte parole differenti allora elimina l
 					if (cont == UtilityRicerca.spezzaStringhe(l.getTitolo()).length) {
 						listaLibri.remove(l);
@@ -42,13 +71,17 @@ public class ListaLibri extends HttpServlet {
 
 				}else if(request.getParameter("autore")!=null) { //se filtra=autore
 					for(String s : UtilityRicerca.spezzaStringhe(l.getAutore())) {
-						if(!s.equals(request.getParameter("ricerca").toLowerCase())) {
-							cont++;
+						for(String v : UtilityRicerca.spezzaStringhe(request.getParameter("ricerca"))) {
+							if(!s.equals(v)) {
+								cont++; 		//incremento numero parole non corrispondenti
+							} 
 						}
 					}
-					//se ho trovato tutte parole differenti allora elimina l
-					if (cont == UtilityRicerca.spezzaStringhe(l.getAutore()).length) {
+					if (cont == UtilityRicerca.spezzaStringhe(l.getAutore()).length * UtilityRicerca.spezzaStringhe(request.getParameter("ricerca")).length) {
 						listaLibri.remove(l);
+					}else if(cont == 0) {
+						listaLibri.clear();
+						listaLibri.add(l);
 					}
 
 				}else if (request.getParameter("isbn")!=null && !request.getParameter("ricerca").equals(l.getIsbn())) {
@@ -56,7 +89,7 @@ public class ListaLibri extends HttpServlet {
 					//CONTROLLARE SULL' HTML CHE L'UTENTE INSERISCA I "-" DOPO TOT NUMERI
 
 				}
-			}
+			} 
 		}
 
 		request.setAttribute("listaLibri", listaLibri);
