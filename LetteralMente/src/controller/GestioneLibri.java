@@ -62,13 +62,14 @@ public class GestioneLibri extends HttpServlet {
 			
 			Utility.modificaLibro(l);
 			request.setAttribute("modifica", "successo");
-			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è diversa da 0
+			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è maggiore da 0
 			if(quantita == 0 && Integer.parseInt(request.getParameter("quantita")) > 0) {
 				request.setAttribute("libro", l);
-			}
+				request.getRequestDispatcher("PrenotazioniAutomatiche").forward(request, response);
+				
+			}else request.getRequestDispatcher("ListaLibriStaff").forward(request, response);
 			
-		}
-		
-		request.getRequestDispatcher("ListaLibriStaff").forward(request, response);
+		}else request.getRequestDispatcher("ListaLibriStaff").forward(request, response);
+			
 	}
 }

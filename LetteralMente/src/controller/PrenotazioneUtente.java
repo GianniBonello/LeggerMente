@@ -36,18 +36,20 @@ public class PrenotazioneUtente extends HttpServlet {
 			if(request.getParameter("isbn")!= null && l.getQuantita()>0) {
 					Prenotazione p = new Prenotazione();
 					p.setData(new Date());
-					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
+					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
 					/*passaggio del parametro per stampare la conferma*/
 					request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
-					request.getRequestDispatcher("dettagliPenotazione.jsp").forward(request, response);
+					request.getRequestDispatcher("dettagliPenotazioneEffettuata.jsp").forward(request, response);
 			}else if(request.getParameter("isbn")!= null && l.getQuantita() <= 0){
 					//request.setAttribute("prenotazione", "libriFiniti");
 					Prenotazione p = new Prenotazione();
 					//prenotazioniInCoda.add(p);
 					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
 					request.setAttribute("dettagliPrenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+					request.getRequestDispatcher("dettagliPenotazioneEffettuata.jsp").forward(request, response);
 			}else {
 				request.setAttribute("libro", l);
+				request.setAttribute("errore", "errore");
 				request.getRequestDispatcher("dettaglioLibro.jsp").forward(request, response);
 			}
 			

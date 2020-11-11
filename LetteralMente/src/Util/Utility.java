@@ -46,13 +46,6 @@ public class Utility {
     	return em.createNamedQuery("Utente.findAll").getResultList();
 	}
 	
-	//torna lista di prenotazioni in coda
-	public static List<Prenotazione> arrayInCoda(Libro l){
-		EntityManager em = getManager();
-		return em.createQuery("SELECT * FROM prenotazione WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
-		
-	}
-	
 	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
 	@SuppressWarnings("unchecked")
 	public static List<Libro> filtraLibri(String filtro){
@@ -202,6 +195,13 @@ public class Utility {
 		List<Prenotazione> lista = (List<Prenotazione>)em.createQuery("SELECT p FROM Prenotazione WHERE id_utente = "+u+" AND isbn_libro = "+l+";");
 		
 		return lista.get(lista.size()-1);
+	}
+	
+	//torna lista di prenotazioni in coda
+	public static List<Prenotazione> trovaPrenotazione(Libro l){
+		EntityManager em = getManager();
+		return em.createQuery("SELECT * FROM prenotazione WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
+		
 	}
 	
 }
