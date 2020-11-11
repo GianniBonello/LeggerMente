@@ -38,9 +38,9 @@
                         </a></li>
                         <li class="nav-item"><a class="nav-link" href="listalibri.jsp">LISTA LIBRI</a></li> 
                     </ul>
-                     <!-- <% 
+                      <% 
                             if(request.getSession().getAttribute("utenteLoggato")==null) { 
-                         %> -->
+                         %> 
                          
                         <button class=" login mr-3" id="login" onclick="login()" > LOGIN </button>
                         <a href="Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
@@ -48,17 +48,15 @@
                      <% }else{
                             Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
                             
-                        <div class="dropdown">
+                         <div class="dropdown">
                             <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> ID SEZIONE
-                                    <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a>  ID SEZIONE
-                                    <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a>  ID SEZIONE
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
+                                    <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> 
+                                    <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a> 
+                                    <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a>  
                                  </div>
-                        </div>
-                    
-                        
-                        <a href="Logout"><button type="submit">LOGOUT</button></a>
+                        </div> 
                    
                       <% } %>  
                     </div>
