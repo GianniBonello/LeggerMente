@@ -45,7 +45,7 @@ public class GestioneLibri extends HttpServlet {
 			}
 			request.getRequestDispatcher("/listaLibri.jsp");
 		}else if(((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && request.getParameter("idLibro") != null) {
-			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
+			Libro l = Utility.trovaLibro(request.getParameter("isbn"));
 			l.setIsbn(request.getParameter("isbn"));
 			l.setAutore(request.getParameter("autore"));
 			l.setCasaEditrice(request.getParameter("casaEditrice"));

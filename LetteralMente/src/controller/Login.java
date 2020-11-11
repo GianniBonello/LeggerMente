@@ -36,14 +36,14 @@ public class Login extends HttpServlet {
 		if(listaUtenti.contains(u)) {
 			System.out.println("ciao giulia");
 			u=listaUtenti.get(listaUtenti.indexOf(u));
-			request.getSession().setAttribute("UtenteLoggato", u);
+			request.getSession().setAttribute("utenteLoggato", u);
 			if(u.getIsStaff()) {
 				System.out.println("è un utente staff");
 				response.sendRedirect("/homeGestionale.jsp");	
 			}
 			else {
 				System.out.println("è un utente qualunque");
-				request.getRequestDispatcher("/body.jsp").forward(request, response);
+				request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 			}
 		}else {
 			request.setAttribute("loginFallito", "errorLogin");

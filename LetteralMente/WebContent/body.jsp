@@ -55,120 +55,86 @@
                 <div  class="col-6">
                     <img id="spostaASinistra" src="res/chisiamo.jpg" width="600px" height="600px" alt="">
                 </div>
-            </div>
+            </div>            
             
             <!-- LISTA LIBRI -->
-
             
                     <div class="mt-5" id="listalibri">
                         <h1 class=" pt-5 pl-4" id="serv"><b>Lista Libri</b></h1>
                         <h6 id="trattdue"><img class="pr-3" src="res/trattino.png" alt="trattino">Il nostro catalogo</h6>
                             
-                        <div class="row text-center pt-5 pb-5">
-                        <!--   -->
-                            
-                          <%
-                         
-                         Libro[][]fedetrice= (Libro[][])request.getAttribute("matriceLibri");
-                          Libro libroCollapse=new Libro();
-                          if(fedetrice!=null){
-                          		for(Libro[]a : fedetrice) {
-                          			for(Libro l : a){
-                          				if(l!=null){
-                          			
-
-                       %>
+                                      
+<%                                               
+Libro[][]fedetrice= (Libro[][])request.getAttribute("matriceLibri");                         
+Libro libroCollapse=new Libro();
+if(fedetrice!=null){
+	for(int i = 0; i < fedetrice.length ; i++) {
+%>		
+						<div class="row text-center pt-5 pb-5">
+<%		
+		for(int k = 0; k < fedetrice[i].length ; k++){
+			Libro l = fedetrice[i][k];
+			if(l!=null){
+%>
                             <div class="libro col-xl-4 pt-5">
                                     <img src="<%=l.getImmagine_path() %>"  class="w-75" style=" height:375px;">
-                                    <button class="btn btn-dark w-75 text-center" style="height:50px;background: #C80258; border: none;"  onclick="info(<%=l%>)"><b style="font-size:14pt;">INFO</b></button>                        
+                                    <button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"  onclick="info('<%=l.getAutore()%>','<%=l.getCasaEditrice()%>','<%=l.getGenere()%>','<%=l.getIsbn()%>','<%=l.getIsUsato()%>','<%=l.getPrezzo()%>','<%=l.getQuantita()%>','<%=l.getTitolo()%>','<%=l.getTrama()%>','<%=l.getImmagine_path()%>','<%=i%>')"><b style="font-size:14pt;">INFO</b></button>                        
                             </div>
-
-                 <% 
-                 }} %>
-                         <!--   <div class="libro col-xl-4 pt-5">
-                                <img src="res\libro1.jpg"  class="w-75" style=" height:375px;">
-                                <button class="btn btn-dark w-75 text-center " style="height:50px;background: #C80258; border: none" onclick="info()" ><b style="font-size:14pt;">INFO</b></button>                        
-                            </div>
-
-                            <div class="libro col-xl-4 pt-5">
-                                <img src="res\libro1.jpg"  class="w-75" style=" height:375px;">
-                                <button class="btn btn-dark w-75 text-center " style="height:50px;background: #C80258; border: none" onclick="info()" ><b style="font-size:14pt;">INFO</b></button>                        
-                            </div>-->
-
-                           
-
-                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5" id="descr">
-                                 <!--   <div class="row ">
-                                  <div class="copertina col-xl-4 pt-3 text-center">
-                                    <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
-                                    <p class="text-left inter"><b>AUTORE:</b></p>
-                                    <hr class="w-75">
-                                    <p class="text-left interdue"><%=libroCollapse.getAutore() %></p>
-                                    <br>
+  
+<%          }                     %>
+<%       }                        %>
+                        
+                            <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white d-none mt-5 descrcollapse<%=i %>" id="descr"> 
                             
-                                    <p class="text-left inter"><b>CASA EDITRICE:</b></p>
-                                    <hr class="w-75">
-                                    <p class="text-left interdue"><%= libroCollapse.getCasaEditrice() %></p>
+                            <!-- ------------------------------------------ -->    
                             
-                                  </div>
-                                  <div class="col-xl-7 offset-1 pt-3">
-                                    <h2 class="mb-5 text-left "><%= libroCollapse.getTitolo() %></h2>
-                                      <div class="descrizioneinfo">
-                                        <p class="text-left  pt-3" style="font-size: 16pt;"><b>DESCRIZIONE</b></p>
-                                        <p class="text-left justify-content pt-3"><%=libroCollapse.getTrama() %></p>
-			
-<!--Se la quantità del libro è maggiore di 0 allora
- si vedra il  pallino verde con disponibile e il 
-tasto prenota 
-senno pallino rosso esaurito e
-con il bottone mettiti in coda
-                                     
-                                      
-                                      
-                                      
-                                      
-                                     
-                                        <div class="row pt-5 pb-5">
-                                        <% if(libroCollapse.getQuantita()>0) {%>    
-                                          <i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>
-                                                 <%}else{ %>   
-                                          <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
-                                                           <% }%>     SCRIPTLET PREZZO
-                                          <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b>PREZZO : <%=libroCollapse.getPrezzo() %> &euro;</b></p>
-                                        </div>
-                                      </div>                        
-                                      <%if(!libroCollapse.getIsUsato()){
-                                      
-                                      
-                                      %>                                	  
-                                      
-                                      
-                                    <button type="submit" class="float-left text-white shadow mb-2 "><%=libroCollapse.getQuantita()>0 ? "PRENOTA": "IN CODA"%></button>  
-                                  <%  } else {%>
-                                    <button type="submit" class="float-left text-white shadow mb-2 ml-5 ">NOLEGGIA</button>
-                                    <%} %>
-                                  </div>
-                                </div>  -->
+                             `<div class="row ">
+		                                  <div class="copertina col-xl-4 pt-3 text-center">
+		                                    <img id="immagine<%=i %>" src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
+		                                    <p class="text-left inter"><b>AUTORE:</b></p>
+		                                    <hr class="w-75">
+		                                    <p id ="autore<%=i %>" class="text-left interdue autore">`+autore+`</p>
+		                                    <br>
+		                                    <p class="text-left inter"><b>CASA EDITRICE:</b></p>
+		                                    <hr class="w-75">
+		                                    <p id ="casaEditrice<%=i %>" class="text-left interdue casaEditrice">`+casaEditrice+`</p>
+		                            
+		                                  </div>
+		                                  <div class="col-xl-7 offset-1 pt-3">
+		                                    <h2 id ="titolo<%=i %>" class="mb-5 text-left titolo">`+titolo+`</h2>
+		                                      <div class="descrizioneinfo">
+		                                        <p class="text-left  pt-3" style="font-size: 16pt;"><b>DESCRIZIONE</b></p>
+		                                        <p id ="trama<%=i %>" class="text-left justify-content pt-3 trama">`+trama+`</p>
+											</div>
+										  </div>
+										  <!-- disponibile acquisto --> 
+											<div id="divDisponibileAcquisto<%=i %>" class="row pt-5 pb-5 divDisponibileAcquisto">
+												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
+												<p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoDisponibile<%=i %>">PREZZO : 0.0 &euro;</b></p>
+											</div>
+											 <!-- esaurito acquisto --> 
+											<div id="divEsauritoAcquisto<%=i %>" class="row pt-5 pb-5 divEsauritoAcquisto">
+												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
+												 <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoEsaurito<%=i %>">PREZZO : 0.0 &euro;</b></p>
+											</div>
+											 <!-- disponibile noleggio --> 
+											 <div id="divDisponibileNoleggio<%=i %>" class="row pt-5 pb-5 divDisponibileNoleggio">
+												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
+											</div>
+											  <!-- esaurito noleggio --> 
+											  <div id="divEsauritoNoleggio<%=i %>" class="row pt-5 pb-5 divEsauritoNoleggio">
+												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
+											</div>
+										
+											<button id="bottvar<%=i %>" type="submit" class="float-left text-white shadow mb-2 bottvar">PRENOTA</button>
+																		
+                                </div>
+                              <!-- -------------------------------------------------- -->                                   
                             </div>
-
-                            <%}}%>
-
-                    <!--       <div class="libro col-xl-4 pt-5">
-                                    <img src="res\libro1.jpg"  class="w-75" style=" height:375px;">
-                                    <button class="btn btn-dark w-75 text-center " style="height:50px;background: #C80258; border: none" onclick="info()" ><b style="font-size:14pt;">INFO</b></button>                        
-                            </div>
-    
-                            <div class="libro col-xl-4 pt-5">
-                                <img src="res\libro1.jpg"  class="w-75" style=" height:375px;">
-                                <button class="btn btn-dark w-75 text-center " style="height:50px;background: #C80258; border: none" onclick="info()" ><b style="font-size:14pt;">INFO</b></button>                        
-                            </div>
-    
-                            <div class="libro col-xl-4 pt-5">
-                                <img src="res\libro1.jpg"  class="w-75" style=" height:375px;">
-                                <button class="btn btn-dark w-75 text-center" style="height:50px; background: #C80258; border: none" onclick="info()" ><b style="font-size:14pt;">INFO</b></button>                        
-                        </div>
-  --> 
-                    </div>
+           			</div>
+<%    }                     %>
+<%}                        %>
+                    
             </div>
         </div>
             

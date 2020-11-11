@@ -6,52 +6,62 @@ function login(){
       }
     }
 
-    function info(l){
-      $("#descr").fadeToggle(1000).removeClass("d-none");
-		$("#descr").after(`<div class="row ">
-                                  <div class="copertina col-xl-4 pt-3 text-center">
-                                    <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
-                                    <p class="text-left inter"><b>AUTORE:</b></p>
-                                    <hr class="w-75">
-                                    <p class="text-left interdue">`+l.getAutore()+`</p>
-                                    <br>
-                            
-                                    <p class="text-left inter"><b>CASA EDITRICE:</b></p>
-                                    <hr class="w-75">
-                                    <p class="text-left interdue">`+l.getCasaEditrice()+`</p>
-                            
-                                  </div>
-                                  <div class="col-xl-7 offset-1 pt-3">
-                                    <h2 class="mb-5 text-left ">`+l.getTitolo()+`</h2>
-                                      <div class="descrizioneinfo">
-                                        <p class="text-left  pt-3" style="font-size: 16pt;"><b>DESCRIZIONE</b></p>
-                                        <p class="text-left justify-content pt-3">`+l.getTrama()+`</p>
+    function info(autore,casaEditrice,genere,isbn,isUsato,prezzo,quantita,titolo,trama,immagine_path,riga){		
+	alert(autore+" "+casaEditrice+" "+genere+" "+isbn+" "+isUsato+" "+prezzo+" "+quantita+" "+titolo+" "+trama+" "+immagine_path+" "+riga);
+			//$("#immagine").setAttribute("src",immagine_path);
+			/*esaurito acquisto*/ 
+			if(!isUsato && quantita <= 0){
+				alert("esaurito acquisto "+isUsato);
+				document.getElementById("prezzoEsaurito"+riga+"").innerHTML=prezzo;
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="initial";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";
+				document.getElementById("bottvar"+riga+"").innerHTML="IN CODA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
+				/*disponilibe acquisto*/ 
+			}else if(!isUsato && quantita > 0){
+				alert("disponilibe acquisto "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="initial";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";
+				document.getElementById("prezzoDisponibile"+riga+"").innerHTML=prezzo;
+				document.getElementById("bottvar"+riga+"").innerHTML="PRENOTA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
+				/*esaurito noleggio*/ 
+			}else if(isUsato && quantita <= 0){
+				alert("esaurito noleggio "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="initial";
+				document.getElementById("bottvar"+riga+"").style.display="none";
+				/*disponilibe noleggio*/ 
+			}else if(isUsato && quantita > 0){
+				alert("dispnibile noleggio "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="initial";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";/*("display","none");*/
+				document.getElementById("bottvar"+riga+"").innerHTML="NOLEGGIA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
+			}
 			
-
-                                        <div class="row pt-5 pb-5">
-                                        <% if(`+l.getQuantita()+`>0) {%>    
-                                          <i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>
-                                                 <%}else{ %>   
-                                          <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
-                                                           <% }%>     <!--SCRIPTLET PREZZO-->
-                                          <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b>PREZZO : `+l.getPrezzo()+` €</b></p>
-                                        </div>
-                                      </div>                        
-                                      <%if(!`+l.getIsUsato()+`){
-                                      
-                                      
-                                      %>                                	  
-                                      
-                                      
-                                    <button type="submit" class="float-left text-white shadow mb-2 "><%=`+l.getQuantita()+`>0 ? "PRENOTA": "IN CODA"%></button>  
-                                  <%  } else {%>
-                                    <button type="submit" class="float-left text-white shadow mb-2 ml-5 ">NOLEGGIA</button>
-                                    <%} %>
-                                  </div>
-                                </div> `);
-    }
-// fallo apparire alla fine del div row in cui è contenuto
-    
+			document.getElementById("titolo"+riga+"").innerHTML=titolo;
+			document.getElementById("autore"+riga+"").innerHTML=autore;
+			document.getElementById("casaEditrice"+riga+"").innerHTML=casaEditrice;
+			document.getElementById("trama"+riga+"").innerHTML=trama;
+			document.getElementById("immagine"+riga+"").setAttribute("src",immagine_path);	
+			
+		$(".botcollapse").parent().parent().find(".descrcollapse"+riga+"").fadeToggle(1000).removeClass("d-none");
+		
+		}  
+		 
+	/*	$(".botcollapse").click(function(){
+			$(this).parent().parent().find(".descrcollapse").fadeToggle(1000).removeClass("d-none");
+			
+		})*/
 
     $(function scrollTop() {
 

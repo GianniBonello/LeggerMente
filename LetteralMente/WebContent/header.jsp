@@ -41,16 +41,16 @@
                     <li class="nav-item"><a class="nav-link" href="#chisiamo">CHI SIAMO</a></li> 
                     <li class="nav-item"><a class="nav-link" href="#listalibri">LISTA LIBRI</a></li> <!-- #ID sezione -->
                 </ul>
-                 <!-- <% 
+                  <% 
                         if(request.getSession().getAttribute("utenteLoggato")==null) { 
-                     %> -->
+                     %> 
                      
                     <button class="buttonHead login mr-3 " id="login" onclick="login()" > LOGIN </button>
-                    <a href="Registrazione"><button class="buttonHead" type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+                    <a href="registrazione.jsp"><button class="buttonHead" type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
                     
-                  <!--  <% }else{
-                        Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> -->
-                 <!--        
+                    <% }else{
+                        Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
+                        
                     <div class="dropdown">
                         <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -62,8 +62,8 @@
                 
                     
                     <a href="Logout"><button type="submit">LOGOUT</button></a>
-                -->    
-                  <!-- <% } %>  --> 
+                  
+                   <% } %> 
                 </div>
         </nav>
 
@@ -88,20 +88,19 @@
                 </div> 
                 <!-- LOGIN -->
                 <div class="bg-light offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
-                    <h2 class="pt-5 text-center">Login</h2>
-                    <div class="pt-2 text-center">
+                    <h2 class="pt-5 text-center">Login</h2> 
                     <form action="Login" method="post">
-                        <input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
-                        <input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">
-                
-                    </div>
-                    <small ><a class="text-dark text-left pl-2" href="" >Non sei ancora registrato ?</a>
-                    <br>
-                    <a class="text-dark text-left pl-2" href="" >Username o password dimenticati ?</a>
-                    <br>
-                    <div class="text-center">
-                     <button class="mt-5" type="submit">LOGIN</button></small>
-                    </div>
+                   		<div class="pt-2 text-center">
+	                        <input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
+	                        <input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">
+	                   	    </div>
+			                   	 <small ><a class="text-dark text-left pl-2" href="" >Non sei ancora registrato ?</a>
+			                    <br>
+			                    <a class="text-dark text-left pl-2" href="" >Username o password dimenticati ?</a></small>
+			                    <br>
+		                <div class="text-center">
+		                     <button class="mt-5" type="submit">LOGIN</button>
+	                    </div>
                     </form>
                 </div>
                

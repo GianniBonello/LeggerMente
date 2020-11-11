@@ -1,6 +1,6 @@
 <!doctype html>
 <%@page import="model.Utente"%> 
-<%@page import="model.Libro"%>
+     <%@page import="model.Libro"%>
 
 <html lang="en">
 <head>
@@ -19,9 +19,9 @@
 
 
 </head>
-<body>  
-  
-  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-3">
+<body>
+ 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-3">
                 <div class="container">
                 <a class="navbar-brand logo " href="#"><img src="res/Logo-nero.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -45,9 +45,9 @@
                         <button class=" login mr-3" id="login" onclick="login()" > LOGIN </button>
                         <a href="Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
                         
-                      <!--  <% }else{
-                            Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> -->
-                     <!--        
+                     <% }else{
+                            Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
+                            
                         <div class="dropdown">
                             <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -59,11 +59,8 @@
                     
                         
                         <a href="Logout"><button type="submit">LOGOUT</button></a>
-                    -->    
-                      <!-- <% } %>  --> 
+                   
+                      <% } %>  
                     </div>
                 </div>
             </nav>
-            
-            <jsp:include page="/listaLibri.jsp"></jsp:include>
-            <jsp:include page="/footer.jsp"></jsp:include>

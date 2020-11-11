@@ -23,32 +23,33 @@ public class ControlloIniziale extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente u= (Utente)request.getSession().getAttribute("UtenteLoggato");
-		List<Libro> listaLibri=Utility.leggiLibro();
-		Libro[][] matrice =new Libro[2][3];
-		
-		for(int i = 0; i < matrice.length; i++) {
-			for(int k = 0; k < matrice[i].length; k++) {
-				if(listaLibri.size()<=0) {
-					break;
-				}
-				matrice[i][k] = listaLibri.remove(listaLibri.size()-1);
-			}
-			if(listaLibri.size()<=0)break;
-		}
-		request.setAttribute("matriceLibri", matrice);
+		//List<Libro> listaLibri=Utility.leggiLibro();
+		//Libro[][] matrice =new Libro[2][3];
+//		
+//		for(int i = 0; i < matrice.length; i++) {
+//			for(int k = 0; k < matrice[i].length; k++) {
+//				if(listaLibri.size()<=0) {
+//					break;
+//				}
+//				matrice[i][k] = listaLibri.remove(listaLibri.size()-1);
+//			}
+//			if(listaLibri.size()<=0)break;
+//		}
+		request.setAttribute("listaLibri", Utility.leggiLibro());
 		if(u!=null) {
 			if(u.getIsStaff()) {
 				request.getRequestDispatcher("/homeGestionale.jsp").forward(request, response);
 			}else {
-				request.getRequestDispatcher("/body.jsp").forward(request, response);
+				request.getRequestDispatcher("/home.jsp").forward(request, response);
 			}
 		}else {
-			request.getRequestDispatcher("/body.jsp").forward(request, response);
+			request.getRequestDispatcher("/home.jsp").forward(request, response);
 		}
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
