@@ -54,18 +54,20 @@ public class Registrazione extends HttpServlet {
 			u.setCap(request.getParameter("cap"));
 			//con l'eccezione riesco a controllare se l'utente è già presente 
 			try {
-				System.out.println("so entrato nerl tri");
+				System.out.println("so entrato nel tri");
 				Utility.inserisciUtente(u);
 				//TODO Far Comparire qualcosa per L'AVVENUTA REGISTRAZIONE
-				//request.getRequestDispatcher("/home.jsp").forward(request, response);
+				request.setAttribute("registrazione", "successo");
+				request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 			} catch (RollbackException e) {
 				System.out.println("bella catch");
-				request.setAttribute("RegistrazioneFallita", "errorReg");
-				request.getRequestDispatcher("/registrazione.jsp").forward(request, response);
+				request.setAttribute("registrazione", "errore");
+				request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 			}
-			
-			
-			
+	
+		}else {
+			request.setAttribute("registrazione", "errore");
+			request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 		}
 		
 			
