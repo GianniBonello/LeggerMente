@@ -67,7 +67,7 @@ public class Utility {
     	em.persist(u);
     	et.commit();
 	}
-	public static void inserisciNoleggio(Noleggio n, int idLibro, int idUtente) {
+	public static void inserisciNoleggio(Noleggio n, String idLibro, int idUtente) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();
@@ -76,7 +76,7 @@ public class Utility {
     	em.persist(n);
     	et.commit();
 	}
-	public static void inserisciPrenotazione(Prenotazione p, int idLibro, int idUtente) {
+	public static void inserisciPrenotazione(Prenotazione p, String idLibro, int idUtente) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();
@@ -145,7 +145,7 @@ public class Utility {
     	et.commit();
 	}
 	/*-----------------------------------------------------------------------------TROVA-----------------------------*/
-	public static Libro trovaLibro(int id) {
+	public static Libro trovaLibro(String id) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();

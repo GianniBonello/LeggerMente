@@ -11,48 +11,48 @@ function login(){
 			//$("#immagine").setAttribute("src",immagine_path);
 			/*esaurito acquisto*/ 
 			if(!isUsato && quantita <= 0){
-				alert("esaurito acquisto");
-				$('#prezzoEsaurito').innerHTML=prezzo;
-				document.getElementById("divEsauritoAcquisto").style.display="initial";
-				document.getElementById("divDisponibileAcquisto").style.display="none";
-				document.getElementById("divDisponibileNoleggio").style.display="none";
-				document.getElementById("divEsauritoNoleggio").style.display="none";
-				document.getElementById("bottvar").innerHTML="IN CODA";
-				document.getElementById("bottvar").style.display="initial";
+				alert("esaurito acquisto "+isUsato);
+				document.getElementById("prezzoEsaurito"+riga+"").innerHTML=prezzo;
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="initial";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";
+				document.getElementById("bottvar"+riga+"").innerHTML="IN CODA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
 				/*disponilibe acquisto*/ 
 			}else if(!isUsato && quantita > 0){
-				alert("disponilibe acquisto");
-				document.getElementById("divEsauritoAcquisto").style.display="none";
-				document.getElementById("divDisponibileAcquisto").style.display="initial";
-				document.getElementById("divDisponibileNoleggio").style.display="none";
-				document.getElementById("divEsauritoNoleggio").style.display="none";
-				document.getElementById("prezzoDisponibile").innerHTML=prezzo;
-				document.getElementById("bottvar").innerHTML="PRENOTA";
-				document.getElementById("bottvar").style.display="initial";
+				alert("disponilibe acquisto "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="initial";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";
+				document.getElementById("prezzoDisponibile"+riga+"").innerHTML=prezzo;
+				document.getElementById("bottvar"+riga+"").innerHTML="PRENOTA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
 				/*esaurito noleggio*/ 
 			}else if(isUsato && quantita <= 0){
-				alert("esaurito noleggio");
-				document.getElementById("divEsauritoAcquisto").style.display="none";
-				document.getElementById("divDisponibileAcquisto").style.display="none";
-				document.getElementById("divDisponibileNoleggio").style.display="none";
-				document.getElementById("divEsauritoNoleggio").style.display="initial";
-				document.getElementById("bottvar").style.display="none";
+				alert("esaurito noleggio "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="none";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="initial";
+				document.getElementById("bottvar"+riga+"").style.display="none";
 				/*disponilibe noleggio*/ 
-			}else {
-				alert("dispnibile noleggio");
-				document.getElementById("divEsauritoAcquisto").style.display="none";
-				document.getElementById("divDisponibileAcquisto").style.display="none";
-				document.getElementById("divDisponibileNoleggio").style.display="initial";
-				document.getElementById("divEsauritoNoleggio").style.display="none";/*("display","none");*/
-				document.getElementById("bottvar").innerHTML="NOLEGGIA";
-				document.getElementById("bottvar").style.display="initial";
+			}else if(isUsato && quantita > 0){
+				alert("dispnibile noleggio "+isUsato);
+				document.getElementById("divEsauritoAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileAcquisto"+riga+"").style.display="none";
+				document.getElementById("divDisponibileNoleggio"+riga+"").style.display="initial";
+				document.getElementById("divEsauritoNoleggio"+riga+"").style.display="none";/*("display","none");*/
+				document.getElementById("bottvar"+riga+"").innerHTML="NOLEGGIA";
+				document.getElementById("bottvar"+riga+"").style.display="initial";
 			}
 			
-			document.getElementById("titolo").innerHTML=titolo;
-			document.getElementById("autore").innerHTML=autore;
-			document.getElementById("casaEditrice").innerHTML=casaEditrice;
-			document.getElementById("trama").innerHTML=trama;
-			document.getElementById("immagine").setAttribute("src",immagine_path);	
+			document.getElementById("titolo"+riga+"").innerHTML=titolo;
+			document.getElementById("autore"+riga+"").innerHTML=autore;
+			document.getElementById("casaEditrice"+riga+"").innerHTML=casaEditrice;
+			document.getElementById("trama"+riga+"").innerHTML=trama;
+			document.getElementById("immagine"+riga+"").setAttribute("src",immagine_path);	
 			
 		$(".botcollapse").parent().parent().find(".descrcollapse"+riga+"").fadeToggle(1000).removeClass("d-none");
 		

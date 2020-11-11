@@ -26,11 +26,11 @@ public class PrenotazioneUtente extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-			if(request.getParameter("idLibro")!= null && Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()>0) {
+			//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
+			if(request.getParameter("idLibro")!= null && Utility.trovaLibro(request.getParameter("idLibro")).getQuantita()>0) {
 					Prenotazione p = new Prenotazione();
 					p.setData(new Date());
-					Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
+					Utility.inserisciPrenotazione(p, request.getParameter("idLibro"), ((Utente)request.getSession().getAttribute("utenteLoggato")).getIdUtente());
 					/*passaggio del parametro per stampare la conferma*/
 					request.setAttribute("prenotazione", "effettuata");
 				}else {

@@ -90,43 +90,43 @@ if(fedetrice!=null){
                             
                              `<div class="row ">
 		                                  <div class="copertina col-xl-4 pt-3 text-center">
-		                                    <img id="immagine" src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
+		                                    <img id="immagine<%=i %>" src="`+immagine_path+`" height="375px" alt="" class="w-75 mb-5">
 		                                    <p class="text-left inter"><b>AUTORE:</b></p>
 		                                    <hr class="w-75">
-		                                    <p id ="autore" class="text-left interdue">`+autore+`</p>
+		                                    <p id ="autore<%=i %>" class="text-left interdue autore">`+autore+`</p>
 		                                    <br>
 		                                    <p class="text-left inter"><b>CASA EDITRICE:</b></p>
 		                                    <hr class="w-75">
-		                                    <p id ="casaEditrice" class="text-left interdue">`+casaEditrice+`</p>
+		                                    <p id ="casaEditrice<%=i %>" class="text-left interdue casaEditrice">`+casaEditrice+`</p>
 		                            
 		                                  </div>
 		                                  <div class="col-xl-7 offset-1 pt-3">
-		                                    <h2 id ="titolo" class="mb-5 text-left ">`+titolo+`</h2>
+		                                    <h2 id ="titolo<%=i %>" class="mb-5 text-left titolo">`+titolo+`</h2>
 		                                      <div class="descrizioneinfo">
 		                                        <p class="text-left  pt-3" style="font-size: 16pt;"><b>DESCRIZIONE</b></p>
-		                                        <p id ="trama" class="text-left justify-content pt-3">`+trama+`</p>
+		                                        <p id ="trama<%=i %>" class="text-left justify-content pt-3 trama">`+trama+`</p>
 											</div>
 										  </div>
 										  <!-- disponibile acquisto --> 
-											<div id="divDisponibileAcquisto" class="row pt-5 pb-5">
+											<div id="divDisponibileAcquisto<%=i %>" class="row pt-5 pb-5 divDisponibileAcquisto">
 												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
-												<p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoDisponibile">PREZZO : 0.0 &euro;</b></p>
+												<p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoDisponibile<%=i %>">PREZZO : 0.0 &euro;</b></p>
 											</div>
 											 <!-- esaurito acquisto --> 
-											<div id="divEsauritoAcquisto" class="row pt-5 pb-5">
+											<div id="divEsauritoAcquisto<%=i %>" class="row pt-5 pb-5 divEsauritoAcquisto">
 												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
-												 <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoEsaurito">PREZZO : 0.0 &euro;</b></p>
+												 <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b id="prezzoEsaurito<%=i %>">PREZZO : 0.0 &euro;</b></p>
 											</div>
 											 <!-- disponibile noleggio --> 
-											 <div id="divDisponibileNoleggio" class="row pt-5 pb-5">
+											 <div id="divDisponibileNoleggio<%=i %>" class="row pt-5 pb-5 divDisponibileNoleggio">
 												<i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>							
 											</div>
 											  <!-- esaurito noleggio --> 
-											  <div id="divEsauritoNoleggio" class="row pt-5 pb-5">
+											  <div id="divEsauritoNoleggio<%=i %>" class="row pt-5 pb-5 divEsauritoNoleggio">
 												 <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
 											</div>
 										
-											<button id="bottvar" type="submit" class="float-left text-white shadow mb-2 ">PRENOTA</button>
+											<button id="bottvar<%=i %>" type="submit" class="float-left text-white shadow mb-2 bottvar">PRENOTA</button>
 																		
                                 </div>
                               <!-- -------------------------------------------------- -->                                   

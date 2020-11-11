@@ -38,7 +38,7 @@ public class ConvalidaPrenotazione extends HttpServlet {
 
 			p.setInCorso(false);
 			//diminuiamo di 1 la quantità del libro
-			Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);
+			Utility.trovaLibro(request.getParameter("isbn")).setQuantita(Utility.trovaLibro(request.getParameter("isbn")).getQuantita()-1);
 			request.setAttribute("convalidaPrenotazione", "effettuata");
 
 
