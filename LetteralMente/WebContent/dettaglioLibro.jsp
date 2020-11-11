@@ -1,5 +1,6 @@
-<%@page import="model.Libro"%>
 <jsp:include page="/headerInterno.jsp"></jsp:include>
+
+<%@page import="model.Libro"%>
 <%if(request.getAttribute("libro")==null){
 	response.sendRedirect("ControlloIniziale");
 	System.out.println("qualcosa if");
@@ -53,4 +54,5 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                 </div>
             </div>
       <%} %>
+      
            <jsp:include page="/footer.jsp"></jsp:include>

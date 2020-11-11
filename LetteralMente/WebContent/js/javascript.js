@@ -79,3 +79,8 @@ function login(){
       });
         
     });
+
+
+$("#capid").keyup(function() {
+    $("#capid").val(this.value.match(/[0-9]*/));
+});
