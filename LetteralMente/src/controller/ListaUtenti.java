@@ -33,8 +33,8 @@ public class ListaUtenti extends HttpServlet {
 		if(request.getParameter("ricerca")!=null && !request.getParameter("ricerca").equals("")) {
 			for (Utente u : listaUtenti) {
 				int cont=0;
-				
-				if(request.getParameter("nome")!=null) { //se filtra=nome
+
+				if(request.getParameter("nome")!=null) {
 					for(String s : UtilityRicerca.spezzaStringhe(u.getNome())) { //basta che una stringa dell'array è uguale a scelta per non eliminare l'utente
 						for(String v : UtilityRicerca.spezzaStringhe(request.getParameter("ricerca"))) {
 							if(!s.equals(v)) {
@@ -42,10 +42,15 @@ public class ListaUtenti extends HttpServlet {
 							} 
 						}
 					}
+
 					//se ho trovato tutte parole differenti allora elimina u
 					if (cont == UtilityRicerca.spezzaStringhe(u.getNome()).length * UtilityRicerca.spezzaStringhe(request.getParameter("ricerca")).length) {
 						listaUtenti.remove(u);
+					}else if(cont == 0) {
+						listaUtenti.clear();
+						listaUtenti.add(u);
 					}
+
 				}else if(request.getParameter("cognome")!=null) { //se filtra=nome
 					for(String s : UtilityRicerca.spezzaStringhe(u.getCognome())) {
 						for(String v : UtilityRicerca.spezzaStringhe(request.getParameter("ricerca"))) {
@@ -57,7 +62,11 @@ public class ListaUtenti extends HttpServlet {
 					//se ho trovato tutte parole differenti allora elimina u
 					if (cont == UtilityRicerca.spezzaStringhe(u.getCognome()).length * UtilityRicerca.spezzaStringhe(request.getParameter("ricerca")).length) {
 						listaUtenti.remove(u);
+					}else if(cont == 0) {
+						listaUtenti.clear();
+						listaUtenti.add(u);
 					}
+
 				}else if (request.getParameter("username")!=null && !request.getParameter("ricerca").equals(u.getUsername())) {
 					listaUtenti.remove(u);
 
@@ -66,7 +75,7 @@ public class ListaUtenti extends HttpServlet {
 				}
 			}
 		}
-		
+
 		request.setAttribute("listaUtenti", listaUtenti);
 		//request.setAttribute("listaUtenti", Utility.leggiUtente());
 		request.getRequestDispatcher("/listaUtenti.jsp").forward(request, response);
