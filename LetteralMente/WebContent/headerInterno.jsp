@@ -23,7 +23,7 @@
  
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-3">
                 <div class="container">
-                <a class="navbar-brand logo " href="#"><img src="res/Logo-nero.png"></a>
+                <a class="navbar-brand logo " href="ControlloIniziale"><img src="res/Logo-nero.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"

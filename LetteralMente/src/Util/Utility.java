@@ -85,6 +85,7 @@ public class Utility {
     	p.setU(em.find(Utente.class, idUtente));
     	em.persist(p);
     	et.commit();
+    	UtilityRicerca.mailPrenotazioni(p);
 	}
 	
 	/*---------------------------------------------------------------------------------ELIMINA-------------------------------*/
@@ -137,6 +138,7 @@ public class Utility {
     	et.begin();
     	em.merge(p);
     	et.commit();
+    	UtilityRicerca.mailPrenotazioni(p);
 	}
 	public static void modificaNoleggio(Noleggio n) {
 		EntityManager em = getManager();

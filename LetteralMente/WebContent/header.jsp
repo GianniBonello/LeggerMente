@@ -24,7 +24,7 @@
     <header> 
         <div class="container">  
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent text-light mb-3">
-            <a class="navbar-brand logo " href="#"><img src="res/logo.png"></a>
+            <a class="navbar-brand logo " href="ControlloIniziale"><img src="res/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -54,7 +54,7 @@
                     <div class="dropdown">
                         <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> ID SEZIONE
+                                <a class="dropdown-item" href="ModificaProfilo"><i class="fas fa-user pr-2"></i> Il mio profilo</a> ID SEZIONE
                                 <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a>  ID SEZIONE
                                 <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a>  ID SEZIONE
                              </div>

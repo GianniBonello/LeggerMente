@@ -35,6 +35,9 @@ public class ModificaProfilo extends HttpServlet {
 			Utility.modificaUtente(u);
 			request.getSession().setAttribute("utenteLoggato", u);
 		}
+		
+		request.setAttribute("utente", (Utente)request.getSession().getAttribute("utenteLoggato"));
+		request.getRequestDispatcher("IlMioProfilo").forward(request, response);
 	}
 
 }
