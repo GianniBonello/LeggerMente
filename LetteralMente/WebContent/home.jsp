@@ -66,7 +66,6 @@
                                       
 <%                                               
 List<Libro> lista= (List<Libro>)request.getAttribute("listaLibri");                         
-Libro libroCollapse=new Libro();
 if(lista!=null){
 %>		
 						<div class="row text-center pt-5 pb-5">

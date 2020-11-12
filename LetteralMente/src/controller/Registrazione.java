@@ -28,30 +28,27 @@ public class Registrazione extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("bella mattè");
-		//Controllo che l'utente abbia inserito testo in tutti i campi
-		if(request.getParameter("nome")!=null && !request.getParameter("nome").equals("")&&
-				request.getParameter("cognome")!=null && !request.getParameter("cognome").equals("")&&
-				request.getParameter("dataDiNascita")!=null && !request.getParameter("dataDiNascita").equals("")&&
-				request.getParameter("cf")!=null && !request.getParameter("cf").equals("")&&
-				request.getParameter("email")!=null && !request.getParameter("email").equals("")&&
-				request.getParameter("username")!=null && !request.getParameter("username").equals("")&&
-				request.getParameter("password")!=null && !request.getParameter("password").equals("")&&
-				request.getParameter("comune")!=null && !request.getParameter("comune").equals("")&&
-				request.getParameter("indirizzo")!=null && !request.getParameter("indirizzo").equals("")&&
-				request.getParameter("cap")!=null && !request.getParameter("cap").equals("")) {
-			//Ora creo l'utente da inserire 
-			System.out.println("a bello so entrato nell'if");
-			Utente u=new Utente();
-			u.setNome(request.getParameter("nome"));
-			u.setCognome(request.getParameter("cognome"));
-			u.setDataDiNascita(Date.valueOf(request.getParameter("dataDiNascita")));//Sistemare per la Date
-			u.setCf(request.getParameter("cf"));
-			u.setEmail(request.getParameter("email").toLowerCase());
-			u.setUsername(request.getParameter("username"));
-			u.setPassword(request.getParameter("password"));
-			u.setComune(request.getParameter("comune"));
-			u.setIndirizzo(request.getParameter("indirizzo"));
-			u.setCap(request.getParameter("cap"));
+		String nome=request.getParameter("nome"),cognome=request.getParameter("cognome"),dataDiNascita = request.getParameter("dataDiNascita"),
+				cf = request.getParameter("cf"),email = request.getParameter("email"),username = request.getParameter("username"), 
+				password = request.getParameter("password"), comune = request.getParameter("comune"), indirizzo = request.getParameter("indirizzo"), 
+				cap= request.getParameter("cap");
+		
+				if(nome!=null && !nome.equals("")&&cognome!=null && !cognome.equals("")&&dataDiNascita!=null && !dataDiNascita.equals("")&&
+				cf!=null && !cf.equals("")&&email!=null && !email.equals("")&&username!=null && !username.equals("")&&password!=null && 
+				!password.equals("")&&comune!=null && !comune.equals("")&&indirizzo!=null && !indirizzo.equals("")&&cap!=null && !cap.equals("")) {
+							//Ora creo l'utente da inserire 
+							System.out.println("a bello so entrato nell'if");
+							Utente u=new Utente();
+							u.setNome(nome);
+							u.setCognome(cognome);
+							u.setDataDiNascita(Date.valueOf(dataDiNascita));//Sistemare per la Date
+							u.setCf(cf);
+							u.setEmail(email.toLowerCase());
+							u.setUsername(username);
+							u.setPassword(password);
+							u.setComune(comune);
+							u.setIndirizzo(indirizzo);
+							u.setCap(cap);
 			//con l'eccezione riesco a controllare se l'utente è già presente 
 			try {
 				System.out.println("so entrato nel tri");
@@ -64,7 +61,6 @@ public class Registrazione extends HttpServlet {
 				request.setAttribute("registrazione", "errore");
 				request.getRequestDispatcher("registrazione.jsp").forward(request, response);
 			}
-	
 		}else {
 			request.setAttribute("registrazione", "errore");
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);

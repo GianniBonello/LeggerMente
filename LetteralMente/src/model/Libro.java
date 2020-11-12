@@ -59,11 +59,11 @@ public class Libro implements Serializable {
 		this.immagine_path = immagine_path;
 	}
 
-	@OneToOne(mappedBy="lib")
-	public Noleggio nol;
+	@OneToMany(mappedBy="lib")
+	public List<Noleggio> nol;
 	
-	@OneToOne(mappedBy="lib")
-	public Prenotazione pren;
+	@OneToMany(mappedBy="lib")
+	public List<Prenotazione> pren;
 
 	public Libro() {
 	}
@@ -140,28 +140,28 @@ public class Libro implements Serializable {
 		this.trama = trama;
 	}
 
-	public Noleggio getNol() {
-		return nol;
-	}
-
-	public void setNol(Noleggio nol) {
-		this.nol = nol;
-	}
-
-	public Prenotazione getPren() {
-		return pren;
-	}
-
-	public void setPren(Prenotazione pren) {
-		this.pren = pren;
-	}
-
 	public void setUsato(boolean isUsato) {
 		this.isUsato = isUsato;
 	}
 	
 	public int getId_libro() {
 		return id_libro;
+	}
+
+	public List<Noleggio> getNol() {
+		return nol;
+	}
+
+	public void setNol(List<Noleggio> nol) {
+		this.nol = nol;
+	}
+
+	public List<Prenotazione> getPren() {
+		return pren;
+	}
+
+	public void setPren(List<Prenotazione> pren) {
+		this.pren = pren;
 	}
 
 	@Override

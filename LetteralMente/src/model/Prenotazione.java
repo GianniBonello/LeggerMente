@@ -29,7 +29,7 @@ public class Prenotazione implements Serializable {
 	@Column(name="inCorso")
 	private boolean inCorso;
 
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="isbn_libro")
 	private Libro lib;
 

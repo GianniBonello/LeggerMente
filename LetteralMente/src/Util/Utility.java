@@ -1,12 +1,15 @@
 package Util;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import model.Libro;
 import model.Noleggio;
@@ -48,7 +51,10 @@ public class Utility {
 	
 	public static List<Libro> leggiLibroHome(){
 		EntityManager em = getManager();
-    	return em.createQuery("SELECT l FORM Libro l ORDER BY id_libro DESC LIMIT 6").getResultList();
+		Query q = em.createQuery("SELECT l FROM Libro l ORDER BY l.id_libro DESC");
+		q.setMaxResults(6);
+		return (List<Libro>)q.getResultList();
+    	 
 	}
 	
 	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
@@ -172,8 +178,16 @@ public class Utility {
 	}
 	
 	public static Utente trovaUtente(String use, String pass){
+		String passCod = Base64.getEncoder().encodeToString((pass).getBytes());
 		EntityManager em = getManager();
-		return (Utente) em.createQuery("SELECT u FROM Utente u WHERE username = "+use+" AND password = "+pass+";");
+		Query q = em.createQuery("SELECT u FROM Utente u WHERE u.username =:user AND u.password =:pass");
+		q.setParameter("user", use);
+		q.setParameter("pass", passCod);
+		try {
+			return (Utente)q.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	public static Prenotazione trovaPrenotazione(int id) {

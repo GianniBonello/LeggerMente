@@ -23,8 +23,8 @@ public class ControlloIniziale extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente u= (Utente)request.getSession().getAttribute("UtenteLoggato");
-
-		request.setAttribute("listaLibri", Utility.leggiLibro());
+		request.setAttribute("listaLibri", Utility.leggiLibroHome());
+		//System.out.println(Utility.leggiLibroHome());
 		if(u!=null) {
 			if(u.getIsStaff()) {
 				request.getRequestDispatcher("/homeGestionale.jsp").forward(request, response);

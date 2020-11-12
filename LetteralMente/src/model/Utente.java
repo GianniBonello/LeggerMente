@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.*;
+
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -151,8 +153,8 @@ public class Utente implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		//String passwordCodificata = Base64.getEncoder().encodeToString((password).getBytes());
-		this.password = password;
+		String passwordCodificata = Base64.getEncoder().encodeToString((password).getBytes());
+		this.password = passwordCodificata;
 	}
 
 	public String getUsername() {
