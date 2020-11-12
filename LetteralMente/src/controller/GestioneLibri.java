@@ -47,7 +47,7 @@ public class GestioneLibri extends HttpServlet {
 			}
 			request.getRequestDispatcher("/listaLibri.jsp");
 		}else if(u.getIsStaff() && request.getParameter("idLibro") != null) {
-			Libro l = Utility.trovaLibro(request.getParameter("isbn"));
+			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 			//mi salvo la quantità che aveva prima il libro
 			int quantita = l.getQuantita();
 			l.setIsbn(request.getParameter("isbn"));

@@ -34,7 +34,7 @@ public class Noleggio implements Serializable {
 	@Column(name="in_corso")
 	private boolean inCorso;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="isbn_libro")
 	private Libro lib;
 
