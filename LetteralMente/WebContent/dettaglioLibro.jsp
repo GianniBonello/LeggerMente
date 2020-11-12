@@ -9,7 +9,7 @@
 Libro l = (Libro)request.getAttribute("libro"); %>
 <div class="container">
 
-                <div class=" col-xl-12 poplibro confine shadow p-5 mb-2 bg-white mt-5" id="descr">
+                <div class=" col-xl-12 poplibro mt-5" id="descr">
                                             <div class="row ">
                                               <div class="copertina col-xl-4 pt-3 text-center">
                                                 <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
