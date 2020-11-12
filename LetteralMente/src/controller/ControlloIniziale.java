@@ -27,7 +27,7 @@ public class ControlloIniziale extends HttpServlet {
 		//System.out.println(Utility.leggiLibroHome());
 		if(u!=null) {
 			if(u.getIsStaff()) {
-				request.getRequestDispatcher("/homeGestionale.jsp").forward(request, response);
+				request.getRequestDispatcher("/homestaff.jsp").forward(request, response);
 			}else {
 				request.getRequestDispatcher("/home.jsp").forward(request, response);
 			}

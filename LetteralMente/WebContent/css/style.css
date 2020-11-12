@@ -350,9 +350,8 @@ margin-left: 100px;
 
 .prenotazioni .chiaro{
 	border: none;
-	background:white;
+	background: rgba(255,255,255,0.3);
 	color:black; 
-	opacity: 0.3
 }
 
 .stonda{
@@ -678,4 +677,22 @@ background-color: #eaeaea;
     -o-background-size: cover;
     background-size: cover;
     height:100vh;
+}
+
+
+
+/* DETTAGLI PRENOTAZIONE */
+
+.popprezzo .price{
+	font-size: 19pt;
+	line-height: 0.7;
+}
+
+.popprezzo .mar{
+
+margin-bottom: 132px;
+}
+
+.mardue{
+	margin-bottom: 121px;
 }

@@ -1,8 +1,8 @@
 <jsp:include page="/HeaderStaff.jsp"></jsp:include>
 
-<div class="container-fluid prenotazioni bg-danger ">
+<div class="container-fluid prenotazioni sfondostaff">
 
-        <h1 class="offset-5 pt-5 "><b>Gestione prenotazioni</b></h1>
+        <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione prenotazioni</b></h1>
 
         <div class="row offset-5 mt-3 mb-3">
             <!-- CERCA LIBRI  -->

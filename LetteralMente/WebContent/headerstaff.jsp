@@ -23,9 +23,9 @@
 <body>
 
 
-<div class="container-fluid">
+<div class="container-fluid" style="padding-right:0px!important;padding-left:0px!important">
   
-    <nav id="sidebarMenu" class="col-lg-2 d-lg-block bg-dark sidebar collapse">
+    <nav id="sidebarMenu" class=" col-md-12 col-lg-2 d-lg-block bg-dark sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column text-center m-auto w-100 h-100" style="justify-content:center" >
         
@@ -35,25 +35,25 @@
 
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link active text-center" href="#"><i class="fas fa-home pr-5"></i><b>HOME </b><span class="sr-only">(current)</span></a>
+            	<a class="nav-link active text-center " href="#"><i class="fas fa-home pr-5" style="width:68px;" ></i><b>HOME </b><span class="sr-only">(current)</span></a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="#"><i class="fas fa-user-cog pr-5"></i>GESTIONE UTENTI</a>
+            	<a class="nav-link text-center" href="#"><i class="fas fa-user-cog pr-5" style="width:68px;"></i>GESTIONE UTENTI</a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="#"><i class="fas fa-atlas pr-5"></i>GESTIONE LIBRI</a>
+            	<a class="nav-link text-center" href="#"><i class="fas fa-atlas pr-5" style="width:68px;"></i>GESTIONE LIBRI</a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="#"><i class="fas fa-dolly-flatbed pr-5"></i>GESTIONE PRENOTAZIONI</a>
+            	<a class="nav-link text-center" href="#"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE PRENOTAZIONI</a>
             </div>
           </li>
           

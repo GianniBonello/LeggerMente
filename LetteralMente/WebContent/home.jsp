@@ -75,7 +75,7 @@ if(lista!=null){
 %>
                             <div class="libro col-xl-4 pt-5">
                                     <img src="<%=l.getImmagine_path() %>"  class="w-75" style=" height:375px;">
-                                   <a href="DettaglioLibro?idLibro=<%=l.getIsbn()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
+                                   <a href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
                             </div>
   
 <%          }                     %>

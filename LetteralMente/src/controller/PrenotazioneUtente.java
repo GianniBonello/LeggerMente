@@ -40,7 +40,7 @@ public class PrenotazioneUtente extends HttpServlet {
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
 						/*passaggio del parametro per stampare la conferma*/
 						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
-						request.getRequestDispatcher("DettagliPenotazioneEffettuata.jsp").forward(request, response);
+						request.getRequestDispatcher("confermaprenotazione.jsp").forward(request, response);
 				}else if(l.getQuantita() <= 0){
 						//request.setAttribute("prenotazione", "libriFiniti");
 						Prenotazione p = new Prenotazione();

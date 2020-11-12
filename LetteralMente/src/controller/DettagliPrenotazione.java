@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
+import model.Libro;
 
 @WebServlet("/DettagliPrenotazione")
 public class DettagliPrenotazione extends HttpServlet {
@@ -19,10 +20,15 @@ public class DettagliPrenotazione extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 		if(request.getParameter("isbn") != null) {
-			request.setAttribute("libro", Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))));
-			request.getRequestDispatcher("DettagliPrenotazione.jsp").forward(request, response);;
-		}
+			request.setAttribute("libro", l);
+				if(l.getQuantita()>0)
+					request.getRequestDispatcher("DettagliPrenotazione.jsp").forward(request, response);
+				else
+					request.getRequestDispatcher("DettagliNoleggio.jsp").forward(request, response);
+		}else
+				request.getRequestDispatcher("ListaLibri").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

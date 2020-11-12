@@ -1,13 +1,10 @@
 <jsp:include page="/HeaderStaff.jsp"></jsp:include>
 
-<div class="container-fluid utenti bg-danger ">
+<div class="container-fluid utenti sfondostaff">
 
-	<h1 class="col-9 offset-3 pt-5 text-center ">
-		<b>Gestione utenti</b>
-	</h1>
+	<h1 class="col-9 offset-3 pt-5 text-center text-light"><b>Gestione utenti</b></h1>
 
-	<div
-		class="row col-9 offset-6 mt-3 mb-3 centrare>
+	<div class="row col-9 offset-6 mt-3 mb-3 centrare">
                
                          
                  <form action=" listalibri.jsp" method="post">
@@ -19,7 +16,6 @@
                         <option value="cognome">Cognome</option>
                         <option value="cf">Codice fiscale</option>
                         <option value="username">Username</option>
-
                     </select>
                 </div>
             </div>

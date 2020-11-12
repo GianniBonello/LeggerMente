@@ -1,23 +1,23 @@
 <jsp:include page="/HeaderStaff.jsp"></jsp:include>
 
-    <div class="container-fluid libri bg-danger ">
+<div class="container-fluid libri sfondostaff">
 
-        <h1 class="col-9 offset-3 pt-5 text-center "><b>Gestione libri</b></h1>
+        <h1 class="col-9 offset-3 pt-5 text-center text-light"><b>Gestione libri</b></h1>
 
-        <div class="row col-9 offset-5 pl-5 mt-3 mb-3 centrare>
+        <div class="row col-9 offset-5 pl-5 mt-3 mb-3 centrare">
                                    
             <form action=" listalibri.jsp" method="post">
             	<div class="cercaLibro pt-5 pl-5">
-                	
                 	<div class="input-group">
                     	<span class="input-group-append">
-                        <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+                        <p class="input-group-text py-2 shadow" style="z-index:2;"><i class="fa fa-search"></i></p>
                     	</span>
                     	<input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" size="33"
                         type="search" placeholder="Cerca titolo del libro" id="example-search-input">
-                	</div>
+                	</div>              	
             	</div>
             </form>
+            
         </div>
 
 
@@ -116,7 +116,6 @@
                                                             <input type="number" name="prezzo"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="prezzoid" value="l.getPrezzo" required>
-
                                                         </div>
 
 
@@ -128,7 +127,6 @@
                                                     </div>
 
                                                     <div class="form-row pt-4">
-
                                                         <label for="imgid" class="col-2 pt-2">Immagine </label>
                                                         <input type="file" name="immagine"
                                                             class="form-control imm shadow p-1 mb-1 bg-white col-6 mr-5"
@@ -143,6 +141,7 @@
                                                 <div class="text-center pt-4">
                                                     <button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" type="submit">MOFIDICA</button>
                                                 </div>
+                                                
                                               </form>
                                             </div>
                                         </div>
@@ -151,10 +150,9 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table> 
             </div>
         </div>
-    </div>
-
+        
 
 <jsp:include page="/footerStaff.jsp"></jsp:include> 

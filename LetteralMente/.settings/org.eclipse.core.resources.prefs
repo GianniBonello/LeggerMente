@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
-encoding//WebContent/DettagliPrenotazione.jsp=UTF-8
 encoding//WebContent/body.jsp=UTF-8
-encoding//WebContent/dettaglioLibro.jsp=UTF-8
+encoding//WebContent/dettaglinoleggio.jsp=UTF-8
+encoding//WebContent/dettagliocoda.jsp=UTF-8
+encoding//WebContent/dettagliolibro.jsp=UTF-8
+encoding//WebContent/dettagliprenotazione.jsp=UTF-8

@@ -3,9 +3,8 @@
 <%@page import="model.Libro"%>
 <%if(request.getAttribute("libro")==null){
 	response.sendRedirect("ControlloIniziale");
-	System.out.println("qualcosa if");
 }else{
-	System.out.println("qualcosa else");
+
 Libro l = (Libro)request.getAttribute("libro"); %>
 <div class="container">
 
@@ -44,9 +43,9 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                  
                                                     <% if(request.getSession().getAttribute("utenteLoggato") != null){
 		                                                    if(!l.getIsUsato()){ %>                     
-		                                              		 	<a href="DettagliPrenotazione?idLibro=<%=l.getId_libro() %>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
+		                                              		 	<a href="DettagliPrenotazione?idLibro=<%=l.getId_libro()%>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
 		                                               	   <%}else {%>
-		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\"DettagliNoleggio?isbn="+l.getIsbn()+"\"><button  class=\"float-left text-white shadow mb-2 ml-5\">NOLEGGIA</button></a> " : ""%>
+		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\"DettagliNoleggio?idLibro="+l.getId_libro()+"\"><button  class=\"float-left text-white shadow mb-2 ml-5\">NOLEGGIA</button></a> " : ""%>
 		                                           		   <%}
                                                     }%> 
                                               </div>
