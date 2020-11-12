@@ -66,7 +66,7 @@
                                                             <label for="titoloid">Titolo </label>
                                                             <input type="text" name="titolo"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="titoloid" placeholder="">
+                                                                id="titoloid" value="l.getNome" required>
                                                         </div>
                                                     </div>
 
@@ -75,13 +75,13 @@
                                                             <label for="casaid">Casa editrice</label>
                                                             <input type="text" name="casaeditrice"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="casaid" placeholder="">
+                                                                id="casaid" value="l.getCasaEditrice" required>
                                                         </div>
                                                         <div class="form-group col-xl-3 pt-1">
                                                             <label for="annoid">Anno</label>
                                                             <input type="number" name="anno"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="annoid" placeholder="">
+                                                                id="annoid" value="l.getAnno" required>
                                                         </div>
                                                     </div>
 
@@ -91,14 +91,14 @@
                                                             <label for="genereid">Genere </label>
                                                             <input type="text" name="genere"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="genereid" placeholder="">
+                                                                id="genereid" value="l.getGenere" required>
                                                         </div>
 
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="isbnid">Codice ISBN</label>
                                                             <input type="number" name="isbn"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
-                                                                id="isbnid">
+                                                                id="isbnid value="l.getCodiceIsbn" required>
                                                         </div>
                                                     </div>
 
@@ -107,7 +107,7 @@
                                                             <label for="qtid">Quantita</label>
                                                             <input type="number" name="quantita"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="qtid" placeholder="">
+                                                                id="qtid" value="l.getQuantita" required>
                                                         </div>
 
 
@@ -115,7 +115,7 @@
                                                             <label for="prezzoid">Prezzo </label>
                                                             <input type="number" name="prezzo"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="prezzoid" placeholder="">
+                                                                id="prezzoid" value="l.getPrezzo" required>
 
                                                         </div>
 
@@ -124,7 +124,7 @@
 
                                                     <div class="form-row">
                                                         <label for="prezzoid">Trama</label>
-                                                        <textarea name="trama" class="text pt-1"></textarea>
+                                                        <textarea name="trama" class="text pt-1" value="l.getTrama" required></textarea>
                                                     </div>
 
                                                     <div class="form-row pt-4">

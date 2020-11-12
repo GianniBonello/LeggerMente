@@ -30,14 +30,14 @@
                             <div class="form-row">
                                 <div class="form-group col-xl-6 pt-1">
                                     <label for="passid">Password </label>
-                                    <input type="text" name="password"
+                                    <input type="password" name="password"
                                         class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                         id="passid" placeholder="">
                                 </div>
 
                                 <div class="form-group col-xl-6 pt-1">
                                     <label for="confid">Conferma password </label>
-                                    <input type="email" name="confermapassword"
+                                    <input type="password" name="confermapassword"
                                         class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                         id="confid" placeholder="">
                                 </div>
