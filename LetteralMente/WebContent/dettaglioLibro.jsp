@@ -43,9 +43,9 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                  
                                                     <% if(request.getSession().getAttribute("utenteLoggato") != null){
 		                                                    if(!l.getIsUsato()){ %>                     
-		                                              		  <button  class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button>  
+		                                              		 <a href="DettagliPrenotazione?isbn=<%=l.getIsbn() %>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
 		                                               	   <%}else {%>
-		                                              			 <%=l.getQuantita()> 0 ? " <button  class=\"float-left text-white shadow mb-2 ml-5\">NOLEGGIA</button> ":""%>
+		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\"DettagliNoleggio?isbn="+l.getIsbn()+"\"><button  class=\"float-left text-white shadow mb-2 ml-5\">NOLEGGIA</button></a> " : ""%>
 		                                           		   <%}
                                                     }%> 
                                               </div>

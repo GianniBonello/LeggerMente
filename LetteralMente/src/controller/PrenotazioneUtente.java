@@ -40,14 +40,22 @@ public class PrenotazioneUtente extends HttpServlet {
 					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
 					/*passaggio del parametro per stampare la conferma*/
 					request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+<<<<<<< Upstream, based on branch 'master' of https://github.com/GianniBonello/LeggerMente.git
 					request.getRequestDispatcher("dettagliPenotazioneEffettuata.jsp").forward(request, response);
+=======
+					request.getRequestDispatcher("DettagliPenotazioneEffettuata.jsp").forward(request, response);
+>>>>>>> d8f1787 collegamenti
 			}else if(request.getParameter("isbn")!= null && l.getQuantita() <= 0){
 					//request.setAttribute("prenotazione", "libriFiniti");
 					Prenotazione p = new Prenotazione();
 					//prenotazioniInCoda.add(p);
 					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
+<<<<<<< Upstream, based on branch 'master' of https://github.com/GianniBonello/LeggerMente.git
 					request.setAttribute("dettagliPrenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
 					request.getRequestDispatcher("dettagliPenotazioneEffettuata.jsp").forward(request, response);
+=======
+					request.setAttribute("dettagliPrenotazioneEffettuata.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+>>>>>>> d8f1787 collegamenti
 			}else {
 				request.setAttribute("libro", l);
 				request.setAttribute("errore", "errore");
