@@ -1,6 +1,6 @@
 <jsp:include page="/headerInterno.jsp"></jsp:include>
 
-<div class="poplibro confine shadow p-5 mb-2 bg-white">
+<div class="poplibro bg-white">
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">
         <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
@@ -20,18 +20,19 @@
           <div class="form-row pt-5 mb-5">
             <div class="form-group col-md-11 pt-1 mb-2">
               <label for="inizio">Data inizio noleggio </label>
-              <input type="text" name="nome" class="form-control pl-4 shadow p-1 mb-1" id="inizio" placeholder="">
+              <input type="text" name="nome" class="form-control pl-4 shadow p-1 mb-1" id="inizio" value="l.getDataInizioNoleggio" required>
             </div>
             <div class="form-group col-md-11 pt-1 mt-5 mb-5">
               <label for="fine">Data fine noleggio </label>
-              <input type="text" name="nome" class="form-control pl-4 shadow p-1 mb-1" id="fine" placeholder="">
+              <input type="text" name="nome" class="form-control pl-4 shadow p-1 mb-1" id="fine" value="l.getDataFineNoleggio" required>
             </div>
           </div>
-        </form>
+        
 
         <button type="submit" class=" altcol-3 p-2 text-white shadow p-1 mb-2 ">NOLEGGIA</button>
 
         <button type="submit" class=" col-3 offset-1 p-2 text-white shadow p-1 mb-2 " data-dismiss="modal">ANNULLA</button>
+        </form>
       </div>
     </div>
 

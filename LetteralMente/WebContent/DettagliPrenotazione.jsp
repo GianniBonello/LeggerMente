@@ -2,10 +2,13 @@
 <jsp:include page="/headerInterno.jsp"></jsp:include>
 
 <div class="container">
-  <div class="popprezzo confine shadow p-5 mb-2 bg-white">
+  <div class="popprezzo bg-white">
 <%
 	Libro l = (Libro)request.getAttribute("libro");
 %>
+
+
+
 
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">

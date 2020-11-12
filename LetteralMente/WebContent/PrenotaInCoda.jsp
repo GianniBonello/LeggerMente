@@ -1,6 +1,6 @@
   <jsp:include page="/headerInterno.jsp"></jsp:include>
   
-    <div class="popcoda confine shadow p-5 mb-2 bg-white">
+    <div class="popcoda bg-white">
 
 
         <div class="row ">

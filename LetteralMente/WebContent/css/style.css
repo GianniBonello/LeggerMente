@@ -220,10 +220,9 @@ button{
 
 /* POP UP */
 
- .confine{
-	border: none;
-	border-radius: 50px;
-
+.poplibro{
+	margin-top: 100px;
+	margin-bottom: 100px;
 }
 
 .poplibro .inter{
@@ -254,6 +253,11 @@ margin-top: 70px;
 
 /* SECONDO POP UP */
 
+.popcoda{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
 	.popcoda .boh{
 
 		margin-top: 200px;
@@ -279,6 +283,11 @@ margin-top: 70px;
 	}
 
 /* TERZO POP UP DA FINIRE */
+
+.popprezzo{
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
 
 .popprezzo .boh{
 
