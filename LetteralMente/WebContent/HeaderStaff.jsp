@@ -28,46 +28,49 @@
   
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
       <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
+        <ul class="nav flex-column text-center">
         
-        <li class="nav-item text-center">
-            <a class="navbar-brand logo " href="ControlloIniziale"><img src="res/logo-grigio.png"></a>
+          <li class="nav-item">
+            <a class="navbar-brand logo text-center pb-5" href="ControlloIniziale"><img src="res/logo-grigio.png"></a>
           </li>
 
-          <li class="nav-item text-center">
-            <a class="nav-link active" href="#">
-              <span data-feather="home"></span>
-              HOME <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+          	<div class="row">
+            	<a class="nav-link active text-center" href="#"><i class="fas fa-home pr-5"></i><b>HOME </b><span class="sr-only">(current)</span></a>
+            </div>
           </li>
-          <li class="nav-item text-center">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              GESTIONE UTENTI
-            </a>
+          
+          <li class="nav-item">
+          	<div class="row">
+            	<a class="nav-link text-center" href="#"><i class="fas fa-user-cog pr-5"></i>GESTIONE UTENTI</a>
+            </div>
           </li>
-          <li class="nav-item text-center">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              GESTIONE LIBRI
-            </a>
+          
+          <li class="nav-item">
+          	<div class="row">
+            	<a class="nav-link text-center" href="#"><i class="fas fa-atlas pr-5"></i>GESTIONE LIBRI</a>
+            </div>
           </li>
-          <li class="nav-item text-center">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              GESTIONE PRENOTAZIONI
-            </a>
+          
+          <li class="nav-item">
+          	<div class="row">
+            	<a class="nav-link text-center" href="#"><i class="fas fa-dolly-flatbed pr-5"></i>GESTIONE PRENOTAZIONI</a>
+            </div>
+          </li>
+          
+          <li class="nav-item">
+        		<button class="bottoneamministrativo shadow mt-5 mb-3">HOMEPAGE</button>
+          </li>
+          
+          <li class="nav-item">
+        		<button class="bottoneamministrativo shadow">LOGOUT</button>
           </li>
         </ul>
-        <div class="text-center comandi">
-        	<div class="row">
-        		<button class="bottoneamministrativo shadow">HOMEPAGE</button>
-        	</div>
+        
         	
-        	<div class="row">
-        		<button class="bottoneamministrativo shadow">LOGOUT</button>
-        	</div>
-      	</div>
+        	
+        	
+
     </nav>
     
 <jsp:include page="/footerStaff.jsp"></jsp:include>    

@@ -34,12 +34,18 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="#">HOME
-                            <span class="sr-only">(current)</span>
-                    </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#inostriservizi">I NOSTRI SERVIZI</a></li> 
-                    <li class="nav-item"><a class="nav-link" href="#chisiamo">CHI SIAMO</a></li> 
-                    <li class="nav-item"><a class="nav-link" href="#listalibri">LISTA LIBRI</a></li> <!-- #ID sezione -->
+                    <li class="nav-item active">
+                    	<a class="nav-link" href="#"><b>HOME</b><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    	<a class="nav-link" href="#inostriservizi"><b>I NOSTRI SERVIZI</b></a>
+                    </li> 
+                    <li class="nav-item">
+                    	<a class="nav-link" href="#chisiamo"><b>CHI SIAMO</b></a>
+                    </li> 
+                    <li class="nav-item">
+                    	<a class="nav-link" href="#listalibri"><b>LISTA LIBRI</b></a>
+                    </li> 
                 </ul>
                   <% 
                         if(request.getSession().getAttribute("utenteLoggato")==null) { 
@@ -54,11 +60,11 @@
                          <div class="dropdown">
                             <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
-                                    <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> 
-                                    <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a> 
-                                    <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a>  
-                                 </div>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i>Il mio profilo</a> 
+                                    <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i>Storico prenotazioni</a> 
+                                    <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i>Noleggi effettuati</a> 
+                                    <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>  
+                                  </div>
                         </div> 
                       <% } %>  
                     </div>

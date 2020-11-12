@@ -1,4 +1,4 @@
-	<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/header.jsp"></jsp:include>
     

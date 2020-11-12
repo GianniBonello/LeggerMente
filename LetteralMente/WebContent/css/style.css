@@ -3,6 +3,9 @@
 	font-family: 'Poppins', sans-serif;
 }
 
+a:hover{
+	color:#ffffff;
+}
 
 header{
     background:  linear-gradient(45deg, rgba(190, 56, 123, 0.6),rgba(21, 169, 189, 0.6)) , url(../res/bg.jpg) no-repeat center center fixed;
@@ -644,6 +647,7 @@ background-color: #eaeaea;
   position: relative;
 }
 
+
 .nav-link:before {
   content: "";
   display: block;
@@ -661,4 +665,8 @@ background-color: #eaeaea;
 
 .nav-link:hover:before {
   transform: scale(1);
+}
+
+.nav-link :hover{
+	color:#ffffff;
 }
