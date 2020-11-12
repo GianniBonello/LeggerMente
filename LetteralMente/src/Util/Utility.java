@@ -46,6 +46,11 @@ public class Utility {
     	return em.createNamedQuery("Utente.findAll").getResultList();
 	}
 	
+	public static List<Libro> leggiLibroHome(){
+		EntityManager em = getManager();
+    	return em.createQuery("SELECT l FORM Libro l ORDER BY id_libro DESC LIMIT 6").getResultList();
+	}
+	
 	/*COSA GENNIALEEEEE MF--------------------------------------------------------------------------------FILTRI---------------------------
 	@SuppressWarnings("unchecked")
 	public static List<Libro> filtraLibri(String filtro){
@@ -68,7 +73,7 @@ public class Utility {
     	em.persist(u);
     	et.commit();
 	}
-	public static void inserisciNoleggio(Noleggio n, String idLibro, int idUtente) {
+	public static void inserisciNoleggio(Noleggio n, int idLibro, int idUtente) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();
@@ -77,7 +82,7 @@ public class Utility {
     	em.persist(n);
     	et.commit();
 	}
-	public static void inserisciPrenotazione(Prenotazione p, String idLibro, int idUtente) {
+	public static void inserisciPrenotazione(Prenotazione p, int idLibro, int idUtente) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();
@@ -148,7 +153,7 @@ public class Utility {
     	et.commit();
 	}
 	/*-----------------------------------------------------------------------------TROVA-----------------------------*/
-	public static Libro trovaLibro(String id) {
+	public static Libro trovaLibro(int id) {
 		EntityManager em = getManager();
     	EntityTransaction et = em.getTransaction();
     	et.begin();
@@ -166,13 +171,9 @@ public class Utility {
     	return u;
 	}
 	
-	public static Utente trovaUtentePerUser(int id) {
+	public static Utente trovaUtente(String use, String pass){
 		EntityManager em = getManager();
-    	EntityTransaction et = em.getTransaction();
-    	et.begin();
-    	Utente u = em.find(Utente.class, id);
-    	et.commit();
-    	return u;
+		return (Utente) em.createQuery("SELECT u FROM Utente u WHERE username = "+use+" AND password = "+pass+";");
 	}
 	
 	public static Prenotazione trovaPrenotazione(int id) {
@@ -194,7 +195,7 @@ public class Utility {
 	
 	public static Prenotazione trovaPrenotazione(int u, String l) {
 		EntityManager em = getManager();
-		List<Prenotazione> lista = (List<Prenotazione>)em.createQuery("SELECT p FROM Prenotazione WHERE id_utente = "+u+" AND isbn_libro = "+l+";");
+		List<Prenotazione> lista = (List<Prenotazione>)em.createQuery("SELECT p FROM Prenotazione p WHERE id_utente = "+u+" AND isbn_libro = "+l+";");
 		
 		return lista.get(lista.size()-1);
 	}
@@ -202,7 +203,7 @@ public class Utility {
 	//torna lista di prenotazioni in coda
 	public static List<Prenotazione> trovaPrenotazione(Libro l){
 		EntityManager em = getManager();
-		return em.createQuery("SELECT * FROM prenotazione WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
+		return em.createQuery("SELECT p FROM Prenotazione p WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
 		
 	}
 	

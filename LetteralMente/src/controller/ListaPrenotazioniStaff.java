@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
+import Util.UtilityRicerca;
 import model.Prenotazione;
+import model.Utente;
 
 
 @WebServlet("/ListaPrenotazioniStaff")
@@ -24,22 +26,18 @@ public class ListaPrenotazioniStaff extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		if(request.getSession().getAttribute("UtenteLoggato") != null && ((Utente)request.getSession().getAttribute("UtenteLoggato")).getIsStaff()) {
+			if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
+				request.setAttribute("listaPrenotazioni", UtilityRicerca.ricercaPrenotazione(request.getParameter("campo"), request.getParameter("ricerca")));
+			}else request.setAttribute("listaPrenotazioni", Utility.leggiPrenotazione());
+			
+			request.getRequestDispatcher("/listaPrenotazioni.jsp").forward(request, response);//TODO non sappiamo come si chiama la jsp dei prenotazione che vedono gli staff
+		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		List<Prenotazione>listaPrenotazioni= Utility.leggiPrenotazione();		
 
-		if(request.getParameter("codicePrenotazione")!=null && request.getParameter("codicePrenotazione")!=null
-				&& listaPrenotazioni.contains(Utility.trovaPrenotazione(Integer.parseInt(request.getParameter("codicePrenotazione"))))) {
-			//svuoto array 
-			listaPrenotazioni.clear();
-			//riempio array con la prenotazione che stavo cercando
-			listaPrenotazioni.add(Utility.trovaPrenotazione(Integer.parseInt(request.getParameter("codicePrenotazione"))));
-		}
-
-		request.setAttribute("listaPreonotazioni", listaPrenotazioni); 
-		request.getRequestDispatcher("/listaPrenotazioni.jsp").forward(request, response);
 	}
 }

@@ -15,23 +15,23 @@ public class Prenotazione implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(name="idprenotazione")
 	private int idprenotazione;
 
 	@Temporal(TemporalType.DATE)
+	@Column(name="data")
 	private Date data;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="id_utente")
 	private Utente u;
-
+	
+	@Column(name="inCorso")
 	private boolean inCorso;
 
 	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="isbn_libro")
 	private Libro lib;
-
-	public Prenotazione() {
-	}
 
 	public int getIdprenotazione() {
 		return this.idprenotazione;

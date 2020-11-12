@@ -36,7 +36,7 @@ public class NoleggioUtente extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Libro li = Utility.trovaLibro(request.getParameter("isbn"));
+		Libro li = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 		if (request.getParameter("isbn")!=null && request.getParameter("dataFine")!=null 
 				&& !request.getParameter("dataFine").equals("")
 				&& li.getQuantita()>0 &&
@@ -48,7 +48,7 @@ public class NoleggioUtente extends HttpServlet {
 				//diminuisco di 1 la quantità
 				n.setDataInizio(Date.valueOf(LocalDate.now()));
 				n.setDataFine(Date.valueOf(LocalDate.parse(request.getParameter("dataFine"))));
-				Utility.inserisciNoleggio(n, request.getParameter("isbn"), Integer.parseInt(request.getParameter("idUtente")));
+				Utility.inserisciNoleggio(n, Integer.parseInt(request.getParameter("idLibro")), Integer.parseInt(request.getParameter("idUtente")));
 				//.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);
 				//Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("isbn")));
 				li.setQuantita(li.getQuantita()-1);

@@ -30,26 +30,28 @@ public class PrenotazioneUtente extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Libro l = Utility.trovaLibro(request.getParameter("isbn"));
-		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
-			//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
-			if(request.getParameter("isbn")!= null && l.getQuantita()>0) {
-					Prenotazione p = new Prenotazione();
-					p.setData(new Date());
-					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
-					/*passaggio del parametro per stampare la conferma*/
-					request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
-					request.getRequestDispatcher("DettagliPenotazioneEffettuata.jsp").forward(request, response);
-			}else if(request.getParameter("isbn")!= null && l.getQuantita() <= 0){
-					//request.setAttribute("prenotazione", "libriFiniti");
-					Prenotazione p = new Prenotazione();
-					//prenotazioniInCoda.add(p);
-					Utility.inserisciPrenotazione(p, request.getParameter("isbn"), u.getIdUtente());
-					request.setAttribute("dettagliPrenotazioneEffettuata.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
-			}else {
-				request.setAttribute("libro", l);
-				request.getRequestDispatcher("dettaglioLibro.jsp").forward(request, response);
-			}
+		if(request.getParameter("idLibro")!= null) {
+			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
+			Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
+				//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
+				if(l.getQuantita()>0) {
+						Prenotazione p = new Prenotazione();
+						p.setData(new Date());
+						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
+						/*passaggio del parametro per stampare la conferma*/
+						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+						request.getRequestDispatcher("DettagliPenotazioneEffettuata.jsp").forward(request, response);
+				}else if(l.getQuantita() <= 0){
+						//request.setAttribute("prenotazione", "libriFiniti");
+						Prenotazione p = new Prenotazione();
+						//prenotazioniInCoda.add(p);
+						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
+						request.setAttribute("dettagliPrenotazioneEffettuata.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+				}
+		}else {
+			request.setAttribute("idLibro", request.getParameter("idLibro"));
+			request.getRequestDispatcher("DettaglioLibro").forward(request, response);
+		}
 			
 			
 	}

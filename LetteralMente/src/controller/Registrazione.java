@@ -46,7 +46,7 @@ public class Registrazione extends HttpServlet {
 			u.setCognome(request.getParameter("cognome"));
 			u.setDataDiNascita(Date.valueOf(request.getParameter("dataDiNascita")));//Sistemare per la Date
 			u.setCf(request.getParameter("cf"));
-			u.setEmail(request.getParameter("email"));
+			u.setEmail(request.getParameter("email").toLowerCase());
 			u.setUsername(request.getParameter("username"));
 			u.setPassword(request.getParameter("password"));
 			u.setComune(request.getParameter("comune"));
@@ -68,9 +68,7 @@ public class Registrazione extends HttpServlet {
 		}else {
 			request.setAttribute("registrazione", "errore");
 			request.getRequestDispatcher("registrazione.jsp").forward(request, response);
-		}
-		
-			
+		}	
 	}
 }
 

@@ -29,25 +29,26 @@ public class Login extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Utente>listaUtenti=Utility.leggiUtente();
-		Utente u=new Utente();
-		u.setUsername(request.getParameter("username"));
-		u.setPassword(request.getParameter("password"));
-		if(listaUtenti.contains(u)) {
-			System.out.println("ciao giulia");
-			u=listaUtenti.get(listaUtenti.indexOf(u));
-			request.getSession().setAttribute("utenteLoggato", u);
-			if(u.getIsStaff()) {
-				System.out.println("è un utente staff");
-				response.sendRedirect("/homeGestionale.jsp");	
-			}
-			else {
-				System.out.println("è un utente qualunque");
+		
+		if(request.getParameter("username")!= null && request.getParameter("password")!= null) {
+		Utente u=Utility.trovaUtente(request.getParameter("username").trim(), request.getParameter("password"));
+			if( u!=null ) {
+				System.out.println("ciao giulia");
+				//u=listaUtenti.get(listaUtenti.indexOf(u));
+				request.getSession().setAttribute("utenteLoggato", u);
+				if(u.getIsStaff()) {
+					System.out.println("è un utente staff");
+					response.sendRedirect("/homeGestionale.jsp");	
+				}
+				else {
+					System.out.println("è un utente qualunque");
+					request.getRequestDispatcher("ControlloIniziale").forward(request, response);
+				}
+			}else {
+				request.setAttribute("loginFallito", "errorLogin");
+				System.out.println("Scrivi bene sta password");
 				request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 			}
-		}else {
-			request.setAttribute("loginFallito", "errorLogin");
-			System.out.println("Scrivi bene sta password");
 		}
 	}
 

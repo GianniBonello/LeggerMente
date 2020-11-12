@@ -21,29 +21,39 @@ public class Utente implements Serializable {
 	@Id
 	@Column(name = "id_utente")
 	private int idUtente;
-
+	
+	@Column(name="cap")
 	private String cap;
-
+	
+	@Column(name="cf")
 	private String cf;
-
+	
+	@Column(name="cognome")
 	private String cognome;
 
+	@Column(name="comune")
 	private String comune;
 
+	@Column(name="dataDiNascita")
 	@Temporal(TemporalType.DATE)
 	private Date dataDiNascita;
-
+	
+	@Column(name="email")
 	private String email;
-
+	
+	@Column(name="indirizzo")
 	private String indirizzo;
 
 	@Column(name="is_staff")
 	private boolean isStaff;
-
+	
+	@Column(name="nome")
 	private String nome;
 
+	@Column(name="password")
 	private String password;
-
+	
+	@Column(name="username")
 	private String username;
 	
 	@OneToMany(mappedBy ="u")
@@ -108,6 +118,7 @@ public class Utente implements Serializable {
 	}
 
 	public void setEmail(String email) {
+		
 		this.email = email;
 	}
 
@@ -140,6 +151,7 @@ public class Utente implements Serializable {
 	}
 
 	public void setPassword(String password) {
+		//String passwordCodificata = Base64.getEncoder().encodeToString((password).getBytes());
 		this.password = password;
 	}
 
