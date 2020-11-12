@@ -24,11 +24,10 @@
 
 
 <div class="container-fluid">
-  <div class="row">
   
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+    <nav id="sidebarMenu" class="col-lg-2 d-lg-block bg-dark sidebar collapse">
       <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column text-center">
+        <ul class="nav flex-column text-center m-auto w-100 h-100" style="justify-content:center" >
         
           <li class="nav-item">
             <a class="navbar-brand logo text-center pb-5" href="ControlloIniziale"><img src="res/logo-grigio.png"></a>
@@ -66,11 +65,6 @@
         		<button class="bottoneamministrativo shadow">LOGOUT</button>
           </li>
         </ul>
-        
-        	
-        	
-        	
-
     </nav>
     
-<jsp:include page="/footerStaff.jsp"></jsp:include>    
+   

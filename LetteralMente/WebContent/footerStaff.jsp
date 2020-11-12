@@ -1,3 +1,5 @@
+
+</div>
 	<!--<script src="js/collapse.js"></script>
     
      Optional JavaScript; choose one of the two! -->

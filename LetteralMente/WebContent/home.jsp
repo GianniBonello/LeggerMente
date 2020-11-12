@@ -9,7 +9,7 @@
         <!-- I NOSTRI SERVIZI -->
 
             <div class="row ">
-                <div class="col-6 offset-3 " id="inostriservizi">
+                <div class="col-6 offset-3 pt-5 " id="inostriservizi">
                     <h1 class="text-center" id="serv"><b>I nostri servizi</b></h1>
                     <h6 id="tratt" ><img class="pr-3" src="res/trattino.png" alt="trattino"><i>Come funziona</i></h6>
                 </div>

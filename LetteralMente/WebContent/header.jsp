@@ -1,6 +1,6 @@
 <!doctype html>
 <%@page import="model.Utente"%> 
-     <%@page import="model.Libro"%>
+<%@page import="model.Libro"%>
 
 <html lang="en">
 <head>
@@ -50,15 +50,15 @@
                   <% 
                         if(request.getSession().getAttribute("utenteLoggato")==null) { 
                      %> 
-
-                    <button class="buttonHead login mr-3 " id="login" onclick="login()" > LOGIN </button>
-                    <a href="registrazione.jsp"><button class="buttonHead" type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+						
+                    <button class="buttonHead login mr-3 " id="login" onclick="login()"> LOGIN </button>
+                    <a href="registrazione.jsp"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
 
                     <% }else{
                         Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
-                            
-                         <div class="dropdown">
-                            <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
+                        
+                           <div class="dropdown">
+                            	<button class="buttonHead dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-3 my-auto " ></i><p class="float-left ">Ciao <%= u.getNome() + " "+ u.getCognome()  %> </p></button> 
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i>Il mio profilo</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i>Storico prenotazioni</a> 
@@ -66,6 +66,7 @@
                                     <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>  
                                   </div>
                         </div> 
+                         
                       <% } %>  
                     </div>
                 </div>
@@ -81,7 +82,7 @@
                                         che desiderano.</p>
                     <span class="cercahome">CERCA UN LIBRO</span>
                     <div class="pt-2">
-                      <form action="listalibri.jsp" method="post"> <!-- CERCA LIBRI HOME -->
+                      <form action="listalibri.jsp" method="post"> 
                         <div class="input-group">
                             <span class="input-group-append">
                                 <p class="input-group-text bg-light py-2"><i class="fa fa-search"></i></p>
