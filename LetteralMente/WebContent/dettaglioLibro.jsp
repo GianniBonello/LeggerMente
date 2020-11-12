@@ -10,6 +10,7 @@ Libro l = (Libro)request.getAttribute("libro"); %>
 <div class="container">
 
                 <div class=" col-xl-12 poplibro mt-5" id="descr">
+
                                             <div class="row ">
                                               <div class="copertina col-xl-4 pt-3 text-center">
                                                 <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
@@ -43,7 +44,7 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                  
                                                     <% if(request.getSession().getAttribute("utenteLoggato") != null){
 		                                                    if(!l.getIsUsato()){ %>                     
-		                                              		 <a href="DettagliPrenotazione?isbn=<%=l.getIsbn() %>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
+		                                              		 	<a href="DettagliPrenotazione?idLibro=<%=l.getId_libro() %>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
 		                                               	   <%}else {%>
 		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\"DettagliNoleggio?isbn="+l.getIsbn()+"\"><button  class=\"float-left text-white shadow mb-2 ml-5\">NOLEGGIA</button></a> " : ""%>
 		                                           		   <%}
