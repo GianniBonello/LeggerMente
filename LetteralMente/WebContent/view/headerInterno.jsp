@@ -25,7 +25,7 @@
  
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-3">
                 <div class="container">
-                <a class="navbar-brand logo " href="../ControlloIniziale"><img src="res/Logo-nero.png"></a>
+                <a class="navbar-brand logo " href="<%=request.getContextPath()%>/ControlloIniziale"><img src="res/Logo-nero.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -35,7 +35,7 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="../ControlloIniziale">HOME
+                        <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale">HOME
                                 <span class="sr-only">(current)</span>
                         </a></li>
                         <li class="nav-item"><a class="nav-link" href="listalibri.jsp">LISTA LIBRI</a></li> 
@@ -45,7 +45,7 @@
                          %> 
                          
                         <button class=" login mr-3" id="login" onclick="login()" > LOGIN </button>
-                        <a href="Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+                        <a href="<%=request.getContextPath()%>/Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
                         
                      <% }else{
                             Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 

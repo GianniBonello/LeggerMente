@@ -56,7 +56,7 @@
                      %> 
 						
                     <button class="buttonHead login mr-3 " id="login" onclick="login()"> LOGIN </button>
-                    <a href="view/registrazione.jsp"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
+                    <a href="<%=request.getContextPath()%>/Registrazione"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
 
                     <% }else{
                         Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
