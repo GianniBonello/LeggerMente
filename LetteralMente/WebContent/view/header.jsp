@@ -56,7 +56,7 @@
                      %> 
 						
                     <button class="buttonHead login mr-3 " id="login" onclick="login()"> LOGIN </button>
-                    <a href="registrazione.jsp"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
+                    <a href="view/registrazione.jsp"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
 
                     <% }else{
                         Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
@@ -67,7 +67,7 @@
                                     <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i>Il mio profilo</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i>Storico prenotazioni</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i>Noleggi effettuati</a> 
-                                    <a class="dropdown-item" href="../Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>  
+                                    <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i>Logout</a>  
                                   </div>
                         </div> 
                          
@@ -99,7 +99,7 @@
                 <!-- LOGIN -->
                 <div class="bg-light offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
                     <h2 class="pt-5 text-center">Login</h2>
-                    <form action="../Login" method="post">
+                    <form action="login" method="post">
                     	<div class="pt-2 text-center">
                         	<input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
                         	<input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">    

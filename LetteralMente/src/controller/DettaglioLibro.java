@@ -30,7 +30,7 @@ public class DettaglioLibro extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("idLibro")!= null) {
 			request.setAttribute("libro", Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))));
-			request.getRequestDispatcher("/dettaglioLibro.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/dettagliolibro.jsp").forward(request, response);
 		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 		
 		
