@@ -1,5 +1,6 @@
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
+
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
 
 <%
@@ -15,33 +16,35 @@
 		<b>Gestione utenti</b>
 	</h1>
 
-	<div class="row col-9 offset-6 mt-3 mb-3 centrare">
-
-
-		<form action="ListaUtenti" method="post">
-			<div class="filtraLibro pt-5 pl-5">
-				<div class="input-group">
-                        <span class="input-group-append">
-                            <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
-                        </span>
-                        <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro"  size="33"
-                            type="search" placeholder="Inserisci il codice della prenotazione " id="example-search-input">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
+            <div class="row ">
+                <!-- CERCA LIBRI  -->
+                <form action="listalibri.jsp" method="post"></form>
+                    <div class="cercaLibro pt-5 pl-5">
+                        <!-- CERCA LIBRI HOME -->
+                            <div class="input-group">
+                                <span class="input-group-append">
+                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+                                   </span>
+                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                            </div> 
                     </div>
-                    		
-				<div class="input-group mb-3">
-				
-					<p class="pt-2 pr-3">Filtra per :</p>
-					<select class="custom-select bg-light shadow "
-						id="inputGroupSelect01">
-						<option selected value="nome">Nome</option>
-						<option value="cognome">Cognome</option>
-						<option value="cf">Codice fiscale</option>
-						<option value="username">Username</option>
-					</select>
-				</div>
-			</div>
-		</form>
-	</div>
+                    <div class="filtraLibro pt-5 pl-5">
+                        <div class="input-group mb-3">
+                            <p class="pt-2 pr-3">Filtra per :</p>
+                            <select class="custom-select bg-light shadow " id="inputGroupSelect01">
+                                <option selected value="titolo">Titolo : dalla A alla Z</option>
+                                <option value="prezzocresc">Prezzo : crescente</option>
+                                <option value="prezzodecr">Prezzo : decrescente</option>
+                                <option value="genere">Genere</option>
+                                <option value="autore">Autore</option>
+                                <option value="casaeditrice">Casa Editrice</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>    
+        </div>
 
 
 	<div class="row">

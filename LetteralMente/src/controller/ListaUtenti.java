@@ -31,7 +31,7 @@ public class ListaUtenti extends HttpServlet {
 				request.setAttribute("listaUtenti", UtilityRicerca.ricercaUtente(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaUtenti", Utility.leggiUtente());
 			
-			request.getRequestDispatcher("/listaUtenti.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/gestioneutenti.jsp").forward(request, response);
 		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);	
 
 	}

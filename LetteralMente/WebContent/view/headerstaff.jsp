@@ -34,41 +34,41 @@
         <ul class="nav flex-column text-center m-auto w-100 h-100" style="justify-content:center" >
         
           <li class="nav-item">
-            <a class="navbar-brand logo text-center pb-5" href="homestaff.jsp"><img src="<%=request.getContextPath()%>/res/logo-grigio.png"></a>
+            <a class="navbar-brand logo text-center pb-5" href="/view/homestaff.jsp"><img src="<%=request.getContextPath()%>/res/logo-grigio.png"></a>
           </li>
 
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link active text-center " href="homestaff.jsp"><i class="fas fa-home pr-5" style="width:68px;" ></i><b>HOME </b><span class="sr-only">(current)</span></a>
+            	<a class="nav-link active text-center " href="/view/homestaff.jsp"><i class="fas fa-home pr-5" style="width:68px;" ></i><b>HOME </b><span class="sr-only">(current)</span></a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="ListaUtenti"><i class="fas fa-user-cog pr-5" style="width:68px;"></i>GESTIONE UTENTI</a>
+            	<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaUtenti"><i class="fas fa-user-cog pr-5" style="width:68px;"></i>GESTIONE UTENTI</a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="ListaLibri"><i class="fas fa-atlas pr-5" style="width:68px;"></i>GESTIONE LIBRI</a>
+            	<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaLibri"><i class="fas fa-atlas pr-5" style="width:68px;"></i>GESTIONE LIBRI</a>
             </div>
           </li>
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="ListaPrenotazioniStaff"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE PRENOTAZIONI</a>
+            	<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaPrenotazioniStaff"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE PRENOTAZIONI</a>
             </div>
           </li>
           
           <li class="nav-item">
         		<div class="row">
-            		<a class="nav-link text-center" href="ListaNoleggiStaff"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE NOLEGGI</a>
+            		<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaNoleggiStaff"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE NOLEGGI</a>
             	</div>
           </li>
           
           <li class="nav-item">
-        		<a href="Logout"><button class="bottoneamministrativo shadow">LOGOUT</button></a>
+        		<a href="<%=request.getContextPath()%>/Logout"><button class="bottoneamministrativo shadow">LOGOUT</button></a>
           </li>
         </ul>
     </nav>
