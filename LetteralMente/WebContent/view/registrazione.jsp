@@ -7,7 +7,7 @@
     <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
    
     <div class="col-8 offset-2">
-    <form action="Registrazione" method="post" >
+    <form action="../Registrazione" method="post" >
       <div class="form-row">
         <div class="form-group col-md-12 pt-1" >
           <label for="nomeid">Nome </label>
