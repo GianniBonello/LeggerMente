@@ -8,13 +8,22 @@
                                    
             <form action=" listalibri.jsp" method="post">
             	<div class="cercaLibro pt-5 pl-5">
-                	<div class="input-group">
+                	<div class="input-group col-lg-12">
                     	<span class="input-group-append">
-                        <p class="input-group-text py-2 shadow" style="z-index:2;"><i class="fa fa-search"></i></p>
+                        <p class="input-group-text shadow" style="z-index:2;"><i class="fa fa-search"></i></p>
                     	</span>
-                    	<input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" size="33"
+                    	<input class="form-control bg-light border-radius-5 shadow " name="cercaLibro" size="33"
                         type="search" placeholder="Cerca titolo del libro" id="example-search-input">
-                	</div>              	
+                        <div class="input-group col-lg-12">
+                         <p class="pt-2 pl-3">Filtra per :</p>
+	                    <select class="custom-select bg-light shadow">
+	                        <option selected value="nome">Titolo</option>
+	                        <option value="cognome">Autore</option>
+	                        <option value="cf">ISBN</option>
+                    	</select>   
+                    	</div> 
+                	</div>       
+                	     	
             	</div>
             </form>
             

@@ -16,6 +16,12 @@
                         <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro"  size="33"
                             type="search" placeholder="Inserisci il codice della prenotazione " id="example-search-input">
                     </div>
+                    <p class="pt-2 pr-3">Filtra per :</p>
+	                    <select class="custom-select bg-light shadow " id="inputGroupSelect01">
+	                        <option selected value="nome">Titolo</option>
+	                        <option value="cognome">Autore</option>
+	                        <option value="cf">ISBN</option>
+                    	</select>   
                 </div>
             </form>
 
