@@ -21,8 +21,8 @@
         <b style="color: #06A500;">PRENOTAZIONE EFFETTUATA</b><br>
         Prenotazione n* 3123-21312<br>
         <p class="mt-3 mb-5">Nei prossimi minuti le sarà inviata un email <br> con il codice del suo ordine e le istruzioni per il ritiro.</p>
-
-        <button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button>
+	<%//TODO AGGIUNGERE LINK ALLA LISTA LIBRI!!!! %>
+        <a href="#"><button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button></a>
 
       </div>
     </div>

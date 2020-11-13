@@ -64,3 +64,19 @@
                     </div>
                 </div>
             </nav>
+            <div class="bg-light offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
+                    <h2 class="pt-5 text-center">Login</h2>
+                    <form action="login" method="post">
+                    	<div class="pt-2 text-center">
+                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
+                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">    
+                    	</div>
+                    	<small ><a class="text-dark text-left pl-2" href="" >Non sei ancora registrato ?</a>
+                    	<br>
+                    	<a class="text-dark text-left pl-2" href="" >Username o password dimenticati ?</a>
+                    	<br>
+                    	<div class="text-center">
+                     		<button class="mt-5" type="submit">LOGIN</button></small>
+                    	</div>
+                    </form>
+                </div>

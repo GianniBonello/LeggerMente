@@ -35,7 +35,7 @@ public class Noleggio implements Serializable {
 	private boolean inCorso;
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name="isbn_libro")
+	@JoinColumn(name="id_libro")
 	private Libro lib;
 
 

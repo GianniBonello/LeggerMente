@@ -77,7 +77,7 @@
       </div>
        </div>
        
-	     <a href="home">Sei gia registrato?</a>
+	     <a href="<%=request.getContextPath()%>/ControlloIniziale">Sei gia registrato?</a>
 	      <div class="text-center pt-4">
 	      	  <button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" type="submit">REGISTRATI</button>
 	         <!--   <button type="submit" class="btn col-2 offset-5 py-2 pl-5 pr-5 text-white shadow p-1 mb-1 text-center" id="bottone"><b>REGISTRATI</b></button>-->

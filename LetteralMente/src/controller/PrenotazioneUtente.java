@@ -15,7 +15,7 @@ import model.Libro;
 import model.Prenotazione;
 import model.Utente;
 
-@WebServlet("/Prenotazione")
+@WebServlet("/PrenotazioneUtente")
 public class PrenotazioneUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -24,12 +24,6 @@ public class PrenotazioneUtente extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	}
-
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("idLibro")!= null) {
 			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 			Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
@@ -38,20 +32,28 @@ public class PrenotazioneUtente extends HttpServlet {
 						Prenotazione p = new Prenotazione();
 						p.setData(new Date());
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
+						l.setQuantita(l.getQuantita()-1);
+						Utility.modificaLibro(l);
 						/*passaggio del parametro per stampare la conferma*/
-						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
-						request.getRequestDispatcher("confermaprenotazione.jsp").forward(request, response);
+						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
+						request.getRequestDispatcher("/view/confermaprenotazione.jsp").forward(request, response);
 				}else if(l.getQuantita() <= 0){
 						//request.setAttribute("prenotazione", "libriFiniti");
 						Prenotazione p = new Prenotazione();
 						//prenotazioniInCoda.add(p);
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
-						request.setAttribute("dettagliPrenotazioneEffettuata.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getIsbn()));
+						request.setAttribute("/view/confermaprenotazione.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
 				}
 		}else {
 			request.setAttribute("idLibro", request.getParameter("idLibro"));
 			request.getRequestDispatcher("DettaglioLibro").forward(request, response);
 		}
+	}
+
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 			
 			
 	}

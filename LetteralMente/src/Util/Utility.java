@@ -207,17 +207,23 @@ public class Utility {
     	return n;
 	}
 	
-	public static Prenotazione trovaPrenotazione(int u, String l) {
+	public static Prenotazione trovaPrenotazione(int u, int l) {
 		EntityManager em = getManager();
-		List<Prenotazione> lista = (List<Prenotazione>)em.createQuery("SELECT p FROM Prenotazione p WHERE id_utente = "+u+" AND isbn_libro = "+l+";");
-		
-		return lista.get(lista.size()-1);
+		Query q= em.createQuery("SELECT p FROM Prenotazione p WHERE p.u.idUtente =:utente AND p.lib.id_libro =:libro ORDER BY p.idprenotazione DESC");
+		q.setParameter("utente", u);
+		q.setParameter("libro", l);
+		q.setMaxResults(1);
+		try {
+			return (Prenotazione)q.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	//torna lista di prenotazioni in coda
 	public static List<Prenotazione> trovaPrenotazione(Libro l){
 		EntityManager em = getManager();
-		return em.createQuery("SELECT p FROM Prenotazione p WHERE data = NULL AND isbn_libro = "+l.getIsbn()+";").getResultList();
+		return em.createQuery("SELECT p FROM Prenotazione p WHERE data = NULL AND isbn_libro = "+l.getId_libro()+";").getResultList();
 		
 	}
 	

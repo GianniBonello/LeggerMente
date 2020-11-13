@@ -21,7 +21,7 @@ public class DettagliPrenotazione extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
-		if(request.getParameter("isbn") != null) {
+		if(l != null) {
 			request.setAttribute("libro", l);
 				if(l.getQuantita()>0)
 					request.getRequestDispatcher("/view/dettagliprenotazione.jsp").forward(request, response);
