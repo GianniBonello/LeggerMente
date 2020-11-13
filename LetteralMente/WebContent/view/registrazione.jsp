@@ -2,12 +2,15 @@
 <div class="registrazione pt-5">
 <%if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("errore")){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
-<h4 class=" pb-3 text-center text-danger">dati già esistenti</h4>
+<h4 class=" pb-3 text-center text-danger">Dati inseriti già esistenti!</h4>
+<%}else if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("erroreData")){ %>
+<h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Data di nascita inserita non valida!</h4>
 <%} %>
     <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
    
     <div class="col-8 offset-2">
-    <form action="../Registrazione" method="post" >
+    <form action="<%=request.getContextPath()%>/Registrazione" method="post" >
       <div class="form-row">
         <div class="form-group col-md-12 pt-1" >
           <label for="nomeid">Nome </label>
