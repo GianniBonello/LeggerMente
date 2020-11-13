@@ -12,11 +12,10 @@
 
 <div class="container-fluid utenti sfondostaff">
 
-	<h1 class="col-9 offset-3 pt-5 text-center text-light">
-		<b>Gestione utenti</b>
-	</h1>
+	<h1 class="col-9 offset-3 pt-5 text-center text-light"><b>Gestione utenti</b></h1>
 
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
             <div class="row ">
                 <!-- CERCA LIBRI  -->
                 <form action="listalibri.jsp" method="post"></form>
@@ -26,25 +25,27 @@
                                 <span class="input-group-append">
                                     <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
                                    </span>
-                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaUtente" type="search" placeholder="Inserisci l'username dell'utente" id="example-search-input" >  
                             </div> 
                     </div>
                     <div class="filtraLibro pt-5 pl-5">
                         <div class="input-group mb-3">
                             <p class="pt-2 pr-3">Filtra per :</p>
                             <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                                <option selected value="titolo">Titolo : dalla A alla Z</option>
-                                <option value="prezzocresc">Prezzo : crescente</option>
-                                <option value="prezzodecr">Prezzo : decrescente</option>
-                                <option value="genere">Genere</option>
-                                <option value="autore">Autore</option>
-                                <option value="casaeditrice">Casa Editrice</option>
+                                <option selected value="usernamecresc">Username : dalla A alla Z</option>
+                                <option value="usernamedecr">Username : dalla Z alla A</option>
+                                <option value="nomecresc">Nome : dalla A alla Z</option>
+                                <option value="nomedecr">Nome : dalla Z alla A</option>
+                                <option value="cognomecresc">Cognome : dalla A alla Z</option>
+                                <option value="cognomedecr">Cognome : dalla Z alla A</option>
+                                <option value="autore">Email</option>
                             </select>
                         </div>
                     </div>
                 </form>
             </div>    
         </div>
+      </main>
 
 
 	<div class="row">

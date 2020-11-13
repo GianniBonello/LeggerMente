@@ -2,32 +2,39 @@
 
 <div class="container-fluid libri sfondostaff">
 
-        <h1 class="col-9 offset-3 pt-5 text-center text-light"><b>Gestione libri</b></h1>
+        <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione libri</b></h1>
 
-        <div class="row col-9 offset-5 pl-5 mt-3 mb-3 centrare">
-                                   
-            <form action=" listalibri.jsp" method="post">
-            	<div class="cercaLibro pt-5 pl-5">
-                	<div class="input-group col-lg-12">
-                    	<span class="input-group-append">
-                        <p class="input-group-text shadow" style="z-index:2;"><i class="fa fa-search"></i></p>
-                    	</span>
-                    	<input class="form-control bg-light border-radius-5 shadow " name="cercaLibro" size="33"
-                        type="search" placeholder="Cerca titolo del libro" id="example-search-input">
-                        <div class="input-group col-lg-12">
-                         <p class="pt-2 pl-3">Filtra per :</p>
-	                    <select class="custom-select bg-light shadow">
-	                        <option selected value="nome">Titolo</option>
-	                        <option value="cognome">Autore</option>
-	                        <option value="cf">ISBN</option>
-                    	</select>   
-                    	</div> 
-                	</div>       
-                	     	
-            	</div>
-            </form>
-            
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
+            <div class="row ">
+                <!-- CERCA LIBRI  -->
+                <form action="listalibri.jsp" method="post"></form>
+                    <div class="cercaLibro pt-5 pl-5">
+                        <!-- CERCA LIBRI HOME -->
+                            <div class="input-group">
+                                <span class="input-group-append">
+                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+                                   </span>
+                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                            </div> 
+                    </div>
+                    <div class="filtraLibro pt-5 pl-5">
+                        <div class="input-group mb-3">
+                            <p class="pt-2 pr-3">Filtra per :</p>
+                            <select class="custom-select bg-light shadow " id="inputGroupSelect01">
+                                <option selected value="titolo">Titolo : dalla A alla Z</option>
+                                <option value="prezzocresc">Prezzo : crescente</option>
+                                <option value="prezzodecr">Prezzo : decrescente</option>
+                                <option value="genere">Genere</option>
+                                <option value="autore">Autore</option>
+                                <option value="casaeditrice">Casa Editrice</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>    
         </div>
+      </main>
 
 
         <div class="row">
