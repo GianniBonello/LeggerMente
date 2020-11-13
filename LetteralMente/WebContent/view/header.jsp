@@ -40,7 +40,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                     	<a class="nav-link" href="#"><b>HOME</b><span class="sr-only">(current)</span></a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                     	<a class="nav-link" href="#inostriservizi"><b>I NOSTRI SERVIZI</b></a>
                     </li> 
