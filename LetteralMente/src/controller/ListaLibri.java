@@ -29,8 +29,8 @@ public class ListaLibri extends HttpServlet {
 		} else request.setAttribute("listaLibri", Utility.leggiLibro());
 		
 		if (request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
-			request.getRequestDispatcher("/ListaLibriStaff.jsp").forward(request, response);
-		}else request.getRequestDispatcher("/ListaLibri.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/gestionelibri.jsp").forward(request, response);
+		}else request.getRequestDispatcher("/view/listalibri.jsp").forward(request, response);
 
 	}
 

@@ -26,7 +26,7 @@ public class ListaUtenti extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession().getAttribute("UtenteLoggato") != null && ((Utente)request.getSession().getAttribute("UtenteLoggato")).getIsStaff()) {
+		if(request.getSession().getAttribute("utenteLoggato") != null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
 			if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 				request.setAttribute("listaUtenti", UtilityRicerca.ricercaUtente(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaUtenti", Utility.leggiUtente());

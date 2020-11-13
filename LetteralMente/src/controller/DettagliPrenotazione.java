@@ -24,9 +24,9 @@ public class DettagliPrenotazione extends HttpServlet {
 		if(request.getParameter("isbn") != null) {
 			request.setAttribute("libro", l);
 				if(l.getQuantita()>0)
-					request.getRequestDispatcher("DettagliPrenotazione.jsp").forward(request, response);
+					request.getRequestDispatcher("/view/dettagliprenotazione.jsp").forward(request, response);
 				else
-					request.getRequestDispatcher("DettagliNoleggio.jsp").forward(request, response);
+					request.getRequestDispatcher("/view/dettaglinoleggio.jsp").forward(request, response);
 		}else
 				request.getRequestDispatcher("ListaLibri").forward(request, response);
 	}
