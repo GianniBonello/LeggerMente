@@ -1,4 +1,4 @@
-<jsp:include page="/headerInterno.jsp"></jsp:include>
+<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <%@page import="model.Libro"%>
 <%if(request.getAttribute("libro")==null){
@@ -55,4 +55,4 @@ Libro l = (Libro)request.getAttribute("libro"); %>
             </div>
       <%} %>
       
-           <jsp:include page="/footer.jsp"></jsp:include>
+           <jsp:include page="/view/footer.jsp"></jsp:include>

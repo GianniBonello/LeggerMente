@@ -1,5 +1,5 @@
 <%@page import="model.Utente"%>
-<jsp:include page="/headerInterno.jsp"></jsp:include>
+<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <%Utente u = (Utente)request.getAttribute("utente"); %>
 
@@ -89,4 +89,4 @@
 
 
 
-<jsp:include page="/footer.jsp"></jsp:include>
+<jsp:include page="/view/footer.jsp"></jsp:include>

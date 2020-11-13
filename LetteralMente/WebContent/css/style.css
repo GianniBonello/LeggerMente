@@ -12,7 +12,6 @@ a:hover{
 }
 
 header{
-    background:  linear-gradient(45deg, rgba(190, 56, 123, 0.6),rgba(21, 169, 189, 0.6)) , url(../res/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -671,7 +670,6 @@ background-color: #eaeaea;
 }
 
 .sfondostaff{
-    background:  linear-gradient(45deg, rgba(190, 56, 123, 0.7),rgba(21, 169, 189, 0.7)) , url(../res/bgstaff.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

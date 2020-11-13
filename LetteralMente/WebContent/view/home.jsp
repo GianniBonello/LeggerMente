@@ -1,7 +1,11 @@
+<%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/view/header.jsp"></jsp:include>
-    
+ <%if((Utente)request.getSession().getAttribute("utenteLoggato")!= null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()){
+	 request.getRequestDispatcher("/view/homestaff.jsp").forward(request, response);
+	} %>
+ 
     <main>
         
         <div class="container">
@@ -11,7 +15,7 @@
             <div class="row ">
                 <div class="col-6 offset-3 pt-5 " id="inostriservizi">
                     <h1 class="text-center" id="serv"><b>I nostri servizi</b></h1>
-                    <h6 id="tratt" ><img class="pr-3" src="res/trattino.png" alt="trattino"><i>Come funziona</i></h6>
+                    <h6 id="tratt" ><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Come funziona</i></h6>
                 </div>
             </div>
             
@@ -44,7 +48,7 @@
             
                     <div class="bg-white mt-4 box" id="boxbianco">
                         <h1 class=" pt-5 pl-4" id="serv"><b>Chi siamo</b></h1>
-                        <h6 id="trattdue"><img class="pr-3" src="res/trattino.png" alt="trattino">La nostra libreria</h6>
+                        <h6 id="trattdue"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino">La nostra libreria</h6>
              
                         <p class="mt-3 apici">''</p>
                         <p class=" pl-4" id="staff">Lo scopo di LeggerMente è ridare valore alle librerie indipendenti facendo incontrare i più innovativi strumenti di internet con la migliore tradizione libraia. La nostra forza è una rete di persone che abbraccia e sostiene il mondo dei libri: dall'editore, passando per il libraio e raggiungendo infine il lettore.</p>
@@ -53,7 +57,7 @@
                 </div>
             
                 <div  class="col-6">
-                    <img id="spostaASinistra" src="res/chisiamo.jpg" width="600px" height="600px" alt="">
+                    <img id="spostaASinistra" src="<%=request.getContextPath()%>/res/chisiamo.jpg" width="600px" height="600px" alt="">
                 </div>
             </div>            
             
@@ -61,7 +65,7 @@
             
                     <div class="mt-5" id="listalibri">
                         <h1 class=" pt-5 pl-4" id="serv"><b>Lista Libri</b></h1>
-                        <h6 id="trattdue"><img class="pr-3" src="res/trattino.png" alt="trattino">Il nostro catalogo</h6>
+                        <h6 id="trattdue"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino">Il nostro catalogo</h6>
                             
                                       
 <%                                               

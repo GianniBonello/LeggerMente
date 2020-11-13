@@ -1,4 +1,4 @@
-  <jsp:include page="/headerInterno.jsp"></jsp:include>
+  <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 <div class="popprezzo bg-white margini">
 <div class="container">
 
@@ -32,4 +32,4 @@
 
   </div>
 </div>
-  <jsp:include page="/footer.jsp"></jsp:include>
+  <jsp:include page="/view/footer.jsp"></jsp:include>

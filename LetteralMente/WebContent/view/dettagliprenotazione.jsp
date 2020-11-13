@@ -1,6 +1,6 @@
 <%@page import="java.time.LocalDate"%>
 <%@page import="model.Libro"%>
-<jsp:include page="/headerInterno.jsp"></jsp:include>
+<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <% 
 Libro l = (Libro) request.getAttribute("libro");
@@ -47,4 +47,4 @@ if(l!=null){
 
 <% } %>
 
-<jsp:include page="/footer.jsp"></jsp:include>
+<jsp:include page="/view/footer.jsp"></jsp:include>

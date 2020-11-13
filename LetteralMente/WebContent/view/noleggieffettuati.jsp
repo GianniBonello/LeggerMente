@@ -1,4 +1,4 @@
-<jsp:include page="/headerInterno.jsp"></jsp:include>
+<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <div class="container-fluid noleggi ">
 
@@ -35,4 +35,4 @@
     </div>
 
 
-<jsp:include page="/footer.jsp"></jsp:include>
+<jsp:include page="/view/footer.jsp"></jsp:include>

@@ -38,7 +38,7 @@ public class Login extends HttpServlet {
 				request.getSession().setAttribute("utenteLoggato", u);
 				if(u.getIsStaff()) {
 					System.out.println("è un utente staff");
-					response.sendRedirect("/homeGestionale.jsp");	
+					request.getRequestDispatcher("/view/homestaff.jsp").forward(request, response);
 				}
 				else {
 					System.out.println("è un utente qualunque");

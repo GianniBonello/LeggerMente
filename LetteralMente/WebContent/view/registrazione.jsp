@@ -1,4 +1,4 @@
-<jsp:include page="/headerInterno.jsp"></jsp:include>
+<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 <div class="registrazione pt-5">
 <%if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("errore")){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
@@ -84,4 +84,4 @@
     </div>
     
 </div>
-      <jsp:include page="/footer.jsp"></jsp:include>
+      <jsp:include page="/view/footer.jsp"></jsp:include>

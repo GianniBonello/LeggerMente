@@ -1,4 +1,4 @@
-<jsp:include page="/HeaderStaff.jsp"></jsp:include>
+<jsp:include page="/view/HeaderStaff.jsp"></jsp:include>
 
 <div class="container-fluid libri sfondostaff">
 
@@ -155,4 +155,4 @@
         </div>
         
 
-<jsp:include page="/footerStaff.jsp"></jsp:include> 
+<jsp:include page="/view/footerStaff.jsp"></jsp:include> 
