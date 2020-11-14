@@ -87,6 +87,7 @@ public class Utility {
     	n.setU(em.find(Utente.class, idUtente));
     	em.persist(n);
     	et.commit();
+    	UtilityRicerca.mailNoleggi(trovaNoleggio(idUtente, idLibro));
 	}
 	public static void inserisciPrenotazione(Prenotazione p, int idLibro, int idUtente) {
 		EntityManager em = getManager();
@@ -96,7 +97,7 @@ public class Utility {
     	p.setU(em.find(Utente.class, idUtente));
     	em.persist(p);
     	et.commit();
-    	UtilityRicerca.mailPrenotazioni(p);
+    	UtilityRicerca.mailPrenotazioni(trovaPrenotazione(idUtente, idLibro));
 	}
 	
 	/*---------------------------------------------------------------------------------ELIMINA-------------------------------*/
@@ -223,8 +224,22 @@ public class Utility {
 	//torna lista di prenotazioni in coda
 	public static List<Prenotazione> trovaPrenotazione(Libro l){
 		EntityManager em = getManager();
-		return em.createQuery("SELECT p FROM Prenotazione p WHERE data = NULL AND isbn_libro = "+l.getId_libro()+";").getResultList();
-		
+		Query q = em.createQuery("SELECT p FROM Prenotazione p WHERE p.data is NULL AND p.lib.id_libro =:libro");
+		q.setParameter("libro", l.getId_libro());
+		return q.getResultList();
+	}
+	
+	public static Noleggio trovaNoleggio(int u, int l) {
+		EntityManager em = getManager();
+		Query q= em.createQuery("SELECT p FROM Noleggio p WHERE p.u.idUtente =:utente AND p.lib.id_libro =:libro ORDER BY p.idNoleggio DESC");
+		q.setParameter("utente", u);
+		q.setParameter("libro", l);
+		q.setMaxResults(1);
+		try {
+			return (Noleggio)q.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 }

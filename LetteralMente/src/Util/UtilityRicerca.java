@@ -56,7 +56,7 @@ public class UtilityRicerca {
 
 
 	/*-----------------------------------------Ricerche database-------------------------------------------*/
-	
+
 	public static List<Utente> ricercaUtente(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "email":case "e-mail":
@@ -73,7 +73,7 @@ public class UtilityRicerca {
 
 		}
 	}
-	
+
 	private static List<Utente> ricercaUtenteGenerica(String query, String ricerca){
 		EntityManager em = getManager();
 		//rimarra nella storia
@@ -81,8 +81,8 @@ public class UtilityRicerca {
 		q.setParameter("ricerca", "%"+ricerca+"%");
 		return q.getResultList();
 	}
-	
-	
+
+
 	public static List<Prenotazione> ricercaPrenotazione(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "idprenotazione":
@@ -100,16 +100,16 @@ public class UtilityRicerca {
 		default:
 			return new ArrayList<Prenotazione>();
 		}
-	
+
 	}
 	private static List<Prenotazione> ricercaPrenotazioneGenerica(String query, String ricerca){
-			EntityManager em = getManager();
-			//rimarra nella storia
-			Query q=em.createQuery(query);
-			q.setParameter("ricerca", "%"+ricerca+"%");
-			return q.getResultList();
+		EntityManager em = getManager();
+		//rimarra nella storia
+		Query q=em.createQuery(query);
+		q.setParameter("ricerca", "%"+ricerca+"%");
+		return q.getResultList();
 	}
-	
+
 	public static List<Noleggio> ricercaNoleggio(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "id_noleggio":
@@ -128,7 +128,7 @@ public class UtilityRicerca {
 			return new ArrayList<Noleggio>();
 		}
 	}
-	
+
 
 	private static List<Noleggio> ricercaNoleggioGenerica(String query, String ricerca){
 		EntityManager em = getManager();
@@ -137,7 +137,7 @@ public class UtilityRicerca {
 		q.setParameter("ricerca", "%"+ricerca+"%");
 		return q.getResultList();
 	}
-	
+
 	public static List<Libro> ricercaLibro(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "autore":
@@ -152,7 +152,7 @@ public class UtilityRicerca {
 			return new ArrayList<Libro>();
 		}
 	}
-	
+
 	private static List<Libro> ricercaLibroGenerica(String query, String ricerca){
 		EntityManager em = getManager();
 		//rimarra nella storia
@@ -175,6 +175,51 @@ public class UtilityRicerca {
 		String subject = "Leggermente - Prenotazione effettuata ordine n° " + p.getIdprenotazione(); //OGGETTO DELLA MAIL
 		String msg ="La tua prenotazione con codice: " + p.getIdprenotazione() + " del libro " + p.getLib().getTitolo() + " "
 				+ "è stata effetuata e sarà valida entro il giorno " + LocalDate.now().plusDays(7) + ".\nGrazie per aver scelto Leggermente,\nA presto!";
+		String from ="leggermente.roma@gmail.com";
+		String password ="Letteralmente";
+
+
+		Properties props = new Properties();  
+		props.setProperty("mail.transport.protocol", "smtp");     
+		props.setProperty("mail.host", "smtp.gmail.com");  
+		props.put("mail.smtp.auth", "true");  
+		props.put("mail.smtp.port", "465");  
+		props.put("mail.debug", "true");  
+		props.put("mail.smtp.socketFactory.port", "465");  
+		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");  
+		props.put("mail.smtp.socketFactory.fallback", "false");  
+		Session session = Session.getDefaultInstance(props,  
+				new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {  
+				return new PasswordAuthentication(from,password);  
+			}  
+		});  
+
+		//session.setDebug(true);  
+		try {
+			Transport transport = session.getTransport();  
+			InternetAddress addressFrom = new InternetAddress(from);  
+
+			MimeMessage message = new MimeMessage(session);  
+			message.setSender(addressFrom);  
+			message.setSubject(subject);  
+			message.setContent(msg, "text/plain");  //SE METTIAMO HTML
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));  
+
+			transport.connect();  
+			Transport.send(message);  
+			transport.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void mailNoleggi(Noleggio p) {
+
+		String to = p.getU().getEmail();
+		String subject = "Leggermente - Noleggio effettuata ordine n° " + p.getIdNoleggio(); //OGGETTO DELLA MAIL
+		String msg ="Il tuo noleggio con codice: " + p.getIdNoleggio() + " del libro " + p.getLib().getTitolo() + " "
+				+ "è stato effetuato, ricordati di ritararlo entro il " + LocalDate.now().plusDays(7) + ".\nGrazie per aver scelto LeggerMente,\nA presto!";
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 

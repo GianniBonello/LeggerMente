@@ -31,6 +31,7 @@ public class PrenotazioneUtente extends HttpServlet {
 				if(l.getQuantita()>0) {
 						Prenotazione p = new Prenotazione();
 						p.setData(new Date());
+						p.setInCorso(true);
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
 						l.setQuantita(l.getQuantita()-1);
 						Utility.modificaLibro(l);
@@ -40,9 +41,12 @@ public class PrenotazioneUtente extends HttpServlet {
 				}else if(l.getQuantita() <= 0){
 						//request.setAttribute("prenotazione", "libriFiniti");
 						Prenotazione p = new Prenotazione();
+						p.setInCorso(false);
 						//prenotazioniInCoda.add(p);
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
-						request.setAttribute("/view/confermaprenotazione.jsp", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
+						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
+						request.setAttribute("attesa", Utility.trovaPrenotazione(l).size());
+						request.getRequestDispatcher("/view/confermaincoda.jsp").forward(request, response);
 				}
 		}else {
 			request.setAttribute("idLibro", request.getParameter("idLibro"));

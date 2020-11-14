@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Util.Utility;
+import model.Libro;
+
 /**
  * Servlet implementation class DettagliNoleggio
  */
@@ -23,16 +26,22 @@ public class DettagliNoleggio extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if(request.getParameter("idLibro") != null && request.getSession().getAttribute("utenteLoggato")!=null) {
+			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
+			request.setAttribute("libro", l);
+			if(l.getQuantita()>0 && l.getIsUsato()) {
+				request.getRequestDispatcher("/view/dettaglinoleggio.jsp").forward(request,response);
+			}else if(l.getQuantita()>=0) {
+				request.getRequestDispatcher("ListaLibri").forward(request,response);
+			}
+		}else request.getRequestDispatcher("ControlloIniziale").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
 	}
 
 }

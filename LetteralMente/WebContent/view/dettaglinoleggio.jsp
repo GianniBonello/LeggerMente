@@ -1,39 +1,45 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="model.Libro"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
-<div class="popprezzo bg-white margini">
+<div class="poplibro bg-white">
+<%Libro l = (Libro)request.getAttribute("libro"); 
+if(l!=null){%>
 <div class="container">
-
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">
         <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
         <p class="text-left inter"><b>AUTORE:</b></p>
         <hr class="w-75">
-        <p class="text-left interdue">J.K. Rowling</p>
+        <p class="text-left interdue"><%=l.getAutore() %></p>
         <br>
 
         <p class="text-left inter"><b>CASA EDITRICE:</b></p>
         <hr class="w-75">
-        <p class="text-left interdue">Bloomsbury Publishing Pic</p>
+        <p class="text-left interdue"><%=l.getCasaEditrice() %></p>
 
       </div>
-      <div class="col-xl-7 offset-1 pt-3 ">
-        <h2 class="mb-3 ">Harry Potter e la pietra filosofale</h2>
-        
-        <p class="price">PREZZO:   19.99 &euro;</p>
-        <hr class=" text-left mardue">
-        Da ritirare entro:<br>
-        <b>31/07/2020</b><br>
-        <hr class=" text-left">
-        <p class="mt-3 mardue">Una volta ricevuta l'email di conferma non si potrà<br> più annullare la prenotazione.</p>
+      <div class="col-xl-7 offset-1 pt-3">
+        <h2 class="mb-5 "><%=l.getTitolo() %></h2>
+        <form action="<%=request.getContextPath()%>/NoleggioUtente" method="post">
+          <div class="form-row pt-5 mb-5">
+            <div class="form-group col-md-11 pt-1 mb-2">
+              <label for="inizio">Data inizio noleggio</label>
+              <input type="date" name="immodificabile" class="form-control pl-4 shadow p-1 mb-1" id="inizio" value="<%=LocalDate.now() %>" required>
+            </div>
+            <div class="form-group col-md-11 pt-1 mt-5 mb-5">
+              <label for="fine">Data fine noleggio</label>
+              <input type="date" name="dataFine" class="form-control pl-4 shadow p-1 mb-1" id="fine" value="<%=LocalDate.now().plusMonths(2) %>" required>
+            </div>
+          </div>
+		<input type="hidden" name="idLibro" value="<%=l.getId_libro()%>">
 
-        <button type="submit" class="mt-5 mr-3 col-3 text-white shadow">CONTINUA</button>
-        <button type="submit" class="mt-5 col-3 text-white shadow">ANNULLA</button>
-
+        <button type="submit" class="text-white shadow">CONFERMA</button>
+        </form>
+		<a href="<%=request.getContextPath()%>/ControlloIniziale"><button type="submit" class="text-white shadow">ANNULLA</button></a>
       </div>
     </div>
-
-  </div>
 </div>
-
-
+</div>
+<%} %>
 <jsp:include page="/view/footer.jsp"></jsp:include>

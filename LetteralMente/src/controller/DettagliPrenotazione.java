@@ -23,10 +23,14 @@ public class DettagliPrenotazione extends HttpServlet {
 		Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 		if(l != null) {
 			request.setAttribute("libro", l);
-				if(l.getQuantita()>0)
+				if(l.getQuantita()>0 && !l.getIsUsato())
 					request.getRequestDispatcher("/view/dettagliprenotazione.jsp").forward(request, response);
-				else
+				else if (l.getQuantita()>0 && l.getIsUsato())
 					request.getRequestDispatcher("/view/dettaglinoleggio.jsp").forward(request, response);
+				else if(l.getQuantita()<=0 && !l.getIsUsato()) {
+					request.setAttribute("attesa", Utility.trovaPrenotazione(l).size());
+					request.getRequestDispatcher("/view/dettagliocoda.jsp").forward(request, response);
+				}
 		}else
 				request.getRequestDispatcher("ListaLibri").forward(request, response);
 	}

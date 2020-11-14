@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import Util.Utility;
 import model.Libro;
 import model.Noleggio;
+import model.Utente;
 
 
 @WebServlet("/NoleggioUtente")
@@ -31,36 +32,45 @@ public class NoleggioUtente extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
+
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Libro li = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
-		if (request.getParameter("isbn")!=null && request.getParameter("dataFine")!=null 
-				&& !request.getParameter("dataFine").equals("")
-				&& li.getQuantita()>0 &&
-				 LocalDate.now().isBefore(LocalDate.parse(request.getParameter("dataFine")))) {
-
-			Noleggio n= new Noleggio();
-			//controllare che la prima data è minore della seconda
-			//controllare che quel libro non ha altri noleggi con la data di riconsegna maggiore della data di partenza di questo noleggio allora non lo puo noleggiare solo se la quantita è 1
-				//diminuisco di 1 la quantità
+		String dataFine=request.getParameter("dataFine"),idLibro=request.getParameter("idLibro");
+		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
+		System.out.println(idLibro);
+		
+		if (idLibro!=null &&!idLibro.equals("") && dataFine!=null && !dataFine.equals("")	&& LocalDate.now().isBefore(LocalDate.parse(dataFine))
+				&& u!=null && LocalDate.parse(dataFine).isBefore(LocalDate.now().plusDays(63))) {
+			Libro li = Utility.trovaLibro(Integer.parseInt(idLibro));
+			System.out.println("primo if noleggio");
+			if(li.getQuantita()>0) {
+				System.out.println("secondo if noleggio");
+				Noleggio n= new Noleggio();				
 				n.setDataInizio(Date.valueOf(LocalDate.now()));
-				n.setDataFine(Date.valueOf(LocalDate.parse(request.getParameter("dataFine"))));
-				Utility.inserisciNoleggio(n, Integer.parseInt(request.getParameter("idLibro")), Integer.parseInt(request.getParameter("idUtente")));
-				//.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).setQuantita(Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))).getQuantita()-1);
-				//Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("isbn")));
+				n.setDataFine(Date.valueOf(LocalDate.parse(dataFine)));
+				Utility.inserisciNoleggio(n, Integer.parseInt(idLibro), u.getIdUtente());				
 				li.setQuantita(li.getQuantita()-1);
 				Utility.modificaLibro(li);
-				request.setAttribute("noleggio", "effettuato");
-			}else request.setAttribute("noleggio", "error");
-		
-		request.getRequestDispatcher("ListaLibri").forward(request, response);
-
-			//n.setDataInizio(Date.valueOf(request.getParameter("dataInizio")));
-			//n.setDataFine(Date.valueOf(request.getParameter("dataFine")));
-			//n.setInCorso(true);		
-			
+				request.setAttribute("noleggio", Utility.trovaNoleggio(u.getIdUtente(), li.getId_libro()));
+				request.setAttribute("libro", li);
+				request.getRequestDispatcher("/view/confermanoleggio.jsp").forward(request, response);
+				}else {
+					System.out.println("primo else noleggio");
+					request.setAttribute("noleggio", "error");
+					request.getRequestDispatcher("ControlloIniziale").forward(request, response);				
+				}
+		}else {
+			System.out.println("primo else noleggio");
+			request.setAttribute("noleggio", "error");
+			request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 		}
+		//request.getRequestDispatcher("ListaLibri").forward(request, response);
+
+		//n.setDataInizio(Date.valueOf(request.getParameter("dataInizio")));
+		//n.setDataFine(Date.valueOf(request.getParameter("dataFine")));
+		//n.setInCorso(true);		
+
 	}
+}
