@@ -1,71 +1,83 @@
+<%@page import="model.Prenotazione"%>
+<%@page import="java.util.List"%>
+
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
-
-<div class="container-fluid prenotazioni sfondostaff" style="background: linear-gradient(45deg, rgba(190, 56, 123, 0.7),rgba(21, 169, 189, 0.7)) ,url(<%=request.getContextPath()%>/res/bgstaff.jpg) no-repeat center center fixed">
-
-        <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione prenotazioni</b></h1>
-
-<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
-            <div class="row ">
-            <form action="listalibri.jsp" method="post">
-                <!-- CERCA LIBRI  -->
-                    <div class="cercaLibro pt-5 pl-5">
-                        <!-- CERCA LIBRI HOME -->
-                            <div class="input-group">
-                                <span class="input-group-append">
-                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
-                                   </span>
-                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaPrenotazione" type="search" placeholder="Inserisci il numero di prenotazione" id="example-search-input" >  
-                            </div> 
-                    </div>
-                    <div class="filtraLibro pt-5 pl-5">
-                        <div class="input-group mb-3">
-                            <p class="pt-2 pr-3">Filtra per :</p>
-                            <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                                <option selected value="titolocresc">Titolo : dalla A alla Z</option>
-                                <option value="titolodecr">Titolo : dalla Z alla A</option>
-                                <option value="prezzocresc">Prezzo : crescente</option>
-                                <option value="prezzodecr">Prezzo : decrescente</option>
-                                <option value="isbn">Codice ISBN</option>
-                                <option value="genere">Genere</option>
-                                <option value="autore">Autore</option>
-                                <option value="casaeditrice">Casa Editrice</option>
-                            </select>
-                        </div>
-                        </form>
-                    </div>
-            </div>    
-        </div>
-      </main>
+<%
+	List<Prenotazione> listaPrenotazioni = (List<Prenotazione>) request.getAttribute("listaPrenotazioni");
+%>
 
 
-        <div class="row">
-            <div class="pt-5 pb-5 col-9 offset-3">
-                <table class="table">
-                    <thead class="bg-dark text-white">
-                        <tr>
-                            <th scope="col" class="text-center stonda">#</th>
-                            <th scope="col" class="text-center">Libro</th>
-                            <th scope="col" class="text-center">Utente</th>
-                            <th scope="col" class="text-center">Codice prenotazione</th>
-                            <th scope="col" class="text-center stondadue">Comandi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="chiaro">
-                            <td class="text-center">1</td>
-                            <td class="text-center">Le cronache di Narnia</td>
-                            <td class="text-center">Marzullo</td>
-                            <td class="text-center">abcdefg54678</td>
-                            <td class="text-center"><a href=""><i class="fas fa-times-circle fa-lg text-danger"></i></a>
-                            </td>
-                        <tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
 
-    </div>
+
+<div class="container-fluid utenti sfondostaff">
+	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
+		<div class="container-fluid">
+		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione Prenotazioni</b></h1>
+			<form>
+	  			<div class="row pb-5">
+	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
+	      				<div class="input-group">
+	                                <span class="input-group-append">
+	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+	                                 </span>
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaPrenotazione" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
+	                            </div> 
+	    			</div>
+	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
+	      				<select class="custom-select">
+	  						<option selected>Filtra per : </option>
+	  						<option value="1">Username</option>
+	  						<option value="2">Utente</option>
+	  						<option value="3">Email</option>
+						</select>
+	    			</div>
+	  			</div>
+			</form>
+	
+	
+		<div class="col-xl-12 table-responsive">
+			<div class="row mr-5 ml-5">
+			<table class="table">
+				<thead class="bg-dark text-white">
+					<tr>
+						<th scope="col" class="text-center stonda">#</th>
+						<th scope="col" class="text-center">Codice ISBN</th>
+						<th scope="col" class="text-center">Titolo Libro</th>
+						<th scope="col" class="text-center">Utente</th>
+						<th scope="col" class="text-center">Codice Prenotazione</th>
+						<th scope="col" class="text-center stondadue">Comandi</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<%
+						for (Prenotazione p : listaPrenotazioni) {
+					%>
+
+					<tr class="chiaro nero">
+						<td class="text-center pt-4"><%=listaPrenotazioni.indexOf(p)%></td>
+						<td class="text-center pt-4"><%=p.getLib().getIsbn()%></td>
+						<td class="text-center pt-4"><%=p.getLib().getTitolo()%></td>
+						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=p.getIdprenotazione()%></td>
+						<td class="text-center pt-4"> 
+							<a href=""><i class="fas fa-times-circle text-danger"></i></a>
+						</td>
+					</tr>
+					
+						<%
+						}
+					%>
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	  </div>
+	</main>
+</div>
+
 
 
 
