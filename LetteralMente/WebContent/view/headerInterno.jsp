@@ -35,10 +35,10 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale">HOME
+                        <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale"><b>HOME</b>
                                 <span class="sr-only">(current)</span>
                         </a></li>
-                        <li class="nav-item"><a class="nav-link" href="listalibri.jsp">LISTA LIBRI</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="listalibri.jsp"><b>LISTA LIBRI</b></a></li> 
                     </ul>
                       <% 
                             if(request.getSession().getAttribute("utenteLoggato")==null) { 
@@ -51,7 +51,7 @@
                             Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
                             
                          <div class="dropdown">
-                           		 <p class=" text-dark pr-3 pt-2 float-left ">Ciao <%= u.getNome() + " "+ u.getCognome()  %> </p> 
+                           		 <p class=" text-dark pr-3 pt-2 float-left "><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p> 
                            		 <button class="text-white dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
