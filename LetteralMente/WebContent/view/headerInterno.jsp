@@ -38,7 +38,7 @@
                         <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale"><b>HOME</b>
                                 <span class="sr-only">(current)</span>
                         </a></li>
-                        <li class="nav-item"><a class="nav-link" href="listalibri.jsp"><b>LISTA LIBRI</b></a></li> 
+                        <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ListaLibri"><b>LISTA LIBRI</b></a></li> 
                     </ul>
                       <% 
                             if(request.getSession().getAttribute("utenteLoggato")==null) { 
