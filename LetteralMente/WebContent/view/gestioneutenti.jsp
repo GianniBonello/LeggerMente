@@ -64,12 +64,14 @@
 								type="checkbox"> <span class="slider round"></span>
 						</label></td>
 
-						<td class="text-center pt-4"><a data-toggle="collapse"
-							data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false"
-							aria-controls="collapseExample"> <i
-								class="fas fa-pencil-alt text-white"></i></a> <i
-							class="fas fa-check-circle verde"></i> <i
-							class="fas fa-times-circle text-danger"></i></td>
+						<td class="text-center pt-4">
+							<i class="fas fa-check-square fa-2x verde"></i>
+							<i class="fas fa-minus-square fa-2x magenta"></i> 
+							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
+								<i class="fas fa-pen-square fa-2x text-white"></i>
+							</a> 
+							
+						</td>
 					</tr>
 
 					<tr>
@@ -162,12 +164,10 @@
 
 
 									<div class="text-center pt-4">
-										<button type="submit"
-											class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 "
-											id="bottone" type="submit">MODIFICA</button>
-										<button type="submit"
-											class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5"
-											id="bottone" type="submit">ANNULLA</button>
+										<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone">MODIFICA</button>
+										<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+											<button class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button>
+										</a>
 
 									</div>
 								</form>

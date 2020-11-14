@@ -412,7 +412,11 @@ th{
 /* GESTIONE LIBRI */
 
 	.verde{
-		color: green
+		color:#00DF1E;
+	}
+	
+	.magenta{
+		color: #C80258;
 	}
 
 .libri .bgcoll{
@@ -538,7 +542,7 @@ background-color: #eaeaea;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #03AF1A;
+	background-color: #C80258;
 	-webkit-transition: .4s;
 	transition: .4s;
   }
@@ -557,8 +561,7 @@ background-color: #eaeaea;
 
   
   input:checked + .slider {
-	background-color: #C80258;
-	
+	background-color: #03AF1A;
   }
   
   input:focus + .slider {
