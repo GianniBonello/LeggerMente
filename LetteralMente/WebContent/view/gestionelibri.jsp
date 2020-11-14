@@ -66,10 +66,10 @@
 						<td class="text-center pt-4"><%=l.getAutore()%></td>
 						<td class="text-center pt-4"><%=l.getIsbn()%></td>
 						<td class="text-center pt-4">
-							<i class="fas fa-check-square fa-2x verde"></i> 
-							<i class="fas fa-minus-square fa-2x magenta"></i>
+							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i> 
+							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 							<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
-								<i class="fas fa-pen-square fa-2x text-white"></i>
+								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
 							
 						</td>

@@ -124,7 +124,7 @@
           </li>
           
           <li class="nav-item">
-        		<a href="<%=request.getContextPath()%>/Logout"><button class="bottoneamministrativo shadow mt-5">LOGOUT</button></a>
+        		<a href="<%=request.getContextPath()%>/Logout"><button class="bottoneamministrativo mt-5">LOGOUT</button></a>
           </li>
         </ul>
                     </div>

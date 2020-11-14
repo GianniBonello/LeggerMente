@@ -66,7 +66,7 @@
 							</label>
 						</td>
 						<td class="text-center pt-4">
-							<i class="fas fa-minus-square fa-2x magenta"></i>
+							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 						</td>
 					</tr>
 

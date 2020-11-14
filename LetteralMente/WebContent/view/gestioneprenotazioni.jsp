@@ -61,7 +61,7 @@
 						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
 						<td class="text-center pt-4"><%=p.getIdprenotazione()%></td>
 						<td class="text-center pt-4"> 
-							<a href=""><i class="fas fa-minus-square fa-2x magenta"></i></a>
+							<a href=""><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 						</td>
 					</tr>
 					
