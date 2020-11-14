@@ -1,6 +1,6 @@
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
 
-<div class="container-fluid libri sfondostaff">
+<div class="container-fluid libri sfondostaff" style="background: linear-gradient(45deg, rgba(190, 56, 123, 0.7),rgba(21, 169, 189, 0.7)) ,url(<%=request.getContextPath()%>/res/bgstaff.jpg) no-repeat center center fixed">
 
         <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione libri</b></h1>
 
@@ -8,8 +8,8 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
             <div class="row ">
                 <!-- CERCA LIBRI  -->
-                <form action="listalibri.jsp" method="post"></form>
-                    <div class="cercaLibro pt-5 pl-5">
+                <form action="listalibri.jsp" method="post">
+                    <div class="cercaLibro pt-5 pl-5 col-xl-7">
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
                                 <span class="input-group-append">
@@ -18,11 +18,12 @@
                                 <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
                             </div> 
                     </div>
-                    <div class="filtraLibro pt-5 pl-5">
+                    <div class="filtraLibro pt-5 pl-3 col-xl-5">
                         <div class="input-group mb-3">
                             <p class="pt-2 pr-3">Filtra per :</p>
                             <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                                <option selected value="titolo">Titolo : dalla A alla Z</option>
+                                <option selected value="titolocresc">Titolo : dalla A alla Z</option>
+                                <option value="titolodecr">Titolo : dalla Z alla A</option>
                                 <option value="prezzocresc">Prezzo : crescente</option>
                                 <option value="prezzodecr">Prezzo : decrescente</option>
                                 <option value="genere">Genere</option>
@@ -139,19 +140,25 @@
 
                                                     <div class="form-row">
                                                         <label for="prezzoid">Trama</label>
-                                                        <textarea name="trama" class="text pt-1" value="l.getTrama" required></textarea>
+                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" value="l.getTrama" required></textarea>
                                                     </div>
 
                                                     <div class="form-row pt-4">
-                                                        <label for="imgid" class="col-2 pt-2">Immagine </label>
-                                                        <input type="file" name="immagine"
-                                                            class="form-control imm shadow p-1 mb-1 bg-white col-6 mr-5"
-                                                            id="imgid" placeholder="" alt="Submit">
-                                                         
+                                                    
+                                                    	<div class="col-xl-2 pt-5">    
                                                             <span class="spy pr-3">Usato</span>
                                                             <label class="switch"> 
                                                                 <input type="checkbox">
                                                              <span class="slider round"></span></label>
+                                                    	</div>
+                                                    
+                                                    	<div class="offset-xl-1 col-xl-9">  
+                                                        	<label for="imgid" class="col-2 pt-2">Immagine </label>
+                                                        	<input type="file" name="immagine"
+                                                            	class="form-control imm shadow mb-1 bg-white col-xl-12 pl-5 "
+                                                            	id="imgid" placeholder="" alt="Submit">
+                                                    	</div>
+                                                    	
                                                     </div>
                                                 
                                                 <div class="text-center pt-4">
@@ -167,6 +174,7 @@
                         </tr>
                     </tbody>
                 </table> 
+                
             </div>
         </div>
         

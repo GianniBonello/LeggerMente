@@ -25,7 +25,7 @@
  
             <nav class="navbar navbar-expand-lg navbar-light bg-light shadow mb-3">
                 <div class="container">
-                <a class="navbar-brand logo " href="<%=request.getContextPath()%>/ControlloIniziale"><img src="res/Logo-nero.png"></a>
+                <a class="navbar-brand logo " href="<%=request.getContextPath()%>/ControlloIniziale"><img src="<%=request.getContextPath()%>/res/Logo-nero.png"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -35,10 +35,10 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale">HOME
+                        <li class="nav-item active"><a class="nav-link" href="<%=request.getContextPath()%>/ControlloIniziale"><b>HOME</b>
                                 <span class="sr-only">(current)</span>
                         </a></li>
-                        <li class="nav-item"><a class="nav-link" href="listalibri.jsp">LISTA LIBRI</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="listalibri.jsp"><b>LISTA LIBRI</b></a></li> 
                     </ul>
                       <% 
                             if(request.getSession().getAttribute("utenteLoggato")==null) { 
@@ -51,7 +51,8 @@
                             Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
                             
                          <div class="dropdown">
-                            <button class="dropdown-toggle" style="color:white" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog fa-2x" ></i></button> <p><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p>
+                           		 <p class=" text-dark pr-3 pt-2 float-left "><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p> 
+                           		 <button class="text-white dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> 
@@ -64,7 +65,8 @@
                     </div>
                 </div>
             </nav>
-            <div class="bg-light offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
+            <div class="container">
+            <div class="bg-light offset-xl-8 col-xl-4 px-5 d-none " id="loginform" style="position:absolute;z-index:3; right:500px;">
                     <h2 class="pt-5 text-center">Login</h2>
                     <form action="login" method="post">
                     	<div class="pt-2 text-center">
@@ -79,4 +81,5 @@
                      		<button class="mt-5" type="submit">LOGIN</button></small>
                     	</div>
                     </form>
-                </div>
+				</div>
+			</div>

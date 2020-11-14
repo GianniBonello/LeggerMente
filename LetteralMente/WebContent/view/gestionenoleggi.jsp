@@ -2,14 +2,14 @@
 
 <div class="container-fluid prenotazioni sfondostaff" style="background: linear-gradient(45deg, rgba(190, 56, 123, 0.7),rgba(21, 169, 189, 0.7)) ,url(<%=request.getContextPath()%>/res/bgstaff.jpg) no-repeat center center fixed">
 
-        <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione prenotazioni</b></h1>
+        <h1 class="offset-2 pt-5 text-center text-light"><b>Gestione Noleggi</b></h1>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 m-auto w-50 text-light">
             <div class="row ">
-            <form action="listalibri.jsp" method="post">
                 <!-- CERCA LIBRI  -->
-                    <div class="cercaLibro pt-5 pl-5">
+                <form action="listalibri.jsp" method="post">
+                    <div class="cercaLibro pt-5 pl-5 col-xl-7">
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
                                 <span class="input-group-append">
@@ -18,7 +18,7 @@
                                 <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaPrenotazione" type="search" placeholder="Inserisci il numero di prenotazione" id="example-search-input" >  
                             </div> 
                     </div>
-                    <div class="filtraLibro pt-5 pl-5">
+                    <div class="filtraLibro pt-5 pl-3 col-xl-5">
                         <div class="input-group mb-3">
                             <p class="pt-2 pr-3">Filtra per :</p>
                             <select class="custom-select bg-light shadow " id="inputGroupSelect01">
@@ -32,8 +32,8 @@
                                 <option value="casaeditrice">Casa Editrice</option>
                             </select>
                         </div>
-                        </form>
                     </div>
+                </form>
             </div>    
         </div>
       </main>
