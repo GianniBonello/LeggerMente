@@ -87,7 +87,7 @@
                                         che desiderano.</p>
                     <span class="cercahome">CERCA UN LIBRO</span>
                     <div class="pt-2">
-                      <form action="listalibri.jsp" method="post"> 
+                      <form action="ListaLibri" method="post"> 
                         <div class="input-group">
                             <span class="input-group-append">
                                 <p class="input-group-text bg-light py-2"><i class="fa fa-search"></i></p>
