@@ -7,7 +7,15 @@
 <%Utente u = (Utente)request.getSession().getAttribute("utenteLoggato"); %>
 
 <div class="registrazione pt-5">
-
+<%if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("passwordErrata")){ %>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Password inserita incorretta!</h4>
+<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("giaEsistenti")){%>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Username o Email già esistenti!</h4>
+<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("successo")) {%>
+<h3 class=" pt-5 pb-3 text-center text-success">DATI MODIFICATI!</h3>
+<%} %>
     <h1 class=" pt-5 pb-3 text-center"><b>Il mio profilo</b></h1>
     
     
@@ -44,12 +52,7 @@
       	</div>
       </div>
        
-      <div class="form-row">
-        <div class="form-group col-xl-12 pt-1">
-        	<label for="emailid">Email </label>
-        	<input type="email" name="email" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" value="<%=u.getEmail()%>">
-       	</div>
-      </div>
+      
         
       <div class="form-row">
           <div class="form-group col-xl-5 pt-1">
@@ -81,19 +84,20 @@
         </div>
     
     
-      	  <div class="text-center pt-4">
-      	  	<button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5 mr-5" id="bottone" >MODIFICA</button>
-          	<a href="<%=request.getContextPath()%>/ControlloIniziale"><button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button></a>
-      	  </div>
+      	  
       	  <br>
       	  <%//TODO INSERIRE SCRITTA "iNSERISCI LA TUA PASSWORD PER CONFERMARE LA MODIFICA" %>
        <%//TODO cambiare tutti i campi: name %>
       <div class="form-row">
         <div class="form-group col-xl-12 pt-1">
-        	<label for="emailid">INSERISCI LA PASSWORD </label>
-        	<input type="email" name="password" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid" value="<%=u.getEmail()%>">
+        	<label for="pwid">INSERISCI LA PASSWORD PER SALVARE LE MODIFICHE</label>
+        	<input type="password" name="password" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid">
        	</div>
       </div>
+      <div class="text-center pt-4">
+      	  	<button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5 mr-5" id="bottone" >MODIFICA</button>
+          	<a href="<%=request.getContextPath()%>/ControlloIniziale"><button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button></a>
+      	  </div>
     
    	 </div>
    </form>
