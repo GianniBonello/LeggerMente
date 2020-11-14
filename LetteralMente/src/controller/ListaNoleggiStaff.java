@@ -24,12 +24,12 @@ public class ListaNoleggiStaff extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getSession().getAttribute("UtenteLoggato") != null && ((Utente)request.getSession().getAttribute("UtenteLoggato")).getIsStaff()) {
+		if(request.getSession().getAttribute("utenteLoggato") != null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
 			if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 				request.setAttribute("listaNoleggi", UtilityRicerca.ricercaNoleggio(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaNoleggi", Utility.leggiNoleggio());
 			
-			request.getRequestDispatcher("/listaNoleggi.jsp").forward(request, response);//TODO non sappiamo come si chiama la jsp dei noleggi che vedono gli staff
+			request.getRequestDispatcher("/view/gestionenoleggi.jsp").forward(request, response);//TODO non sappiamo come si chiama la jsp dei noleggi che vedono gli staff
 		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);	
 	}
 

@@ -39,7 +39,7 @@
 
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link active text-center " href="<%=request.getContextPath()%>/view/homestaff.jsp"><i class="fas fa-home pr-5" style="width:68px;" ></i><b>HOME </b><span class="sr-only">(current)</span></a>
+            	<a class="nav-link text-center " href="<%=request.getContextPath()%>/view/homestaff.jsp"><i class="fas fa-home pr-5" style="width:68px;" ></i><b>HOME </b></a>
             </div>
           </li>
           
@@ -63,14 +63,18 @@
           
           <li class="nav-item">
         		<div class="row">
-            		<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaNoleggiStaff"><i class="fas fa-dolly-flatbed pr-5" style="width:68px;"></i>GESTIONE NOLEGGI</a>
+            		<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaNoleggiStaff"><i class="fas fa-clipboard-list pr-5" style="width:68px;"></i>GESTIONE NOLEGGI</a>
             	</div>
           </li>
           
           <li class="nav-item">
-        		<a href="<%=request.getContextPath()%>/Logout"><button class="bottoneamministrativo shadow">LOGOUT</button></a>
+        		<a href="<%=request.getContextPath()%>/Logout"><button class="bottoneamministrativo shadow mt-5">LOGOUT</button></a>
           </li>
         </ul>
     </nav>
-    
+  
+  
+  
+  
+  
    

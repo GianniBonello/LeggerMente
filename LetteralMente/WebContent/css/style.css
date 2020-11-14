@@ -58,7 +58,9 @@ button{
 	border-radius:35px;
 }
 
-
+.dropdown-menu{
+	border-radius: 1.25rem !important;
+}
 
 .mente{
 	font-size:42pt;

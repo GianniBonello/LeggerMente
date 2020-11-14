@@ -62,7 +62,8 @@
                         Utente u= (Utente) request.getSession().getAttribute("utenteLoggato"); %> 
                         
                            <div class="dropdown">
-                            	<button class="buttonHead dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-3 my-auto " ></i><p class="float-left ">Ciao <%= u.getNome() + " "+ u.getCognome()  %> </p></button> 
+                           		 <p class="pr-3 pt-2 float-left ">Ciao <%= u.getNome() + " "+ u.getCognome()  %> </p> 
+                           		 <button class="buttonHead dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>     
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i>Il mio profilo</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i>Storico prenotazioni</a> 
@@ -77,7 +78,7 @@
             </nav>
             
             <div class="container">
-                       <div class="row pt-5">
+               <div class="row pt-5">
                 <div class="intro col-xl-5 pt-5">
                     <h2 class="testohome"><span class="mente">Legger</span>Mente</h2>
                     <h4 class="testohome"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Libreria di Roma</i></h4>
@@ -112,6 +113,6 @@
                      		<button class="mt-5" type="submit">LOGIN</button></small>
                     	</div>
                     </form>
-                </div>
-            </div> 
+				</div>
+              </div>
 </header> 
