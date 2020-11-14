@@ -4,7 +4,7 @@
 	 request.getRequestDispatcher("../ControlloIniziale").forward(request, response);
 	} %>
 	
- <main role="main" class="sfondostaff col-lg-12 pt-3 px-4" style="background: linear-gradient(45deg, rgba(190, 56, 123, 0.7),rgba(21, 169, 189, 0.7)) ,url(<%=request.getContextPath()%>/res/bgstaff.jpg) no-repeat center center fixed">
+ <main role="main" class="sfondostaff col-lg-12 pt-3 px-4" >
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
    			<div class="intro offset-xl-5 col-lg-4 pt-5 text-center"  style="position:absolute; top: 20%;">
    				<i class="fas fa-book fa-10x mb-5 " style="transform: rotate(-35deg); color:#ffffff;"></i><br>

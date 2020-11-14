@@ -411,9 +411,13 @@ th{
 
 /* GESTIONE LIBRI */
 
-	.verde{
-		color: green
-	}
+.verde{
+	color:#02A318;
+}
+	
+.magenta{
+	color: #C80258;
+}
 
 .libri .bgcoll{
 	border: none;
@@ -538,7 +542,7 @@ background-color: #eaeaea;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #03AF1A;
+	background-color: #C80258;
 	-webkit-transition: .4s;
 	transition: .4s;
   }
@@ -557,8 +561,7 @@ background-color: #eaeaea;
 
   
   input:checked + .slider {
-	background-color: #C80258;
-	
+	background-color: #03AF1A;
   }
   
   input:focus + .slider {
@@ -643,7 +646,15 @@ background-color: #eaeaea;
 .bottoneamministrativo{
 	background-color:  #1C1C1C;
 	color: #818181;
-   
+	box-shadow: -1px -1px 3px rgba(255,255,255,0.1),
+				 2px 2px 6px rgba(0,0,0,0.8);
+}  
+
+
+.bottoneamministrativo:hover{
+	background:  #1C1C1C;
+	color: #C80258;
+	text-shadow: 0px 0px 15px #C80258;
 }  
 
 .nav-link {
@@ -696,3 +707,4 @@ margin-bottom: 132px;
 .mardue{
 	margin-bottom: 121px;
 }
+
