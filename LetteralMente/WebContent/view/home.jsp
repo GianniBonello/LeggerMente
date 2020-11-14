@@ -86,7 +86,7 @@ if(lista!=null){
 <%       }                        %>
            			</div>    
            			
-           			<a href="<%=request.getContextPath()%>/view/listalibri.jsp"><button class="offset-xl-5 col-xl-2">TUTTI I LIBRI</button></a>             
+           			<a href="<%=request.getContextPath()%>/ListaLibri"><button class="offset-xl-5 col-xl-2">TUTTI I LIBRI</button></a>             
             </div>
         </div>
             

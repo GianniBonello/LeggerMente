@@ -54,10 +54,10 @@
                            		 <p class=" text-dark pr-3 pt-2 float-left "><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p> 
                            		 <button class="text-white dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
+                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/ModificaProfilo"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> 
                                     <a class="dropdown-item" href="#"><i class="fas fa-receipt pr-2"></i> Noleggi effettuati</a> 
-                                    <a class="dropdown-item" href="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a>  
+                                    <a class="dropdown-item" href="<%=request.getContextPath()%>/Logout"><i class="fas fa-sign-out-alt"></i> Logout</a>  
                                  </div>
                         </div> 
                    
