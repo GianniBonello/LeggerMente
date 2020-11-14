@@ -147,7 +147,7 @@ public class UtilityRicerca {
 		case "isbn":
 			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isbn =:ricerca",ricerca);
 		case "titolo":
-			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.titolo =:ricerca",ricerca);
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.titolo LIKE %:ricerca%",ricerca);
 		default:
 			return new ArrayList<Libro>();
 		}
@@ -157,7 +157,7 @@ public class UtilityRicerca {
 		EntityManager em = getManager();
 		//rimarra nella storia
 		Query q=em.createQuery(query);
-		q.setParameter("ricerca", "%"+ricerca+"%");
+		q.setParameter("ricerca", ricerca);
 		return q.getResultList();
 	}
 
