@@ -19,10 +19,13 @@ public class ModificaProfilo extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("email") != null && request.getParameter("comune") != null && request.getParameter("cap") != null && request.getParameter("indirizzo") != null && request.getParameter("username") != null && request.getParameter("password") != null) {
+		if(request.getParameter("email") != null && request.getParameter("comune") != null && request.getParameter("cap") != null 
+				&& request.getParameter("indirizzo") != null && request.getParameter("username") != null 
+				&& request.getParameter("password") != null) {
 			
 			Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
 			u.setEmail(request.getParameter("email"));
@@ -36,8 +39,7 @@ public class ModificaProfilo extends HttpServlet {
 			request.getSession().setAttribute("utenteLoggato", u);
 		}
 		
-		request.setAttribute("utente", (Utente)request.getSession().getAttribute("utenteLoggato"));
-		request.getRequestDispatcher("IlMioProfilo").forward(request, response);
+		request.getRequestDispatcher("/view/ilmioprofilo.jsp").forward(request, response);
 	}
 
 }

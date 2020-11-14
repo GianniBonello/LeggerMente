@@ -9,7 +9,7 @@ if(l!=null && request.getAttribute("attesa")!= null) {
 int attesa = (Integer)request.getAttribute("attesa");%>
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">
-        <img src="res/libro1.jpg" height="375px" alt="" class="w-75 mb-5">
+        <img src="<%=l.getImmagine_path() %>" height="375px" alt="" class="w-75 mb-5">
         <p class="text-left inter"><b>AUTORE:</b></p>
         <hr class="w-75">
         <p class="text-left interdue"><%=l.getAutore() %></p>
