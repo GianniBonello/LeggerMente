@@ -22,15 +22,19 @@ public class ModificaProfilo extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
-		response.sendRedirect("/LeggerMente/view/ilmioprofilo.jsp");
 		
+		Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
+		request.getSession().setAttribute("utenteLoggato",u);
+	//	response.sendRedirect("/LeggerMente/view/ilmioprofilo.jsp");
+		request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("email"),comune=request.getParameter("comune"),cap=request.getParameter("cap"),
 				indirizzo=request.getParameter("indirizzo"),username=request.getParameter("username"),password=request.getParameter("password");
+		
 		Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
+		Utente uMod = u;
 		if(Base64.getEncoder().encodeToString((request.getParameter("password")).getBytes()).equals(u.getPassword())) {
 			
 			if(email != null && comune != null && cap != null 
@@ -38,20 +42,22 @@ public class ModificaProfilo extends HttpServlet {
 					&& password != null) {
 
 				//Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
-				u.setEmail(email);
-				u.setComune(comune);
-				u.setCap(cap);
-				u.setIndirizzo(indirizzo);
-				u.setUsername(username);
+				uMod.setEmail(email);
+				uMod.setComune(comune);
+				uMod.setCap(cap);
+				uMod.setIndirizzo(indirizzo);
+				uMod.setUsername(username);
 				//u.setPassword(password);	
 				try {					
-					Utility.modificaUtente(u);					
+					Utility.modificaUtente(uMod);					
 					request.setAttribute("modifica", "successo");
-					request.getSession().setAttribute("utenteLoggato", u);
+					
+					request.getSession().setAttribute("utenteLoggato", uMod);
 					request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
-				} catch (RollbackException e) {					
+				} catch (RollbackException e) {		
+					request.getSession().setAttribute("utenteLoggato", u);
 					request.setAttribute("modifica", "giaEsistenti");
-					request.getRequestDispatcher("ModificaProfilo").forward(request, response);
+					request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 					
 				}
 				
