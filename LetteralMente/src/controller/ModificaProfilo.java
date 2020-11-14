@@ -22,7 +22,8 @@ public class ModificaProfilo extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
+		//request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
+		response.sendRedirect("/LeggerMente/view/ilmioprofilo.jsp");
 		
 	}
 
@@ -51,6 +52,7 @@ public class ModificaProfilo extends HttpServlet {
 				} catch (RollbackException e) {					
 					request.setAttribute("modifica", "giaEsistenti");
 					request.getRequestDispatcher("ModificaProfilo").forward(request, response);
+					
 				}
 				
 			}else {request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);}
