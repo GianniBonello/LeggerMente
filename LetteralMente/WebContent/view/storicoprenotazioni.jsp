@@ -1,5 +1,8 @@
+<%@page import="model.Prenotazione"%>
+<%@page import="java.util.List"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%List<Prenotazione>listaPrenotazioni= (List<Prenotazione>)request.getAttribute("listaPrenotazioni"); %>
  <div class="container-fluid storicoprenotazioni ">
 
         <h1 class="mt-5 pt-5 text-center"><b>Storico prenotazioni</b></h1>
@@ -12,18 +15,30 @@
                         <tr>
                             <th scope="col" class="text-center stonda">#</th>
                             <th scope="col" class="text-center">Titolo</th>
-                            <th scope="col" class="text-center">Data inizio noleggio</th>
-                            <th scope="col" class="text-center stondadue">Cancella noleggio</th>
+                            <th scope="col" class="text-center">Data prenotazione</th>
+                            <th scope="col" class="text-center stondadue">Cancella prenotazione</th>
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <%for(Prenotazione p : listaPrenotazioni){ %>
                         <tr class="chi">
-                            <td class="text-center">1</td>
-                            <td class="text-center">Le cronache di Narnia</td>
-                            <td class="text-center">25-05-2020</td>
-                            <td class="text-center"><a href=""><i class="fas fa-times-circle fa-lg text-danger"></i></a>
+                            <td class="text-center"><%=listaPrenotazioni.indexOf(p)+1%></td>
+                            <td class="text-center"><%=p.getLib().getTitolo()%></td>
+                            <td class="text-center"><%=p.getData()!=null? p.getData() : "in coda"%></td>
+                                                       
+                            <td class="text-center">
+                            
+                            <%if(p.getData()==null){ %>
+                            
+                            <a href="<%=request.getContextPath()%>/CancellaPrenotazioneUtente?cancella=<%=p.getIdprenotazione()%>"><i class="fas fa-times-circle fa-lg text-danger"></i></a>
+                            
+                            <%}%>
+                           
                             </td>
                         <tr>
+                        
+                        <%} %>
 
                     </tbody>
                 </table>

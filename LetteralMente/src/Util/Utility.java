@@ -242,4 +242,18 @@ public class Utility {
 		}
 	}
 	
+	public static List<Noleggio> trovaNoleggio(Utente u){
+		EntityManager em = getManager();
+		Query q = em.createQuery("SELECT p FROM Noleggio p WHERE p.u.idUtente =:utente");
+		q.setParameter("utente", u.getIdUtente());
+		return q.getResultList();
+	}
+	
+	public static List<Prenotazione> trovaPrenotazione(Utente u){
+		EntityManager em = getManager();
+		Query q = em.createQuery("SELECT p FROM Prenotazione p WHERE p.u.idUtente =:utente");
+		q.setParameter("utente", u.getIdUtente());
+		return q.getResultList();
+	}
+	
 }

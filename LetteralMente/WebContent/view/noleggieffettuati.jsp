@@ -1,4 +1,10 @@
+<%@page import="model.Noleggio"%>
+<%@page import="java.util.List"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
+
+<%List<Noleggio>listaNoleggi= (List<Noleggio>)request.getAttribute("listaNoleggi"); 
+if(listaNoleggi != null){
+%>
 
 <div class="container-fluid noleggi ">
 
@@ -17,15 +23,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <%for(Noleggio n : listaNoleggi){ %>
                         <tr class="chi">
-                            <td class="text-center">1</td>
-                            <td class="text-center">Le cronache di Narnia</td>
-                            <td class="text-center">12-02-2020</td>
-                            <td class="text-center">12-04-2020</td>
+                            <td class="text-center"><%=listaNoleggi.indexOf(n)+1 %></td>
+                            <td class="text-center"><%=n.getLib().getTitolo() %></td>
+                            <td class="text-center"><%=n.getDataInizio() %></td>
+                            <td class="text-center"><%=n.getDataFine() %></td>
                            
                             </td>
                         <tr>
-
+					<%} %>
                       
                     </tbody>
                 </table>
@@ -33,6 +41,6 @@
         </div>
 
     </div>
-
+<%} %>
 
 <jsp:include page="/view/footer.jsp"></jsp:include>
