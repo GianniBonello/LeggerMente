@@ -28,8 +28,11 @@ int attesa = (Integer)request.getAttribute("attesa");%>
         <hr class=" text-left">
         <p class="mt-3 mar">Quando il libro sara' disponibile al ritiro sara' inviata <br> via email una notifica di conferma.</p>
 
-       <a href="<%=request.getContextPath()%>/PrenotazioneUtente?idLibro=<%=l.getId_libro()%>"><button type="submit" class="mt-5 mr-3 col-3 text-white shadow ">CONFERMA</button></a> 
-        <button type="submit" class="mt-5 col-3 text-white shadow ">ANNULLA</button>
+       <form action="<%=request.getContextPath()%>/PrenotazioneUtente" method="post">
+        	<input type="hidden" name="idLibro" value="<%= l.getId_libro() %>">
+        	<button type="submit" class="mt-5 mr-3 col-3 text-white shadow">CONFERMA</button>
+        	<a href="<%=request.getContextPath()%>/ListaLibri" class="button mt-5 col-3 text-white shadow ">ANNULLA</a>
+        </form>
 
       </div>
     </div>

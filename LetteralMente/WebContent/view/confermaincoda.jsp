@@ -28,7 +28,7 @@ int attesa = (Integer)request.getAttribute("attesa");%>
         Sei il <b><%=attesa==0?"Primo": attesa %></b> in coda<br>
         <p class="mt-3 mb-5">Quando il libro sarà disponibile al ritiro sarà inviata <br> via email una notifica di conferma.</p>
 
-        <button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button>
+       <a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button></a>
 
       </div>
     </div>

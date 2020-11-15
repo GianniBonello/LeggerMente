@@ -40,6 +40,23 @@ button{
     border-radius: 50px;
 }
 
+.button{
+	background-color: #C80258;
+	color: white;
+	padding-top: 10px;
+    padding-bottom: 10px;
+	padding-left: 47px;
+	padding-right: 47px;
+    border: none;
+    font-weight:600;
+    font-size: 12pt;
+    border-radius: 50px;
+}
+
+.button:hover{
+	text-decoration:none;
+}
+
 .testohome{
 	color:#ffffff;
 }
@@ -918,3 +935,11 @@ margin-bottom: 132px;
 	position: absolute;
 	top: 20px;
 }
+
+
+.custom-control-input:checked ~ .custom-control-label::before{
+	border-color: #C80258 !important;
+	background-color: #C80258 !important;
+	
+}
+

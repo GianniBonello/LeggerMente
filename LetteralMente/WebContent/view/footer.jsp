@@ -16,7 +16,7 @@
 
 
 			<div class=" col-4 pt-4 float-left">
-				<a href="https://www.facebook.com/profile.php?id=100056921844703" target="_blank"><i class="fab fa-facebook fa-2x pr-2" id="icfb"></i></a>
+				<a href="https://www.facebook.com/profile.php?id=100056921844703" target="_blank"><i class="fab fa-facebook-square fa-2x pr-2" id="icfb"></i></a>
 				<a href="https://www.instagram.com/leggermente.roma/?hl=it" target="_blank"><i class="fab fa-instagram fa-2x pr-2" id="icig"></i></a>
 				<a href="https://mail.google.com/"><i class="fas fa-envelope fa-2x" id="icemail" target="_blank"></i></a>
 				<br><br>

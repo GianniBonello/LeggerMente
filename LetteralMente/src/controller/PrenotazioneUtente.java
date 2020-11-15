@@ -29,6 +29,7 @@ public class PrenotazioneUtente extends HttpServlet {
 			Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
 				//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
 				if(l.getQuantita()>0) {
+					System.out.println("sono nell  if quantita maggiore 0");
 						Prenotazione p = new Prenotazione();
 						p.setData(new Date());
 						p.setInCorso(true);
@@ -37,8 +38,9 @@ public class PrenotazioneUtente extends HttpServlet {
 						Utility.modificaLibro(l);
 						/*passaggio del parametro per stampare la conferma*/
 						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
-						request.getRequestDispatcher("/view/confermaprenotazione.jsp").forward(request, response);
+						request.getRequestDispatcher("/view/confermaprenotazione.jsp").include(request, response);
 				}else if(l.getQuantita() <= 0){
+					System.out.println("sono nell else if quantita minore 0");
 						//request.setAttribute("prenotazione", "libriFiniti");
 						Prenotazione p = new Prenotazione();
 						p.setInCorso(false);
@@ -46,9 +48,10 @@ public class PrenotazioneUtente extends HttpServlet {
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
 						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
 						request.setAttribute("attesa", Utility.trovaPrenotazione(l).size());
-						request.getRequestDispatcher("/view/confermaincoda.jsp").forward(request, response);
+						request.getRequestDispatcher("/view/confermaincoda.jsp").include(request, response);
 				}
 		}else {
+			System.out.println("else");
 			request.setAttribute("idLibro", request.getParameter("idLibro"));
 			request.getRequestDispatcher("DettaglioLibro").forward(request, response);
 		}

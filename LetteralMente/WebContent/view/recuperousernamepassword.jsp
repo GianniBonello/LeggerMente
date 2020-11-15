@@ -3,44 +3,33 @@
  <div class="container-fluid recuperopassword ">
 
         
-        <div class="recupero confine shadow p-5 mb-2 bg-white">
-            <h1 class=" pb-5 pt-3 text-center"><b>Recupero password/username</b></h1>
+        <div class="recupero p-5 mb-2 text-center">
+            <h1 class=" pb-5 pt-3 text-center"><b>Recupero Username / Password</b></h1>
 
             <form method="post">
                 <div class="form-row ">
 
                     <div class="col-8 offset-2 pt-4">
-                        <form action="Registrazione" method="post">
-                            <div class="form-row">
+                        <form class="was-validated" action="Registrazione" method="post">
+                            <div class="form-row justify-content-center m-auto">
                                 
-                                <div class="form-group col-xl-6 pt-1">
-                                    <label for="userid">Username </label>
-                                    <input type="text" name="username"
-                                        class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                        id="userid" placeholder="">
-                                </div>
-                                <div class="form-group col-xl-6 pt-1">
-                                    <label for="mailid">Email </label>
+                                <div class="form-group pt-3">
+                                    <label for="email">Email </label>
                                     <input type="email" name="email"
                                         class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                        id="mailid" placeholder="">
+                                        id="email" placeholder="Inserisci la tua email">
                                 </div>
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-xl-6 pt-1">
-                                    <label for="passid">Password </label>
-                                    <input type="password" name="password"
-                                        class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                        id="passid" placeholder="">
-                                </div>
-
-                                <div class="form-group col-xl-6 pt-1">
-                                    <label for="confid">Conferma password </label>
-                                    <input type="password" name="confermapassword"
-                                        class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                        id="confid" placeholder="">
-                                </div>
+                            <div class="form-row justify-content-center m-auto">
+                                <div class="custom-control custom-radio mb-3 mt-3 ">
+								    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+								    <label class="custom-control-label" for="customControlValidation2">Username</label>
+								</div>
+								<div class="custom-control custom-radio mt-3 mb-3 ml-5">
+								    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+								    <label class="custom-control-label" for="customControlValidation3">Password</label>
+								<div class="invalid-feedback">More example invalid feedback text</div>
+								  </div>
                             </div>
                         </form>
                         <div class="text-center pt-4">

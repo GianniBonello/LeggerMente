@@ -34,9 +34,11 @@ if(l!=null){%>
           </div>
 		<input type="hidden" name="idLibro" value="<%=l.getId_libro()%>">
 
+
         <button type="submit" class="text-white shadow">CONFERMA</button>
+        <a href="<%=request.getContextPath()%>/ListaLibri" class="button text-white shadow">ANNULLA</a>
         </form>
-		<a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="text-white shadow">ANNULLA</button></a>
+		
       </div>
     </div>
 </div>
