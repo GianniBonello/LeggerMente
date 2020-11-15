@@ -1,3 +1,6 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.sql.Date"%>
+<%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Noleggio"%>
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
@@ -54,6 +57,7 @@
 
 					<%
 						for (Noleggio n : listaNoleggi) {
+							if(n.getDataFine().after(Date.valueOf(LocalDate.now()))){
 					%>
 
 					<tr class="chiaro nero">
@@ -63,16 +67,19 @@
 						<td class="text-center pt-4"><%=n.getIdNoleggio()%></td>
 						<td class="text-center pt-4">
 							<label class="switch"> 
-								<input type="checkbox"> <span class="slider round"></span>
+							<a href=""></a>	<input type="checkbox" name="inCorso" value="" <%=n.getInCorso()?"checked":"" %>> <span class="slider round"></span>
 							</label>
 						</td>
 						<td class="text-center pt-4">
 							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i>
+							<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
+							<%} %>
 						</td>
 					</tr>
 
 						<%
+						}
 						}
 					%>
 

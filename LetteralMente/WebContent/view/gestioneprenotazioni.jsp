@@ -1,3 +1,4 @@
+<%@page import="model.Utente"%>
 <%@page import="model.Prenotazione"%>
 <%@page import="java.util.List"%>
 
@@ -41,10 +42,10 @@
 				<thead class="bg-dark text-white">
 					<tr>
 						<th scope="col" class="text-center stonda">#</th>
-						<th scope="col" class="text-center">Codice ISBN</th>
-						<th scope="col" class="text-center">Titolo Libro</th>
-						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Codice Prenotazione</th>
+						<th scope="col" class="text-center">Utente</th>
+						<th scope="col" class="text-center">Titolo</th>
+						<th scope="col" class="text-center">Codice ISBN</th>
 						<th scope="col" class="text-center stondadue">Comandi</th>
 					</tr>
 				</thead>
@@ -52,21 +53,25 @@
 
 					<%
 						for (Prenotazione p : listaPrenotazioni) {
+							if(p.getInCorso()){
 					%>
 
 					<tr class="chiaro nero">
-						<td class="text-center pt-4"><%=listaPrenotazioni.indexOf(p)%></td>
-						<td class="text-center pt-4"><%=p.getLib().getIsbn()%></td>
-						<td class="text-center pt-4"><%=p.getLib().getTitolo()%></td>
-						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=listaPrenotazioni.indexOf(p)+1%></td>
 						<td class="text-center pt-4"><%=p.getIdprenotazione()%></td>
+						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=p.getLib().getTitolo()%></td>
+						<td class="text-center pt-4"><%=p.getLib().getIsbn()%></td>
 						<td class="text-center pt-4">
-							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i> 
-							<a href=""><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
+						<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?idPrenotazione=<%=p.getIdprenotazione()%>"><i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i></a>
+					<% 	if(request.getSession().getAttribute("utenteLoggato")!= null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin"))	{%>
+							<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?elimina<%=p.getIdprenotazione()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
+							<%} %>
 						</td>
 					</tr>
 					
 						<%
+						}
 						}
 					%>
 
