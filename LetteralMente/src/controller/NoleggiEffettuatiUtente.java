@@ -32,7 +32,7 @@ public class NoleggiEffettuatiUtente extends HttpServlet {
 		Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
 		if (u!=null && !u.getIsStaff()) {
 			request.setAttribute("listaNoleggi", Utility.trovaNoleggio(u));
-			request.getRequestDispatcher("/view/noleggieffetutati.jsp").include(request, response);
+			request.getRequestDispatcher("/view/noleggieffettuati.jsp").include(request, response);
 		}
 	}
 
