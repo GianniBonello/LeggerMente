@@ -36,7 +36,7 @@ if(l!=null){%>
 
 
         <button type="submit" class="text-white shadow">CONFERMA</button>
-        <a href="<%=request.getContextPath()%>/ListaLibri" class="button text-white shadow">ANNULLA</a>
+        <a href="<%=request.getContextPath()%>/ListaLibri" class="button text-white shadow ml-5">ANNULLA</a>
         </form>
 		
       </div>

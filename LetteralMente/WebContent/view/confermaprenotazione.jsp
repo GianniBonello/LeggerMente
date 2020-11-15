@@ -20,9 +20,9 @@ if(p!=null){%>
       <div class="col-xl-7 offset-1 pt-3 text-center">
         <h2 class="mb-5 text-center"><%=p.getLib().getTitolo() %></h2>
         <i class="fas fa-id-badge fa-7x mb-5 mt-5"></i><br>
-        <b style="color: #06A500;">PRENOTAZIONE EFFETTUATA</b><br>
-        Prenotazione n* <%=p.getIdprenotazione() %><br>
-        <p class="mt-3 mb-5">Nei prossimi minuti le sarà inviata un email <br> con il codice del suo ordine e le istruzioni per il ritiro.</p>
+        <b style="color: #06A500; font-size:16pt;">PRENOTAZIONE EFFETTUATA</b><br>
+        <p style="font-size:16pt;">Prenotazione n* <%=p.getIdprenotazione() %><br></p>
+        <p class="mt-3 mb-5" style="font-style:italic;">Nei prossimi minuti le sara' inviata un email <br> con il codice del suo ordine e le istruzioni per il ritiro.</p>
 	<%//TODO AGGIUNGERE LINK ALLA LISTA LIBRI!!!! %>
         <a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button></a>
 

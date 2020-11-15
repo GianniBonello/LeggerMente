@@ -8,19 +8,7 @@
 System.out.println(request.getAttribute("modifica"));%>
 
 <div class="registrazione pt-5">
-<%if(request.getAttribute("modifica") != null && (((String)request.getAttribute("modifica")).equals("passwordErrata") || ((String)request.getAttribute("modifica")).equals("passwordNonInserita"))){ %>
-<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
-<h4 class=" pb-3 text-center text-danger"><%=((String)request.getAttribute("modifica")).equals("passwordErrata")?"Password inserita incorretta!": "Inserisci la password per modificare i tuoi dati" %></h4>
-<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("giaEsistenti")){%>
-<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
-<h4 class=" pb-3 text-center text-danger">Username o Email già esistenti!</h4>
-<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("successo")) {%>
-<h3 class=" pt-5 pb-3 text-center text-success">DATI MODIFICATI!</h3>
-<%} else if (request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("campiNonModificabili")){
-%>
-<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
-<h4 class=" pb-3 text-center text-danger">Per modificare Nome, Cognome e Codice Fiscale contattaci per email a:<br> leggermente.roma@gmail.com</h4>
-<%} %>
+
     <h1 class=" pt-5 pb-3 text-center"><b>Il mio profilo</b></h1>
     
     
@@ -64,7 +52,19 @@ System.out.println(request.getAttribute("modifica"));%>
           </div>
     </div>
     
-    
+ <%if(request.getAttribute("modifica") != null && (((String)request.getAttribute("modifica")).equals("passwordErrata") || ((String)request.getAttribute("modifica")).equals("passwordNonInserita"))){ %>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger"><%=((String)request.getAttribute("modifica")).equals("passwordErrata")?"Password inserita incorretta!": "Inserisci la password per modificare i tuoi dati" %></h4>
+<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("giaEsistenti")){%>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Username o Email già esistenti!</h4>
+<%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("successo")) {%>
+<h3 class=" pt-5 pb-3 text-center text-success">DATI MODIFICATI!</h3>
+<%} else if (request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("campiNonModificabili")){
+%>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Per modificare Nome, Cognome e Codice Fiscale contattaci per email a:<br> leggermente.roma@gmail.com</h4>
+<%} %>   
     
   <form action="<%=request.getContextPath()%>/ModificaProfilo" method="post" >
     <div class="col-8 offset-2">
@@ -137,8 +137,8 @@ System.out.println(request.getAttribute("modifica"));%>
       </div>
       <div class="text-center pt-4">
       	  	<button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5 mr-5" id="bottone" >MODIFICA</button>
-          	<a href="<%=request.getContextPath()%>/ControlloIniziale"><button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button></a>
-      	  </div>
+      	  	<a href="<%=request.getContextPath()%>/ControlloIniziale" class="button mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5">ANNULLA</a>
+      </div>
     
    	 </div>
    </form>
