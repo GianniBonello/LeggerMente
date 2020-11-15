@@ -14,6 +14,11 @@
 	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
 		<div class="container-fluid">
 		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione utenti</b></h1>
+		<%if(request.getAttribute("utenteModificato")!= null && ((String)request.getAttribute("utenteModificato")).equals("errore")) {%>
+		<h5 class="text-center text-light pb-5">Non e' possibile registrare un utente con questa data di nascita</h5>
+		<%}else if(request.getAttribute("utenteModificato")!= null && ((String)request.getAttribute("utenteModificato")).equals("successo")){ %>
+		<h5 class="text-center text-light pb-5">Dati modificati con successo</h5>
+		<%} %>
 			<form>
 	  			<div class="row pb-5">
 	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
@@ -53,6 +58,8 @@
 
 					<%
 						for (Utente u : listaUtenti) {
+							if((u.getIsStaff() && request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) ||
+									(!u.getIsStaff() && request.getSession().getAttribute("utenteLoggato")!=null && !((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin"))){
 					%>
 
 					<tr class="chiaro nero">
@@ -68,7 +75,7 @@
 							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
+							<a href="<%=request.getContextPath() %>/ListaUtenti?elimina=<%=u.getIdUtente()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 						</td>
 					</tr>
 
@@ -79,7 +86,7 @@
 
 
 							<div class="col-8 offset-2 pt-4">
-								<form action="Registrazione" method="post">
+								<form action="<%=request.getContextPath() %>/ListaUtenti" method="post">
 									<div class="form-row">
 										<div class="form-group col-md-12 pt-1">
 											<label for="nomeid">Nome </label> <input type="text"
@@ -104,7 +111,7 @@
 
 										<div class="form-group col-xl-6 pt-1">
 											<label for="nascitaid">Data di nascita </label> <input
-												type="date" name="datadinascita"
+												type="date" name="dataDiNascita"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="nascitaid" value="<%=u.getDataDiNascita()%>" required>
 										</div>
@@ -134,7 +141,7 @@
 												id="comuneid" value="<%=u.getComune()%>" required>
 										</div>
 										<div class="form-group col-xl-2 pt-1">
-											<label for="capid">CAP </label> <input type="text"
+											<label for="capid">CAP </label> <input type="number"
 												maxlength="5" pattern="([0-9]|[0-9]|[0-9]|[0-9]|[0-9])"
 												name="cap"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
@@ -145,7 +152,7 @@
 									<div class="form-row">
 										<div class="form-group col-xl-6 pt-1">
 											<label for="pwid">Username </label> <input type="text"
-												name="password"
+												name="username"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"
 														value="<%=u.getUsername()%>" required>
 										</div>
@@ -158,7 +165,7 @@
 										</div>
 									</div>
 
-
+									<input type="hidden" name="idUtente" value="<%=u.getIdUtente()%>">
 
 
 									<div class="text-center pt-4">
@@ -176,6 +183,7 @@
 						</td>
 					</tr>
 						<%
+						}
 						}
 					%>
 

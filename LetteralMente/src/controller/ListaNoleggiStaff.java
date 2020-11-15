@@ -25,11 +25,14 @@ public class ListaNoleggiStaff extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("utenteLoggato") != null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
-			if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
+			if(request.getParameter("inCorso") != null) {
+				//TODO fare il controllo che quando il checkbox cambia devo cambiare il incorso del noleggio da false a true e viceversa
+				request.setAttribute("listaNoleggi", Utility.leggiNoleggio());
+			}else if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 				request.setAttribute("listaNoleggi", UtilityRicerca.ricercaNoleggio(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaNoleggi", Utility.leggiNoleggio());
 			
-			request.getRequestDispatcher("/view/gestionenoleggi.jsp").forward(request, response);//TODO non sappiamo come si chiama la jsp dei noleggi che vedono gli staff
+			request.getRequestDispatcher("/view/gestionenoleggi.jsp").include(request, response);//TODO non sappiamo come si chiama la jsp dei noleggi che vedono gli staff
 		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);	
 	}
 

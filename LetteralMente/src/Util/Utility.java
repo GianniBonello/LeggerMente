@@ -152,7 +152,7 @@ public class Utility {
     	et.begin();
     	em.merge(p);
     	et.commit();
-    	if(p.getData()!=null) {
+    	if(p.getData()!=null && p.getInCorso()) {
     		UtilityRicerca.mailPrenotazioni(p);
     	}
 	}
