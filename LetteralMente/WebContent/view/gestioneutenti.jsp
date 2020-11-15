@@ -65,12 +65,10 @@
 						</label></td>
 
 						<td class="text-center pt-4">
-							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i>
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i> 
 							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
-							
+							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 						</td>
 					</tr>
 

@@ -46,7 +46,7 @@
 			<table class="table">
 				<thead class="bg-dark text-white">
 					<tr>
-						<th scope="col" class="text-center stonda">#</th>
+						<th scope="col" class="text-center stonda pr-5 pl-5">#</th>
                             <th scope="col" class="text-center">Titolo libro</th>
                             <th scope="col" class="text-center">Autore</th>
                             <th scope="col" class="text-center">Codice ISBN</th>
@@ -61,24 +61,23 @@
 					%>
 
 					<tr class="chiaro nero">
-						<td class="text-center pt-4"><%=listaLibri.indexOf(l)%></td>
-						<td class="text-center pt-4"><%=l.getTitolo()%></td>
+						<td class="text-center pt-4 pr-5 pl-5"><%=listaLibri.indexOf(l)%></td>
+						<td class="text-left pt-4 pl-5"><%=l.getTitolo()%></td>
 						<td class="text-center pt-4"><%=l.getAutore()%></td>
 						<td class="text-center pt-4"><%=l.getIsbn()%></td>
+						<td class="text-center pt-4"><%=l.getQuantita()%></td>
 						<td class="text-center pt-4">
-							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i> 
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 							<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
-							
+							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 						</td>
 					</tr>
 					<tr>
                             <td colspan="6" class="hiddenRow bgcoll">
-                                <div id="demo2" class="collapse">
+                                <div id="demo<%=listaLibri.indexOf(l)%>" class="collapse">
                                     <form method="post">
-                                        <div class="form-row ">
+                                        <div class="form-row">
 
                                             <div class="col-8 offset-2 pt-4">
                                                 <form action="GestioneLibri" method="post">
@@ -112,7 +111,7 @@
                                                             <label for="isbnid">Codice ISBN</label>
                                                             <input type="number" name="isbn"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
-                                                                id="isbnid value="<%=l.getIsbn()%>" required>
+                                                                id="isbnid" value="<%=l.getIsbn()%>" required>
                                                         </div>
                                                     </div>
 
@@ -137,7 +136,7 @@
 
                                                     <div class="form-row">
                                                         <label for="prezzoid">Trama</label>
-                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" value="<%=l.getTrama()%>" required></textarea>
+                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" required><%=l.getTrama()%></textarea>
                                                     </div>
 
                                                     <div class="form-row pt-4">

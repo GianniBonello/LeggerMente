@@ -60,7 +60,8 @@
 						<td class="text-center pt-4"><%=p.getLib().getTitolo()%></td>
 						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
 						<td class="text-center pt-4"><%=p.getIdprenotazione()%></td>
-						<td class="text-center pt-4"> 
+						<td class="text-center pt-4">
+							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i> 
 							<a href=""><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 						</td>
 					</tr>

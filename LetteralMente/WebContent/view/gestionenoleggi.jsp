@@ -46,6 +46,7 @@
 						<th scope="col" class="text-center">Libro</th>
 						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Codice noleggio</th>
+						<th scope="col" class="text-center ">In Corso</th>
 						<th scope="col" class="text-center stondadue">Comandi</th>
 					</tr>
 				</thead>
@@ -66,6 +67,7 @@
 							</label>
 						</td>
 						<td class="text-center pt-4">
+							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i>
 							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 						</td>
 					</tr>
