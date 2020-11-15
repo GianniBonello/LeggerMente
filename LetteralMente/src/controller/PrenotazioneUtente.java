@@ -23,8 +23,8 @@ public class PrenotazioneUtente extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("idLibro")!= null) {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("idLibro")!= null && request.getAttribute("idLibro")==null) {
 			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 			Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
 				//TODO dobbiamo rivedere se il libro ha quantita < 0 non devo settare la data e va messo in lista
@@ -52,12 +52,13 @@ public class PrenotazioneUtente extends HttpServlet {
 			request.setAttribute("idLibro", request.getParameter("idLibro"));
 			request.getRequestDispatcher("DettaglioLibro").forward(request, response);
 		}
+		request.setAttribute("idLibro","basta");
 	}
 
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
 			
 			
 	}

@@ -141,13 +141,13 @@ public class UtilityRicerca {
 	public static List<Libro> ricercaLibro(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "autore":
-			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.autore =:ricerca",ricerca);
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.autore LIKE :ricerca",ricerca);
 		case "genere":
-			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.genere =:ricerca",ricerca);
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.genere LIKE :ricerca",ricerca);
 		case "isbn":
-			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isbn =:ricerca",ricerca);
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isbn LIKE :ricerca",ricerca);
 		case "titolo":
-			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.titolo LIKE %:ricerca%",ricerca);
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.titolo LIKE :ricerca",ricerca);
 		default:
 			return new ArrayList<Libro>();
 		}
@@ -157,7 +157,7 @@ public class UtilityRicerca {
 		EntityManager em = getManager();
 		//rimarra nella storia
 		Query q=em.createQuery(query);
-		q.setParameter("ricerca", ricerca);
+		q.setParameter("ricerca","%"+ ricerca +"%");
 		return q.getResultList();
 	}
 

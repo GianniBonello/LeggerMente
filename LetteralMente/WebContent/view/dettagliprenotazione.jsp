@@ -37,7 +37,8 @@ if(l!=null){
         <hr class=" text-left">
         <p class="mt-3 mardue">Una volta ricevuta l'email di conferma non si potrà<br> più annullare la prenotazione.</p>
 
-        <a href="<%=request.getContextPath()%>/PrenotazioneUtente?idLibro=<%= l.getId_libro() %>"><button type="submit" class="mt-5 mr-3 col-3 text-white shadow">CONFERMA</button></a>
+        <form action="<%=request.getContextPath()%>/PrenotazioneUtente" method="post"><input type="hidden" name="idLibro" value="<%= l.getId_libro() %>">
+        <button type="submit" class="mt-5 mr-3 col-3 text-white shadow">CONFERMA</button></form>
         <a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="mt-5 col-3 text-white shadow ">ANNULLA</button></a>
 
       </div>

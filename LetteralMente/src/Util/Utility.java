@@ -97,7 +97,9 @@ public class Utility {
     	p.setU(em.find(Utente.class, idUtente));
     	em.persist(p);
     	et.commit();
-    	UtilityRicerca.mailPrenotazioni(trovaPrenotazione(idUtente, idLibro));
+    	if(p.getData()!=null) {
+    		UtilityRicerca.mailPrenotazioni(trovaPrenotazione(idUtente, idLibro));
+    	}
 	}
 	
 	/*---------------------------------------------------------------------------------ELIMINA-------------------------------*/
@@ -150,7 +152,9 @@ public class Utility {
     	et.begin();
     	em.merge(p);
     	et.commit();
-    	UtilityRicerca.mailPrenotazioni(p);
+    	if(p.getData()!=null) {
+    		UtilityRicerca.mailPrenotazioni(p);
+    	}
 	}
 	public static void modificaNoleggio(Noleggio n) {
 		EntityManager em = getManager();
