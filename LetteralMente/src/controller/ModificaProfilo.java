@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Date;
 
 import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
@@ -32,20 +33,20 @@ public class ModificaProfilo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("email"),comune=request.getParameter("comune"),cap=request.getParameter("cap"),
 				indirizzo=request.getParameter("indirizzo"),username=request.getParameter("username"),password=request.getParameter("password");
-		
+		//int idUtente, String cap,String cf, String cognome,String comune,Date dataDiNascita,String email, String indirizzo, String nome, String password, String username
 		Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
-		Utente uMod = new Utente();
-		uMod.setEmail(u.getEmail());
-		uMod.setComune(u.getComune());
-		uMod.setCap(u.getCap());
-		uMod.setIndirizzo(u.getIndirizzo());
-		uMod.setUsername(u.getUsername());
-		uMod.setIdUtente(u.getIdUtente());
-		uMod.setPassword(u.getPassword());
-		uMod.setDataDiNascita(u.getDataDiNascita());
-		uMod.setNome(u.getNome());
-		uMod.setCognome(u.getCognome());
-		uMod.setCf(u.getCf());
+		Utente uMod = new Utente(u.getIdUtente(),u.getCap(),u.getCf(),u.getCognome(),u.getComune(),u.getDataDiNascita(),u.getEmail(),u.getIndirizzo(),u.getNome(),u.getPassword(),u.getUsername());
+//		uMod.setEmail(u.getEmail());
+//		uMod.setComune(u.getComune());
+//		uMod.setCap(u.getCap());
+//		uMod.setIndirizzo(u.getIndirizzo());
+//		uMod.setUsername(u.getUsername());
+//		uMod.setIdUtente(u.getIdUtente());
+//		uMod.setPassword(u.getPassword());
+//		uMod.setDataDiNascita(u.getDataDiNascita());
+//		uMod.setNome(u.getNome());
+//		uMod.setCognome(u.getCognome());
+//		uMod.setCf(u.getCf());
 		if(Base64.getEncoder().encodeToString((request.getParameter("password")).getBytes()).equals(u.getPassword())) {
 			
 			if(email != null && comune != null && cap != null 

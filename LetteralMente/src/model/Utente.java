@@ -19,6 +19,23 @@ import java.util.List;
 @NamedQuery(name="Utente.findAll", query="SELECT u FROM Utente u")
 public class Utente implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	public Utente() {
+		
+	}
+	public Utente(int idUtente, String cap,String cf, String cognome,String comune,Date dataDiNascita,String email, String indirizzo, String nome, String password, String username) {
+		this.idUtente=idUtente;
+		this.cap=cap;
+		this.cf=cf;
+		this.cognome=cognome;
+		this.comune=comune;
+		this.dataDiNascita=dataDiNascita;
+		this.email=email;
+		this.indirizzo=indirizzo;
+		this.nome=nome;
+		this.password=password;
+		this.username=username;
+	}
 
 	@Id
 	@Column(name = "id_utente")
@@ -64,8 +81,6 @@ public class Utente implements Serializable {
 	@OneToMany(mappedBy="u")
 	public List<Prenotazione> listaPrenotazioni;
 
-	public Utente() {
-	}
 
 	public int getIdUtente() {
 		return this.idUtente;
