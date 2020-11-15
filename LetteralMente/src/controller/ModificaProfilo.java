@@ -34,7 +34,18 @@ public class ModificaProfilo extends HttpServlet {
 				indirizzo=request.getParameter("indirizzo"),username=request.getParameter("username"),password=request.getParameter("password");
 		
 		Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
-		Utente uMod = u;
+		Utente uMod = new Utente();
+		uMod.setEmail(u.getEmail());
+		uMod.setComune(u.getComune());
+		uMod.setCap(u.getCap());
+		uMod.setIndirizzo(u.getIndirizzo());
+		uMod.setUsername(u.getUsername());
+		uMod.setIdUtente(u.getIdUtente());
+		uMod.setPassword(u.getPassword());
+		uMod.setDataDiNascita(u.getDataDiNascita());
+		uMod.setNome(u.getNome());
+		uMod.setCognome(u.getCognome());
+		uMod.setCf(u.getCf());
 		if(Base64.getEncoder().encodeToString((request.getParameter("password")).getBytes()).equals(u.getPassword())) {
 			
 			if(email != null && comune != null && cap != null 
@@ -49,13 +60,14 @@ public class ModificaProfilo extends HttpServlet {
 				uMod.setUsername(username);
 				//u.setPassword(password);	
 				try {					
-					Utility.modificaUtente(uMod);					
+					Utility.modificaUtente(uMod);
+					
 					request.setAttribute("modifica", "successo");
 					
-					request.getSession().setAttribute("utenteLoggato", uMod);
+					//request.getSession().setAttribute("utenteLoggato", uMod);
 					request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
 				} catch (RollbackException e) {		
-					request.getSession().setAttribute("utenteLoggato", u);
+					//request.getSession().setAttribute("utenteLoggato", u);
 					request.setAttribute("modifica", "giaEsistenti");
 					request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 					
