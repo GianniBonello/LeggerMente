@@ -4,17 +4,22 @@
 <%@page import="model.Utente"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
-<%Utente u = (Utente)request.getSession().getAttribute("utenteLoggato"); %>
+<%Utente u = (Utente)request.getSession().getAttribute("utenteLoggato"); 
+System.out.println(request.getAttribute("modifica"));%>
 
 <div class="registrazione pt-5">
-<%if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("passwordErrata")){ %>
+<%if(request.getAttribute("modifica") != null && (((String)request.getAttribute("modifica")).equals("passwordErrata") || ((String)request.getAttribute("modifica")).equals("passwordNonInserita"))){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
-<h4 class=" pb-3 text-center text-danger">Password inserita incorretta!</h4>
+<h4 class=" pb-3 text-center text-danger"><%=((String)request.getAttribute("modifica")).equals("passwordErrata")?"Password inserita incorretta!": "Inserisci la password per modificare i tuoi dati" %></h4>
 <%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("giaEsistenti")){%>
 <h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
 <h4 class=" pb-3 text-center text-danger">Username o Email già esistenti!</h4>
 <%}else if(request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("successo")) {%>
 <h3 class=" pt-5 pb-3 text-center text-success">DATI MODIFICATI!</h3>
+<%} else if (request.getAttribute("modifica") != null && ((String)request.getAttribute("modifica")).equals("campiNonModificabili")){
+%>
+<h3 class=" pt-5 pb-3 text-center text-danger">MODIFICA FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Per modificare Nome, Cognome e Codice Fiscale contattaci per email a:<br> leggermente.roma@gmail.com</h4>
 <%} %>
     <h1 class=" pt-5 pb-3 text-center"><b>Il mio profilo</b></h1>
     

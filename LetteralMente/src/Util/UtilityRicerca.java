@@ -60,13 +60,13 @@ public class UtilityRicerca {
 	public static List<Utente> ricercaUtente(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "email":case "e-mail":
-			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.email =:ricerca",ricerca);
+			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.email LIKE :ricerca",ricerca);
 		case "username":
-			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.username =:ricerca",ricerca);
+			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.username LIKE :ricerca",ricerca);
 		case "nome":
-			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.nome =:ricerca",ricerca);
+			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.nome LIKE :ricerca",ricerca);
 		case "cognome":
-			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.cognome =:ricerca",ricerca);
+			return ricercaUtenteGenerica("Select u FROM Utente u WHERE u.cognome LIKE :ricerca",ricerca);
 
 		default:
 			return new ArrayList<Utente>();
@@ -86,17 +86,17 @@ public class UtilityRicerca {
 	public static List<Prenotazione> ricercaPrenotazione(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "idprenotazione":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.idprenotazione =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.idprenotazione LIKE :ricerca",ricerca);
 		case "username":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.username =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.username LIKE :ricerca",ricerca);
 		case "isbn":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.lib.isbn =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.lib.isbn LIKE :ricerca",ricerca);
 		case "titolo":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.lib.titolo =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.lib.titolo LIKE :ricerca",ricerca);
 		case "cognome":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.cognome =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.cognome LIKE :ricerca",ricerca);
 		case "email":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.email =:ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.email LIKE :ricerca",ricerca);
 		default:
 			return new ArrayList<Prenotazione>();
 		}
@@ -113,17 +113,17 @@ public class UtilityRicerca {
 	public static List<Noleggio> ricercaNoleggio(String campo, String ricerca){
 		switch (campo.trim().toLowerCase()) {
 		case "id_noleggio":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.id_noleggio =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.id_noleggio LIKE :ricerca",ricerca);
 		case "username":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.username =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.username LIKE :ricerca",ricerca);
 		case "isbn":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.lib.isbn =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.lib.isbn LIKE :ricerca",ricerca);
 		case "titolo":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.lib.titolo =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.lib.titolo LIKE :ricerca",ricerca);
 		case "cognome":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.cognome =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.cognome LIKE :ricerca",ricerca);
 		case "email":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.email =:ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.email LIKE :ricerca",ricerca);
 		default:
 			return new ArrayList<Noleggio>();
 		}
