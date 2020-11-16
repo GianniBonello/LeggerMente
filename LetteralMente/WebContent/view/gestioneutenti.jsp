@@ -19,24 +19,26 @@
 		<%}else if(request.getAttribute("utenteModificato")!= null && ((String)request.getAttribute("utenteModificato")).equals("successo")){ %>
 		<h5 class="text-center text-light pb-5">Dati modificati con successo</h5>
 		<%} %>
-			<form>
-	  			<div class="row pb-5">
-	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
+			<form action="ListaUtenti" method="get">
+	  			<div class="row pb-5 justify-content-center">
+	    			<div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaUtente" type="search" placeholder="Inserisci l'username dell'utente" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il testo da ricercare" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
-	  						<option selected>Filtra per : </option>
-	  						<option value="1">Username</option>
-	  						<option value="2">Utente</option>
-	  						<option value="3">Email</option>
+	      				<select class="custom-select" name="campo">
+	  						<option selected disabled>Filtra per : </option>
+	  						<option value="username">Username</option>
+	  						<option value="nome">Nome</option>
+	  						<option value="cognome">Cognome</option>
+	  						<option value="email">Email</option>
 						</select>
 	    			</div>
+	    		  <button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
 	  			</div>
 			</form>
 	
@@ -45,6 +47,8 @@
 			<div class="row mr-5 ml-5">
 			<table class="table">
 				<thead class="bg-dark text-white">
+				
+				
 					<tr>
 						<th scope="col" class="text-center stonda">#</th>
 						<th scope="col" class="text-center">Username</th>
@@ -64,8 +68,8 @@
 
 					<tr class="chiaro nero">
 						<td class="text-center pt-4"><%=listaUtenti.indexOf(u)%></td>
-						<td class="text-center pt-4"><%=u.getNome()%></td>
-						<td class="text-center pt-4"><%=u.getCognome()%></td>
+						<td class="text-center pt-4"><%=u.getUsername()%></td>
+						<td class="text-center pt-4"><%=u.getNome()+ " " + u.getCognome()%></td>
 						<td class="text-center pt-4"><%=u.getEmail()%></td>
 						<td class="text-center pt-4"><label class="switch"> <input
 								type="checkbox"> <span class="slider round"></span>
@@ -86,12 +90,14 @@
 
 
 							<div class="col-8 offset-2 pt-4">
-								<form action="<%=request.getContextPath() %>/ListaUtenti" method="post">
+								<form class="needs-validation" action="<%=request.getContextPath() %>/ListaUtenti" method="post" novalidate>
 									<div class="form-row">
 										<div class="form-group col-md-12 pt-1">
-											<label for="nomeid">Nome </label> <input type="text"
+											<label for="nomeid">Nome </label> 
+											<input type="text"
 												name="nome" class="cazzo form-control pl-4 shadow p-1 mb-1"
 												id="nomeid" value="<%=u.getNome()%>" required>
+												<div class="invalid-feedback">Inserire il nome</div>
 										</div>
 										<div class="form-group col-md-12 pt-1">
 											<label for="cognomeid">Cognome </label> 
@@ -99,6 +105,7 @@
 												name="cognome"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cognomeid" value="<%=u.getCognome()%>" required>
+												<div class="invalid-feedback">Inserire il cognome</div>
 										</div>
 									</div>
 
@@ -107,6 +114,7 @@
 											<label for="cfid">Codice fiscale </label> <input type="text"
 												name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cfid" value="<%=u.getCf()%>" required>
+												<div class="invalid-feedback">Inserire il Codice Fiscale</div>
 										</div>
 
 										<div class="form-group col-xl-6 pt-1">
@@ -114,6 +122,7 @@
 												type="date" name="dataDiNascita"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="nascitaid" value="<%=u.getDataDiNascita()%>" required>
+												<div class="invalid-feedback">Inserire la data di nascita</div>
 										</div>
 									</div>
 
@@ -123,6 +132,7 @@
 												name="email"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="emailid" value="<%=u.getEmail()%>" required>
+												<div class="invalid-feedback">Inserire l'email</div>
 										</div>
 									</div>
 
@@ -132,6 +142,7 @@
 												type="text" name="indirizzo"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="indirizzoid" value="<%=u.getIndirizzo()%>" required>
+												<div class="invalid-feedback">Inserire l'indirizzo</div>
 										</div>
 
 										<div class="form-group col-xl-5 pt-1">
@@ -139,6 +150,7 @@
 												name="comune"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="comuneid" value="<%=u.getComune()%>" required>
+												<div class="invalid-feedback">Inserire il comune</div>
 										</div>
 										<div class="form-group col-xl-2 pt-1">
 											<label for="capid">CAP </label> <input type="number"
@@ -146,6 +158,7 @@
 												name="cap"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="capid" value="<%=u.getCap()%>" required>
+												<div class="invalid-feedback">Inserire il CAP</div>
 										</div>
 									</div>
 
@@ -155,6 +168,7 @@
 												name="username"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"
 														value="<%=u.getUsername()%>" required>
+											<div class="invalid-feedback">Inserire la password</div>
 										</div>
 
 										<div class="form-group col-xl-6 pt-1">
@@ -162,6 +176,7 @@
 												name="password"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cpwid" value="<%=u.getPassword()%>" required>
+											<div class="invalid-feedback">Inserire la password</div>
 										</div>
 									</div>
 
