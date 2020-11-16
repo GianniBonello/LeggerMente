@@ -26,15 +26,16 @@
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaUtente" type="search" placeholder="Inserisci l'username dell'utente" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il testo da ricercare" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
-	  						<option selected>Filtra per : </option>
-	  						<option value="1">Username</option>
-	  						<option value="2">Utente</option>
-	  						<option value="3">Email</option>
+	      				<select class="custom-select" name="campo">
+	  						<option selected disabled>Filtra per : </option>
+	  						<option value="username">Username</option>
+	  						<option value="nome">Nome</option>
+	  						<option value="cognome">Cognome</option>
+	  						<option value="email">Email</option>
 						</select>
 	    			</div>
 	  			</div>
@@ -45,6 +46,8 @@
 			<div class="row mr-5 ml-5">
 			<table class="table">
 				<thead class="bg-dark text-white">
+				
+				
 					<tr>
 						<th scope="col" class="text-center stonda">#</th>
 						<th scope="col" class="text-center">Username</th>
@@ -64,8 +67,8 @@
 
 					<tr class="chiaro nero">
 						<td class="text-center pt-4"><%=listaUtenti.indexOf(u)%></td>
-						<td class="text-center pt-4"><%=u.getNome()%></td>
-						<td class="text-center pt-4"><%=u.getCognome()%></td>
+						<td class="text-center pt-4"><%=u.getUsername()%></td>
+						<td class="text-center pt-4"><%=u.getNome()+ " " + u.getCognome()%></td>
 						<td class="text-center pt-4"><%=u.getEmail()%></td>
 						<td class="text-center pt-4"><label class="switch"> <input
 								type="checkbox"> <span class="slider round"></span>
