@@ -21,15 +21,17 @@
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaPrenotazione" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
-	  						<option selected>Filtra per : </option>
-	  						<option value="1">Username</option>
-	  						<option value="2">Utente</option>
-	  						<option value="3">Email</option>
+	      				<select class="custom-select" name="campo">
+	  						<option selected disabled>Filtra per : </option>
+	  						<option value="idprenotazione">Id prenotazione</option>
+	  						<option value="username">Username</option>
+	  						<option value="isbn">Codice isbn</option>
+	  						<option value="cognome">Cognome</option>
+	  						<option value="email">Email</option>
 						</select>
 	    			</div>
 	  			</div>
