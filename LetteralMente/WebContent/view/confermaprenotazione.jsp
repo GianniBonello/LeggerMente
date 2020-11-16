@@ -2,7 +2,7 @@
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 <div class="popcoda bg-white margini">
     <div class="container">
-<%Prenotazione p = (Prenotazione)request.getAttribute("prenotazione");
+<%Prenotazione p = (Prenotazione)request.getSession().getAttribute("prenotazione");
 if(p!=null){%>
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">

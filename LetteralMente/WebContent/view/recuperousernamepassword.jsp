@@ -1,6 +1,16 @@
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+
+
  <div class="container-fluid recuperopassword ">
+ 
+ <%if(request.getAttribute("recupero") != null && ((String)request.getAttribute("recupero")).equals("errore")){ %>
+<h3 class=" pt-5 pb-3 text-center text-danger">Errore!</h3>
+<h4 class=" pb-3 text-center text-danger">L'email inserita non è associata a nessun utente registrato!</h4>
+<%}else if(request.getAttribute("recupero") != null && ((String)request.getAttribute("recupero")).equals("successo")){ %>
+<h3 class=" pt-5 pb-3 text-center text-success">Perfetto!</h3>
+<h4 class=" pb-3 text-center text-success">Riceverai una mail con le istruzioni!</h4>
+<%} %>
 
         
         <div class="recupero p-5 mb-2 text-center">

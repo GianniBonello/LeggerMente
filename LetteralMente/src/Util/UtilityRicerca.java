@@ -299,7 +299,10 @@ public class UtilityRicerca {
 
 		String to = u.getEmail();
 		String subject = "Leggermente - Recupero Dati "; //OGGETTO DELLA MAIL
-		String msg ="Questa email è assegnata a " + u.getUsername();
+		String msg ="<body>"
+				+ " Questa email è assegnata a " + u.getUsername()
+				+ ""
+				+ "<br><a href=\"http://localhost:8080/LeggerMente/ModificaPassword?id="+u.getIdUtente()+"\">clicca qui</a> per recuperare la tua password</body>";
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 
@@ -328,7 +331,7 @@ public class UtilityRicerca {
 			MimeMessage message = new MimeMessage(session);  
 			message.setSender(addressFrom);  
 			message.setSubject(subject);  
-			message.setContent(msg, "text/plain");  //SE METTIAMO HTML
+			message.setContent(msg, "text/html; charset=utf-8");  //SE METTIAMO HTML-message.setContent(someHtmlMessage, "text/html; charset=utf-8");
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));  
 
 			transport.connect();  

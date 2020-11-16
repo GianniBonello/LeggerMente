@@ -5,9 +5,9 @@
 <div class="popcoda bg-white margini">
 <div class="container">
 <% 
-Prenotazione p = (Prenotazione)request.getAttribute("prenotazione");
-if(p!=null && request.getAttribute("attesa")!= null) {
-int attesa = (Integer)request.getAttribute("attesa");%>
+Prenotazione p = (Prenotazione)request.getSession().getAttribute("prenotazione");
+if(p!=null && request.getSession().getAttribute("attesa")!= null) {
+int attesa = (Integer)request.getSession().getAttribute("attesa");%>
     <div class="row ">
       <div class="copertina col-xl-4 pt-3 text-center">
         <img src="<%=p.getLib().getImmagine_path() %>" height="375px" alt="" class="w-75 mb-5">

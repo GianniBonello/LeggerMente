@@ -24,6 +24,9 @@ public class PrenotazioneUtente extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("---------------------------------------------------------------");
+		System.out.println(request.getAttribute("idLibro")+"");
+		System.out.println();
 		if(request.getParameter("idLibro")!= null && request.getAttribute("idLibro")==null) {
 			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
 			Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
@@ -37,8 +40,8 @@ public class PrenotazioneUtente extends HttpServlet {
 						l.setQuantita(l.getQuantita()-1);
 						Utility.modificaLibro(l);
 						/*passaggio del parametro per stampare la conferma*/
-						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
-						request.getRequestDispatcher("/view/confermaprenotazione.jsp").include(request, response);
+						request.getSession().setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
+						response.sendRedirect("ConfermaPrenotazione");
 				}else if(l.getQuantita() <= 0){
 					System.out.println("sono nell else if quantita minore 0");
 						//request.setAttribute("prenotazione", "libriFiniti");
@@ -46,16 +49,16 @@ public class PrenotazioneUtente extends HttpServlet {
 						p.setInCorso(false);
 						//prenotazioniInCoda.add(p);
 						Utility.inserisciPrenotazione(p, Integer.parseInt(request.getParameter("idLibro")), u.getIdUtente());
-						request.setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
-						request.setAttribute("attesa", Utility.trovaPrenotazione(l).size());
-						request.getRequestDispatcher("/view/confermaincoda.jsp").include(request, response);
+						request.getSession().setAttribute("prenotazione", Utility.trovaPrenotazione(u.getIdUtente(), l.getId_libro()));
+						request.getSession().setAttribute("attesa", Utility.trovaPrenotazione(l).size());
+						response.sendRedirect("ConfermaPrenotazione");
 				}
 		}else {
 			System.out.println("else");
 			request.setAttribute("idLibro", request.getParameter("idLibro"));
 			request.getRequestDispatcher("DettaglioLibro").forward(request, response);
 		}
-		request.setAttribute("idLibro","basta");
+		
 	}
 
 
