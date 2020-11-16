@@ -27,10 +27,10 @@ public class ListaLibri extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-
-		if(request.getParameter("campo") != null && request.getParameter("ricerca")!= null) {
-			request.setAttribute("listaLibri", UtilityRicerca.ricercaLibro(request.getParameter("campo"), request.getParameter("ricerca")));
-		} else request.setAttribute("listaLibri", Utility.leggiLibro());
+		if (request.getParameter("cercaLibro")==null && request.getParameter("cerca")==null && request.getParameter("campo")==null ) {
+			request.setAttribute("listaLibri", Utility.leggiLibro());
+		}
+		
 
 		//////////////////////ricerca da homepage
 		if(request.getParameter("cercaLibro")!=null){
@@ -50,6 +50,9 @@ public class ListaLibri extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(request.getParameter("campo") != null && request.getParameter("ricerca")!= null) {
+			request.setAttribute("listaLibri", UtilityRicerca.ricercaLibro(request.getParameter("campo"), request.getParameter("ricerca")));
+		} else request.setAttribute("listaLibri", Utility.leggiLibro());
 		doGet(request, response);
 	}
 

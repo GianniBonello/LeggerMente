@@ -34,7 +34,8 @@ public class Registrazione extends HttpServlet {
 				cf = request.getParameter("cf"),email = request.getParameter("email"),username = request.getParameter("username"), 
 				password = request.getParameter("password"), comune = request.getParameter("comune"), indirizzo = request.getParameter("indirizzo"), 
 				cap= request.getParameter("cap");
-		System.out.println(LocalDate.parse(dataDiNascita).isBefore(LocalDate.now().plusYears(-15))+" "+LocalDate.now().plusYears(-15) +" "+LocalDate.parse(dataDiNascita));
+		
+		System.out.println("data"+dataDiNascita +"data");
 				
 		
 		
@@ -69,7 +70,7 @@ public class Registrazione extends HttpServlet {
 				request.setAttribute("registrazione", "errore");
 				request.getRequestDispatcher("/view/registrazione.jsp").include(request, response);
 			}
-		}else if(!LocalDate.parse(dataDiNascita).isBefore(LocalDate.now().plusYears(-15)) || !LocalDate.parse(dataDiNascita).isAfter(LocalDate.now().plusYears(-110))) {
+		}else if(dataDiNascita!= null && !dataDiNascita.equals("") && (!LocalDate.parse(dataDiNascita).isBefore(LocalDate.now().plusYears(-15)) || !LocalDate.parse(dataDiNascita).isAfter(LocalDate.now().plusYears(-110)))) {
 			System.out.println("if data sbagliata");
 			request.setAttribute("registrazione", "erroreData");
 			request.getRequestDispatcher("/view/registrazione.jsp").include(request, response);
