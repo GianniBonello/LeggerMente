@@ -11,9 +11,9 @@
         <div class="container">
             <div class="bgindex"></div>
         <!-- I NOSTRI SERVIZI -->
-
+			<div id="inostriservizi" class=" mt-5 mb-5" style="padding-top:50px;"></div>
             <div class="row ">
-                <div class="col-6 offset-3 pt-5 " id="inostriservizi">
+                <div class="col-lg-12 col-xl-6 offset-lg-1 offset-xl-3 pt-5" >
                     <h1 class="text-center" id="serv"><b>I nostri servizi</b></h1>
                     <h6 id="tratt" ><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Come funziona</i></h6>
                 </div>
@@ -21,30 +21,31 @@
             
             
             <div class="row mt-5 mb-5">
-                <div class="col-4 text-center pt-5">
+                <div class="col-lg-12 col-xl-4 text-center pt-5">
                     <i class="fas fa-desktop fa-7x"></i>
                     <h5 class="mt-5">SCEGLI</h5>
                     <div class="col-8 offset-2 pt-3"><p> Naviga tra una vasta scelta di libri e scegli quello che preferisci.</p></div>
                 </div>
                     
-                <div class="col-4 text-center pt-5">
+                <div class="col-lg-12 col-xl-4 text-center pt-5">
                     <i class="fas fa-cart-arrow-down fa-7x"></i>
                     <h5 class="mt-5">PRENOTA</h5>
                     <div class="col-8 offset-2 pt-3"><p> Quando avrai scelto il libro che fa per te, decidi se prenotare un acquisto o un noleggio. </p></div>
                 </div>
                     
-                <div class="col-4 text-center pt-5">
+                <div class="col-lg-12 col-xl-4 text-center pt-5 ">
                     <i class="fas fa-people-carry fa-7x"></i>
-                    <h5 class="mt-5">RITIRA</h5>
-                    <div class="col-8 offset-2 pt-3"><p> Vieni a trovarci in negozio per ritirare e pagare il tuo libro.</p></div>
+                    <h5 class="mt-5 " >RITIRA</h5>
+                    <div class="col-8 offset-2 pt-3 "><p> Vieni a trovarci in negozio per ritirare e pagare il tuo libro.</p></div>
                 </div>
             </div>
+            <div class=" mt-5 mb-5" style="padding-top:100px;"></div>
             
             <!-- CHI SIAMO -->
         
-            <div class="row spazio">
-            
-                <div class="col-6 mt-5 " id="chisiamo">
+            <div class="row" id="chisiamo" style="padding-top:100px;" >
+            <div id="chisiamo" class="spazio mt-5 mb-5"></div>
+                <div class="col-md-12 col-lg-6 col-xl-6 mt-5 " >
             
                     <div class="bg-white mt-4 box" id="boxbianco">
                         <h1 class=" pt-5 pl-4" id="serv"><b>Chi siamo</b></h1>
@@ -56,7 +57,7 @@
                     </div>
                 </div>
             
-                <div  class="col-6">
+                <div  class="col-md-12 col-xl-6">
                     <img id="spostaASinistra" src="<%=request.getContextPath()%>/res/chisiamo.jpg" width="600px" height="600px" alt="">
                 </div>
             </div>            
@@ -86,7 +87,7 @@ if(lista!=null){
 <%       }                        %>
            			</div>    
            			
-           			<a href="<%=request.getContextPath()%>/ListaLibri"><button class="offset-xl-5 col-xl-2">TUTTI I LIBRI</button></a>             
+           			<a href="<%=request.getContextPath()%>/ListaLibri"><button class="offset-xl-5 col-xl-2 mt-5">TUTTI I LIBRI</button></a>             
             </div>
         </div>
             

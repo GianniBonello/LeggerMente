@@ -79,7 +79,7 @@
             
             <div class="container">
                <div class="row pt-5">
-                <div class="intro col-xl-5 pt-5">
+                <div class="intro col-md-12 col-xl-5 pt-5">
                     <h2 class="testohome"><span class="mente">Legger</span>Mente</h2>
                     <h4 class="testohome"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Libreria di Roma</i></h4>
                     <p class="testohome">LeggerMente e' una libreria smart, viene fondata nel 2020 ed e' un posto magico
@@ -98,7 +98,7 @@
                     </div>	
                 </div> 
                 <!-- LOGIN -->
-                <div class="bg-light offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
+                <div class="bg-light col-md-12 offset-md-0 offset-xl-3 col-xl-4 px-5 d-none " id="loginform">
                     <h2 class="pt-5 text-center">Login</h2>
                     <form action="login" method="post">
                     	<div class="pt-2 text-center">
