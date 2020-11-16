@@ -148,6 +148,40 @@ public class UtilityRicerca {
 			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isbn LIKE :ricerca",ricerca);
 		case "titolo":
 			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.titolo LIKE :ricerca",ricerca);
+		case "casaeditrice":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.casaEditrice LIKE :ricerca",ricerca);
+		default:
+			return new ArrayList<Libro>();
+		}
+	}
+	public static List<Libro> ricercaLibroNuovo(String campo, String ricerca){
+		switch (campo.trim().toLowerCase()) {
+		case "autore":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=false AND l.autore LIKE :ricerca",ricerca);
+		case "genere":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=false AND l.genere LIKE :ricerca",ricerca);
+		case "isbn":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=false AND l.isbn LIKE :ricerca",ricerca);
+		case "titolo":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=false AND l.titolo LIKE :ricerca",ricerca);
+		case "casaeditrice":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=false AND l.casaEditrice LIKE :ricerca",ricerca);
+		default:
+			return new ArrayList<Libro>();
+		}
+	}
+	public static List<Libro> ricercaLibroUsato(String campo, String ricerca){
+		switch (campo.trim().toLowerCase()) {
+		case "autore":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=true AND l.autore LIKE :ricerca",ricerca);
+		case "genere":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=true AND l.genere LIKE :ricerca",ricerca);
+		case "isbn":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=true AND l.isbn LIKE :ricerca",ricerca);
+		case "titolo":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=true AND l.titolo LIKE :ricerca",ricerca);
+		case "casaeditrice":
+			return ricercaLibroGenerica("Select l FROM Libro l WHERE l.isUsato=true AND l.casaEditrice LIKE :ricerca",ricerca);
 		default:
 			return new ArrayList<Libro>();
 		}
