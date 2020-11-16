@@ -56,7 +56,7 @@
 						<th scope="col" class="text-center">Email</th>
 						<% 
 						Utente a = (Utente) request.getSession().getAttribute("utenteLoggato");
-						if(a.getUsername().equals("admin")){%>
+						if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 							<th scope="col" class="text-center">Staff</th>
 						<% } %>
 						<th scope="col" class="text-center stondadue">Comandi</th>
@@ -75,7 +75,7 @@
 						<td class="text-center pt-4"><%=u.getUsername()%></td>
 						<td class="text-center pt-4"><%=u.getNome()+ " " + u.getCognome()%></td>
 						<td class="text-center pt-4"><%=u.getEmail()%></td>
-						<% if(a.getUsername().equals("admin")){ %>
+						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						<td class="text-center pt-4"><label class="switch"> <input
 								type="checkbox"> <span class="slider round"></span>
 						</label></td>
