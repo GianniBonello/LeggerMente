@@ -192,6 +192,17 @@ public class Utility {
 		et.commit();
 		return u;
 	}
+	
+	public static Utente trovaUtente(String email){
+		EntityManager em = getManager();
+		Query q = em.createQuery("SELECT u FROM Utente u WHERE u.email =:email");
+		q.setParameter("email", email);
+		try {
+			return (Utente)q.getSingleResult();
+		}catch (NoResultException e) {
+			return null;
+		}
+	}	
 
 	public static Utente trovaUtente(String use, String pass){
 		String passCod = Base64.getEncoder().encodeToString((pass).getBytes());
