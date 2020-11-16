@@ -19,9 +19,9 @@
 		<%}else if(request.getAttribute("utenteModificato")!= null && ((String)request.getAttribute("utenteModificato")).equals("successo")){ %>
 		<h5 class="text-center text-light pb-5">Dati modificati con successo</h5>
 		<%} %>
-			<form>
-	  			<div class="row pb-5">
-	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
+			<form action="ListaUtenti" method="get">
+	  			<div class="row pb-5 justify-content-center">
+	    			<div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
@@ -38,6 +38,7 @@
 	  						<option value="email">Email</option>
 						</select>
 	    			</div>
+	    		  <button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
 	  			</div>
 			</form>
 	
