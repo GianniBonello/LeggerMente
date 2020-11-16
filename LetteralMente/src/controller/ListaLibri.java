@@ -35,7 +35,7 @@ public class ListaLibri extends HttpServlet {
 		//////////////////////ricerca da homepage
 		if(request.getParameter("cercaLibro")!=null){
 			request.setAttribute("listaLibri", UtilityRicerca.ricercaLibro("titolo", request.getParameter("cercaLibro")));
-			System.out.println("QUESTOOOOOOOOO " + UtilityRicerca.ricercaLibro("titolo", request.getParameter("cercaLibro")));
+			//System.out.println("QUESTOOOOOOOOO " + UtilityRicerca.ricercaLibro("titolo", request.getParameter("cercaLibro")));
 		}
 
 		if (request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
