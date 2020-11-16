@@ -86,7 +86,7 @@
 
 
                                                             <label for="titoloid">Titolo </label>
-                                                            <input type="text" name="titolo"
+                                                            <input type="text" name="titolo" maxlength="45"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="titoloid" value="<%=l.getTitolo()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un titolo valido!</div>
@@ -94,7 +94,7 @@
                                                         </div>
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="casaid">Editore</label>
-                                                            <input type="text" name="casaeditrice"
+                                                            <input type="text" name="casaeditrice" maxlength="45"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="casaid" value="<%=l.getCasaEditrice()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un editore valido!</div>
@@ -107,7 +107,7 @@
                                                     
                                                     <div class="form-group col-xl-6 pt-1">
                                                             <label for="autore">Autore</label>
-                                                            <input type="text" name="autore"
+                                                            <input type="text" name="autore" maxlength="45"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
                                                                 id="autore" value="<%=l.getAutore()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un autore valido!</div>
@@ -116,7 +116,7 @@
                                                         
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="genereid">Genere </label>
-                                                            <input type="text" name="genere"
+                                                            <input type="text" name="genere" maxlength="45"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="genereid" value="<%=l.getGenere()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un genere valido!</div>
@@ -129,7 +129,7 @@
                                                     
                                                     <div class="form-group col-xl-8 pt-1">
                                                             <label for="isbnid">Codice ISBN</label>
-                                                            <input type="text" name="isbn"
+                                                            <input type="text" name="isbn" maxlength="17"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
                                                                 id="isbnid" value="<%=l.getIsbn()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un codice ISBN valido!</div>
@@ -137,8 +137,8 @@
                                                         </div>
                                                         
                                                         <div class="form-group col-xl-2 pt-1">
-                                                            <label for="qtid">Quantita</label>
-                                                            <input type="number" name="quantita"
+                                                            <label for="qtid">Quantita</label> 
+                                                            <input type="number" name="quantita" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="qtid" value="<%=l.getQuantita()%>" required>
                                                                 <div class="invalid-feedback">Inserisci una quantita' valida!</div>
@@ -148,7 +148,7 @@
 
                                                         <div class="form-group col-xl-2 pt-1">
                                                             <label for="prezzoid">Prezzo </label>
-                                                            <input type="number" name="prezzo"
+                                                            <input type="number" name="prezzo" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="prezzoid" value="<%=l.getPrezzo()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un prezzo valido!</div>
@@ -213,14 +213,14 @@
                                                     
                                                         <div class="form-group col-xl-6 pt-1 ">
                                                             <label for="titoloid" class="text-dark">Titolo </label>
-                                                            <input type="text" name="titolo" class=" cazzo form-control pl-4 shadow p-1 mb-1 bg-white" id="titoloid" required>
+                                                            <input type="text" name="titolo" maxlength="45" class=" cazzo form-control pl-4 shadow p-1 mb-1 bg-white" id="titoloid" required>
                                                                 <div class="invalid-feedback">Inserisci un titolo valido!</div>
           														<div class="valid-feedback">Ok!</div>
                                                         </div>
                                                         
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="casaid" class="text-dark">Editore</label>
-                                                            <input type="text" name="casaeditrice" class="cazzo form-control pl-4 shadow p-1 mb-1 bg-white" id="casaid" required>
+                                                            <input type="text" name="casaeditrice" maxlength="45" class="cazzo form-control pl-4 shadow p-1 mb-1 bg-white" id="casaid" required>
                                                                 <div class="invalid-feedback">Inserisci un editore valido!</div>
           														<div class="valid-feedback">Ok!</div>
                                                         </div>
@@ -232,7 +232,7 @@
                                                     
                                                     <div class="form-group col-xl-6 pt-1">
                                                             <label for="autore">Autore</label>
-                                                            <input type="text" name="autore"
+                                                            <input type="text" name="autore" maxlength="45"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
                                                                 id="autore"  required>
                                                                 <div class="invalid-feedback">Inserisci un autore valido!</div>
@@ -254,7 +254,7 @@
                                                     
                                                     <div class="form-group col-xl-8 pt-1">
                                                             <label for="isbnid">Codice ISBN</label>
-                                                            <input type="text" name="isbn"
+                                                            <input type="text" name="isbn" maxlength="17"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
                                                                 id="isbnid" required>
                                                                 <div class="invalid-feedback">Inserisci un codice ISBN valido!</div>
@@ -263,7 +263,7 @@
                                                         
                                                         <div class="form-group col-xl-2 pt-1">
                                                             <label for="qtid">Quantita</label>
-                                                            <input type="number" name="quantita"
+                                                            <input type="number" name="quantita" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="qtid" required>
                                                                 <div class="invalid-feedback">Inserisci una quantita' valida!</div>
@@ -273,7 +273,7 @@
 
                                                         <div class="form-group col-xl-2 pt-1">
                                                             <label for="prezzoid">Prezzo </label>
-                                                            <input type="number" name="prezzo"
+                                                            <input type="number" name="prezzo" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="prezzoid" required>
                                                                 <div class="invalid-feedback">Inserisci un prezzo valido!</div>
