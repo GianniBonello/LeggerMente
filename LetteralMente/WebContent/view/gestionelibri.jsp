@@ -1,3 +1,4 @@
+<%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
@@ -71,16 +72,20 @@
 							<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
+							<%if(request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")){ %>
+							<a href="<%=request.getContextPath() %>/EliminaLibri?elimina=<%=l.getId_libro()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
+							<%} %>
 						</td>
 					</tr>
 					<tr>
                             <td colspan="6" class="hiddenRow bgcoll">
                                 <div id="demo<%=listaLibri.indexOf(l)%>" class="collapse">
                                         <div class="form-row">
+                                        
+                                        <!-- modifica -->
 
                                             <div class="col-8 offset-2 pt-4">
-                                                <form  class="needs-validation" action="GestioneLibri" method="post" novalidate>
+                                                <form  class="needs-validation" action="<%=request.getContextPath() %>/GestioneLibri" method="post" enctype="multipart/form-data" novalidate>
                                                     <div class="form-row">
                                                         <div class="form-group col-xl-6 pt-1">
 
@@ -177,6 +182,7 @@
                                                     	</div>
                                                     	
                                                     </div>
+                                                    <input type="hidden" name="idLibro" value="<%=l.getId_libro() %>">
                                                 
                                                 <div class="text-center pt-4">
 													<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone">MODIFICA</button>
@@ -200,6 +206,7 @@
 					</tbody>
 					
 				</table>
+				           <!-- inserimento libri -->
 										
 										<div class="m-auto justify-content-center"  >
 											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse"></i>
