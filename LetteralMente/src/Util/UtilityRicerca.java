@@ -302,7 +302,7 @@ public class UtilityRicerca {
 		String msg ="<body>"
 				+ " Questa email è assegnata a " + u.getUsername()
 				+ ""
-				+ "<br><a href=\"http://localhost:8080/LeggerMente/ModificaPassword?id="+u.getIdUtente()+"\">clicca qui</a> per recuperare la tua password</body>";
+				+ "<br><a href=\"http://localhost:8080/LeggerMente/view/modificapassword.jsp?id="+u.getIdUtente()+"\">clicca qui</a> per recuperare la tua password</body>";
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 
