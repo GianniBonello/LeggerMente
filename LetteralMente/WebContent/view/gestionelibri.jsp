@@ -179,7 +179,7 @@
                                             <div class="col-xl-12 pt-4 collapse mb-5" style="background-color: rgba(255,255,255,0.6); border-radius:25px" id="aggiungicollapse">
                                                 <h1 class="pt-5 text-center text-dark pb-5"><b>Aggiungi Libro</b></h1>
                                                 
-                                                <form action="<%=request.getContextPath()%>/GestioneLibri" method="post">
+                                                <form action="<%=request.getContextPath()%>/GestioneLibri" method="post" enctype="multipart/form-data">
                                                     <div class="form-row">
                                                         <div class="form-group col-xl-6 pt-1 ">
 
@@ -240,14 +240,14 @@
 
                                                     <div class="form-row pt-4">
                                                     
-                                                    <form enctype="multipart/form-data">
+                                                    
                                                     	<div class="col-xl-12">  
                                                         	<label for="imgid" class="col-2 pt-2 text-dark" >Immagine </label>
                                                         	<input type="file" name="immagine"
                                                             	class="form-control imm shadow mb-1 bg-white col-xl-12 pl-5 "
                                                             	id="imgid" alt="Submit">
                                                     	</div>
-                                                    </form>
+                                                   
                                                     	
                                                     </div>
                                                 
