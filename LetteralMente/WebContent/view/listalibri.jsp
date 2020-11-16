@@ -8,27 +8,28 @@
         <div class="mt-5" id="listalibri">
             <h1 class=" pt-5 pl-4" id="serv"><b>Lista Libri</b></h1>
             <h6 id="trattdue"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino">Il nostro catalogo</h6>
-        
+        <form action="<%=request.getContextPath()%>/ListaLibri" method="post">
             <div class="row ">
                 <!-- CERCA LIBRI  -->
-                <form action="listalibri.jsp" method="post"></form>
+                
                     <div class="cercaLibro pt-5 pl-5 col-md-12 col-xl-5">
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
                                 <span class="input-group-append">
                                     <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
                                    </span>
-                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
                             </div> 
                     </div>
                     <div class="filtraLibro pt-5 pl-5 col-md-12 col-xl-3">
                         <div class="input-group mb-3">
                             <p class="pt-2 pr-3">Cerca per :</p>
-                            <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                                <option selected value="titolo">Titolo</option>
-                                <option value="genere">Genere</option>
+                            <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01">
+                                <option selected value="titolo">Titolo</option>                         
                                 <option value="autore">Autore</option>
-                                <option value="casaeditrice">Casa Editrice</option>
+                                 <option value="casaeditrice">Casa Editrice</option>
+                                 <option value="genere">Genere</option>
+                               
                             </select>
                         </div>
                     </div>
