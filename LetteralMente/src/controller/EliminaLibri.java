@@ -19,21 +19,23 @@ public class EliminaLibri extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utente utenteLog = (Utente)request.getSession().getAttribute("utenteLoggato");
+		System.out.println("ciao sono nella servlet elimina libri");
 
-		if(request.getParameter("idLibro") != null && utenteLog.getUsername().equals("Admin")) {
+		if(request.getParameter("elimina") != null && utenteLog.getUsername().equals("Admin")) {
+			System.out.println("entra nell elimina");
 			try {
-				Utility.eliminaLibro(Integer.parseInt(request.getParameter("idLibro")));
+				Utility.eliminaLibro(Integer.parseInt(request.getParameter("elimina")));
 				request.setAttribute("libroEliminato", "eliminato");
-				request.getRequestDispatcher("/listaLibriLavoratori.jsp");
 			} catch (IllegalArgumentException e) {
 				request.setAttribute("libroEliminato", "errore");
 			}
+			request.getRequestDispatcher("ListaLibri").forward(request, response);
 		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
 }
