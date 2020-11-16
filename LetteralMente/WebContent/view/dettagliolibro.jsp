@@ -37,7 +37,7 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                         <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
                                                                         <%} %>         
                                                                               <!--SCRIPTLET PREZZO-->
-                                                      <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b><%=!l.getIsUsato()?"PREZZO :"+ l.getPrezzo() +"&euro;" :" " %> </b></p>
+                                                      <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b><%=!l.getIsUsato()?"PREZZO :  "+ l.getPrezzo() +"  &euro;" :" " %> </b></p>
                                                     </div>
                                                   </div>   
                                                  

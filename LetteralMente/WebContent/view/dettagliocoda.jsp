@@ -22,11 +22,11 @@ int attesa = (Integer)request.getAttribute("attesa");%>
       <div class="col-xl-7 offset-1 pt-3 ">
         <h2 class="mb-3 "><%=l.getTitolo() %></h2>
         
-        <p class="price">PREZZO:   <%=l.getPrezzo() %> &euro;</p>
+        <p class="price" style="font-size:16pt; font-weight:300;">PREZZO: <span class="pl-2"><%=l.getPrezzo()%></span> &euro;</p>
         <hr class="mar text-left mb-5">
-        Sarai il <b><%=attesa==0?"Primo": attesa+1 %></b> in coda<br>
+        <p style="font-size:18pt;">Sarai il <b><%=attesa==0?"1": attesa+1 %></b> in coda<br></p>
         <hr class=" text-left">
-        <p class="mt-3 mar">Quando il libro sara' disponibile al ritiro sara' inviata <br> via email una notifica di conferma.</p>
+        <p class="mt-3 mar" style="font-style:italic;">Quando il libro sara' disponibile al ritiro sara' inviata <br> via email una notifica di conferma.</p>
 
        <form action="<%=request.getContextPath()%>/PrenotazioneUtente" method="post">
         	<input type="hidden" name="idLibro" value="<%= l.getId_libro() %>">
