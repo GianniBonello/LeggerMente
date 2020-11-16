@@ -66,7 +66,7 @@ System.out.println(request.getAttribute("modifica"));%>
 <h4 class=" pb-3 text-center text-danger">Per modificare Nome, Cognome e Codice Fiscale contattaci per email a:<br> leggermente.roma@gmail.com</h4>
 <%} %>   
     
-  <form action="<%=request.getContextPath()%>/ModificaProfilo" method="post" >
+  <form class="needs-validation" novalidate action="<%=request.getContextPath()%>/ModificaProfilo" method="post" >
     <div class="col-8 offset-2">
     
       <div class="form-row">
@@ -99,16 +99,19 @@ System.out.println(request.getAttribute("modifica"));%>
           <div class="form-group col-xl-5 pt-1">
         	<label for="indirizzoid">Indirizzo </label>
         	<input type="text" name="indirizzo" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" value="<%=u.getIndirizzo()%>">
+          <div class="invalid-feedback">Inserire l'indirizzo!</div>
           </div>
     
           <div class="form-group col-xl-5 pt-1">
             <label for="comuneid">Comune </label>
             <input type="text" name="comune" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" value="<%=u.getComune()%>">
+          <div class="invalid-feedback">Inserire il comune!</div>
           </div>
           
           <div class="form-group col-xl-2 pt-1">
             <label for="capid">CAP </label>
             <input id="capid" type="number" maxlength="5" pattern="([0-9]|[0-9]|[0-9]|[0-9]|[0-9])" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white"  value="<%=u.getCap()%>">
+         <div class="invalid-feedback">Inserire il CAP!</div>
           </div>
        </div>
         
@@ -116,11 +119,13 @@ System.out.println(request.getAttribute("modifica"));%>
         	<div class="form-group col-xl-6 pt-1">
         		<label for="userid">Username </label>
         		<input type="text" name="username" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="userid" value="<%=u.getUsername()%>">
+       		<div class="invalid-feedback">Inserire l'username!</div>
        		</div>
         
           	<div class="form-group col-xl-6 pt-1">
         		<label for="pwid">Email</label>
         		<input type="email" name="email" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" value="<%=u.getEmail()%>">
+          	<div class="invalid-feedback">Inserire l'email!</div>
           	</div>
         </div>
     
@@ -133,6 +138,7 @@ System.out.println(request.getAttribute("modifica"));%>
         <div class="form-group col-xl-12 pt-1">
         	<label for="pwid">INSERISCI LA PASSWORD PER SALVARE LE MODIFICHE</label>
         	<input type="password" name="password" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid">
+        	<div class="invalid-feedback">Inserire la password!</div>
        	</div>
       </div>
       <div class="text-center pt-4">
