@@ -24,21 +24,22 @@ public class RecuperoPassword extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/view/inserimentoemail.jsp").include(request, response);
+		request.getRequestDispatcher("/view/inserimentoemail.jsp").forward(request, response);
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		if (request.getParameter("email")!=null) {
 			Utente u = Utility.trovaUtente(request.getParameter("email"));
 			if (u!=null) {
 				UtilityRicerca.mailRecuperoPassword(u);
+				
 				request.setAttribute("recupero", "successo");
-			}else request.setAttribute("recupero", "errore");
+			}else request.setAttribute("recupero", "error");
 		}
 		
 		doGet(request, response);
-
+		
 	}
-
 }

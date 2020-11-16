@@ -107,7 +107,7 @@
                     	</div>
                     	<small ><a class="text-dark text-left pl-2" href="<%=request.getContextPath()%>/Registrazione" >Non sei ancora registrato ?</a>
                     	<br>
-                    	<a class="text-dark text-left pl-2" href="<%=request.getContextPath()%>/RecuperoPassword" >Username o password dimenticati ?</a>
+                    	<a class="text-dark text-left pl-2" href="<%=request.getContextPath()%>/view/inserimentoemail.jsp" >Username o password dimenticati ?</a>
                     	<br>
                     	<div class="text-center">
                      		<button class="mt-5" type="submit">LOGIN</button></small>
