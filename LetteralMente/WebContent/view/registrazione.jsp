@@ -45,7 +45,7 @@
            <div class="form-row">
         <div class="form-group col-md-12 pt-1">
         <label for="emailid">Email </label>
-        <input type="text" name="email" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" required >
+        <input type="text" name="email" maxlength="100" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" required >
       	<div class="invalid-feedback">Inserisci un'email valida!</div>
       	<div class="valid-feedback">Ok!</div>
 		</div>
@@ -61,7 +61,7 @@
     
           <div class="form-group col-xl-5 pt-1">
             <label for="comuneid">Comune </label>
-            <input type="text" name="comune" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" required >
+            <input type="text" name="comune" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" required >
           <div class="invalid-feedback">Inserisci un comune valido!</div>
           <div class="valid-feedback">Ok!</div>
           </div>

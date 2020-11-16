@@ -19,6 +19,7 @@ a:hover{
 	text-decoration: underline;
 }
 
+
 #sidebarMenu a:hover{
 	color:#ffffff;
 }
@@ -58,6 +59,19 @@ button{
     border-radius: 50px;
     outline: none; 
 }
+
+
+.registrazione .form-control:disabled{
+	background-color:#E5E5E5 !important;
+	color: #B4B4B4 !important;
+}
+
+.registrazione .form-control:enabled{
+	background-color: #F5F5F5!important; 
+	border-radius: 50px !important;
+	border: none !important;
+}
+
 
 .button:hover{
 	text-decoration:none;
@@ -198,11 +212,7 @@ button{
 	 
 }
 
-.registrazione .form-control{
-	background-color: #F5F5F5 !important; 
-	border-radius: 50px !important;
-	border: none !important;
-}
+
 
 #serv{
 	line-height: 1.2;

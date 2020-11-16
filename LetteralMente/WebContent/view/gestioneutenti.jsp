@@ -54,7 +54,11 @@
 						<th scope="col" class="text-center">Username</th>
 						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Email</th>
-						<th scope="col" class="text-center">Staff</th>
+						<% 
+						Utente a = (Utente) request.getSession().getAttribute("utenteLoggato");
+						if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
+							<th scope="col" class="text-center">Staff</th>
+						<% } %>
 						<th scope="col" class="text-center stondadue">Comandi</th>
 					</tr>
 				</thead>
@@ -71,10 +75,11 @@
 						<td class="text-center pt-4"><%=u.getUsername()%></td>
 						<td class="text-center pt-4"><%=u.getNome()+ " " + u.getCognome()%></td>
 						<td class="text-center pt-4"><%=u.getEmail()%></td>
+						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						<td class="text-center pt-4"><label class="switch"> <input
 								type="checkbox"> <span class="slider round"></span>
 						</label></td>
-
+						<% } %>
 						<td class="text-center pt-4">
 							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
@@ -133,7 +138,7 @@
 									<div class="form-row">
 										<div class="form-group col-md-12 pt-1">
 											<label for="emailid">Email </label> <input type="email"
-												name="email" maxlength="100"
+												name="email" maxlength="100" 
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="emailid" value="<%=u.getEmail()%>" required>
 												<div class="invalid-feedback">Inserisci un'email valida!</div>

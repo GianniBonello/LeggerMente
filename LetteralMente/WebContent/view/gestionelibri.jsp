@@ -28,7 +28,7 @@
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
 	      				<select class="custom-select">
-	  							<option selected>Filtra per : </option>
+	  							<option selected disabled>Filtra per : </option>
 	  							<option value="titolocresc">Titolo : dalla A alla Z</option>
                                 <option value="titolodecr">Titolo : dalla Z alla A</option>
                                 <option value="prezzocresc">Prezzo : crescente</option>
@@ -248,7 +248,7 @@
                                                         
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="genereid">Genere </label>
-                                                            <input type="text" name="genere"
+                                                            <input type="text" name="genere" maxlength="45"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="genereid" required>
                                                                 <div class="invalid-feedback">Inserisci un genere valido!</div>
@@ -259,14 +259,14 @@
 
                                                     <div class="form-row">
                                                     
-                                                    <div class="form-group col-xl-8 pt-1">
-                                                            <label for="isbnid">Codice ISBN</label>
-                                                            <input type="text" name="isbn" maxlength="17"
+                                                    	<div class="form-group col-xl-8 pt-1">
+                                                            	<label for="isbnid">Codice ISBN</label>
+                                                            	<input type="text" name="isbn" maxlength="17"
                                                                 class="cazzo form-control pl-4 shadow p-1 mb-1"
                                                                 id="isbnid" required>
                                                                 <div class="invalid-feedback">Inserisci un codice ISBN valido!</div>
           														<div class="valid-feedback">Ok!</div>
-                                                        </div>
+                                                     	</div>
                                                         
                                                         <div class="form-group col-xl-2 pt-1">
                                                             <label for="qtid">Quantita</label>
@@ -280,7 +280,7 @@
 
                                                         <div class="form-group col-xl-2 pt-1">
                                                             <label for="prezzoid">Prezzo </label>
-                                                            <input type="number" name="prezzo" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                                            <input type="number" name="prezzo" maxlength="6" pattern="[0-9,.,0-9]"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="prezzoid" required>
                                                                 <div class="invalid-feedback">Inserisci un prezzo valido!</div>

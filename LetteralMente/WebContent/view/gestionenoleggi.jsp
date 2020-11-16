@@ -53,8 +53,10 @@
 						<th scope="col" class="text-center">Libro</th>
 						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Codice noleggio</th>
-						<th scope="col" class="text-center ">In Corso</th>
-						<th scope="col" class="text-center stondadue">Comandi</th>
+						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
+						<th scope="col" class="text-center ">Cancella</th>
+						<% } %>
+						<th scope="col" class="text-center stondadue">Noleggio in Corso</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,16 +71,19 @@
 						<td class="text-center pt-4"><%=n.getLib().getTitolo() %></td>
 						<td class="text-center pt-4"><%=n.getU().getNome()+" "+n.getU().getCognome()%></td>
 						<td class="text-center pt-4"><%=n.getIdNoleggio()%></td>
+						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						<td class="text-center pt-4">
-							<label class="switch"> 
-							<a href=""></a>	<input type="checkbox" name="inCorso" value="" <%=n.getInCorso()?"checked":"" %>> <span class="slider round"></span>
-							</label>
-						</td>
-						<td class="text-center pt-4">
-							<i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i>
-							<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
 							<%} %>
+						</td>
+						<td class="text-center pt-4">
+						<div class="row">
+							<label class="switch"> 
+							<input type="checkbox" name="inCorso" value="" <%=n.getInCorso()?"checked":"" %>> <span class="slider round"></span>
+							</label>
+							<i class="fas fa-check-square fa-2x verde ml-3" style="cursor:pointer;"></i>
+						</div>
+							
 						</td>
 					</tr>
 
