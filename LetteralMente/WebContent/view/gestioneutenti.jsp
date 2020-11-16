@@ -90,12 +90,14 @@
 
 
 							<div class="col-8 offset-2 pt-4">
-								<form action="<%=request.getContextPath() %>/ListaUtenti" method="post">
+								<form class="needs-validation" action="<%=request.getContextPath() %>/ListaUtenti" method="post" novalidate>
 									<div class="form-row">
 										<div class="form-group col-md-12 pt-1">
-											<label for="nomeid">Nome </label> <input type="text"
+											<label for="nomeid">Nome </label> 
+											<input type="text"
 												name="nome" class="cazzo form-control pl-4 shadow p-1 mb-1"
 												id="nomeid" value="<%=u.getNome()%>" required>
+												<div class="invalid-feedback">Inserire il nome</div>
 										</div>
 										<div class="form-group col-md-12 pt-1">
 											<label for="cognomeid">Cognome </label> 
@@ -103,6 +105,7 @@
 												name="cognome"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cognomeid" value="<%=u.getCognome()%>" required>
+												<div class="invalid-feedback">Inserire il cognome</div>
 										</div>
 									</div>
 
@@ -111,6 +114,7 @@
 											<label for="cfid">Codice fiscale </label> <input type="text"
 												name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cfid" value="<%=u.getCf()%>" required>
+												<div class="invalid-feedback">Inserire il Codice Fiscale</div>
 										</div>
 
 										<div class="form-group col-xl-6 pt-1">
@@ -118,6 +122,7 @@
 												type="date" name="dataDiNascita"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="nascitaid" value="<%=u.getDataDiNascita()%>" required>
+												<div class="invalid-feedback">Inserire la data di nascita</div>
 										</div>
 									</div>
 
@@ -127,6 +132,7 @@
 												name="email"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="emailid" value="<%=u.getEmail()%>" required>
+												<div class="invalid-feedback">Inserire l'email</div>
 										</div>
 									</div>
 
@@ -136,6 +142,7 @@
 												type="text" name="indirizzo"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="indirizzoid" value="<%=u.getIndirizzo()%>" required>
+												<div class="invalid-feedback">Inserire l'indirizzo</div>
 										</div>
 
 										<div class="form-group col-xl-5 pt-1">
@@ -143,6 +150,7 @@
 												name="comune"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="comuneid" value="<%=u.getComune()%>" required>
+												<div class="invalid-feedback">Inserire il comune</div>
 										</div>
 										<div class="form-group col-xl-2 pt-1">
 											<label for="capid">CAP </label> <input type="number"
@@ -150,6 +158,7 @@
 												name="cap"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="capid" value="<%=u.getCap()%>" required>
+												<div class="invalid-feedback">Inserire il CAP</div>
 										</div>
 									</div>
 
@@ -159,6 +168,7 @@
 												name="username"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"
 														value="<%=u.getUsername()%>" required>
+											<div class="invalid-feedback">Inserire la password</div>
 										</div>
 
 										<div class="form-group col-xl-6 pt-1">
@@ -166,6 +176,7 @@
 												name="password"
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
 												id="cpwid" value="<%=u.getPassword()%>" required>
+											<div class="invalid-feedback">Inserire la password</div>
 										</div>
 									</div>
 
