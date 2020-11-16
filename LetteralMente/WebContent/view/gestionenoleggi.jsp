@@ -18,9 +18,9 @@
 	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
 		<div class="container-fluid">
 		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione Noleggi</b></h1>
-			<form>
-	  			<div class="row pb-5">
-	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
+			<form action="ListaNoleggiStaff" method="get">
+	  			<div class="row pb-5 justify-content-center">
+	    			<div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
@@ -39,6 +39,7 @@
 	  						<option value="email">Email</option>
 						</select>
 	    			</div>
+	    			<button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
 	  			</div>
 			</form>
 	
