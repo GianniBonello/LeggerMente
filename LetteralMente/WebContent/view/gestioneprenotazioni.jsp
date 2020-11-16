@@ -19,7 +19,7 @@
 	    			<div class=" col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
-	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+	                                    <p class="input-group-text py-2 shadow" style="z-index:2;"><i class="fa fa-search"></i></p>
 	                                 </span>
 	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
 	                            </div> 
@@ -74,9 +74,9 @@
 						</td>
 					</tr>
 					
-						<%
+					<%
 						}
-						}
+							}
 					%>
 
 					</tbody>

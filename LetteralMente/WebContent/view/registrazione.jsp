@@ -10,82 +10,91 @@
     <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
    
     <div class="col-8 offset-2">
-    <form class="needs-validation" novalidate action="<%=request.getContextPath()%>/Registrazione" method="post" >
+    <form class="needs-validation"  action="<%=request.getContextPath()%>/Registrazione" method="post" novalidate>
       <div class="form-row">
         <div class="form-group col-md-12 pt-1" >
           <label for="nomeid">Nome </label>
           <input type="text" name="nome" class="form-control pl-4 shadow p-1 mb-1" id="nomeid" required >
-          <div class="invalid-feedback">Inserire il nome!</div>
+          <div class="invalid-feedback">Inserisci un nome valido!</div>
+          <div class="valid-feedback">Ok!</div>
         </div>
         <div class="form-group col-md-12 pt-1">
           <label for="cognomeid">Cognome </label>
-          <input type="text" name="cognome" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cognomeid" placeholder="" required>
-          <div class="invalid-feedback">Inserire il cognome!</div>
-          
+          <input type="text" name="cognome" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cognomeid" required>
+          <div class="invalid-feedback">Inserisci un cognome valido!</div>
+          <div class="valid-feedback">Ok!</div>   
         </div>
       </div>
       
       <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         	 <label for="cfid">Codice fiscale </label>
-        	 <input type="text" name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" placeholder="" required >
-        	 <div class="invalid-feedback">Inserire il codice fiscale!</div>
+        	 <input type="text" name="cf" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" required >
+        	 <div class="invalid-feedback">Inserisci un codice fiscale valido!</div>
+        	 <div class="valid-feedback">Ok!</div>
           </div>
     
       <div class="form-group col-xl-6 pt-1">
         <label for="nascitaid">Data di nascita </label>
-        <input type="date" name="dataDiNascita" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="nascitaid" placeholder="" required >
-      <div class="invalid-feedback">Inserire la data di nascita!</div>
+        <input type="date" name="dataDiNascita" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="nascitaid"  required >
+      <div class="invalid-feedback">Inserisci una data di nascita valida!</div>
+      <div class="valid-feedback">Ok!</div>
       </div>
        </div>
        
            <div class="form-row">
         <div class="form-group col-md-12 pt-1">
         <label for="emailid">Email </label>
-        <input type="text" name="email" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" placeholder="" required >
-      	<div class="invalid-feedback">Inserire l'email!</div>
+        <input type="text" name="email" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" required >
+      	<div class="invalid-feedback">Inserisci un'email valida!</div>
+      	<div class="valid-feedback">Ok!</div>
 		</div>
         </div>
         
         <div class="form-row">
           <div class="form-group col-xl-5 pt-1">
         <label for="indirizzoid">Indirizzo </label>
-        <input type="text" name="indirizzo" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" placeholder="" required >
-          <div class="invalid-feedback">Inserire l'indirizzo!</div>
+        <input type="text" name="indirizzo" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" required >
+          <div class="invalid-feedback">Inserisci un'indirizzo valido!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
     
           <div class="form-group col-xl-5 pt-1">
             <label for="comuneid">Comune </label>
-            <input type="text" name="comune" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" placeholder="" required >
-          <div class="invalid-feedback">Inserire il comune!</div>
+            <input type="text" name="comune" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" required >
+          <div class="invalid-feedback">Inserisci un comune valido!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
           
           <div class="form-group col-xl-2 pt-1">
             <label for="capid">CAP </label>
-            <input type="number" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="capid" placeholder="" required >
-          <div class="invalid-feedback">Inserire il CAP!</div>
+            <input type="number" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="capid" required >
+          <div class="invalid-feedback">Inserisci un CAP valido!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
            </div>
         
               <div class="form-row">
         <div class="form-group col-md-12 pt-1">
         <label for="userid">Username </label>
-        <input type="text" name="username" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="userid" placeholder="" required >
-       <div class="invalid-feedback">Inserire l'username!</div>
+        <input type="text" name="username" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="userid" required>
+       <div class="invalid-feedback">Inserisci un'username valido!</div>
+       <div class="valid-feedback">Ok!</div>
        </div>
         </div>
         
         <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         <label for="pwid">Password </label>
-        <input type="password" name="password" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid" placeholder="" required >
-          <div class="invalid-feedback">Inserire la password!</div>
+        <input type="password" name="password" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"  required>
+          <div class="invalid-feedback">Inserisci una password valida!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
     
       <div class="form-group col-xl-6 pt-1">
         <label for="cpwid">Conferma Password </label>
-        <input type="password" name="confpassword" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid" placeholder="" required >
-      <div class="invalid-feedback">Confermare la password!</div>
+        <input type="password" name="confpassword" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid" required >
+      	<span id='message'></span>
       </div>
        </div>
        
@@ -99,4 +108,28 @@
     </div>
     
 </div>
+
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+
       <jsp:include page="/view/footer.jsp"></jsp:include>
