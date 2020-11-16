@@ -53,7 +53,7 @@
           
           <li class="nav-item">
           	<div class="row">
-            	<a class="nav-link text-center" href="<%=request.getContextPath()%>/ListaLibri"><i class="fas fa-atlas pr-5" style="width:68px;"></i>GESTIONE LIBRI</a>
+            	<a class="nav-link text-center" href="<%=request.getContextPath()%>/GestioneLibri"><i class="fas fa-atlas pr-5" style="width:68px;"></i>GESTIONE LIBRI</a>
             </div>
           </li>
           
