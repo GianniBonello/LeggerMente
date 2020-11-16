@@ -100,6 +100,10 @@ public class Utility {
     	if(p.getData()!=null) {
     		UtilityRicerca.mailPrenotazioni(trovaPrenotazione(idUtente, idLibro));
     	}
+	}	
+	public static void inserisciImmagine(String immagine) {
+		final String path ="C:/Users/Fabio/Desktop/immaginiProgetto";
+		
 	}
 	
 	/*---------------------------------------------------------------------------------ELIMINA-------------------------------*/
