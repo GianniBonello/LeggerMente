@@ -52,7 +52,7 @@
                             
                          <div class="dropdown">
                            		 <p class=" text-dark pr-3 pt-2 float-left "><b>Ciao <%= u.getNome() + " "+ u.getCognome()  %> </b></p> 
-                           		 <button class="text-white dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>
+                           		 <button class="text-white dropdown-toggle px-3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-cog float-left mr-2 my-auto " ></i></button>
                                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item" href="<%=request.getContextPath()%>/ModificaProfilo"><i class="fas fa-user pr-2"></i> Il mio profilo</a> 
                                     <a class="dropdown-item" href="<%=request.getContextPath()%>/CancellaPrenotazioneUtente"><i class="fas fa-list-ul pr-2"></i> Storico prenotazioni</a> 

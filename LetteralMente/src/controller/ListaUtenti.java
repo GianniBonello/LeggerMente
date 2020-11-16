@@ -54,6 +54,7 @@ public class ListaUtenti extends HttpServlet {
 				}
 			
 			if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
+				System.out.println("sono entrato nell'if di ricerca");
 				request.setAttribute("listaUtenti", UtilityRicerca.ricercaUtente(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaUtenti", Utility.leggiUtente());
 			

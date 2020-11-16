@@ -76,7 +76,6 @@
 					<tr>
                             <td colspan="6" class="hiddenRow bgcoll">
                                 <div id="demo<%=listaLibri.indexOf(l)%>" class="collapse">
-                                    <form method="post">
                                         <div class="form-row">
 
                                             <div class="col-8 offset-2 pt-4">
@@ -141,14 +140,7 @@
 
                                                     <div class="form-row pt-4">
                                                     
-                                                    	<div class="col-xl-2 pt-5">    
-                                                            <span class="spy pr-3">Usato</span>
-                                                            <label class="switch"> 
-                                                                <input type="checkbox">
-                                                             <span class="slider round"></span></label>
-                                                    	</div>
-                                                    
-                                                    	<div class="offset-xl-1 col-xl-9">  
+                                                    	<div class="col-xl-12">  
                                                         	<label for="imgid" class="col-2 pt-2">Immagine </label>
                                                         	<input type="file" name="immagine"
                                                             	class="form-control imm shadow mb-1 bg-white col-xl-12 pl-5 "
@@ -168,7 +160,7 @@
                                               </form>
                                             </div>
                                         </div>
-                                    </form>
+                                
                                 </div>
                             </td>
                         </tr>
@@ -176,10 +168,96 @@
 						<%
 						}
 					%>
-
 					</tbody>
+					
 				</table>
+										
+										<div class="m-auto justify-content-center"  >
+											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse"></i>
+										</div>
+										
+                                            <div class="col-xl-12 pt-4 collapse mb-5" style="background-color: rgba(255,255,255,0.6); border-radius:25px" id="aggiungicollapse">
+                                                <h1 class="pt-5 text-center text-dark pb-5"><b>Aggiungi Libro</b></h1>
+                                                
+                                                <form action="<%=request.getContextPath()%>/GestioneLibri" method="post" enctype="multipart/form-data">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-xl-6 pt-1 ">
 
+
+                                                            <label for="titoloid" class="text-dark">Titolo </label>
+                                                            <input type="text" name="titolo"
+                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
+                                                                id="titoloid">
+                                                        </div>
+                                                        <div class="form-group col-xl-6 pt-1">
+                                                            <label for="casaid" class="text-dark">Casa editrice</label>
+                                                            <input type="text" name="casaeditrice"
+                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
+                                                                id="casaid">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-xl-6 pt-1">
+                                                            <label for="genereid" class="text-dark">Genere </label>
+                                                            <input type="text" name="genere"
+                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
+                                                                id="genereid">
+                                                        </div>
+
+                                                        <div class="form-group col-xl-6 pt-1">
+                                                            <label for="isbnid" class="text-dark">Codice ISBN</label>
+                                                            <input type="number" name="isbn"
+                                                                class="cazzo form-control pl-4 shadow p-1 mb-1"
+                                                                id="isbnid" >
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="form-group col-xl-6 pt-1">
+                                                            <label for="qtid" class="text-dark">Quantita</label>
+                                                            <input type="number" name="quantita"
+                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
+                                                                id="qtid" required>
+                                                        </div>
+
+
+                                                        <div class="form-group col-xl-6 pt-1">
+                                                            <label for="prezzoid" class="text-dark">Prezzo </label>
+                                                            <input type="number" name="prezzo"
+                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
+                                                                id="prezzoid" >
+                                                        </div>
+
+
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <label for="prezzoid" class="text-dark">Trama</label>
+                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" ></textarea>
+                                                    </div>
+
+                                                    <div class="form-row pt-4">
+                                                    
+                                                    
+                                                    	<div class="col-xl-12">  
+                                                        	<label for="imgid" class="col-2 pt-2 text-dark" >Immagine </label>
+                                                        	<input type="file" name="immagine"
+                                                            	class="form-control imm shadow mb-1 bg-white col-xl-12 pl-5 "
+                                                            	id="imgid" alt="Submit">
+                                                    	</div>
+                                                   
+                                                    	
+                                                    </div>
+                                                
+                                                <div class="text-center pt-4">
+													<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone">AGGIUNGI</button>
+												</div>
+                                                
+                                              </form>
+                                            </div>
+                                        </div>
 			</div>
 		</div>
 	  </div>

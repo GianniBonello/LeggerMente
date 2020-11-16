@@ -14,25 +14,29 @@
 	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
 		<div class="container-fluid">
 		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione Prenotazioni</b></h1>
-			<form>
-	  			<div class="row pb-5">
-	    			<div class="offset-xl-1 col-sm-12 col-md-12 col-lg-6 col-xl-7 pt-3">
+			<form action="ListaPrenotazioniStaff" method="get">
+	  			<div class="row pb-5 justify-content-center">
+	    			<div class=" col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaPrenotazione" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il codice della prenotazione" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
-	  						<option selected>Filtra per : </option>
-	  						<option value="1">Username</option>
-	  						<option value="2">Utente</option>
-	  						<option value="3">Email</option>
+	      				<select class="custom-select" name="campo">
+	  						<option selected disabled>Filtra per : </option>
+	  						<option value="idprenotazione">Id prenotazione</option>
+	  						<option value="username">Username</option>
+	  						<option value="isbn">Codice isbn</option>
+	  						<option value="cognome">Cognome</option>
+	  						<option value="email">Email</option>
 						</select>
 	    			</div>
+	    		<button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
 	  			</div>
+	  			
 			</form>
 	
 	
