@@ -88,7 +88,7 @@ System.out.println(request.getAttribute("modifica"));%>
           </div>
     
       	  <div class="form-group col-xl-6 pt-1">		<%DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");%>
-        	<label for="nascitaid">Data di nascita: <%=u.getDataDiNascita().toGMTString()%> </label>											
+        	<label for="nascitaid">Data di nascita: <%=u.getDataDiNascita().toLocalDate()%> </label>											
         	<input type="date" name="datadinascita" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="nascitaid" value="<%=/*(LocalDate.parse(*/u.getDataDiNascita()/*.toString())).format(formatter)*/%>">
       	</div>
       </div>

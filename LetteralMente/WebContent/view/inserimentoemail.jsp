@@ -1,10 +1,10 @@
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <div class="container">
- <%if(request.getAttribute("recupero") != null && ((String)request.getAttribute("recupero")).equals("errore")){ %>
+ <%if(request.getAttribute("recupero") != null &&  ((String)request.getAttribute("recupero")).equals("error")){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">Errore!</h3>
 <h4 class=" pb-3 text-center text-danger">L'email inserita non è associata a nessun utente registrato!</h4>
-<%}else if(request.getAttribute("recupero") != null && ((String)request.getAttribute("recupero")).equals("successo")){ %>
+<%}else if(request.getAttribute("recupero") != null && ((String)request.getAttribute("recupero")).equals("successo")) { %>
 <h3 class=" pt-5 pb-3 text-center text-success">Perfetto!</h3>
 <h4 class=" pb-3 text-center text-success">Controlla la tua email, ti abbiamo inviato le istruzioni per modificare i tuoi dati!</h4>
 <%} %>
@@ -32,6 +32,8 @@
 			class="my-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone"
 			type="submit">INVIA</button>
 </form>
+<br>
+<br>
 
 	</div>
 </div>
