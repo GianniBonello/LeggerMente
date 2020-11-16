@@ -42,7 +42,7 @@ public class NoleggioUtente extends HttpServlet {
 		System.out.println(idLibro);
 		
 		if (idLibro!=null &&!idLibro.equals("") && dataFine!=null && !dataFine.equals("")	&& LocalDate.now().isBefore(LocalDate.parse(dataFine))
-				&& u!=null && LocalDate.parse(dataFine).isBefore(LocalDate.now().plusDays(63))) {
+				&& u!=null && LocalDate.parse(dataFine).isBefore(LocalDate.now().plusMonths(2).plusDays(1))) {
 			Libro li = Utility.trovaLibro(Integer.parseInt(idLibro));
 			System.out.println("primo if noleggio");
 			if(li.getQuantita()>0) {
@@ -53,9 +53,9 @@ public class NoleggioUtente extends HttpServlet {
 				Utility.inserisciNoleggio(n, Integer.parseInt(idLibro), u.getIdUtente());				
 				li.setQuantita(li.getQuantita()-1);
 				Utility.modificaLibro(li);
-				request.setAttribute("noleggio", Utility.trovaNoleggio(u.getIdUtente(), li.getId_libro()));
+				request.getSession().setAttribute("noleggio", Utility.trovaNoleggio(u.getIdUtente(), li.getId_libro()));
 				request.setAttribute("libro", li);
-				request.getRequestDispatcher("/view/confermanoleggio.jsp").forward(request, response);
+				response.sendRedirect("ConfermaNoleggio");
 				}else {
 					System.out.println("primo else noleggio");
 					request.setAttribute("noleggio", "error");
