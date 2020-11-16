@@ -100,18 +100,21 @@ System.out.println(request.getAttribute("modifica"));%>
         	<label for="indirizzoid">Indirizzo </label>
         	<input type="text" name="indirizzo" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" value="<%=u.getIndirizzo()%>">
           <div class="invalid-feedback">Inserire l'indirizzo!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
     
           <div class="form-group col-xl-5 pt-1">
             <label for="comuneid">Comune </label>
             <input type="text" name="comune" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="comuneid" value="<%=u.getComune()%>">
           <div class="invalid-feedback">Inserire il comune!</div>
+           <div class="valid-feedback">Ok!</div>
           </div>
           
           <div class="form-group col-xl-2 pt-1">
             <label for="capid">CAP </label>
             <input id="capid" type="number" maxlength="5" pattern="([0-9]|[0-9]|[0-9]|[0-9]|[0-9])" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white"  value="<%=u.getCap()%>">
          <div class="invalid-feedback">Inserire il CAP!</div>
+          <div class="valid-feedback">Ok!</div>
           </div>
        </div>
         
@@ -120,12 +123,14 @@ System.out.println(request.getAttribute("modifica"));%>
         		<label for="userid">Username </label>
         		<input type="text" name="username" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="userid" value="<%=u.getUsername()%>">
        		<div class="invalid-feedback">Inserire l'username!</div>
+       		 <div class="valid-feedback">Ok!</div>
        		</div>
         
           	<div class="form-group col-xl-6 pt-1">
         		<label for="pwid">Email</label>
         		<input type="email" name="email" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" value="<%=u.getEmail()%>">
           	<div class="invalid-feedback">Inserire l'email!</div>
+          	 <div class="valid-feedback">Ok!</div>
           	</div>
         </div>
     
