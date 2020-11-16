@@ -50,7 +50,7 @@
 						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Titolo</th>
 						<th scope="col" class="text-center">Codice ISBN</th>
-						<th scope="col" class="text-center stondadue">Comandi</th>
+						<th scope="col" class="text-center stondadue">Ritirato</th>
 					</tr>
 				</thead>
 				<tbody>
