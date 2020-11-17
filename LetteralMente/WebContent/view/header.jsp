@@ -88,12 +88,12 @@
                     <span class="cercahome">CERCA UN LIBRO</span>
                     <div class="pt-2">
                       <form action="ListaLibri" method="post"> 
+                      <input type="hidden" name="campo" value="titolo">
                         <div class="input-group">
                             <span class="input-group-append">
                                 <p class="input-group-text bg-light py-2"><i class="fa fa-search"></i></p>
                                </span>
-                            <input class="form-control py-2 bg-light border-radius-5 " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
-                            <input type="hidden" name="campo" value="titolo">
+                            <input class="form-control py-2 bg-light border-radius-5 " style="box-shadow: none !important;" name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >   
                         </div> 
                       </form>
                     </div>	
