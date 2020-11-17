@@ -27,7 +27,7 @@ public class Noleggio implements Serializable {
 	@Column(name="data_inizio")
 	private Date dataInizio;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="id_utente")
 	private Utente u;
 

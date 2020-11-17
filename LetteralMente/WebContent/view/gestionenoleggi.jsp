@@ -73,7 +73,7 @@
 						<td class="text-center pt-4"><%=n.getIdNoleggio()%></td>
 						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						<td class="text-center pt-4">
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
+						<a href="<%=request.getContextPath()%>/ListaNoleggiStaff?elimina=<%=n.getIdNoleggio()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 							<%} %>
 						</td>
 						<td class="text-center pt-4">
