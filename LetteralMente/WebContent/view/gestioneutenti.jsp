@@ -77,8 +77,9 @@
 						<td class="text-center pt-4"><%=u.getEmail()%></td>
 						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						
-						<td class="text-center pt-4"><label class="switch"> <input
-								type="checkbox" <%=u.getIsStaff()?"checked":""%> disabled> <span class="slider round"></span>
+						<td class="text-center pt-4"><label class="switch">
+						
+						 <input	type="checkbox" <%=u.getIsStaff()?"checked":""%> disabled> <span class="slider round"></span>
 								
 						</label></td>
 
@@ -88,7 +89,9 @@
 							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
+							<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")){%>
 							<a href="<%=request.getContextPath()%>/ListaUtenti?id=<%=u.getIdUtente()%>"><i class="fas fa-check-square fa-2x verde ml-3" style="cursor:pointer;"></i></a>
+							<%} %>
 							<a href="<%=request.getContextPath() %>/ListaUtenti?elimina=<%=u.getIdUtente()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 						</td>
 					</tr>
