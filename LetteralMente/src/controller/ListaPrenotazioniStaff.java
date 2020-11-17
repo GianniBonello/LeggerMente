@@ -38,6 +38,9 @@ public class ListaPrenotazioniStaff extends HttpServlet {
 				request.setAttribute("convalidaPrenotazione", "effettuata");
 				request.setAttribute("listaPrenotazioni", Utility.leggiPrenotazione());
 
+			}else if(request.getParameter("elimina")!=null) {
+				Utility.eliminaPrenotazione(Integer.parseInt(request.getParameter("elimina")));
+				request.setAttribute("listaPrenotazioni", Utility.leggiPrenotazione());
 			}else if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 				request.setAttribute("listaPrenotazioni", UtilityRicerca.ricercaPrenotazione(request.getParameter("campo"), request.getParameter("ricerca")));
 				request.getRequestDispatcher("/view/gestioneprenotazioni.jsp").include(request, response);
