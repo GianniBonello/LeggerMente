@@ -50,6 +50,7 @@ public class PrenotazioniAutomatiche extends HttpServlet {
 					//TODO dobbiamo inviare le email!
 					//contiamo quante modifiche fa e poi richiamiamo solo 1 volta il database per modificare la quantita
 					p.setData(new Date());
+					p.setInCorso(true);
 					Utility.modificaPrenotazione(p);
 					cont++;
 				}else break;

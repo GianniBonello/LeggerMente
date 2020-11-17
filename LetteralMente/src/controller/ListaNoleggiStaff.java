@@ -37,6 +37,11 @@ public class ListaNoleggiStaff extends HttpServlet {
 				
 				Utility.modificaNoleggio(n);
 			}
+			//NON FUNZIONA!!!
+			if(request.getParameter("elimina")!=null) {
+				Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("elimina")));
+			}
+			
 			
 			
 			if(request.getParameter("inCorso") != null) {
