@@ -23,11 +23,11 @@
 	<div class="col-8 offset-2 text-center">
 		<form class="needs-validation" novalidate
 			action="<%=request.getContextPath()%>/ModificaPassword"
-			method="post">
+			method="post" name="modulo" onsubmit="return validate(this)">
 			<div class="form-row justify-content-center">
 				<div class="form-group col-xl-10">
 					<input placeholder="Inserisci la tua email..."
-						type="email" name="email"
+						type="email" name="email" maxlength="45"
 						class="form-control pl-4 shadow p-1 mb-1" id="nomeid" required>
 					<div class="invalid-feedback">Inserisci un email valida!</div>
 					<div class="valid-feedback">Ok!</div>
@@ -39,7 +39,7 @@
 			<div class="form-row  m-auto justify-content-center">
 				<div class="form-group col-md-12 col-xl-7 pt-1">
 					<input placeholder="Inserisci la nuova password..."
-						type="password" name="password"
+						type="password" name="password" maxlength="20" minlength="8"
 						class="form-control pl-4 shadow p-1 mb-1" id="pwid" required>
 					<div class="invalid-feedback">Inserisci una password valida!</div>
          			<div class="valid-feedback">Ok!</div>
@@ -48,7 +48,7 @@
 			<div class="form-row m-auto justify-content-center">
 				<div class="form-group col-md-12 col-xl-7 pt-1">
 					<input placeholder="Conferma la nuova password..."
-						type="password" name="passwordConfermata"
+						type="password" name="passwordConfermata" maxlength="20" minlength="8"
 						class="form-control pl-4 shadow p-1 mb-1" id="cpwid" required>
 					<span id='message'></span>
 				</div>
