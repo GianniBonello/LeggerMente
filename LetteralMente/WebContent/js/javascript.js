@@ -114,6 +114,7 @@ $('#pwid, #cpwid').on('keyup', function () {
 
 
 
+
 function validate(modulo) {
 var ck_password = /^[A-Za-z0-9]{8,20}$/;
 
@@ -168,3 +169,27 @@ var ck_email =  /^(([^<>;()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([[0-9]{1,
   }
 
 }
+
+
+
+
+
+
+
+function ordina(){
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
