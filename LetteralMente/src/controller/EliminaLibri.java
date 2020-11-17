@@ -22,7 +22,7 @@ public class EliminaLibri extends HttpServlet {
 		Utente utenteLog = (Utente)request.getSession().getAttribute("utenteLoggato");
 		System.out.println("ciao sono nella servlet elimina libri");
 
-		if(request.getParameter("elimina") != null && utenteLog.getUsername().equals("Admin")) {
+		if(request.getParameter("elimina") != null && utenteLog!=null && utenteLog.getUsername().equals("Admin")) {
 			System.out.println("entra nell elimina");
 			try {
 				Utility.eliminaLibro(Integer.parseInt(request.getParameter("elimina")));
@@ -31,7 +31,10 @@ public class EliminaLibri extends HttpServlet {
 				request.setAttribute("libroEliminato", "errore");
 			}
 			request.getRequestDispatcher("ListaLibri").forward(request, response);
-		}
+		}else if(utenteLog==null) {
+			request.getRequestDispatcher("ControlloIniziale").forward(request, response);
+		}else 
+		request.getRequestDispatcher("ListaLibri").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

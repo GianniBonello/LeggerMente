@@ -16,29 +16,27 @@
 	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
 		<div class="container-fluid">
 		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione Libri</b></h1>
-			<form>
+			<form action="<%=request.getContextPath()%>/ListaLibri" method="post">
 	  			<div class="row pb-5 justify-content-center">
 	    			<div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
+	      				<select name="campo" class="custom-select">
 	  							<option selected disabled>Filtra per : </option>
-	  							<option value="titolocresc">Titolo : dalla A alla Z</option>
-                                <option value="titolodecr">Titolo : dalla Z alla A</option>
-                                <option value="prezzocresc">Prezzo : crescente</option>
-                                <option value="prezzodecr">Prezzo : decrescente</option>
+	  							<option value="titolo">Titolo</option>
                                 <option value="genere">Genere</option>
                                 <option value="autore">Autore</option>
+                                <option value="isbn">Codice ISBN</option>
                                 <option value="casaeditrice">Casa Editrice</option>
 						</select>
 	    			</div>
-	    			<button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
+	    			<button type="submit" class="ml-3" style="margin-top:12px;">CERCA</button>
 	  			</div>
 			</form>
 	

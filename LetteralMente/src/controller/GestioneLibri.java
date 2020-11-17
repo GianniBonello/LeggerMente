@@ -31,13 +31,15 @@ public class GestioneLibri extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
+		if(u!=null && u.getIsStaff()) {
 		if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 			request.setAttribute("listaLibri", UtilityRicerca.ricercaLibro(request.getParameter("campo"), request.getParameter("ricerca")));
 			request.getRequestDispatcher("/view/gestioneprenotazioni.jsp").include(request, response);
 		}else request.setAttribute("listaLibri", Utility.leggiLibro());
 
 		request.getRequestDispatcher("/view/gestionelibri.jsp").include(request, response);
+		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
