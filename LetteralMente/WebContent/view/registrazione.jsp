@@ -1,5 +1,9 @@
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 <div class="registrazione pt-5">
+
+<h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
+
+
 <%if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("errore")){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
 <h4 class=" pb-3 text-center text-danger">Dati inseriti già esistenti!</h4>
@@ -10,7 +14,7 @@
 <h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
 <h4 class=" pb-3 text-center text-danger">Inserisci una password di minimo 8 caratteri!</h4>
 <%} %>
-    <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
+    
    
     <div class="col-8 offset-2">
     <form class="needs-validation"  action="<%=request.getContextPath()%>/Registrazione" name="modulo2" method="post" onsubmit="return validate(this)" novalidate>

@@ -64,7 +64,7 @@
 						<b>Chi siamo</b>
 					</h1>
 					<h6 id="trattdue">
-						<img class="pr-3"
+						<img class="pr-3 img-fluid"
 							src="<%=request.getContextPath()%>/res/trattino.png"
 							alt="trattino">La nostra libreria
 					</h6>
@@ -110,7 +110,7 @@ if(lista!=null){
 			//if(l!=null){
 %>
 				<div class="libro col-xl-4 pt-5">
-					<img src="<%=l.getImmagine_path() %>" class="w-75"
+					<img src="<%=l.getImmagine_path() %>" class="w-75 img-fluid"
 						style="height: 375px;"> <a
 						href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button
 							id="bott" class="btn btn-dark w-75 text-center botcollapse"

@@ -43,7 +43,8 @@
 	
 	
 		<div class="col-xl-12 table-responsive">
-			<div class="row justify-content-center mr-5 ml-5">
+			<div class="justify-content-center mr-5 ml-5">
+
 			<table class="table">
 				<thead class="bg-dark text-white">
 					<tr>
@@ -211,7 +212,7 @@
 					</tbody>
 					
 				</table>
-				           <!-- inserimento libri -->
+		     <!-- inserimento libri -->
 										
 										<div class="row m-auto justify-content-center"  >
 											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse" id="piu"></i>
@@ -297,7 +298,7 @@
                                                     
                                                     <div class="form-row">
                                                         <label for="prezzoid" class="text-dark">Trama</label>
-                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" required></textarea>
+                                                        <textarea name="trama" class="col-xl-12 p-3 b-none" style="border-radius:15px" required></textarea>
                                                         <div class="invalid-feedback">Inserisci una trama valida!</div>
           												<div class="valid-feedback">Ok!</div>
                                                     </div>

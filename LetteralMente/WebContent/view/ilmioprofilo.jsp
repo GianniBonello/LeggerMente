@@ -95,7 +95,7 @@
       <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         	 <label for="cfid">Codice Fiscale </label>
-        	 <input type="text" maxlength="16" name="cf" class="disabled form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" value="<%=u.getCf()%>" disabled>
+        	 <input type="text" pattern=".{16}" minlength="16" maxlength="16" pattern="([a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[0-9]|[0-9]|[a-zA-Z]|[0-9]|[0-9]|[a-zA-Z]|[0-9]|[0-9]|[0-9]|[a-zA-Z])" name="cf" class="disabled form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" value="<%=u.getCf()%>" disabled>
           </div>
     
       	  <div class="form-group col-xl-6 pt-1">		
@@ -155,7 +155,9 @@
       <div class="form-row">
         <div class="form-group col-xl-6 pt-1 justify-content-center m-auto text-center">
         	<p>Inserisci la password per confermare la modifica</p>
-        	<input type="password" name="password" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid">
+        	<input type="password" name="password" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid">
+        	<div class="invalid-feedback">Inserisci una password valida!</div>
+          	<div class="valid-feedback">Ok!</div>
        	</div>
       </div>
       <div class="text-center pt-4">

@@ -15,11 +15,9 @@
                     <div class="cercaLibro pt-5 col-md-12 col-xl-5">
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
-                            	<a type="submit">
                                 	<span class="input-group-append">
-                                    	<p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search" ></i></p>
+                                    	<p class="input-group-text py-2 shadow" style="z-index: 2;"><button type="submit" style="padding:0px!important"><i class="fa fa-search" ></i></button></p>
                                  	</span>
-                                 </a>
                                 <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
                             </div> 
                     </div>
@@ -80,7 +78,7 @@
                             			<div class="titolo">	<%= l.getTitolo() %>	</div>
                             			<div class="trama">		<%= l.getTrama() %>		</div>
                             		</div>                      		
-                                    <img src="<%=l.getImmagine_path() %>"  class="immaginepath w-75" style="height:375px;" >
+                                    <img src="<%=l.getImmagine_path() %>"  class="immaginepath w-75 img-fluid" style="height:375px;" >
                                    <a class="idLibro" href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
                             </div>
   

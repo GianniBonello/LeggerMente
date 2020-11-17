@@ -29,8 +29,8 @@ if(l!=null){%>
             </div>
             <div class="form-group col-md-11 pt-1 mt-5 mb-5">
               <label for="fine">Data fine noleggio</label>
-              <input type="date" name="dataFine" class="form-control pl-4 shadow p-1 mb-1" id="fine" value="<%=LocalDate.now().plusMonths(2)%>" disabled>
-            </div>
+              <input type="date" name="dataFine" class="form-control pl-4 shadow p-1 mb-1" id="fine" value="<%=LocalDate.now().plusMonths(2)%>">
+            </div>				
           </div>
 		<input type="hidden" name="idLibro" value="<%=l.getId_libro()%>">
 
