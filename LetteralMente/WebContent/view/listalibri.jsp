@@ -12,20 +12,22 @@
             <div class="row ">
                 <!-- CERCA LIBRI  -->
                 
-                    <div class="cercaLibro pt-5 pl-5 col-md-12 col-xl-5">
+                    <div class="cercaLibro pt-5 col-md-12 col-xl-5">
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
-                                <span class="input-group-append">
-                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search" ></i></p>
-                                   </span>
+                            	<a type="submit">
+                                	<span class="input-group-append">
+                                    	<p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search" ></i></p>
+                                 	</span>
+                                 </a>
                                 <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
                             </div> 
                     </div>
-                    <div class="filtraLibro pt-5 pl-5 col-md-12 col-xl-3">
+                    <div class="filtraLibro pt-5  col-md-12 col-xl-2">
                         <div class="input-group mb-3">
-                            <p class="pt-2 pr-3">Cerca per :</p>
                             <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01">
-                                <option selected value="titolo">Titolo</option>                         
+                            	<option selected disabled>Cerca per :</option>
+                                <option value="titolo">Titolo</option>                         
                                 <option value="autore">Autore</option>
                                  <option value="casaeditrice">Casa Editrice</option>
                                  <option value="genere">Genere</option>
@@ -33,20 +35,28 @@
                             </select>
                         </div>
                     </div>
-                    <div class="ordinaLibro pt-5 pl-5 col-md-12 col-xl-4">
+                    <div class="ordinaLibro pt-5  col-md-12 col-xl-3">
                         <div class="input-group mb-3">
-                            <p class="pt-2 pr-3">Ordina per :</p>
                             <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                            	<option selected id="ultimiarrivi" value="ultimi-arrivi">Ultimi arrivi</option>
-                                <option id="PROVA" value="autore-cresc" >Autore : dalla A alla Z</option>
+                            	<option selected disabled>Ordina per :</option>
+                            	<option id="ultimiarrivi" value="ultimi-arrivi">Ultimi arrivi</option>
+                                <option id="aut-cres" value="autore-cresc" >Autore : dalla A alla Z</option>
                                 <option id="aut-decr" value="autore-decr">Autore : dalla Z alla A</option>
                                 <option id="prezzo-cres" value="prezzo-cresc">Prezzo : crescente</option>
                                 <option id="prezzo-decr" value="prezzo-decr">Prezzo : decrescente</option>
                             </select>
-                           <i id="PROVAaaa" class=" fas fa-sort-alpha-up-alt"></i>
                         </div>
-                    </div> 
-                             
+                    </div>
+                    <div class="tipoLibro pt-5 col-md-12 col-xl-2">
+                    <div class="input-group mb-3">
+                            <select class="custom-select bg-light shadow " id="inputGroupSelect01">
+                            	<option selected disabled>Stato :</option>
+                            	<option id="tutti" value="tutti">Tutti i libri</option>
+                                <option id="nol" value="nol" >Noleggiabili</option>
+                                <option id="acq" value="acq">Acquistabili</option>
+                            </select>
+                        </div>
+                    </div>         
                 </form>
             </div>
 

@@ -1,7 +1,7 @@
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
-<jsp:include page="/view/headerstaff.jsp"/>
+<jsp:include page="/view/headerstaff.jsp"></jsp:include>
 
 
 
@@ -36,13 +36,14 @@
                                 <option value="casaeditrice">Casa Editrice</option>
 						</select>
 	    			</div>
+	    			<a href="#piu"><i class="fas fa-book-medical fa-2x pt-3" style="color:white;"></i><a>
 	    			<button type="submit" class="ml-3" style="margin-top:12px;">CERCA</button>
 	  			</div>
 			</form>
 	
 	
 		<div class="col-xl-12 table-responsive">
-			<div class="row mr-5 ml-5">
+			<div class="row justify-content-center mr-5 ml-5">
 			<table class="table">
 				<thead class="bg-dark text-white">
 					<tr>
@@ -117,12 +118,18 @@
           														<div class="valid-feedback">Ok!</div>
                                                         </div>
                                                         
+     
+                                                        
                                                         <div class="form-group col-xl-6 pt-1">
-                                                            <label for="genereid">Genere </label>
-                                                            <input type="text" name="genere" maxlength="45"
-                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="genereid" value="<%=l.getGenere()%>" required>
-                                                                <div class="invalid-feedback">Inserisci un genere valido!</div>
+                                                        	<label for="campo">Genere</label>
+                                                        	
+                                                            <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
+                            									<option selected disabled>Seleziona un Genere</option>
+                            									<%for(Libro g : listaLibri){ %>
+                                									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   
+                                								<% } %>                         
+                            								</select>
+                                                                <div class="invalid-feedback">Inserisci un genere!</div>
           														<div class="valid-feedback">Ok!</div>
                                                         </div>
 
@@ -206,8 +213,8 @@
 				</table>
 				           <!-- inserimento libri -->
 										
-										<div class="m-auto justify-content-center"  >
-											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse"></i>
+										<div class="row m-auto justify-content-center"  >
+											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse" id="piu"></i>
 										</div>
 										
                                             <div class="col-xl-12 pt-4 collapse mb-5  pr-5 pl-5" style="background-color: rgba(255,255,255,0.4); border-radius:25px" id="aggiungicollapse">
@@ -327,7 +334,7 @@
                                                 
                                               </form>
                                             </div>
-                                        </div>
+                                        
 			</div>
 		</div>
 	  </div>

@@ -34,7 +34,7 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                     <% if(l.getQuantita()>0){ %>
                                                       <i class="fas fa-circle fa-2x" style="color:#06A500"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>DISPONIBILE</b></p>
                                                             <%}else{ %>                    
-                                                        <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>ESAURITO</b></p>
+                                                        <i class="fas fa-circle fa-2x" style="color:#FF0000"></i><p class="col-xl-5 text-left" style="font-size: 16pt;"><b>NON DISPONIBILE</b></p>
                                                                         <%} %>         
                                                                               <!--SCRIPTLET PREZZO-->
                                                       <p class="col-xl-6 pl-3" style="font-size: 16pt;"><b><%=!l.getIsUsato()?"PREZZO :  "+ l.getPrezzo() +"  &euro;" :" " %> </b></p>
@@ -42,14 +42,28 @@ Libro l = (Libro)request.getAttribute("libro"); %>
                                                   </div>   
                                                  
                                                     <% if(request.getSession().getAttribute("utenteLoggato") != null){
-		                                                    if(!l.getIsUsato()){ %>                     
-		                                              		 	<a href="<%=request.getContextPath()%>/DettagliPrenotazione?idLibro=<%=l.getId_libro()%>"><button class="float-left text-white shadow mb-2"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>  
+		                                                    if(!l.getIsUsato()){ %>  
+		                                                    <div class="row">                 
+		                                              		 	<a href="<%=request.getContextPath()%>/DettagliPrenotazione?idLibro=<%=l.getId_libro()%>"><button class="float-left text-white shadow mb-2 mr-5"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button></a>
+		                                              		 	<a href="<%=request.getContextPath()%>/ListaLibri"><button class="text-white shadow ">ANNULLA</button></a>
+		                                               	  	</div>  
 		                                               	   <%}else {%>
-		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\""+request.getContextPath()+"/DettagliNoleggio?idLibro="+l.getId_libro()+"\"><button  class=\"float-left text-white shadow mb-2\">NOLEGGIA</button></a> " : ""%>
+		                                               	   <div class="row"> 
+		                                              			 <%=l.getQuantita()> 0 ? "  <a href=\""+request.getContextPath()+"/DettagliNoleggio?idLibro="+l.getId_libro()+"\"><button  class=\"float-left text-white shadow mb-2 mr-5\">NOLEGGIA</button></a> " : ""%>
+		                                              			 <a href="<%=request.getContextPath()%>/ListaLibri"><button class="text-white shadow ">ANNULLA</button></a>
+		                                           		   	</div> 
 		                                           		   <%}
-                                                    }%> 
+                                                       }else if (request.getSession().getAttribute("utenteLoggato") == null){ 
+                                                    		if(!l.getIsUsato()){ %>                     
+		                                              		 	<button class="buttoninv float-left text-white shadow mb-2 mr-5" onclick="NonLoggato()"><%=l.getQuantita()>0?"PRENOTA":"IN CODA"%></button> 
+		                                              		 	<a href="<%=request.getContextPath()%>/ListaLibri"><button class="text-white shadow ">ANNULLA</button></a>
+		                                               	   <%}else {%>
+		                                              			 <%=l.getQuantita()> 0 ? "  <button class=\"buttoninv float-left text-white shadow mb-2 mr-5\" onclick=\"NonLoggato()\">NOLEGGIA</button>" : ""%>
+		                                              			 <a href="<%=request.getContextPath()%>/ListaLibri"><button class="text-white shadow ">ANNULLA</button></a>
+		                                           		   <%}
+                                                     } %>
                                               </div>
-                                             
+                                             	
                                          </div> 
                 </div>
             </div>

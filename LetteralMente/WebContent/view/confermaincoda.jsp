@@ -26,7 +26,7 @@ int attesa = (Integer)request.getSession().getAttribute("attesa");%>
         <i class="fas fa-people-arrows fa-7x mb-5 mt-5"></i><br>
         <b style="color: #06A500;font-size:16pt;">SEI STATO MESSO IN CODA</b><br>
         <p style="font-size:16pt;">Sei il <b><%=attesa==0?"1": attesa %></b> in coda<br>
-        <p class="mt-3 mb-5" style="font-style:italic;">Quando il libro sara' disponibile al ritiro sara' inviata <br> via email una notifica di conferma.</p>
+        <p class="mt-3 mb-5" style="font-style:italic;">Quando il libro sarà disponibile al ritiro sarà inviata <br> via email una notifica di conferma.</p>
 
        <a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="mt-5 col-3 text-white shadow">CONTINUA</button></a>
 
