@@ -28,6 +28,7 @@ public class ListaUtenti extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		Utente utenteLog = (Utente)request.getSession().getAttribute("utenteLoggato");
 		System.out.println("sono nel doget");
 		if(request.getSession().getAttribute("utenteLoggato") != null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
@@ -57,6 +58,24 @@ public class ListaUtenti extends HttpServlet {
 				System.out.println("sono entrato nell'if di ricerca");
 				request.setAttribute("listaUtenti", UtilityRicerca.ricercaUtente(request.getParameter("campo"), request.getParameter("ricerca")));
 			}else request.setAttribute("listaUtenti", Utility.leggiUtente());
+			
+			
+			/////////////SWITCH
+			if (request.getParameter("id")!=null) {
+				System.out.println("ID" + request.getParameter("id"));
+				Utente a = Utility.trovaUtente(Integer.parseInt(request.getParameter("id")));
+				
+				if(a.getIsStaff()) {
+					
+					a.setIsStaff(false);
+					Utility.modificaUtente(a);
+					
+				}else {
+					a.setIsStaff(true);
+					Utility.modificaUtente(a);
+				}
+			}
+			
 			
 			request.getRequestDispatcher("/view/gestioneutenti.jsp").include(request, response);
 		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);	
