@@ -5,6 +5,7 @@ package Util;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -42,6 +43,20 @@ public class UtilityRicerca {
 		}
 		return null;
 	}*/
+	
+	
+	
+	//ECCOLO QUI IL TUO AMATO METODO NELLA TUA AMATA CLASSE CARA GIULIA!!!
+	public static String dataString(Date data){
+		String stringaData;
+		String anno=data.getYear()+"";
+		String mese=data.getMonth()+"";
+		String giorno=data.getDay()+"";
+		stringaData=Integer.parseInt(anno)>2?"19"+anno+"-":"20"+anno+"-";
+		stringaData=mese.length()>1?stringaData+mese+"-":stringaData+"0"+mese+"-";
+		stringaData=giorno.length()>1?stringaData+giorno:stringaData+"0"+giorno;
+		return stringaData;		
+	}
 
 	private static EntityManager getManager() {
 		try {

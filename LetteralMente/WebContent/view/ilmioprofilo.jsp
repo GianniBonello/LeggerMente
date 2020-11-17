@@ -1,16 +1,20 @@
 
+<%@page import="Util.UtilityRicerca"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.Utente"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
-
 <%
-
 	Utente u = (Utente)request.getSession().getAttribute("utenteLoggato"); 
 	System.out.println(request.getAttribute("modifica"));
-	LocalDate l= LocalDate.parse(u.getDataDiNascita().getYear()+"/"+u.getDataDiNascita().getMonth()+"/"+u.getDataDiNascita().getDay());
-	int d = u.getDataDiNascita().getYear();
-	 System.out.println(d+1900);
+	// DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	
+	System.out.println(">--------------------------------------------------------------------------------------------<");
+	 
+	 LocalDate ld= LocalDate.parse(UtilityRicerca.dataString(u.getDataDiNascita()));
+	 System.out.println(ld);
+	 System.out.println(LocalDate.now());
+	 System.out.println(">--------------------------------------------------------------------------------------------<");
 %>
 
 <div class="registrazione pt-5">
@@ -96,9 +100,9 @@
     
       	  <div class="form-group col-xl-6 pt-1">		
         	<label for="nascitaid">Data di nascita</label>											
-        	<input  name="datadinascita" class=" disabled form-control pl-4 shadow p-1 mb-1 bg-white" id="nascitaid" value="<%= l %>" disabled="disabled">
+        	<input  name="datadinascita" type="date" class=" disabled form-control pl-4 shadow p-1 mb-1 bg-white" id="nascitaid" value="<%=ld %>" disabled="disabled">
       	</div>
-      </div>
+      </div> 
        
       
         
