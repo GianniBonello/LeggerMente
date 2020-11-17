@@ -76,7 +76,7 @@ public class GestioneLibri extends HttpServlet {
 				e.printStackTrace();
 			}
 
-			l.setImmagine_path(PATH+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
+			l.setImmagine_path("http://127.0.0.1:8887/"+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
 			
 			Utility.modificaLibro(l);
 			request.setAttribute("modifica", "successo");
@@ -113,8 +113,9 @@ public class GestioneLibri extends HttpServlet {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
+			System.out.println(FILENAME);
 
-			lib.setImmagine_path(PATH+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
+			lib.setImmagine_path("http://127.0.0.1:8887/"+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
 			
 			try {
 				Utility.inserisciLibro(lib);

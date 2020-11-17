@@ -66,7 +66,7 @@
 
 					<%
 						for (Utente u : listaUtenti) {
-							if(((u.getIsStaff() || !u.getIsStaff()) && request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) ||
+							if(((u.getIsStaff() || !u.getIsStaff()) && request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin") && !u.getUsername().equals("Admin")) ||
 									(!u.getIsStaff() && request.getSession().getAttribute("utenteLoggato")!=null && !((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin"))){
 					%>
 
