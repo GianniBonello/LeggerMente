@@ -16,9 +16,9 @@
 
 
 			<div class="col-md-12 col-xl-4 pt-4 float-left">
-				<a href="https://www.facebook.com/profile.php?id=100056921844703" target="_blank"><i class="fab fa-facebook-square fa-2x pr-2" id="icfb"></i></a>
-				<a href="https://www.instagram.com/leggermente.roma/?hl=it" target="_blank"><i class="fab fa-instagram fa-2x pr-2" id="icig"></i></a>
-				<a href="https://mail.google.com/"><i class="fas fa-envelope fa-2x" id="icemail" target="_blank"></i></a>
+				<a href="https://www.facebook.com/LeggerMente-104221868164792/?modal=suggested_action&notif_id=1605606672416756&notif_t=page_user_activity&ref=notif" target="_blank"><i class="fab fa-facebook-square fa-2x pr-2" id="icfb"></i></a>
+				<a href="https://www.instagram.com/leggermente.libreria/" target="_blank"><i class="fab fa-instagram fa-2x pr-2" id="icig"></i></a>
+				<a href="mailto:leggermente.roma@gmail.com"><i class="fas fa-envelope fa-2x" id="icemail" target="_blank"></i></a>
 				<br><br>
 				<p><b>LeggerMente</b><br>
 				<i class="fas fa-id-card-alt pr-3 text-left"></i>Via Nazionale 42/A | Roma, RM 00141<br>

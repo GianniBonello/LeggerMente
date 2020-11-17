@@ -27,9 +27,9 @@ if(n!=null){%>
             <i class="fas fa-long-arrow-alt-right fa-7x mx-4" style="color: #06A500;"></i>
             <i class="fas fa-people-carry fa-7x mb-5"></i><br>
             <b style="color: #06A500; font-size:16pt;" class="pt-5">NOLEGGIO EFFETTUATO CON SUCCESSO</b><br>
-            <p class="mb-3" style="font-size:14pt;">Ordine n* <%=n.getIdNoleggio() %><br></p>
+            <p class="mb-3" style="font-size:14pt;">Ordine n° <%=n.getIdNoleggio() %><br></p>
             <b style="font-size:16pt;">RITIRO ALLA CASSA</b><br>
-            <p class="mt-3" style="font-style:italic;">Nei prossimi minuti le sara' inviata un email <br>con il codice del suo ordine e le istruzioni per il ritiro</p>
+            <p class="mt-3" style="font-style:italic;">Nei prossimi minuti le sarà inviata un email <br>con il codice del suo ordine e le istruzioni per il ritiro</p>
         
         <a href="<%=request.getContextPath()%>/ListaLibri"><button type="submit" class="mt-5 col-3 text-white shadow ">CONTINUA</button></a>
 

@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 <!-- Required meta tags -->
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,8 +21,6 @@
 
 <%@ include file="../css/style.css" %>
 </style>
-
-
 
 </head>
 <body>
@@ -49,7 +48,7 @@
                     	<a class="nav-link" href="#chisiamo"><b>CHI SIAMO</b></a>
                     </li> 
                     <li class="nav-item">
-                    	<a class="nav-link" href="#listalibri"><b>LISTA LIBRI</b></a>
+                    	<a class="nav-link" href="<%=request.getContextPath()%>/ListaLibri"><b>LISTA LIBRI</b></a>
                     </li> 
                 </ul>
                   <% 
@@ -83,7 +82,7 @@
                 <div class="intro col-md-12 col-xl-5 pt-5">
                     <h2 class="testohome"><span class="mente">Legger</span>Mente</h2>
                     <h4 class="testohome"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Libreria di Roma</i></h4>
-                    <p class="testohome">LeggerMente e' una libreria smart, viene fondata nel 2020 ed e' un posto magico
+                    <p class="testohome">LeggerMente è una libreria smart, viene fondata nel 2020 ed è un posto magico
                                         dove le persone possono noleggiare e leggere con la testa fra le nuvole tutti i libri
                                         che desiderano.</p>
                     <span class="cercahome">CERCA UN LIBRO</span>
@@ -104,15 +103,15 @@
                     <h2 class="pt-5 text-center">Login</h2>
                     <form action="login" method="post">
                     	<div class="pt-2 text-center">
-                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
-                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">    
+                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username" required>
+                        	<input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password" required>    
                     	</div>
                     	<small ><a class="text-dark text-left pl-2" href="<%=request.getContextPath()%>/Registrazione" >Non sei ancora registrato ?</a>
                     	<br>
                     	<a class="text-dark text-left pl-2" href="<%=request.getContextPath()%>/view/inserimentoemail.jsp" >Username o password dimenticati ?</a>
                     	<br>
                     	<div class="text-center">
-                     		<button class="mt-5" type="submit">LOGIN</button></small>
+                     		<button class="mt-5" type="submit" id="acclogin">LOGIN</button></small>
                     	</div>
                     </form>
 				</div>

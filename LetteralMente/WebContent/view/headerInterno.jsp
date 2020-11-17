@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 	<!-- Required meta tags -->
+	<%@ page contentType="text/html; charset=ISO-8859-1" %>
 	<meta charset="utf-8">
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -47,7 +48,7 @@
                          %> 
                          
                         <button class=" login mr-3" id="login" onclick="login()" > LOGIN </button>
-                        <a href="<%=request.getContextPath()%>/Registrazione"><button type="submit">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
+                        <a href="<%=request.getContextPath()%>/Registrazione"><button type="submit" style="padding-right:20px!important;padding-left:20px!important;">REGISTRAZIONE</button></a> <!-- PAGINA REGISTRAZIONE -->
                         
                      <% }else{
                             Utente u = (Utente) request.getSession().getAttribute("utenteLoggato"); %> 

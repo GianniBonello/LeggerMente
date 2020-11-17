@@ -32,7 +32,7 @@
       <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         	 <label for="cfid">Codice fiscale </label>
-        	 <input type="text" name="cf" maxlength="16" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" required >
+        	 <input type="text" name="cf" pattern=".{16}" minlength="16" maxlength="16" pattern="([a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[a-zA-Z]|[0-9]|[0-9]|[a-zA-Z]|[0-9]|[0-9]|[a-zA-Z]|[0-9]|[0-9]|[0-9]|[a-zA-Z])" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cfid" style="text-transform:uppercase"  required >
         	 <div class="invalid-feedback">Inserisci un codice fiscale valido!</div>
         	 <div class="valid-feedback">Ok!</div>
           </div>
@@ -48,7 +48,7 @@
            <div class="form-row">
         <div class="form-group col-md-12 pt-1">
         <label for="emailid">Email </label>
-        <input type="text" name="email" maxlength="100" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" required >
+        <input type="email" name="email" maxlength="100" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="emailid" required >
       	<div class="invalid-feedback">Inserisci un'email valida!</div>
       	<div class="valid-feedback">Ok!</div>
 		</div>
@@ -57,7 +57,7 @@
         <div class="form-row">
           <div class="form-group col-xl-5 pt-1">
         <label for="indirizzoid">Indirizzo </label>
-        <input type="text" name="indirizzo" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" required >
+        <input type="text" name="indirizzo" maxlength="45"  class="form-control pl-4 shadow p-1 mb-1 bg-white" id="indirizzoid" required >
           <div class="invalid-feedback">Inserisci un'indirizzo valido!</div>
           <div class="valid-feedback">Ok!</div>
           </div>
@@ -71,7 +71,7 @@
           
           <div class="form-group col-xl-2 pt-1">
             <label for="capid">CAP </label>
-            <input type="number" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="capid" required >
+            <input type="number" maxlength="5" pattern="([0-9]|[0-9]|[0-9]|[0-9]|[0-9])" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="cap" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="capid" required >
           <div class="invalid-feedback">Inserisci un CAP valido!</div>
           <div class="valid-feedback">Ok!</div>
           </div>
@@ -89,21 +89,21 @@
         <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         <label for="pwid">Password </label>
-        <input type="password" name="password" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"  required>
+        <input type="password" name="password" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid" onkeyup="validate()"  required>
           <div class="invalid-feedback">Inserisci una password valida!</div>
           <div class="valid-feedback">Ok!</div>
           </div>
     
       <div class="form-group col-xl-6 pt-1">
         <label for="cpwid">Conferma Password </label>
-        <input type="password" name="confpassword" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid"  required > <!--onkeyup="function()"-->
+        <input type="password" name="confpassword" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid" onkeyup="validate()" required> <!--onkeyup="function()"-->
       	<span id='message'></span>
       </div>
        </div>
        
 	     <a href="<%=request.getContextPath()%>/ControlloIniziale">Sei gia registrato?</a>
 	      <div class="text-center pt-4">
-	      	  <button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" type="submit">REGISTRATI</button>
+	      	  <button type="submit" class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" type="submit" onclick="return Validate()">REGISTRATI</button>
 	         <!--   <button type="submit" class="btn col-2 offset-5 py-2 pl-5 pr-5 text-white shadow p-1 mb-1 text-center" id="bottone"><b>REGISTRATI</b></button>-->
 	      </div>
     </form>    
@@ -114,6 +114,18 @@
 
 
 <script>
+
+
+function Validate() {
+    var password = document.getElementById("pwid").value;
+    var confirmPassword = document.getElementById("cpwid").value;
+    if (password != confirmPassword) {
+        alert("Passwords non coincidono.");
+        return false;
+    }
+    return true;
+}
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';

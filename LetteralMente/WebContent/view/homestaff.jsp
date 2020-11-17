@@ -10,7 +10,7 @@
    				<i class="fas fa-book fa-10x mb-5 " style="transform: rotate(-35deg); color:#ffffff;"></i><br>
           		<h2 class="testohome"><span class="mente">Legger</span>Mente</h2>
           		<h4 class="testohome"><img class="pr-3" src="<%=request.getContextPath()%>/res/trattino.png" alt="trattino"><i>Libreria di Roma</i></h4>
-          		<p class="testohome">LeggerMente e' una libreria smart, viene fondata nel 2020 ed è un posto magico
+          		<p class="testohome">LeggerMente è una libreria smart, viene fondata nel 2020 ed è un posto magico
                               	 	 dove le persone possono noleggiare e leggere con la testa fra le nuvole tutti i libri
                               	 	 che desiderano.</p>
       		</div>	

@@ -30,8 +30,9 @@
 	      				<select class="custom-select" name="campo">
 	  						<option selected disabled>Filtra per : </option>
 	  						<option value="idprenotazione">Id prenotazione</option>
-	  						<option value="username">Username</option>
+	  						<option value="titolo">Titolo</option>
 	  						<option value="isbn">Codice isbn</option>
+	  						<option value="username">Username</option>
 	  						<option value="cognome">Cognome</option>
 	  						<option value="email">Email</option>
 						</select>

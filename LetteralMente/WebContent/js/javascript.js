@@ -114,7 +114,7 @@ $('#pwid, #cpwid').on('keyup', function () {
 
 
 
-
+/*
 function validate(modulo) {
 var ck_password = /^[A-Za-z0-9]{8,20}$/;
 
@@ -143,21 +143,14 @@ var ck_password = /^[A-Za-z0-9]{8,20}$/;
 
 
 }
-
+*/
 
 function validate(modulo2) {
 var ck_password = /^[A-Za-z0-9]{8,20}$/;
 
-var ck_email =  /^(([^<>;()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{3,}))$/;
-
   // definizione delle variabili
   var password = modulo2.password.value;
   var confermapassword1 = modulo2.confpassword.value;
-  var email= modulo2.email.value;
-
- if (!ck_email.test(email)) {
-    alert( "Inserisci un email valida. (es. mario@rossi.com)");
-  }
 
   // controllo sugli input
   if (!ck_password.test(password)) {
@@ -169,3 +162,23 @@ var ck_email =  /^(([^<>;()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([[0-9]{1,
   }
 
 }
+
+
+
+function NonLoggato() {
+  alert("Prima di andare oltre devi esserti registrato e aver effettuato il login");
+}
+
+
+/*
+
+    $("#acclogin").submit(function(event ){
+
+ 		 if ( $( "#" ).check() === true ) {
+    		return;
+		}
+ 
+ 	 	$( "#loginform" ).effect( "shake" );
+  			event.preventDefault();
+		});
+*/

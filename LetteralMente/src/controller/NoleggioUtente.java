@@ -40,11 +40,13 @@ public class NoleggioUtente extends HttpServlet {
 		String dataFine=request.getParameter("dataFine"),idLibro=request.getParameter("idLibro");
 		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
 		System.out.println(idLibro);
-		
+		System.out.println(dataFine);
 		if (idLibro!=null &&!idLibro.equals("") && dataFine!=null && !dataFine.equals("")	&& LocalDate.now().isBefore(LocalDate.parse(dataFine))
 				&& u!=null && LocalDate.parse(dataFine).isBefore(LocalDate.now().plusMonths(2).plusDays(1))) {
 			Libro li = Utility.trovaLibro(Integer.parseInt(idLibro));
 			System.out.println("primo if noleggio");
+			System.out.println(li.getQuantita());
+		
 			if(li.getQuantita()>0) {
 				System.out.println("secondo if noleggio");
 				Noleggio n= new Noleggio();				
@@ -62,7 +64,7 @@ public class NoleggioUtente extends HttpServlet {
 					request.getRequestDispatcher("ControlloIniziale").forward(request, response);				
 				}
 		}else {
-			System.out.println("primo else noleggio");
+			System.out.println("secondo else noleggio");
 			request.setAttribute("noleggio", "error");
 			request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 		}

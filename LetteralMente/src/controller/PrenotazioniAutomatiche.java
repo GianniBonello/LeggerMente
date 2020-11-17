@@ -53,6 +53,7 @@ public class PrenotazioniAutomatiche extends HttpServlet {
 					p.setInCorso(true);
 					Utility.modificaPrenotazione(p);
 					cont++;
+					System.out.println(l.getTitolo()+" "+cont);
 				}else break;
 			}
 			

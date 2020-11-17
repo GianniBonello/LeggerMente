@@ -122,9 +122,13 @@ if(lista!=null){
 				<%          }                     %>
 				<%       }                        %>
 			</div>
-
-			<a href="<%=request.getContextPath()%>/ListaLibri"><button
-					class="offset-xl-5 col-xl-2 mt-5">TUTTI I LIBRI</button></a>
+			
+			<hr>
+			
+			<a href="<%=request.getContextPath()%>/ListaLibri">
+				<button class="col-md-12 offset-md-0 offset-xl-1 col-xl-10 mt-5" style="background-color:#1C1C1C;font-size:14pt;">TUTTI I LIBRI</button>
+			</a>
+			
 		</div>
 	</div>
 
@@ -140,7 +144,7 @@ if(lista!=null){
 
 <!-- GOOGLE MAPS -->
 
-<div class="pt-5"></div>
+<div class="spazio pt-5"></div>
 
 <div class="googlemaps"
 	style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">

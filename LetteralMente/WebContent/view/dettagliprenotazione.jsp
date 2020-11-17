@@ -35,7 +35,7 @@ if(l!=null){
         <p class="pb-3" style="font-size:16pt">Da ritirare entro il:<br>
         <b><%= LocalDate.now().plusDays(7).format(formatter) %></b><br></p>
         <hr class=" text-left">
-        <p class="mt-3 mardue" style="font-style:italic;">Una volta ricevuta l'email di conferma non si potra'<br> piu' annullare la prenotazione.</p>
+        <p class="mt-3 mardue" style="font-style:italic;">Una volta ricevuta l'email di conferma non si potrà<br> più annullare la prenotazione.</p>
 
         <form action="<%=request.getContextPath()%>/PrenotazioneUtente" method="post">
         	<input type="hidden" name="idLibro" value="<%= l.getId_libro() %>">
