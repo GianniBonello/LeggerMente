@@ -79,9 +79,9 @@
 						<td class="text-center pt-4">
 						<div class="row">
 							<label class="switch"> 
-							<input type="checkbox" name="inCorso" value="" <%=n.getInCorso()?"checked":"" %>> <span class="slider round"></span>
+							<input type="checkbox" name="inCorso" value="" <%=n.getInCorso()?"checked":"" %> disabled> <span class="slider round"></span>
 							</label>
-							<i class="fas fa-check-square fa-2x verde ml-3" style="cursor:pointer;"></i>
+							<a href="<%=request.getContextPath()%>/ListaNoleggiStaff?id=<%=n.getIdNoleggio()%>"><i class="fas fa-check-square fa-2x verde ml-3" style="cursor:pointer;"></i></a>
 						</div>
 							
 						</td>
