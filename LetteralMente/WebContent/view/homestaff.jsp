@@ -2,7 +2,7 @@
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
  <%if(request.getSession().getAttribute("utenteLoggato")==null || !((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()){
 	 request.getRequestDispatcher("../ControlloIniziale").forward(request, response);
-	} %>
+	}else{ %>
 	
  <main role="main" class="sfondostaff col-lg-12 pt-3 px-4" >
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
@@ -19,3 +19,4 @@
 
 
 <jsp:include page="/view/footerstaff.jsp"></jsp:include> 
+<%}%>

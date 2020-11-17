@@ -25,14 +25,16 @@ public class ControlloIniziale extends HttpServlet {
 		Utente u= (Utente)request.getSession().getAttribute("UtenteLoggato");
 		request.setAttribute("listaLibri", Utility.leggiLibroHome());
 		//System.out.println(Utility.leggiLibroHome());
+		String path = u!= null && u.getIsStaff()? "/view/homestaff.jsp":"/WEB-INF/view/home.jsp";
+		
 		if(u!=null) {
 			if(u.getIsStaff()) {
-				request.getRequestDispatcher("/view/homestaff.jsp").forward(request, response);
+				request.getRequestDispatcher(path).forward(request, response);
 			}else {
-				request.getRequestDispatcher("/view/home.jsp").forward(request, response);
+				request.getRequestDispatcher(path).forward(request, response);
 			}
 		}else {
-			request.getRequestDispatcher("/view/home.jsp").forward(request, response);
+			request.getRequestDispatcher(path).forward(request, response);
 		}
 		
 	}

@@ -4,6 +4,8 @@ package Util;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,13 +51,19 @@ public class UtilityRicerca {
 	//ECCOLO QUI IL TUO AMATO METODO NELLA TUA AMATA CLASSE CARA GIULIA!!!
 	public static String dataString(Date data){
 		String stringaData;
-		String anno=data.getYear()+"";
+		/*String anno=data.getYear()+"";
 		String mese=data.getMonth()+"";
 		String giorno=data.getDay()+"";
 		stringaData=Integer.parseInt(anno)>2?"19"+anno+"-":"20"+anno+"-";
 		stringaData=mese.length()>1?stringaData+mese+"-":stringaData+"0"+mese+"-";
-		stringaData=giorno.length()>1?stringaData+giorno:stringaData+"0"+giorno;
-		return stringaData;		
+		stringaData=giorno.length()>1?stringaData+giorno:stringaData+"0"+giorno;*/
+		LocalDate d=convertDate(data);
+		stringaData=d.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		return stringaData;	
+	}
+	
+	private static LocalDate convertDate(Date d) {
+		return d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
 	private static EntityManager getManager() {
