@@ -59,6 +59,7 @@ public class GestioneLibri extends HttpServlet {
 			l.setTrama(request.getParameter("trama"));
 			l.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
 
+
 			final String PATH = "C:\\Users\\giuli\\OneDrive\\Desktop\\immaginiProgetto"; 
 			final Part FILEPART= request.getPart("immagine");
 			final String FILENAME=getFileName(FILEPART);
@@ -95,7 +96,9 @@ public class GestioneLibri extends HttpServlet {
 			lib.setTitolo(request.getParameter("titolo"));
 			lib.setTrama(request.getParameter("trama"));
 			lib.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-			lib.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
+			if(request.getParameter("isUsato") != null && request.getParameter("isUsato").equals("on")) {
+				lib.setIsUsato(true);
+			}else lib.setIsUsato(false);
 
 			final String PATH = "C:\\Users\\giuli\\OneDrive\\Desktop\\immaginiProgetto"; 
 			final Part FILEPART= request.getPart("immagine");

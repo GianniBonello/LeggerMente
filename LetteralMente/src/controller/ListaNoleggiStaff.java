@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Util.Utility;
 import Util.UtilityRicerca;
+import model.Noleggio;
 import model.Utente;
 
 
@@ -25,6 +26,24 @@ public class ListaNoleggiStaff extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("utenteLoggato") != null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()) {
+			System.out.println("ID " + request.getParameter("id"));
+			if (request.getParameter("id")!=null) {
+				System.out.println("sono dentro");
+				Noleggio n = Utility.trovaNoleggio(Integer.parseInt(request.getParameter("id")));
+				if (n.getInCorso()) {
+					n.setInCorso(false);
+					
+				}else n.setInCorso(true);
+				
+				Utility.modificaNoleggio(n);
+			}
+			//NON FUNZIONA!!!
+			if(request.getParameter("elimina")!=null) {
+				Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("elimina")));
+			}
+			
+			
+			
 			if(request.getParameter("inCorso") != null) {
 				//TODO fare il controllo che quando il checkbox cambia devo cambiare il incorso del noleggio da false a true e viceversa
 				request.setAttribute("listaNoleggi", Utility.leggiNoleggio());

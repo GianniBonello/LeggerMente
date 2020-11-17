@@ -300,7 +300,7 @@
                                                     	<div class="col-xl-2 pt-2"> 
                                                     	<p class="pl-5">Usato</p>
                                                     		<label class="switch ml-5">
-                                                    		<input type="checkbox"><span class="slider round "></span>
+                                                    		<input type="checkbox" name="isUsato"><span class="slider round "></span>
 															</label>
 														</div>
 
