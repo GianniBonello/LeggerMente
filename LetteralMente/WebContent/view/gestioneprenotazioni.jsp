@@ -57,7 +57,7 @@
 
 					<%
 						for (Prenotazione p : listaPrenotazioni) {
-							if(p.getInCorso()){
+							if((!p.getInCorso() && p.getData()==null) || (p.getInCorso() && p.getData() != null)){
 					%>
 
 					<tr class="chiaro nero">
@@ -69,7 +69,7 @@
 						<td class="text-center pt-4">
 						<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?idPrenotazione=<%=p.getIdprenotazione()%>"><i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i></a>
 					<% 	if(request.getSession().getAttribute("utenteLoggato")!= null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin"))	{%>
-							<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?elimina<%=p.getIdprenotazione()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
+							<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?elimina=<%=p.getIdprenotazione()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
 							<%} %>
 						</td>
 					</tr>
