@@ -13,7 +13,7 @@
     <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
    
     <div class="col-8 offset-2">
-    <form class="needs-validation"  action="<%=request.getContextPath()%>/Registrazione" method="post" novalidate>
+    <form class="needs-validation"  action="<%=request.getContextPath()%>/Registrazione" name="modulo2" method="post" onsubmit="return validate(this)" novalidate>
       <div class="form-row">
         <div class="form-group col-md-12 pt-1" >
           <label for="nomeid">Nome </label>
@@ -89,14 +89,14 @@
         <div class="form-row">
           <div class="form-group col-xl-6 pt-1">
         <label for="pwid">Password </label>
-        <input type="password" name="password" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"  required>
+        <input type="password" name="password" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="pwid"  required>
           <div class="invalid-feedback">Inserisci una password valida!</div>
           <div class="valid-feedback">Ok!</div>
           </div>
     
       <div class="form-group col-xl-6 pt-1">
         <label for="cpwid">Conferma Password </label>
-        <input type="password" name="confpassword" maxlength="45" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid" required >
+        <input type="password" name="confpassword" minlength="8" maxlength="20" class="form-control pl-4 shadow p-1 mb-1 bg-white" id="cpwid"  required > <!--onkeyup="function()"-->
       	<span id='message'></span>
       </div>
        </div>

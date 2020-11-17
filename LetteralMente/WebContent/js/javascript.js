@@ -102,10 +102,94 @@ $(document).ready(function(){
 
 
 $('#pwid, #cpwid').on('keyup', function () {
-  if ($('#pwid').val() == $('#cpwid').val() && $('#pwid').val() != ""&& $('#cpwid').val() != "" ) {
+  if ($('#pwid').val() == $('#cpwid').val() ) {
     $('#message').html('Ok!').css({"color" : "green" , "font-size" : "80%" });
   } else if ( $('#pwid').val()== "" && $('#cpwid').val() == ""){
-	$('#message').html('Prego inserire le password!').css({"color" : "black" , "font-size" : "80%" });
+	$('#message').html('Prego inserisca le password!').css({"color" : "black" , "font-size" : "80%" });
 }else{
-    $('#message').html('Inserire la stessa password!').css({"color" : "red" , "font-size" : "80%" });}
+    $('#message').html('Inserisca la stessa password!').css({"color" : "red" , "font-size" : "80%" });}
 });
+
+
+
+
+
+
+function validate(modulo) {
+var ck_password = /^[A-Za-z0-9]{8,20}$/;
+
+
+  // definizione delle variabili
+  var password = modulo.password.value;
+  var confermapassword = modulo.passwordConfermata.value;
+  var confermapassword1 = modulo.confpassword.value;
+  // controllo sugli input
+  if (!ck_password.test(password)) {
+    alert( "La password deve contenere almeno 8 e massimo 20 caratteri alfanumerici.");
+  }
+
+  if (confermapassword != password) {
+ 	alert("Le password non coincidono."); 
+  }
+
+  // controllo sugli input
+  if (!ck_password.test(password)) {
+    alert( "La password deve contenere almeno 8 e massimo 20 caratteri alfanumerici.");
+  }
+
+  if (confermapassword1 != password) {
+ 	alert("Le password non coincidono."); 
+  }
+
+
+}
+
+
+function validate(modulo2) {
+var ck_password = /^[A-Za-z0-9]{8,20}$/;
+
+var ck_email =  /^(([^<>;()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{3,}))$/;
+
+  // definizione delle variabili
+  var password = modulo2.password.value;
+  var confermapassword1 = modulo2.confpassword.value;
+  var email= modulo2.email.value;
+
+ if (!ck_email.test(email)) {
+    alert( "Inserisci un email valida. (es. mario@rossi.com)");
+  }
+
+  // controllo sugli input
+  if (!ck_password.test(password)) {
+    alert( "La password deve contenere almeno 8 e massimo 20 caratteri alfanumerici.");
+  }
+
+  if (confermapassword1 != password) {
+ 	alert("Le password non coincidono."); 
+  }
+
+}
+
+
+
+
+
+
+
+function ordina(){
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
