@@ -92,7 +92,8 @@
                             <span class="input-group-append">
                                 <p class="input-group-text bg-light py-2"><i class="fa fa-search"></i></p>
                                </span>
-                            <input class="form-control py-2 bg-light border-radius-5 " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                            <input class="form-control py-2 bg-light border-radius-5 " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+                            <input type="hidden" name="campo" value="titolo">
                         </div> 
                       </form>
                     </div>	

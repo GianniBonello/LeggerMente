@@ -56,7 +56,7 @@
 						<th scope="col" class="text-center">Email</th>
 						<% 
 						Utente a = (Utente) request.getSession().getAttribute("utenteLoggato");
-						if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
+						if(a!= null && a.getUsername().equals("Admin")) {%>
 							<th scope="col" class="text-center">Staff</th>
 						<% } %>
 						<th scope="col" class="text-center stondadue">Comandi</th>
@@ -66,7 +66,7 @@
 
 					<%
 						for (Utente u : listaUtenti) {
-							if((u.getIsStaff() && request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) ||
+							if(((u.getIsStaff() || !u.getIsStaff()) && request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) ||
 									(!u.getIsStaff() && request.getSession().getAttribute("utenteLoggato")!=null && !((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin"))){
 					%>
 

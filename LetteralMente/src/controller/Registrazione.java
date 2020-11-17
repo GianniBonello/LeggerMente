@@ -34,16 +34,16 @@ public class Registrazione extends HttpServlet {
 				cf = request.getParameter("cf"),email = request.getParameter("email"),username = request.getParameter("username"), 
 				password = request.getParameter("password"), comune = request.getParameter("comune"), indirizzo = request.getParameter("indirizzo"), 
 				cap= request.getParameter("cap");
-		
+
 		System.out.println("data"+dataDiNascita +"data");
-				
-		
-		
+
+
+
 		if(nome!=null && !nome.equals("")&&cognome!=null && !cognome.equals("")&&dataDiNascita!=null && !dataDiNascita.equals("")&&
 				cf!=null && !cf.equals("")&&email!=null && !email.equals("")&&username!=null && !username.equals("")&&password!=null && 
-				!password.equals("")&&comune!=null && !comune.equals("")&&indirizzo!=null && !indirizzo.equals("")&&cap!=null && !cap.equals("")&&
+				!password.equals("") && password.length()>7 &&comune!=null && !comune.equals("")&&indirizzo!=null && !indirizzo.equals("")&&cap!=null && !cap.equals("")&&
 				LocalDate.parse(dataDiNascita).isBefore(LocalDate.now().plusYears(-15))&&LocalDate.parse(dataDiNascita).isAfter(LocalDate.now().plusYears(-110))) {
-			
+			System.out.println(password.length());
 			//Ora creo l'utente da inserire 
 			System.out.println("a bello so entrato nell'if");
 
@@ -74,7 +74,10 @@ public class Registrazione extends HttpServlet {
 			System.out.println("if data sbagliata");
 			request.setAttribute("registrazione", "erroreData");
 			request.getRequestDispatcher("/view/registrazione.jsp").include(request, response);
-		}else {		
+		}else if(request.getParameter("password")!=null && request.getParameter("password").length()<8) {
+			request.setAttribute("registrazione", "passwordcorta");
+			request.getRequestDispatcher("/view/registrazione.jsp").include(request, response);
+		}else{		
 			System.out.println("if finale");
 			request.setAttribute("registrazione", "errore");
 			request.getRequestDispatcher("/view/registrazione.jsp").include(request, response);
