@@ -6,6 +6,9 @@
 <%}else if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("erroreData")){ %>
 <h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
 <h4 class=" pb-3 text-center text-danger">Data di nascita inserita non valida!</h4>
+<%}else if(request.getAttribute("registrazione") != null && ((String)request.getAttribute("registrazione")).equals("passwordcorta")){ %>
+<h3 class=" pt-5 pb-3 text-center text-danger">REGISTRAZIONE FALLITA</h3>
+<h4 class=" pb-3 text-center text-danger">Inserisci una password di minimo 8 caratteri!</h4>
 <%} %>
     <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>
    

@@ -1,3 +1,4 @@
+<%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/view/headerstaff.jsp"></jsp:include>
@@ -15,29 +16,27 @@
 	<main role="main" class="col-md-7 ml-sm-auto col-xl-10 pt-3 px-4 ">
 		<div class="container-fluid">
 		<h1 class="pt-5 text-center text-light pb-5"><b>Gestione Libri</b></h1>
-			<form>
+			<form action="<%=request.getContextPath()%>/ListaLibri" method="post">
 	  			<div class="row pb-5 justify-content-center">
 	    			<div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 pt-3">
 	      				<div class="input-group">
 	                                <span class="input-group-append">
 	                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
 	                                 </span>
-	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="cercaLibro" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
+	                                <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
 	                            </div> 
 	    			</div>
 	    			<div class=" col-sm-12 col-md-5 col-lg-5 col-xl-3 pt-3">
-	      				<select class="custom-select">
+	      				<select name="campo" class="custom-select">
 	  							<option selected disabled>Filtra per : </option>
-	  							<option value="titolocresc">Titolo : dalla A alla Z</option>
-                                <option value="titolodecr">Titolo : dalla Z alla A</option>
-                                <option value="prezzocresc">Prezzo : crescente</option>
-                                <option value="prezzodecr">Prezzo : decrescente</option>
+	  							<option value="titolo">Titolo</option>
                                 <option value="genere">Genere</option>
                                 <option value="autore">Autore</option>
+                                <option value="isbn">Codice ISBN</option>
                                 <option value="casaeditrice">Casa Editrice</option>
 						</select>
 	    			</div>
-	    			<button type="submit" class="ml-3" style="margin-top:12px;" >CERCA</button>
+	    			<button type="submit" class="ml-3" style="margin-top:12px;">CERCA</button>
 	  			</div>
 			</form>
 	
@@ -71,16 +70,20 @@
 							<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
-							<i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i>
+							<%if(request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")){ %>
+							<a href="<%=request.getContextPath() %>/EliminaLibri?elimina=<%=l.getId_libro()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
+							<%} %>
 						</td>
 					</tr>
 					<tr>
                             <td colspan="6" class="hiddenRow bgcoll">
                                 <div id="demo<%=listaLibri.indexOf(l)%>" class="collapse">
                                         <div class="form-row">
+                                        
+                                        <!-- modifica -->
 
                                             <div class="col-8 offset-2 pt-4">
-                                                <form  class="needs-validation" action="GestioneLibri" method="post" novalidate>
+                                                <form  class="needs-validation" action="<%=request.getContextPath() %>/GestioneLibri" method="post" enctype="multipart/form-data" novalidate>
                                                     <div class="form-row">
                                                         <div class="form-group col-xl-6 pt-1">
 
@@ -177,6 +180,7 @@
                                                     	</div>
                                                     	
                                                     </div>
+                                                    <input type="hidden" name="idLibro" value="<%=l.getId_libro() %>">
                                                 
                                                 <div class="text-center pt-4">
 													<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone">MODIFICA</button>
@@ -200,6 +204,7 @@
 					</tbody>
 					
 				</table>
+				           <!-- inserimento libri -->
 										
 										<div class="m-auto justify-content-center"  >
 											<i class="fas fa-plus-square fa-3x mb-5 mt-3" style="color:white; opacity:0.9; cursor:pointer;" data-toggle="collapse" href="#aggiungicollapse" aria-expanded="false" aria-controls="aggiungicollapse"></i>

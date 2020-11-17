@@ -31,32 +31,35 @@ public class GestioneLibri extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
+		if(u!=null && u.getIsStaff()) {
 		if(request.getParameter("campo") != null && request.getParameter("ricerca") != null) {
 			request.setAttribute("listaLibri", UtilityRicerca.ricercaLibro(request.getParameter("campo"), request.getParameter("ricerca")));
 			request.getRequestDispatcher("/view/gestioneprenotazioni.jsp").include(request, response);
 		}else request.setAttribute("listaLibri", Utility.leggiLibro());
 
 		request.getRequestDispatcher("/view/gestionelibri.jsp").include(request, response);
+		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//devo controllare se la quantita di prima è cambiata rispetto ad ora
 
 		Utente u = (Utente)request.getSession().getAttribute("utenteLoggato");
-		if(u.getIsStaff() && request.getParameter("idLibro") == null){
-			Libro lib = new Libro();
-			lib.setIsbn(request.getParameter("isbn"));
-			lib.setAutore(request.getParameter("autore"));
-			lib.setCasaEditrice(request.getParameter("casaeditrice"));
-			lib.setGenere(request.getParameter("genere"));
-			lib.setQuantita(Integer.parseInt(request.getParameter("quantita")));
-			lib.setTitolo(request.getParameter("titolo"));
-			lib.setTrama(request.getParameter("trama"));
-			lib.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-			lib.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
+		if( u!= null && u.getIsStaff() && request.getParameter("idLibro") != null) {
+			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
+			//mi salvo la quantità che aveva prima il libro
+			int quantita = l.getQuantita();
+			l.setIsbn(request.getParameter("isbn"));
+			l.setAutore(request.getParameter("autore"));
+			l.setCasaEditrice(request.getParameter("casaeditrice"));
+			l.setGenere(request.getParameter("genere"));
+			l.setQuantita(Integer.parseInt(request.getParameter("quantita")));
+			l.setTitolo(request.getParameter("titolo"));
+			l.setTrama(request.getParameter("trama"));
+			l.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
 
-			final String PATH = "C:\\Users\\Fabio\\Desktop\\immaginiProgetto"; 
+			final String PATH = "C:\\Users\\giuli\\OneDrive\\Desktop\\immaginiProgetto"; 
 			final Part FILEPART= request.getPart("immagine");
 			final String FILENAME=getFileName(FILEPART);
 			try( 	//questa è la condizione del Try-Catch		  
@@ -73,7 +76,43 @@ public class GestioneLibri extends HttpServlet {
 				e.printStackTrace();
 			}
 
+			l.setImmagine_path(PATH+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
+			
+			Utility.modificaLibro(l);
+			request.setAttribute("modifica", "successo");
+			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è maggiore da 0
+			if(quantita == 0 && Integer.parseInt(request.getParameter("quantita")) > 0) {
+				request.setAttribute("libro", l);
+				request.getRequestDispatcher("PrenotazioniAutomatiche").include(request, response);
+			}
+		}else if(u!= null && u.getIsStaff()){
+			Libro lib = new Libro();
+			lib.setIsbn(request.getParameter("isbn"));
+			lib.setAutore(request.getParameter("autore"));
+			lib.setCasaEditrice(request.getParameter("casaeditrice"));
+			lib.setGenere(request.getParameter("genere"));
+			lib.setQuantita(Integer.parseInt(request.getParameter("quantita")));
+			lib.setTitolo(request.getParameter("titolo"));
+			lib.setTrama(request.getParameter("trama"));
+			lib.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
+			lib.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
 
+			final String PATH = "C:\\Users\\giuli\\OneDrive\\Desktop\\immaginiProgetto"; 
+			final Part FILEPART= request.getPart("immagine");
+			final String FILENAME=getFileName(FILEPART);
+			try( 	//questa è la condizione del Try-Catch		  
+					OutputStream out=new FileOutputStream(new File(PATH+File.separator+FILENAME));
+					//vado a prendermi il content dentro al part
+					InputStream fileContent = FILEPART.getInputStream();) 
+			{	
+				int read = 0;
+				final byte [] bytes=new byte[1024];
+				while ((read=fileContent.read(bytes))!=-1) {
+					out.write(bytes, 0, read);
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 
 			lib.setImmagine_path(PATH+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
 			
@@ -83,30 +122,8 @@ public class GestioneLibri extends HttpServlet {
 			} catch (RollbackException e) {
 				request.setAttribute("libroInserito", "errore");
 			}
-			request.getRequestDispatcher("/listaLibri.jsp");
-		}else if(u.getIsStaff() && request.getParameter("idLibro") != null) {
-			Libro l = Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro")));
-			//mi salvo la quantità che aveva prima il libro
-			int quantita = l.getQuantita();
-			l.setIsbn(request.getParameter("isbn"));
-			l.setAutore(request.getParameter("autore"));
-			l.setCasaEditrice(request.getParameter("casaeditrice"));
-			l.setGenere(request.getParameter("genere"));
-			l.setQuantita(Integer.parseInt(request.getParameter("quantita")));
-			l.setTitolo(request.getParameter("titolo"));
-			l.setTrama(request.getParameter("trama"));
-			l.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
-			l.setIsUsato(Boolean.parseBoolean(request.getParameter("isUsato")));
-
-			Utility.modificaLibro(l);
-			request.setAttribute("modifica", "successo");
-			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è maggiore da 0
-			if(quantita == 0 && Integer.parseInt(request.getParameter("quantita")) > 0) {
-				request.setAttribute("libro", l);
-				request.getRequestDispatcher("PrenotazioniAutomatiche").forward(request, response);
-
-			}
-		}
+			//request.getRequestDispatcher("/listaLibri.jsp");
+		}else request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 		
 		doGet(request, response);
 	}
