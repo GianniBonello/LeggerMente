@@ -230,8 +230,45 @@ public class UtilityRicerca {
 
 		String to = p.getU().getEmail();
 		String subject = "Leggermente - Prenotazione effettuata ordine n° " + p.getIdprenotazione(); //OGGETTO DELLA MAIL
-		String msg ="La tua prenotazione con codice: " + p.getIdprenotazione() + " del libro " + p.getLib().getTitolo() + " "
-				+ "è stata effetuata e sarà valida entro il giorno " + LocalDate.now().plusDays(7) + ".\nGrazie per aver scelto Leggermente,\nA presto!";
+		
+		String msg ="<head>"
+				+ "<style>"
+				+ " .mailtitle{\r\n"
+				+ "	font-size: 26pt;\r\n"
+				+ "	color: #C80258;\r\n"
+				+ "}\r\n"
+				+ "\r\n"
+				+ ".mailbord{\r\n"
+				+ "	border-left: 2px !important;\r\n"
+				+ "	border-color: #818181 !important;\r\n"
+				+ "	border-left-style: solid !important;\r\n"
+				+ "\r\n"
+				+ "} "
+				+ "</style>"
+				+ "</head>"
+				+ "<div class=\"container\">\r\n"
+				+ "        <div class=\"row mt-5 mb-5 mail\">\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-2 offset-xl-0 col-md-2 col-sm-10 offset-sm-2 mr-2\">\r\n"
+				+ "            <img src=\"res/logo-nero.png\" class=\"pt-5 mb-5\" style=\"margin-top: 20px;\"><br>\r\n"
+				+ "            </div>\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-8 offset-xl-0 col-md-8 col-sm-10 sm-text-center mailbord\">\r\n"
+				+ "            <h1 class=\"mailtitle\"><b>CONFERMA PRENOTAZIONE</b></h1>\r\n"
+				+ "            <hr>\r\n"
+				+ "            <p>Gentile <b>"+p.getU().getCognome()+ " " + p.getU().getNome() + "</b>,</p>\r\n"
+				+ "            <p>con la seguente email le confermiamo il successo della prenotazione del libro <b>" +p.getLib().getTitolo() + "</b>di <b>" + p.getLib().getAutore() +"</b>.<br>\r\n"
+				+ "            Potrà recarsi nella nostra libreria e mostrare il seguente codice: <b>"+p.getIdprenotazione()+"</b> alla cassa per poter ritirare il suo libro.</p>\r\n"
+				+ "            \r\n"
+				+ "            <p>La ringraziamo,<br>\r\n"
+				+ "            Il team di <b>Legger</b>Mente.</p>\r\n"
+				+ "            \r\n"
+				+ "            \r\n"
+				+ "            </div>\r\n"
+				+ "        </div>\r\n"
+				+ "    </div>";
+		
+		
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 
@@ -260,7 +297,7 @@ public class UtilityRicerca {
 			MimeMessage message = new MimeMessage(session);  
 			message.setSender(addressFrom);  
 			message.setSubject(subject);  
-			message.setContent(msg, "text/plain");  //SE METTIAMO HTML
+			message.setContent(msg, "text/html; charset=utf-8");  //SE METTIAMO HTML
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));  
 
 			transport.connect();  
@@ -275,8 +312,35 @@ public class UtilityRicerca {
 
 		String to = p.getU().getEmail();
 		String subject = "Leggermente - Noleggio effettuata ordine n° " + p.getIdNoleggio(); //OGGETTO DELLA MAIL
-		String msg ="Il tuo noleggio con codice: " + p.getIdNoleggio() + " del libro " + p.getLib().getTitolo() + " "
-				+ "è stato effetuato, ricordati di ritararlo entro il " + LocalDate.now().plusDays(7) + ".\nGrazie per aver scelto LeggerMente,\nA presto!";
+		String msg ="<head>"
+				+ "<style>"
+				+ " .mailtitle{\r\n"
+				+ "	font-size: 26pt;\r\n"
+				+ "	color: #C80258;\r\n"
+				+ "}"
+				+ "</style>"
+				+ "</head>"
+				+ "<div class=\"container\">\r\n"
+				+ "        <div class=\"row mt-5 mb-5 mail\">\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-2 offset-xl-0 col-md-2 col-sm-10 offset-sm-2 mr-2\">\r\n"
+
+				+ "            </div>\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-8 offset-xl-0 col-md-8 col-sm-10 sm-text-center mailbord\">\r\n"
+				+ "            <h1 class=\"mailtitle\"><b>CONFERMA NOLEGGIO</b></h1>\r\n"
+				+ "            <hr>\r\n"
+				+ "            <p>Gentile <b>"+p.getU().getCognome()+" " + p.getU().getNome()+"</b>,</p>\r\n"
+				+ "            <p>con la seguente email le confermiamo il successo del noleggio del libro <b>" +p.getLib().getTitolo() + "</b> di <b>" + p.getLib().getAutore() +"</b>.<br>\r\n"
+				+ "            Potrà recarsi nella nostra libreria e mostrare il seguente codice: <b>"+p.getIdNoleggio()+"</b> alla cassa per poter ritirare il libro.</p>\r\n"
+				+ "            \r\n"
+				+ "            <p>La ringraziamo,<br>\r\n"
+				+ "            Il team di <b>Legger</b>Mente.</p>\r\n"
+				+ "            \r\n"
+				+ "            \r\n"
+				+ "            </div>\r\n"
+				+ "        </div>\r\n"
+				+ "    </div>";
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 
@@ -305,7 +369,7 @@ public class UtilityRicerca {
 			MimeMessage message = new MimeMessage(session);  
 			message.setSender(addressFrom);  
 			message.setSubject(subject);  
-			message.setContent(msg, "text/plain");  //SE METTIAMO HTML
+			message.setContent(msg, "text/html; charset=utf-8");  //SE METTIAMO HTML
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));  
 
 			transport.connect();  
@@ -322,10 +386,42 @@ public class UtilityRicerca {
 
 		String to = u.getEmail();
 		String subject = "Leggermente - Recupero Dati "; //OGGETTO DELLA MAIL
-		String msg ="<body>"
-				+ " Questa email è assegnata a " + u.getUsername()
+		String msg ="<head>"
+				+ "<style>"
+				+ " .mailtitle{\r\n"
+				+ "	font-size: 26pt;\r\n"
+				+ "	color: #C80258;\r\n"
+				+ "}"
+				+ "p{\r\n"
+				+ "color:#000000;\r\n"
+				+ "}\r\n"
 				+ ""
-				+ "<br><a href=\"http://localhost:8080/LeggerMente/view/modificapassword.jsp?id="+u.getIdUtente()+"\">clicca qui</a> per recuperare la tua password</body>";
+				+ "</style>"
+				+ "</head>"
+				+ "    <div class=\"container\">\r\n"
+				+ "        <div class=\"row mt-5 mb-5 mail\">\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-2  mr-2\">\r\n"		
+				+ "            </div>\r\n"
+				+ "    \r\n"
+				+ "            <div class=\"col-xl-8 mailbord\">\r\n"
+				+ "            <h1 class=\"mailtitle\"><b>RECUPERO CREDENZIALI</b></h1>\r\n"
+				+ "            <hr>\r\n"
+				+ "            <p>Gentile <b>"+u.getCognome()+" " + u.getNome()+"</b>,</p>\r\n"
+				+ "            <p>come da lei richiesto, troverà qui sotto il suo username<br>le basterà cliccare sul bottone <b>\"CLICCA QUI\"</b> per poter modificare la sua password.</p>\r\n"
+				+ "            <p><b>USERNAME:</b> "+u.getUsername()+"</p>\r\n"
+				+ "           <a href=\"http://localhost:8080/LeggerMente/view/modificapassword.jsp?id="+u.getIdUtente()+"\">\r\n"
+				+ "<button type=\"submit\" class=\"p-3 mr-3 col-xl-3 col-xs-4 text-white shadow\"><b>CLICCA QUI</b></button></a>\r\n"
+				+ "<br><br>\r\n"
+				+ "            <p>La ringraziamo,<br>\r\n"
+				+ "            Il team di <b>Legger</b>Mente.</p>\r\n"
+				+ "            \r\n"
+				+ "            \r\n"
+				+ "            </div>\r\n"
+				+ "        </div>\r\n"
+				+ "    \r\n"
+				+ "        \r\n"
+				+ "    </div>";
 		String from ="leggermente.roma@gmail.com";
 		String password ="Letteralmente";
 
