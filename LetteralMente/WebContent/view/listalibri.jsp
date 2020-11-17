@@ -16,7 +16,7 @@
                         <!-- CERCA LIBRI HOME -->
                             <div class="input-group">
                                 <span class="input-group-append">
-                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search"></i></p>
+                                    <p class="input-group-text py-2 shadow" style="z-index: 2;"><i class="fa fa-search" ></i></p>
                                    </span>
                                 <input class="form-control py-2 bg-light border-radius-5 shadow " name="ricerca" type="search" placeholder="Inserisci il titolo del libro" id="example-search-input" >  
                             </div> 
@@ -37,14 +37,16 @@
                         <div class="input-group mb-3">
                             <p class="pt-2 pr-3">Ordina per :</p>
                             <select class="custom-select bg-light shadow " id="inputGroupSelect01">
-                            	<option selected value="ultimi-arrivi">Ultimi arrivi</option>
-                                <option value="autore-cresc">Autore : dalla A alla Z</option>
-                                <option value="autore-decr">Autore : dalla Z alla A</option>
-                                <option value="prezzo-cresc">Prezzo : crescente</option>
-                                <option value="prezzo-decr">Prezzo : decrescente</option>
+                            	<option selected id="ultimiarrivi" value="ultimi-arrivi">Ultimi arrivi</option>
+                                <option id="PROVA" value="autore-cresc" >Autore : dalla A alla Z</option>
+                                <option id="aut-decr" value="autore-decr">Autore : dalla Z alla A</option>
+                                <option id="prezzo-cres" value="prezzo-cresc">Prezzo : crescente</option>
+                                <option id="prezzo-decr" value="prezzo-decr">Prezzo : decrescente</option>
                             </select>
+                           <i id="PROVAaaa" class=" fas fa-sort-alpha-up-alt"></i>
                         </div>
-                    </div>
+                    </div> 
+                             
                 </form>
             </div>
 
@@ -57,8 +59,19 @@
 						//if(l!=null){
 					%>
                             <div class="libro col-xl-4 pt-5">
-                                    <img src="<%=l.getImmagine_path() %>"  class="w-75" style="height:375px;">
-                                   <a href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
+                            		<div class="d-none">
+                            			<div class="isbn">		<%= l.getIsbn() %>		</div>
+                            			<div class="autore">	<%= l.getAutore() %>	</div>
+                            			<div class="editore">	<%= l.getCasaEditrice()%></div>
+                            			<div class="genere">	<%= l.getGenere() %>	</div>
+                            			<div class="isUsato">	<%= l.getIsUsato() %>	</div>
+                            			<div class="prezzo">	<%= l.getPrezzo() %>	</div>
+                            			<div class="quantita">	<%= l.getQuantita() %>	</div>
+                            			<div class="titolo">	<%= l.getTitolo() %>	</div>
+                            			<div class="trama">		<%= l.getTrama() %>		</div>
+                            		</div>                      		
+                                    <img src="<%=l.getImmagine_path() %>"  class="immaginepath w-75" style="height:375px;" >
+                                   <a class="idLibro" href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
                             </div>
   
 					<% 		} 
