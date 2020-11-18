@@ -58,18 +58,19 @@
 				</thead>
 				<tbody>
 							
-					<%
+					<%int indice =1;
 						for (Libro l : listaLibri) {
+							
 					%>
 
 					<tr class="chiaro nero">
-						<td class="text-center pt-4 pr-5 pl-5"><%=listaLibri.indexOf(l)%></td>
+						<td class="text-center pt-4 pr-5 pl-5"><%=indice%></td>
 						<td class="text-left pt-4 pl-5"><%=l.getTitolo()%></td>
 						<td class="text-center pt-4"><%=l.getAutore()%></td>
 						<td class="text-center pt-4"><%=l.getIsbn()%></td>
 						<td class="text-center pt-4"><%=l.getQuantita()%></td>
 						<td class="text-center pt-4">
-							<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
+							<a data-toggle="collapse" data-target="#demo<%=l.getId_libro()%>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
 							<%if(request.getSession().getAttribute("utenteLoggato")!=null && ((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff() && ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")){ %>
@@ -79,7 +80,7 @@
 					</tr>
 					<tr>
                             <td colspan="6" class="hiddenRow bgcoll">
-                                <div id="demo<%=listaLibri.indexOf(l)%>" class="collapse">
+                                <div id="demo<%=l.getId_libro()%>" class="collapse">
                                         <div class="form-row">
                                         
                                         <!-- modifica -->
@@ -103,7 +104,7 @@
                                                                 class="form-control pl-4 shadow p-1 mb-1 bg-white"
                                                                 id="casaid" value="<%=l.getCasaEditrice()%>" required>
                                                                 <div class="invalid-feedback">Inserisci un editore valido!</div>
-          														<div class="valid-feedback">Ok!</div>
+          																											<div class="valid-feedback">Ok!</div>
                                                         </div>
                                                     </div>
 
@@ -192,7 +193,7 @@
                                                 
                                                 <div class="text-center pt-4">
 													<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone">MODIFICA</button>
-													<a data-toggle="collapse" data-target="#demo<%=listaLibri.indexOf(l)%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+													<a data-toggle="collapse" data-target="#demo<%=l.getId_libro()%>" role="button" aria-expanded="false" aria-controls="collapseExample">
 														<button class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button>
 													</a>
 
@@ -207,7 +208,7 @@
                         </tr>
 					
 						<%
-						}
+						indice++;}
 					%>
 					</tbody>
 					
@@ -254,9 +255,12 @@
                                                         
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="genereid">Genere </label>
-                                                            <input type="text" name="genere" maxlength="45"
-                                                                class="form-control pl-4 shadow p-1 mb-1 bg-white"
-                                                                id="genereid" required>
+                                                             <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
+                            									<option selected disabled>Seleziona un Genere</option>
+                            									<%for(Libro g : listaLibri){ %>
+                                									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   
+                                								<% } %>                         
+                            								 </select>
                                                                 <div class="invalid-feedback">Inserisci un genere valido!</div>
           														<div class="valid-feedback">Ok!</div>
                                                         </div>

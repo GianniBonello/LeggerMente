@@ -41,8 +41,7 @@ public class ModificaProfilo extends HttpServlet {
 		if(password != null && Base64.getEncoder().encodeToString((request.getParameter("password")).getBytes()).equals(u.getPassword())) {
 			
 			if(email != null && comune != null && cap != null && indirizzo != null && username != null 
-					&& comune!=null && indirizzo != null && nome != null && cognome != null &&
-					nome.equals(u.getNome()) && cognome.equals(u.getCognome()) && cf.equals(u.getCf())) {
+					&& comune!=null && indirizzo != null ) {
 
 				//Utente u = (Utente) request.getSession().getAttribute("utenteLoggato");
 				uMod.setEmail(email);
@@ -55,7 +54,7 @@ public class ModificaProfilo extends HttpServlet {
 					Utility.modificaUtente(uMod);
 					
 					request.setAttribute("modifica", "successo");
-					
+					request.getSession().setAttribute("utenteLoggato", uMod);
 					//request.getSession().setAttribute("utenteLoggato", uMod);
 					request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);
 				} catch (RollbackException e) {		
@@ -65,7 +64,7 @@ public class ModificaProfilo extends HttpServlet {
 					
 				}
 				
-			}else if(!nome.equals(u.getNome()) || !cognome.equals(u.getCognome()) || !cf.equals(u.getCf())) {
+			}else if ((nome!=null && !nome.equals(u.getNome())) || (cognome!=null && !cognome.equals(u.getCognome())) ||(cf!=null && !cf.equals(u.getCf ( ) ) ) ) {
 				System.out.println("if campi non modificabili servlet");
 				request.setAttribute("modifica", "campiNonModificabili");
 				request.getRequestDispatcher("/view/ilmioprofilo.jsp").include(request, response);

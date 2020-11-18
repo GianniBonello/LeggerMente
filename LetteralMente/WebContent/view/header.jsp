@@ -53,8 +53,10 @@
                 </ul>
                   <% 
                         if(request.getSession().getAttribute("utenteLoggato")==null) { 
+                        	if(request.getAttribute("loginFallito")!=null && request.getAttribute("loginFallito").equals("errorLogin")){
                      %> 
-						
+						<span style="font-size: 10pt; padding-right:15px;color:#ffffff"><b>Login errato.</b><br> <a class="text-dark text-left" href="<%=request.getContextPath()%>/view/inserimentoemail.jsp"><b>Recupera i dati</b></a>
+						</span><%} %>
                     <button class="buttonHead login mr-3 " id="login" onclick="login()"> LOGIN </button>
                     <a href="<%=request.getContextPath()%>/Registrazione"><button class="buttonHead" type="submit"> REGISTRAZIONE </button></a> <!-- PAGINA REGISTRAZIONE -->
 

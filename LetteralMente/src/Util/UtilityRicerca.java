@@ -107,9 +107,18 @@ public class UtilityRicerca {
 
 
 	public static List<Prenotazione> ricercaPrenotazione(String campo, String ricerca){
+		int ric=0;
+		if(campo!=null && campo.equals("idprenotazione")) {
+			try {
+				 ric = Integer.parseInt(ricerca);
+				}catch(NumberFormatException e) {
+					return Utility.leggiPrenotazione();
+				}
+		}
+
 		switch (campo.trim().toLowerCase()) {
 		case "idprenotazione":
-			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.idprenotazione LIKE :ricerca",ricerca);
+			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.idprenotazione =:ricerca",ric);
 		case "username":
 			return ricercaPrenotazioneGenerica("Select p FROM Prenotazione p WHERE p.u.username LIKE :ricerca",ricerca);
 		case "isbn":
@@ -132,11 +141,29 @@ public class UtilityRicerca {
 		q.setParameter("ricerca", "%"+ricerca+"%");
 		return q.getResultList();
 	}
+	private static List<Prenotazione> ricercaPrenotazioneGenerica(String query, int ricerca){
+		System.out.println("sono nella ricerca");
+		EntityManager em = getManager();
+		//rimarra nella storia
+		Query q=em.createQuery(query);
+		q.setParameter("ricerca", ricerca);
+		return q.getResultList();
+	}
+
 
 	public static List<Noleggio> ricercaNoleggio(String campo, String ricerca){
+		int ric = 0;
+		if(campo != null && campo.equals("id_noleggio")) {
+			try {
+				 ric = Integer.parseInt(ricerca);
+				}catch(NumberFormatException e) {
+					return Utility.leggiNoleggio();
+				}
+
+		}
 		switch (campo.trim().toLowerCase()) {
 		case "id_noleggio":
-			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.id_noleggio LIKE :ricerca",ricerca);
+			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.idNoleggio =:ricerca",ric);
 		case "username":
 			return ricercaNoleggioGenerica("Select d FROM Noleggio d WHERE d.u.username LIKE :ricerca",ricerca);
 		case "isbn":
@@ -151,9 +178,16 @@ public class UtilityRicerca {
 			return new ArrayList<Noleggio>();
 		}
 	}
-
-
-	private static List<Noleggio> ricercaNoleggioGenerica(String query, String ricerca){
+	
+	private static List<Noleggio> ricercaNoleggioGenerica(String query, int ricerca){
+		EntityManager em = getManager();
+		//rimarra nella storia
+		Query q=em.createQuery(query);
+		q.setParameter("ricerca", ricerca);
+		return q.getResultList();
+	}
+	
+ static List<Noleggio> ricercaNoleggioGenerica(String query, String ricerca){
 		EntityManager em = getManager();
 		//rimarra nella storia
 		Query q=em.createQuery(query);

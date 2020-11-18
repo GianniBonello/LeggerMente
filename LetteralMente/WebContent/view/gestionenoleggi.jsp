@@ -1,3 +1,4 @@
+<%@page import="Util.UtilityRicerca"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.sql.Date"%>
 <%@page import="model.Utente"%>
@@ -49,11 +50,12 @@
 			<table class="table">
 				<thead class="bg-dark text-white">
 					<tr>
-						<th scope="col" class="text-center stonda">#</th>
+						<th scope="col" class="text-center ">#</th>
 						<th scope="col" class="text-center">Libro</th>
 						<th scope="col" class="text-center">Utente</th>
 						<th scope="col" class="text-center">Codice noleggio</th>
-						<th scope="col" class="text-center stondadue">Noleggio in Corso</th>
+						<th scope="col" class="text-center">Data di riconsegna</th>
+						<th scope="col" class="text-center">Noleggio in Corso</th>
 						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						<th scope="col" class="text-center ">Cancella</th>
 						<% } %>
@@ -61,16 +63,19 @@
 				</thead>
 				<tbody>
 
-					<%
+					<%int indice =1;
 						for (Noleggio n : listaNoleggi) {
-							if(n.getDataFine().after(Date.valueOf(LocalDate.now()))){
+							if(n.getDataFine().after(Date.valueOf(LocalDate.now())) || (n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())){
+
 					%>
 
 					<tr class="chiaro nero">
-						<td class="text-center pt-4"><%=listaNoleggi.indexOf(n)%></td>
-						<td class="text-center pt-4"><%=n.getLib().getTitolo() %></td>
-						<td class="text-center pt-4"><%=n.getU().getNome()+" "+n.getU().getCognome()%></td>
-						<td class="text-center pt-4"><%=n.getIdNoleggio()%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+indice+"</b>":indice%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getLib().getTitolo()+"</b>":n.getLib().getTitolo() %></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getU().getNome()+" "+n.getU().getCognome()+"</b>":n.getU().getNome()+" "+n.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getIdNoleggio()+"</b>":n.getIdNoleggio()%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+UtilityRicerca.dataString(n.getDataFine())+"</b>":UtilityRicerca.dataString(n.getDataFine())%></td>
+						
 						<td class="text-center pt-4">
 						<div class="row justify-content-center">
 							<label class="switch"> 
@@ -87,7 +92,7 @@
 					</tr>
 
 						<%
-						}
+						indice++;}
 						}
 					%>
 

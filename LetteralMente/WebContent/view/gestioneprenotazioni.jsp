@@ -59,18 +59,18 @@
 				</thead>
 				<tbody>
 
-					<%
+					<%int indice=1;
 						for (Prenotazione p : listaPrenotazioni) {
 							if((!p.getInCorso() && p.getData()==null) || (p.getInCorso() && p.getData() != null)){
 					%>
 
 					<tr class="chiaro nero">
-						<td class="text-center pt-4"><%=listaPrenotazioni.indexOf(p)+1%></td>
-						<td class="text-center pt-4"><%=p.getIdprenotazione()%></td>
-						<td class="text-center pt-4"><%=p.getU().getNome()+" "+p.getU().getCognome()%></td>
-						<td class="text-center pt-4"><%=p.getLib().getTitolo()%></td>
-						<td class="text-center pt-4"><%=p.getLib().getIsbn()%></td>
-						<td class="text-center pt-4"><%=p.getData()!=null?LocalDate.parse(UtilityRicerca.dataString(p.getData())):"In Coda" %></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+indice+"</b>":indice%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getIdprenotazione()+"</b>":p.getIdprenotazione()%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getU().getNome()+" "+p.getU().getCognome()+"</b>":p.getU().getNome()+" "+p.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getTitolo()+"</b>":p.getLib().getTitolo()%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getIsbn()+"</b>":p.getLib().getIsbn()%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null?LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(p.getData()))+"</b>":LocalDate.parse(UtilityRicerca.dataString(p.getData())):"In Coda" %></td>
 						<td class="text-center pt-4">
 					<%if(p.getData()!=null) {%>
 						<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?idPrenotazione=<%=p.getIdprenotazione()%>"><i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i></a>
@@ -82,7 +82,7 @@
 					</tr>
 					
 					<%
-						}
+						indice++;}
 							}
 					%>
 

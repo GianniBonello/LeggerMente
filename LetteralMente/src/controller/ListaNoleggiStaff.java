@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +34,7 @@ public class ListaNoleggiStaff extends HttpServlet {
 				System.out.println("sono dentro");
 				Noleggio n = Utility.trovaNoleggio(Integer.parseInt(request.getParameter("id")));
 				if (n.getInCorso()) {
+					n.setDataFine(Date.valueOf(LocalDate.now().plusDays(-1)));
 					n.setInCorso(false);
 					
 				}else n.setInCorso(true);
@@ -39,7 +43,12 @@ public class ListaNoleggiStaff extends HttpServlet {
 			}
 			//NON FUNZIONA!!!
 			if(request.getParameter("elimina")!=null) {
-				Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("elimina")));
+				try {
+					Utility.eliminaNoleggio(Integer.parseInt(request.getParameter("elimina")));
+					}catch(IllegalArgumentException e) {
+						
+					}
+
 			}
 			
 			

@@ -91,7 +91,7 @@
 
 		<div class="mt-5" id="listalibri">
 			<h1 class=" pt-5 pl-4" id="serv">
-				<b>Lista Libri</b>
+				<b>Ultimi arrivi</b>
 			</h1>
 			<h6 id="trattdue">
 				<img class="pr-3"
@@ -110,13 +110,12 @@ if(lista!=null){
 			//if(l!=null){
 %>
 				<div class="libro col-xl-4 pt-5">
-					<img src="<%=l.getImmagine_path() %>" class="w-75 img-fluid"
-						style="height: 375px;"> <a
-						href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button
-							id="bott" class="btn btn-dark w-75 text-center botcollapse"
-							style="height: 50px; background: #C80258; border: none;">
+					<a href="DettaglioLibro?idLibro=<%=l.getId_libro()%>">
+						<img src="<%=l.getImmagine_path() %>" class="w-75 img-fluid" style="height: 375px;"> 
+						<button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height: 50px; background: #C80258; border: none;">
 							<b style="font-size: 14pt;">INFO</b>
-						</button></a>
+						</button>
+					</a>
 				</div>
 
 				<%          }                     %>

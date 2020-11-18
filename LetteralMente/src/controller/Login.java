@@ -29,9 +29,12 @@ public class Login extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username=request.getParameter("username");
 		
-		if(request.getParameter("username")!= null && request.getParameter("password")!= null) {
-		Utente u=Utility.trovaUtente(request.getParameter("username").trim(), request.getParameter("password"));
+		String psw=request.getParameter("password");
+		if(username!= null && psw!= null) {
+			username=username.trim();
+		Utente u=Utility.trovaUtente(username, psw);
 			if( u!=null ) {
 				System.out.println("ciao giulia");
 				//u=listaUtenti.get(listaUtenti.indexOf(u));

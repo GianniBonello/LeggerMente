@@ -1,3 +1,4 @@
+<%@page import="Util.UtilityRicerca"%>
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 
@@ -92,7 +93,7 @@
 					
 						<% } %>
 						<td class="text-center pt-4">
-							<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample" id="piu"> 
+							<a data-toggle="collapse" data-target="#demo<%=u.getIdUtente()%>" role="button" aria-expanded="false" aria-controls="collapseExample" id="piu"> 
 								<i class="fas fa-pen-square fa-2x text-white" style="cursor:pointer;"></i>
 							</a> 
 							<a href="<%=request.getContextPath() %>/ListaUtenti?elimina=<%=u.getIdUtente()%>"><i class="fas fa-minus-square fa-2x magenta" style="cursor:pointer;"></i></a>
@@ -101,7 +102,7 @@
 
 					<tr>
 					<td colspan="6" class="hiddenRow bgcoll">
-						<div id="demo<%=listaUtenti.indexOf(u)%>" class="collapse">
+						<div id="demo<%=u.getIdUtente()%>" class="collapse">
 
 
 
@@ -140,7 +141,7 @@
 											<label for="nascitaid">Data di nascita </label> <input
 												type="date" name="dataDiNascita" 
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
-												id="nascitaid" value="<%=u.getDataDiNascita()%>" required>
+												id="nascitaid" value="<%=UtilityRicerca.dataString(u.getDataDiNascita())%>" required>
 												<div class="invalid-feedback">Inserisci una data di nascita valida!</div>
 												<div class="valid-feedback">Ok!</div>
 										</div>
@@ -211,7 +212,7 @@
 
 									<div class="text-center pt-4">
 										<button type="submit" class="mt-2 py-2 pl-5 pr-5 mr-5 text-white shadow p-1 mb-5 " id="bottone" onclick="return Validate()">MODIFICA</button>
-										<a data-toggle="collapse" data-target="#demo<%=listaUtenti.indexOf(u)%>" role="button" aria-expanded="false" aria-controls="collapseExample">
+										<a data-toggle="collapse" data-target="#demo<%=u.getIdUtente()%>" role="button" aria-expanded="false" aria-controls="collapseExample">
 											<button class="mt-2 py-2 pl-5 pr-5 text-white shadow p-1 mb-5" id="bottone" >ANNULLA</button>
 										</a>
 

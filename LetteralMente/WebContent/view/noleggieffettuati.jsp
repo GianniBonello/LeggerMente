@@ -42,5 +42,5 @@ if(listaNoleggi != null){
 
     </div>
 <%} %>
-
+<div class="spazio" style="margin-top:250px;"></div>
 <jsp:include page="/view/footer.jsp"></jsp:include>
