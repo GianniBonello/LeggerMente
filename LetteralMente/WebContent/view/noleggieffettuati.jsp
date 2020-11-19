@@ -1,3 +1,6 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="Util.UtilityRicerca"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.Noleggio"%>
 <%@page import="java.util.List"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
@@ -24,12 +27,14 @@ if(listaNoleggi != null){
                     </thead>
                     <tbody>
                     
-                    <%for(Noleggio n : listaNoleggi){ %>
+                    <%DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+                    for(Noleggio n : listaNoleggi){ %>
                         <tr class="chi">
                             <td class="text-center"><%=listaNoleggi.indexOf(n)+1 %></td>
                             <td class="text-center"><%=n.getLib().getTitolo() %></td>
-                            <td class="text-center"><%=n.getDataInizio() %></td>
-                            <td class="text-center"><%=n.getDataFine() %></td>
+                            <td class="text-center"><%=LocalDate.parse(UtilityRicerca.dataString(n.getDataInizio())).format(formatter) %></td>
+                            <td class="text-center"><%=LocalDate.parse(UtilityRicerca.dataString(n.getDataFine())).format(formatter) %></td>
                            
                             </td>
                         <tr>

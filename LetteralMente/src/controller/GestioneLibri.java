@@ -79,7 +79,11 @@ public class GestioneLibri extends HttpServlet {
 
 			l.setImmagine_path("http://127.0.0.1:8887/"+FILENAME); //<--------PRIMA PARTE PATH WEB SERVLET
 			
-			Utility.modificaLibro(l);
+			
+			try {
+				Utility.modificaLibro(l);
+			} catch (RollbackException e) {			
+			}
 			request.setAttribute("modifica", "successo");
 			//dopo aver modificato il libro controllo se la quantita di prima era 0 e se ora è maggiore da 0
 			if(quantita == 0 && Integer.parseInt(request.getParameter("quantita")) > 0) {

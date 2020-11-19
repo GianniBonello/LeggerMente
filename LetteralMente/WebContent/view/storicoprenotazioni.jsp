@@ -1,3 +1,6 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="Util.UtilityRicerca"%>
+<%@page import="java.time.LocalDate"%>
 <%@page import="model.Prenotazione"%>
 <%@page import="java.util.List"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
@@ -21,11 +24,13 @@
                     </thead>
                     <tbody>
                     
-                    <%for(Prenotazione p : listaPrenotazioni){ %>
+                    <%DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+                    for(Prenotazione p : listaPrenotazioni){ %>
                         <tr class="chi">
                             <td class="text-center"><%=listaPrenotazioni.indexOf(p)+1%></td>
                             <td class="text-center"><%=p.getLib().getTitolo()%></td>
-                            <td class="text-center"><%=p.getData()!=null? p.getData() : "in coda"%></td>
+                            <td class="text-center"><%=p.getData()!=null? LocalDate.parse(UtilityRicerca.dataString(p.getData())).format(formatter) : "in coda"%></td>
                                                        
                             <td class="text-center">
                             

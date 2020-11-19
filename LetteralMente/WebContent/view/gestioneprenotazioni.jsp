@@ -1,3 +1,4 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="Util.UtilityRicerca"%>
 <%@page import="model.Utente"%>
@@ -60,6 +61,8 @@
 				<tbody>
 
 					<%int indice=1;
+					DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
 						for (Prenotazione p : listaPrenotazioni) {
 							if((!p.getInCorso() && p.getData()==null) || (p.getInCorso() && p.getData() != null)){
 					%>
@@ -70,7 +73,7 @@
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getU().getNome()+" "+p.getU().getCognome()+"</b>":p.getU().getNome()+" "+p.getU().getCognome()%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getTitolo()+"</b>":p.getLib().getTitolo()%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getIsbn()+"</b>":p.getLib().getIsbn()%></td>
-						<td class="text-center pt-4"><%=p.getData()!=null?LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(p.getData()))+"</b>":LocalDate.parse(UtilityRicerca.dataString(p.getData())):"In Coda" %></td>
+						<td class="text-center pt-4"><%=p.getData()!=null?LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(p.getData())).format(formatter)+"</b>":LocalDate.parse(UtilityRicerca.dataString(p.getData())).format(formatter):"In Coda" %></td>
 						<td class="text-center pt-4">
 					<%if(p.getData()!=null) {%>
 						<a href="<%=request.getContextPath() %>/ListaPrenotazioniStaff?idPrenotazione=<%=p.getIdprenotazione()%>"><i class="fas fa-check-square fa-2x verde" style="cursor:pointer;"></i></a>

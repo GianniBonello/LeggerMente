@@ -80,7 +80,7 @@
 						<%if(request.getSession().getAttribute("utenteLoggato") != null & ((Utente)request.getSession().getAttribute("utenteLoggato")).getUsername().equals("Admin")) {%>
 						
 						<td class="text-center pt-4">
-						<div class="row">
+						<div class="justify-content-center row">
 							<label class="switch">
 								<input type="checkbox" <%=u.getIsStaff()?"checked":""%> disabled> <span class="slider round"></span>		
 							</label>

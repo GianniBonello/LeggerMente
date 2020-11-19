@@ -1,3 +1,4 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="Util.UtilityRicerca"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.sql.Date"%>
@@ -9,6 +10,8 @@
 
 
 <%
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
 	List<Noleggio> listaNoleggi = (List<Noleggio>) request.getAttribute("listaNoleggi");
 %>
 
@@ -74,7 +77,7 @@
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getLib().getTitolo()+"</b>":n.getLib().getTitolo() %></td>
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getU().getNome()+" "+n.getU().getCognome()+"</b>":n.getU().getNome()+" "+n.getU().getCognome()%></td>
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getIdNoleggio()+"</b>":n.getIdNoleggio()%></td>
-						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+UtilityRicerca.dataString(n.getDataFine())+"</b>":UtilityRicerca.dataString(n.getDataFine())%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(n.getDataFine())).format(formatter)+"</b>":LocalDate.parse(UtilityRicerca.dataString(n.getDataFine())).format(formatter) %></td>
 						
 						<td class="text-center pt-4">
 						<div class="row justify-content-center">

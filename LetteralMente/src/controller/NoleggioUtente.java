@@ -63,6 +63,11 @@ public class NoleggioUtente extends HttpServlet {
 					request.setAttribute("noleggio", "error");
 					request.getRequestDispatcher("ControlloIniziale").forward(request, response);				
 				}
+		}else if(idLibro!=null &&!idLibro.equals("") && dataFine!=null && !dataFine.equals("") && (!LocalDate.parse(dataFine).isBefore(LocalDate.now().plusMonths(2).plusDays(1)) || !LocalDate.now().isBefore(LocalDate.parse(dataFine)))) {
+			Libro li = Utility.trovaLibro(Integer.parseInt(idLibro));
+			request.setAttribute("libro", li);
+			request.setAttribute("error", "error");
+			request.getRequestDispatcher("/view/dettaglinoleggio.jsp").forward(request, response);
 		}else {
 			System.out.println("secondo else noleggio");
 			request.setAttribute("noleggio", "error");

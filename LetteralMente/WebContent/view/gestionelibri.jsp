@@ -125,7 +125,7 @@
                                                         <div class="form-group col-xl-6 pt-1">
                                                         	<label for="campo">Genere</label>
                                                         	
-                                                            <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
+                                                            <select name ="genere" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
                             									<option selected disabled>Seleziona un Genere</option>
                             									<%for(Libro g : listaLibri){ %>
                                 									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   
@@ -255,7 +255,7 @@
                                                         
                                                         <div class="form-group col-xl-6 pt-1">
                                                             <label for="genereid">Genere </label>
-                                                             <select name ="campo" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
+                                                             <select name ="genere" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
                             									<option selected disabled>Seleziona un Genere</option>
                             									<%for(Libro g : listaLibri){ %>
                                 									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   

@@ -1,9 +1,12 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
 <div class="poplibro bg-white">
 <%Libro l = (Libro)request.getAttribute("libro"); 
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
 if(l!=null){%>
 <div class="container">
     <div class="row ">
@@ -21,6 +24,10 @@ if(l!=null){%>
       </div>
       <div class="col-xl-7 offset-1 pt-3">
         <h2 class="mb-5 "><%=l.getTitolo() %></h2>
+         <%if(request.getAttribute("error")!= null && request.getAttribute("error").equals("error")) {%>
+      	<h3 style="color:red">Data inserita non valida</h3>
+      <%} %>
+        
         <form action="<%=request.getContextPath()%>/NoleggioUtente" method="post">
           <div class="form-row pt-5 mb-5">
             <div class="form-group col-md-11 pt-1 mb-2">
@@ -28,7 +35,7 @@ if(l!=null){%>
               <input type="date" name="immodificabile" class="form-control pl-4 shadow p-1 mb-1" id="inizio" value="<%=LocalDate.now() %>" disabled>
             </div>
             <div class="form-group col-md-11 pt-1 mt-5 mb-5">
-              <label for="fine">Data fine noleggio</label>
+              <label for="fine">Data fine noleggio <small>(massimo 60 giorni)</small></label>
               <input type="date" name="dataFine" class="form-control pl-4 shadow p-1 mb-1" id="fine" value="<%=LocalDate.now().plusMonths(2)%>">
             </div>				
           </div>
