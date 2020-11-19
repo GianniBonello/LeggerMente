@@ -1,8 +1,8 @@
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
-<jsp:include page="/view/headerstaff.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 
 
 <%

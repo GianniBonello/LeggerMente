@@ -3,7 +3,8 @@
 <%@page import="java.time.LocalDate"%>
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.Utente"%>
-<jsp:include page="/view/headerInterno.jsp"/>
+
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%
 	Utente u = (Utente)request.getSession().getAttribute("utenteLoggato"); 
 	System.out.println(request.getAttribute("modifica"));

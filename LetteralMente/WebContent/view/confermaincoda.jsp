@@ -1,7 +1,7 @@
 <%@page import="model.Prenotazione"%>
 <%@page import="model.Libro"%>
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
-  
+
+ <%@ page contentType="text/html; charset=ISO-8859-1" %> 
 <div class="popcoda bg-white margini">
 <div class="container">
 <% 
@@ -37,4 +37,4 @@ int attesa = (Integer)request.getSession().getAttribute("attesa");%>
 </div>
 
   <%} %>
-  <jsp:include page="/view/footer.jsp"></jsp:include>
+ <!--  <jsp:include page="/view/footer.jsp"></jsp:include>-->

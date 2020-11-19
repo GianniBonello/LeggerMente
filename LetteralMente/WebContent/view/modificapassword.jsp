@@ -1,5 +1,5 @@
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 
 	<h1 class=" pt-5 pb-3 my-5 text-center mb-5">
 		<b>Modifica Password</b>

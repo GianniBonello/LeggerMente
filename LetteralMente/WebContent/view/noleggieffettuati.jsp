@@ -3,8 +3,8 @@
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="model.Noleggio"%>
 <%@page import="java.util.List"%>
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%List<Noleggio>listaNoleggi= (List<Noleggio>)request.getAttribute("listaNoleggi"); 
 if(listaNoleggi != null){
 %>

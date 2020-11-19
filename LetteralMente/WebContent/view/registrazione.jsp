@@ -1,4 +1,5 @@
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
+
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <div class="registrazione pt-5">
 
 <h1 class=" pt-5 pb-3 text-center"><b>Registrazione</b></h1>

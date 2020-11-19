@@ -35,11 +35,42 @@ id="WebApp_ID" version="3.1">
   	
   </servlet-mapping>
   
-<!-- <jsp-config>
+  
+  
+ <jsp-config>
  	<jsp-property-group>
- 		<url-pattern>*.jsp</url-pattern>
- 		<include-prelude>Header.jsp</include-prelude>
- 		<include-coda>Footer.jsp</include-coda>
+ 		
+ 		<url-pattern>/WEB-INF/view/home.jsp</url-pattern>		
+ 		<include-prelude>/view/header.jsp</include-prelude>
+ 		
  	</jsp-property-group>
- </jsp-config> --> 
+ 	
+ 	<jsp-property-group>
+ 		<url-pattern>/view/gestioneutenti.jsp</url-pattern>
+ 		<url-pattern>/view/gestionelibri.jsp</url-pattern>
+ 		<url-pattern>/view/gestionenoleggi.jsp</url-pattern>
+ 		<url-pattern>/view/gestioneprenotazione.jsp</url-pattern>
+ 		<url-pattern>/view/homestaff.jsp</url-pattern>
+ 		<include-prelude>/view/headerstaff.jsp</include-prelude>
+ 	</jsp-property-group>
+ 	
+ 	<jsp-property-group>
+ 	<url-pattern>/view/confermaincoda.jsp</url-pattern>
+	<url-pattern>/view/confermanoleggio.jsp</url-pattern>
+	<url-pattern>/view/confermaprenotazione.jsp</url-pattern>
+	<url-pattern>/view/dettaglinoleggio.jsp</url-pattern>
+	<url-pattern>/view/dettagliocoda.jsp</url-pattern>
+	<url-pattern>/view/dettagliolibro.jsp</url-pattern>
+	<url-pattern>/view/dettaglioprenotazione.jsp</url-pattern> 	
+	<url-pattern>/view/ilmioprofilo.jsp</url-pattern> 	
+	<url-pattern>/view/inserimentoemail.jsp</url-pattern> 	
+	<url-pattern>/view/listalibri.jsp</url-pattern> 	
+	<url-pattern>/view/modificapassword.jsp</url-pattern> 
+	<url-pattern>/view/noleggieffettuati.jsp</url-pattern>
+	<url-pattern>/view/storicoprenotazioni.jsp</url-pattern>	
+	<url-pattern>/view/registrazione.jsp</url-pattern> 		
+ 	<include-prelude>/view/headerInterno.jsp</include-prelude>
+ 	</jsp-property-group>
+ 	
+ </jsp-config>  
 </web-app>

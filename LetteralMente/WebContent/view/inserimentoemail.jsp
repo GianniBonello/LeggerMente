@@ -1,5 +1,5 @@
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <div class="container">
 
 

@@ -3,8 +3,8 @@
 <%@page import="java.time.LocalDate"%>
 <%@page import="model.Prenotazione"%>
 <%@page import="java.util.List"%>
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%List<Prenotazione>listaPrenotazioni= (List<Prenotazione>)request.getAttribute("listaPrenotazioni"); %>
  <div class="container-fluid storicoprenotazioni ">
 

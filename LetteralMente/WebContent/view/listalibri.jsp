@@ -1,8 +1,8 @@
 <%@page import="model.Libro"%>
 <%@page import="java.util.List"%>
 
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <div class="container">
     <main>
         <div class="mt-5" id="listalibri">
@@ -67,6 +67,7 @@
 						//if(l!=null){
 					%>
                             <div class="libro col-xl-4 pt-5">
+                            
                             		<div class="d-none">
                             			<div class="isbn">		<%= l.getIsbn() %>		</div>
                             			<div class="autore">	<%= l.getAutore() %>	</div>
@@ -77,9 +78,12 @@
                             			<div class="quantita">	<%= l.getQuantita() %>	</div>
                             			<div class="titolo">	<%= l.getTitolo() %>	</div>
                             			<div class="trama">		<%= l.getTrama() %>		</div>
-                            		</div>                      		
-                                    <img src="<%=l.getImmagine_path() %>"  class="immaginepath w-75 img-fluid" style="height:375px;" >
-                                   <a class="idLibro" href="DettaglioLibro?idLibro=<%=l.getId_libro()%>"><button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button></a>                      
+                            		</div>    
+                            		<a class="idLibro" href="DettaglioLibro?idLibro=<%=l.getId_libro()%>">                  		
+                                    	<img src="<%=l.getImmagine_path() %>"  class="immaginepath w-75 img-fluid" style="height:375px;" >
+                                   		<button id="bott" class="btn btn-dark w-75 text-center botcollapse" style="height:50px;background: #C80258; border: none;"><b style="font-size:14pt;">INFO</b></button>
+                                    </a>                      
+									                           
                             </div>
   
 					<% 		} 

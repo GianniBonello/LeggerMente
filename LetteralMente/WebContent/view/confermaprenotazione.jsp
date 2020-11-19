@@ -1,5 +1,6 @@
 <%@page import="model.Prenotazione"%>
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
+
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <div class="popcoda bg-white margini">
     <div class="container">
 <%Prenotazione p = (Prenotazione)request.getSession().getAttribute("prenotazione");

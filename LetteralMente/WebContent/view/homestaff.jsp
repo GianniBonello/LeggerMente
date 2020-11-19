@@ -1,5 +1,6 @@
 <%@page import="model.Utente"%>
-<jsp:include page="/view/headerstaff.jsp"></jsp:include>
+
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
  <%if(request.getSession().getAttribute("utenteLoggato")==null || !((Utente)request.getSession().getAttribute("utenteLoggato")).getIsStaff()){
 	 request.getRequestDispatcher("../ControlloIniziale").forward(request, response);
 	}else{ %>

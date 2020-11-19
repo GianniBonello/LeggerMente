@@ -1,7 +1,8 @@
-	<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Libro"%>
 <jsp:include page="/view/header.jsp"></jsp:include>
-    
+<%@ page contentType="text/html; charset=ISO-8859-1" %> 
+   
     <main>
         
         <div class="container">

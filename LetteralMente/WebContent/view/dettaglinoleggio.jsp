@@ -1,8 +1,8 @@
 <%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="java.time.LocalDate"%>
 <%@page import="model.Libro"%>
-<jsp:include page="/view/headerInterno.jsp"></jsp:include>
 
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
 <div class="poplibro bg-white">
 <%Libro l = (Libro)request.getAttribute("libro"); 
 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
