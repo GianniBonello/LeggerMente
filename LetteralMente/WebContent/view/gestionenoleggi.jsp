@@ -55,7 +55,7 @@ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 					<tr>
 						<th scope="col" class="text-center ">#</th>
 						<th scope="col" class="text-center">Libro</th>
-						<th scope="col" class="text-center">Utente</th>
+						<th scope="col" class="text-center">Email Utente</th>
 						<th scope="col" class="text-center">Codice noleggio</th>
 						<th scope="col" class="text-center">Data di riconsegna</th>
 						<th scope="col" class="text-center">Noleggio in Corso</th>
@@ -75,7 +75,7 @@ DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 					<tr class="chiaro nero">
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+indice+"</b>":indice%></td>
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getLib().getTitolo()+"</b>":n.getLib().getTitolo() %></td>
-						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getU().getNome()+" "+n.getU().getCognome()+"</b>":n.getU().getNome()+" "+n.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getU().getEmail()+"</b>":n.getU().getEmail()%></td>
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+n.getIdNoleggio()+"</b>":n.getIdNoleggio()%></td>
 						<td class="text-center pt-4"><%=(n.getDataFine().before(Date.valueOf(LocalDate.now())) && n.getInCorso())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(n.getDataFine())).format(formatter)+"</b>":LocalDate.parse(UtilityRicerca.dataString(n.getDataFine())).format(formatter) %></td>
 						

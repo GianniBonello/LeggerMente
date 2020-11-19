@@ -51,7 +51,7 @@
 					<tr>
 						<th scope="col" class="text-center stonda">#</th>
 						<th scope="col" class="text-center">Codice Prenotazione</th>
-						<th scope="col" class="text-center">Utente</th>
+						<th scope="col" class="text-center">Email Utente</th>
 						<th scope="col" class="text-center">Titolo</th>
 						<th scope="col" class="text-center">Codice ISBN</th>
 						<th scope="col" class="text-center">Data di Prenotazione</th>
@@ -70,7 +70,7 @@
 					<tr class="chiaro nero">
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+indice+"</b>":indice%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getIdprenotazione()+"</b>":p.getIdprenotazione()%></td>
-						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getU().getNome()+" "+p.getU().getCognome()+"</b>":p.getU().getNome()+" "+p.getU().getCognome()%></td>
+						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getU().getEmail()+"</b>":p.getU().getEmail()%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getTitolo()+"</b>":p.getLib().getTitolo()%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null && LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+p.getLib().getIsbn()+"</b>":p.getLib().getIsbn()%></td>
 						<td class="text-center pt-4"><%=p.getData()!=null?LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).isBefore(LocalDate.now())?"<b style=\"color:#C80258\">"+LocalDate.parse(UtilityRicerca.dataString(p.getData())).format(formatter)+"</b>":LocalDate.parse(UtilityRicerca.dataString(p.getData())).format(formatter):"In Coda" %></td>
