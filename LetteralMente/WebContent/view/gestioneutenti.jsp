@@ -1,3 +1,4 @@
+<%@page import="java.time.LocalDate"%>
 <%@page import="Util.UtilityRicerca"%>
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
@@ -141,7 +142,7 @@
 											<label for="nascitaid">Data di nascita </label> <input
 												type="date" name="dataDiNascita" 
 												class="form-control pl-4 shadow p-1 mb-1 bg-white"
-												id="nascitaid" value="<%=UtilityRicerca.dataString(u.getDataDiNascita())%>" required>
+												id="nascitaid" value="<%=LocalDate.parse(UtilityRicerca.dataString(u.getDataDiNascita())) %>" required>
 												<div class="invalid-feedback">Inserisci una data di nascita valida!</div>
 												<div class="valid-feedback">Ok!</div>
 										</div>

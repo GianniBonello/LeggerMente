@@ -61,7 +61,7 @@ id="WebApp_ID" version="3.1">
 	<url-pattern>/view/dettaglinoleggio.jsp</url-pattern>
 	<url-pattern>/view/dettagliocoda.jsp</url-pattern>
 	<url-pattern>/view/dettagliolibro.jsp</url-pattern>
-	<url-pattern>/view/dettaglioprenotazione.jsp</url-pattern> 	
+	<url-pattern>/view/dettagliprenotazione.jsp</url-pattern> 	
 	<url-pattern>/view/ilmioprofilo.jsp</url-pattern> 	
 	<url-pattern>/view/inserimentoemail.jsp</url-pattern> 	
 	<url-pattern>/view/listalibri.jsp</url-pattern> 	

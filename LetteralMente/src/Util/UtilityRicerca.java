@@ -65,6 +65,7 @@ public class UtilityRicerca {
 	}
 	
 	private static LocalDate convertDate(Date d) {
+		System.out.println(d.getClass());
 		return d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	}
 
@@ -341,7 +342,7 @@ public class UtilityRicerca {
 				"                     <tr style=\"border-collapse:collapse\"> \r\n" + 
 				"                     	<!--SCRITTA CONFERMA-->\r\n" + 
 				"                      <td align=\"center\" style=\"padding:20px;Margin:0\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:30px;\r\n" + 
-				"                      font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:45px;color:#C80258\"><strong>CONFERMA PRENOTAZIONE</strong></p></td> \r\n" + 
+				"                      font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:45px;color:#C80258\"><strong>PRENOTAZIONE CONFERMATA</strong></p></td> \r\n" + 
 				"                     </tr> \r\n" + 
 				"                   </table></td> \r\n" + 
 				"                 </tr> \r\n" + 
@@ -527,7 +528,7 @@ public class UtilityRicerca {
 				"                     <tr style=\"border-collapse:collapse\"> \r\n" + 
 				"                     	<!--SCRITTA CONFERMA-->\r\n" + 
 				"                      <td align=\"center\" style=\"padding:20px;Margin:0\"><p style=\"Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-size:30px;\r\n" + 
-				"                      font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:45px;color:#C80258\"><strong>CONFERMA NOLEGGIO</strong></p></td> \r\n" + 
+				"                      font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif;line-height:45px;color:#C80258\"><strong>NOLEGGIO CONFERMATO</strong></p></td> \r\n" + 
 				"                     </tr> \r\n" + 
 				"                   </table></td> \r\n" + 
 				"                 </tr> \r\n" + 

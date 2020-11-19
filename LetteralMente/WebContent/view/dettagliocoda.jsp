@@ -27,7 +27,7 @@ int attesa = (Integer)request.getAttribute("attesa");%>
         <hr class="mar text-left mb-5">
         <p style="font-size:18pt;">Sarai il <b><%=attesa==0?"1": attesa+1 %></b> in coda<br></p>
         <hr class=" text-left">
-        <p class="mt-3 mar" style="font-style:italic;">Quando il libro sarà disponibile al ritiro sarà inviata <br> via email una notifica di conferma.</p>
+        <p class="mt-3 mar" style="font-style:italic;">Quando il libro sara' disponibile al ritiro sara' inviata <br> via email una notifica di conferma.</p>
 
        <form action="<%=request.getContextPath()%>/PrenotazioneUtente" method="post">
         	<input type="hidden" name="idLibro" value="<%= l.getId_libro() %>">
