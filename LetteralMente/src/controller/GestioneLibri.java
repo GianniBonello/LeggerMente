@@ -60,7 +60,7 @@ public class GestioneLibri extends HttpServlet {
 			l.setPrezzo(Double.parseDouble(request.getParameter("prezzo")));
 
 
-			final String PATH = "C:\\Users\\giuli\\OneDrive\\Desktop\\immaginiProgetto"; 
+			final String PATH = "C:\\Users\\utente\\Desktop\\UploadIMG"; 
 			final Part FILEPART= request.getPart("immagine");
 			final String FILENAME=getFileName(FILEPART);
 			try( 	//questa è la condizione del Try-Catch		  

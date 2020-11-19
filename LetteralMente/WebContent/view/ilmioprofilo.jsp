@@ -54,7 +54,7 @@
                     <div><%=u.getNome()%>  <%=u.getCognome()%></div>
                   </div>
                   <div class="terms">
-                    <p>Questa card è di proprieta di LeggerMente, Libreria di Roma. L'utilizzo della card implica l'accettazione del regolamento, disponibile sul sito web www.leggermente.it.</p>
+                    <p>Questa card e' di proprieta di LeggerMente, Libreria di Roma. L'utilizzo della card implica l'accettazione del regolamento, disponibile sul sito web www.leggermente.it.</p>
                     <p>Se ritrovata, restituire la carta al proprietario o alla nostra libreria.</p>
                   </div>
                 </div>
