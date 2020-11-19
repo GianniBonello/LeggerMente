@@ -43,8 +43,13 @@ public class Login extends HttpServlet {
 					System.out.println("è un utente staff");
 					request.getRequestDispatcher("/view/homestaff.jsp").forward(request, response);
 				}else if(!u.getIsStaff() && request.getParameter("idLibro")!=null) {
-					request.setAttribute("libro", Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))));
-					request.getRequestDispatcher("/view/dettagliolibro.jsp").forward(request, response);
+					try {
+						request.setAttribute("libro", Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))));
+						request.getRequestDispatcher("/view/dettagliolibro.jsp").forward(request, response);
+					} catch (Exception e) {
+						request.getRequestDispatcher("ListaLibri").forward(request, response);
+					}
+					
 				}else {
 					System.out.println("è un utente qualunque");
 					request.getRequestDispatcher("ControlloIniziale").forward(request, response);

@@ -358,7 +358,7 @@ public class UtilityRicerca {
 				"                     	<!--testo email--------------------------------------------------------------------------------------------------------------------------------------------------->\r\n" + 
 				"                      <td align=\"center\" style=\"padding:0;Margin:0\"><h1 style=\"Margin:0;line-height:23px;mso-line-height-rule:exactly;font-family:'open sans', 'helvetica neue', helvetica, arial, sans-serif;font-size:15px;font-style:normal;font-weight:normal;color:#1C1C1C\">Gentile&nbsp;<b>"+p.getU().getNome()+" "+p.getU().getCognome()+"</b><br>Con la seguente email le confermiamo il successo della prenotazione del Libro di <b>"+p.getLib().getTitolo()+"</b> di <b>"+p.getLib().getAutore()+"</b> <br>Potrà recarsi nella nostra libreria e mostrare il seguente codice:<br>\r\n<br>" + 
 				"                      <b style=\"font-size:26pt\">"+p.getIdprenotazione()+"</b><br>\r\n" + 
-				"                      alla cassa per poter ritirare il suo libro entro la data:&nbsp; "+LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).format(formatter)+"</h1></td> \r\n" + 
+				"                      alla cassa per poter ritirare il suo libro a "+p.getLib().getPrezzo()+"&euro; entro la data:&nbsp; "+LocalDate.parse(UtilityRicerca.dataString(p.getData())).plusDays(7).format(formatter)+" </h1></td> \r\n" + 
 				"                     </tr> \r\n" + 
 				"                     <tr style=\"border-collapse:collapse\"> \r\n" + 
 				"                      <td align=\"center\" style=\"padding:20px;Margin:0;font-size:0\"> \r\n" + 
@@ -554,7 +554,7 @@ public class UtilityRicerca {
 				"                         </tr> \r\n" + 
 				"                       </table></td> \r\n" + 
 				"                     </tr> \r\n" + 
-				"                   </table></td> \r\n" + 
+				"                   </table></td> \r\n" +  
 				"                 </tr> \r\n" + 
 				"               </table></td> \r\n" + 
 				"             </tr> \r\n" + 

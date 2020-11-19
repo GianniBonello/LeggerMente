@@ -127,9 +127,20 @@
                                                         	
                                                             <select name ="genere" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
                             									<option selected disabled>Seleziona un Genere</option>
-                            									<%for(Libro g : listaLibri){ %>
-                                									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   
-                                								<% } %>                         
+                            	<option value="Cucina">Cucina</option>
+                            	<option value="Fanstasy">Fantasy</option>	
+                            	<option value="Gialli e Thriller">Gialli e Thriller</option>
+                            	<option value="Letteratura e Narrativa">Letteratura e Narrativa</option>								
+                            	<option value="Biografie">Biografie</option>	
+                            	<option value="Adolescenti e Ragazzi">Adolescenti e Ragazzi</option>
+                            	<option value="Horror">Horror</option>	
+                            	<option value="Storia">Storia</option>
+                            	<option value="Filosofia e Psicologia">Filosofia e Psicologia</option>
+                            	<option value="Narrativa Umoristica">Narrativa Umoristica</option>
+                            	<option value="Sesso e Sessualità">Erotico</option>
+                            	
+                            							
+                            									                         
                             								</select>
                                                                 <div class="invalid-feedback">Inserisci un genere!</div>
           														<div class="valid-feedback">Ok!</div>
@@ -181,9 +192,10 @@
                                                     
                                                     	<div class="col-xl-12">  
                                                         	<label for="imgid" class="col-2 pt-2">Immagine </label>
+                                                        	<!-- <input type="hidden" name="immagine" value="">-->
                                                         	<input type="file" name="immagine"
                                                             	class="form-control imm shadow mb-1 bg-white col-xl-12 pl-5 "
-                                                            	id="imgid" alt="Submit" required>
+                                                            	id="imgid" alt="Submit">
                                                             	<div class="invalid-feedback">Inserisci un immagine valida!</div>
           														<div class="valid-feedback">Ok!</div>
                                                     	</div>
@@ -257,9 +269,17 @@
                                                             <label for="genereid">Genere </label>
                                                              <select name ="genere" class="custom-select bg-light shadow " id="inputGroupSelect01" required>
                             									<option selected disabled>Seleziona un Genere</option>
-                            									<%for(Libro g : listaLibri){ %>
-                                									<option value="<%=g.getGenere()%>"><%=g.getGenere() %></option>   
-                                								<% } %>                         
+                            									<option value="Cucina">Cucina</option>
+                            	<option value="Fanstasy">Fantasy</option>	
+                            	<option value="Gialli e Thriller">Gialli e Thriller</option>
+                            	<option value="Letteratura e Narrativa">Letteratura e Narrativa</option>								
+                            	<option value="Biografie">Biografie</option>	
+                            	<option value="Adolescenti e Ragazzi">Adolescenti e Ragazzi</option>
+                            	<option value="Horror">Horror</option>	
+                            	<option value="Storia">Storia</option>
+                            	<option value="Filosofia e Psicologia">Filosofia e Psicologia</option>
+                            	<option value="Narrativa Umoristica">Narrativa Umoristica</option>
+                            	<option value="Sesso e Sessualità">Erotico</option>                       
                             								 </select>
                                                                 <div class="invalid-feedback">Inserisci un genere valido!</div>
           														<div class="valid-feedback">Ok!</div>
