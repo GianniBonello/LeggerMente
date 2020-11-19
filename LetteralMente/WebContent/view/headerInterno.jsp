@@ -73,6 +73,7 @@
                     <h2 class="pt-5 text-center">Login</h2>
                     <form action="login" method="post">
                     	<div class="pt-2 text-center">
+                    		<input type="hidden" name="idLibro" value="<%=request.getParameter("idLibro") %>">
                         	<input class="form-control py-2 bg-light border-radius-5 mt-5 pl-4 shadow " type="text" name="username" placeholder="Username">
                         	<input class="form-control py-2 bg-light border-radius-5 mt-5 mb-4 pl-4 shadow " type="password" name="password" placeholder="Password">    
                     	</div>
