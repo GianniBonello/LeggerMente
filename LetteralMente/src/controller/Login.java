@@ -42,8 +42,10 @@ public class Login extends HttpServlet {
 				if(u.getIsStaff()) {
 					System.out.println("è un utente staff");
 					request.getRequestDispatcher("/view/homestaff.jsp").forward(request, response);
-				}
-				else {
+				}else if(!u.getIsStaff() && request.getParameter("idLibro")!=null) {
+					request.setAttribute("libro", Utility.trovaLibro(Integer.parseInt(request.getParameter("idLibro"))));
+					request.getRequestDispatcher("/view/dettagliolibro.jsp").forward(request, response);
+				}else {
 					System.out.println("è un utente qualunque");
 					request.getRequestDispatcher("ControlloIniziale").forward(request, response);
 				}
