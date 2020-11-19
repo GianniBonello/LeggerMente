@@ -5,7 +5,7 @@
 <%@page import="model.Prenotazione"%>
 <%@page import="java.util.List"%>
 
-<jsp:include page="/view/headerstaff.jsp"></jsp:include>
+
 <%
 	List<Prenotazione> listaPrenotazioni = (List<Prenotazione>) request.getAttribute("listaPrenotazioni");
 %>

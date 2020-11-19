@@ -49,7 +49,7 @@ id="WebApp_ID" version="3.1">
  		<url-pattern>/view/gestioneutenti.jsp</url-pattern>
  		<url-pattern>/view/gestionelibri.jsp</url-pattern>
  		<url-pattern>/view/gestionenoleggi.jsp</url-pattern>
- 		<url-pattern>/view/gestioneprenotazione.jsp</url-pattern>
+ 		<url-pattern>/view/gestioneprenotazioni.jsp</url-pattern>
  		<url-pattern>/view/homestaff.jsp</url-pattern>
  		<include-prelude>/view/headerstaff.jsp</include-prelude>
  	</jsp-property-group>

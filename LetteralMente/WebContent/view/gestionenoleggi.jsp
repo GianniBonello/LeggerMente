@@ -5,7 +5,7 @@
 <%@page import="model.Utente"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Noleggio"%>
-<jsp:include page="/view/headerstaff.jsp"></jsp:include>
+
 
 
 
